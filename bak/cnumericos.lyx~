@@ -1,0 +1,3546 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass libro-matua
+\begin_preamble
+ \usepackage[utf8x]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+%\usepackage{makeidx}
+\usepackage{imakeidx}
+\makeindex[program=truexindy,options=-M texindy -L spanish -C utf8]
+%\usepackage[totoc]{idxlayout}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\graphicspath{{ps/}{logo/}{image/}{sections/Figures/}}
+%\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage{fancyvrb}
+\usepackage{cancel}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\usepackage{pgf}
+\usepackage{mathrsfs}
+\usetikzlibrary{fit,shapes}
+\usepackage{mivenndiagram}
+\usepackage{tikz-cd}% diagramas commutativos
+\usetikzlibrary{matrix}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{zahlen}
+\usepackage{mathtools}
+\usepackage{theoremref}
+\MakeRobust{\eqref}
+\mathtoolsset{showonlyrefs=true,showmanualtags=true}
+\def\myref#1{\textcolor{ptctitle}{\thesection .\ref{#1}}}
+\usepackage[hmargin=2cm,bmargin=3cm,tmargin=4.5cm,centering]{geometry}
+\def\yy{\rowcolor{ptcbackground}}
+\def\yyy{\rowcolor{gray!50}}
+\def\xxx{\rowcolor{ptctitle!50}}
+\def\ccc{\cellcolor{ptctitle!50}}
+\usepackage{multirow}
+\def\maxwidth{8cm}
+% Length to control the \fancyheadoffset and the calculation of \headline
+% simultaneously
+\RequirePackage{hyperref}
+\hypersetup{
+             linktoc=all,
+             hidelinks,
+             pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor = ptctitle,
+            backref=true,
+            pagebackref=true,
+            hyperindex=true,
+            breaklinks=true,
+            urlcolor=ocre,
+            citecolor = ocre,
+            bookmarks=true,
+            bookmarksopen=false,
+            pdftitle={Title},
+            pdfauthor={Author}
+                              }
+\newlength\FHoffset
+\setlength\FHoffset{0.5cm}
+
+\addtolength\headwidth{2\FHoffset}
+
+\fancyheadoffset{\FHoffset}
+
+% these lengths will control the headrule trimming to the left and right 
+\newlength\FHleft
+\newlength\FHright
+
+% here the trimmings are controlled by the user
+\setlength\FHleft{1cm}
+\setlength\FHright{0cm}
+
+% The new definition of headrule that will take into acount the trimming(s)
+\newbox\FHline
+\setbox\FHline=\hbox{\hsize=\paperwidth%
+  \hspace*{\FHleft}%
+  \rule{\dimexpr\headwidth-\FHleft-\FHright\relax}{\headrulewidth}\hspace*{\FHright}%
+}
+\renewcommand\headrule{\vskip-.7\baselineskip\copy\FHline}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand\phantomsection{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\fullwidthcolor#1{\color{#1}\leaders\vrule\hskip\textwidth\hskip-\textwidth\kern0pt}
+\def\resetLTcolor{\global\let\zz\zzb}
+\def\yy{\rowcolor{ptcbackground}}
+\def\yyy{\rowcolor{gray!50}}
+\def\xxx{\rowcolor{ptctitle!50}}
+\def\ccc{\cellcolor{ptctitle!50}}
+\def\yya{\cellcolor{gray!50}}
+\def\yyb{\cellcolor{ptcbackground}}
+\def\maxwidth{8cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\firstcircle{(0,0) circle (1.5cm)} 
+\def\secondcircle{(45:2cm) circle (1.5cm)}
+\def\thirdcircle{(0:2cm) circle (1.5cm)} 
+\def\rectangulo{(-2,-2) rectangle (4,3.6)}
+\def\fourcircle{(1.1,1) circle (1.5cm)}
+\def\fivecircle{(-2,1) circle (1.5cm)}
+\def\rect{(-4,-2) rectangle (4,3.6)} 
+\def\sixcircle{(1.5,1) circle (1.5cm)} 
+\def\sevencircle{(1.1,1) circle (0.8cm)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% pies de p\'agina %%%%%%%%%%%%%%%%
+ \fancyfoot[LE]{\hspace*{-0.2\headwidth}\colorbox{ptctitle!20}{\makebox[\dimexpr 0.6\headwidth-2\fboxsep][r]{\strut\bf\color{ptctitle}C\'alculo diferencial}}%
+               \colorbox{zanahoria!60}{\makebox[\dimexpr 0.6\headwidth-2\fboxsep][l]{\strut\bf\color{white}\sffamily\itshape\small\protect\nouppercase{Autor1\hfill Autor2 \hfill Autor3}}}}               
+               %%%%%%%%%%%%%%%%%%%%%%
+                \fancyfoot[LO]{\hspace*{-0.2\headwidth}\colorbox{ptctitle!20}{\makebox[\dimexpr0.6\headwidth-2\fboxsep][c]{\strut\bf\color{ptctitle}C\'alculo diferencial}}%
+               \colorbox{zanahoria!60}{\makebox[\dimexpr0.6\headwidth-2\fboxsep][r]{\strut\bf\color{white}\sffamily\itshape\small\protect\nouppercase{Autor1\hfill Autor2 \hfill Autor3}}}}               
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% conjuntos n\'umericos
+\newcommand{\CC}{\mathbb{C}}
+%\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\pp}{\mathbb{\overline{P}}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\der}{\mathcal{D}}
+\newcommand{\kk}{\mathcal{K}}
+\newcommand{\mm}[1]{{\mathcal{M}\/}(#1)}
+\newcommand{\nequiv}{{\equiv \hspace*{-3.7mm}/}}
+\newcommand{\capa}[1]{\mbox{{\em Cap\/}}(#1)}
+\newcommand{\gra}[1]{\mbox{{\em grad\/}}(#1)}
+\newcommand{\sop}[1]{\mbox{{\em supp\/}}(#1)}
+\newcommand{\esup}[1]{{\mbox{\rm ess\,sup\/}}#1}
+\newcommand{\lqqd}{\hfill $\blacksquare$}
+\newcommand{\II}{\mathbb{I}}
+%\newcommand{\na}{I\! N}
+%\newcommand{\re}{I\! R}
+{\makeatletter   % dies ist lokal, damit man die Datei wahlweise
+                 % mit \input oder mit \documentstyle[...] einlesen kann.
+ 
+\gdef\re{\relax\ifmmode I\hskip -3\p@ R\else
+    \hbox{$I\hskip -3\p@ R$}\fi} %Reales
+\gdef\na{\relax\ifmmode I\hskip -2.7\p@ N\else
+    \hbox{$I\hskip -2.7\p@ N$}\fi} % Naturales
+\gdef\en{\relax\ifmmode Z\hskip -4.8\p@ Z\else
+    \hbox{$Z\hskip -4.8\p@ Z$}\fi} %Enteros
+\gdef\co{\relax\ifmmode C\hskip-4.8\p@\vrule \@height 5.8\p@ \@depth\z@
+    \hskip 6.3\p@\else
+    \hbox{$C\hskip-4.8\p@\vrule \@height 5.8\p@ \@depth\z@ \hskip 6.3\p@$}\fi}% Complejos
+\gdef\ra{\relax\ifmmode Q\hskip-5.0\p@\vrule
+          \@height 6.0\p@ \@depth \z@ \hskip 6\p@\else
+    \hbox{$Q\hskip-5.0\p@\vrule \@height 6.0\p@ \@depth \z@ \hskip 6\p@$}\fi}% Racionales
+\gdef\hz{\relax\ifmmode I\hskip -3\p@ H\else
+    \hbox{$I\hskip -3\p@ H$}\fi} % Espacio de Hilbert
+\gdef\kz{\relax\ifmmode I\hskip -3\p@ K\else
+    \hbox{$I\hskip -3\p@ K$}\fi} % campo K
+    \gdef\ir{\relax\ifmmode I\hskip -3\p@ I\else
+    \hbox{$I\hskip -3\p@ K$}\fi} % Irracionales}
+    %%%%%%%%%%%%%%%%%%%%%%%%%
+   % \renewcommand\p@axioma{\thesection.\theaxioma}
+   \makeatother
+\usepackage{colortbl}%
+\end_preamble
+\options 2m,twoside,svgnames,x11names,HTML,twoside,12pt
+\use_default_options true
+\master calculod.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8x
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Conjuntos numéricos
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+PartialToc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hypersetup{linkcolor=ptctitle}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introducción 
+\end_layout
+
+\begin_layout Standard
+En la antigüedad, el concepto de número surgió como consecuencia de la necesidad
+ práctica de contar objetos.
+ Para ello, al principio el hombre se valió de los elementos de que disponía
+ a su alrededor: dedos, piedras...
+ Basta recordar, por ejemplo, que la palabra cálculo deriva de la palabra
+ latina 
+\family typewriter
+calculus
+\family default
+, que significa 
+\begin_inset Quotes fld
+\end_inset
+
+
+\family typewriter
+contar con piedras
+\family default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+ La serie de números naturales era, obviamente, limitada; pero la conciencia
+ sobre la necesidad de ampliar el conjunto de los números naturales, representab
+a ya una importante etapa en el camino hacia la matemática moderna.
+ Paralelamente a la ampliación de los conjuntos numéricos, se desarrollaron
+ su simbología y los sistemas de numeración diferentes para cada civilización.
+\end_layout
+
+\begin_layout Standard
+La operación de contar exige la adición sucesiva del número 1 consigo mismo,
+ una y otra vez.
+ Los números obtenidos de esta manera son llamados números naturales o números
+ enteros positivos.
+ Con el progreso de la técnica aparecen problemas de medición más complicados
+ que requieren la división de números naturales por que se construyen así
+ los números racionales positivos, después es necesario introducir un número
+ 
+\begin_inset Formula $0$
+\end_inset
+
+ llamado cero, con la propiedad de que todo número 
+\begin_inset Formula $a$
+\end_inset
+
+, 
+\begin_inset Formula $a+0=a.$
+\end_inset
+
+ Más tarde, cuando aparece el problema de distinguir entre lo que se tiene
+ y lo que no, se hace necesario introducir que para todo número 
+\begin_inset Formula $a$
+\end_inset
+
+ existe un número 
+\begin_inset Formula $-a$
+\end_inset
+
+ llamado opuesto o negativo que cumple que: 
+\begin_inset Formula $a+\left(-a\right)=0.$
+\end_inset
+
+ Esto nos lleva a construir un nuevo conjunto, el conjunto de los números
+ negativos, o enteros negativos, de esta manera se llega al concepto de
+ número que conocemos, con los cuales se pueden realizarlas operaciones
+ de adición, multiplicación, substracción y división.
+ Este concepto comprende a los números racionales y a otros números llamados
+ irracionales.
+\end_layout
+
+\begin_layout Standard
+Otras operaciones pueden ser definidas a partir de las anteriores, como
+ son, la potenciación, la radicación y otras más, además que la substracción
+ y la división pueden definirse a partir de la adición y la multiplicación
+ y que la mayoría de las leyes que rigen a los números pueden ser demostradas
+ a partir de un pequeño número de leyes básicas o fundamentales.
+ Por lo tanto vamos a establecer un conjunto de leyes a partir de las cuales
+ demostraremos el resto.
+\end_layout
+
+\begin_layout Section
+Números naturales
+\end_layout
+
+\begin_layout Subsection
+Introducción
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+El cero ¿es o no un número natural? 
+\end_layout
+
+\begin_layout Standard
+Este es uno de los temas de más frecuente discusión entre quienes se dedican
+ a las matemáticas.
+ 
+\end_layout
+
+\begin_layout Standard
+Cuando 
+\family typewriter
+Peano
+\family default
+ introdujo los axiomas para definir el conjunto de los números naturales,
+ inició este conjunto por el número uno.
+ Pero cuando Cantor estudió la teoría de conjuntos, encontró que debía empezar
+ por el cero, dada la necesidad de asignarle un cardinal al conjunto vacío.
+ Quizá fue esto lo que hizo que, diez años más tarde, 
+\family typewriter
+Peano
+\family default
+ empezara los números naturales con el cero.
+\end_layout
+
+\begin_layout Standard
+En las últimas décadas ha sido muy popular la teoría de conjuntos, lo cual
+ justifica que muchos profesores prefieran comenzar el conjunto de los números
+ naturales por el cero.
+ En este capítulo se elige iniciar el conjunto de los números naturales
+ por el uno, aunque el cero es necesario para el cardinal del conjunto vacío,
+ para el neutro de la suma y para tantas otras aplicaciones.
+ Pero en algunos temas, como el de las sucesiones, es mejor iniciar los
+ números naturales sin el cero, pues es normal que se relacione el primer
+ término con el número uno, el segundo término con el número dos y así sucesivam
+ente, recordando que no hay un ordinal para el cardinal cero.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+Axiomas de Peano
+\end_layout
+
+\begin_layout Standard
+La más conocida axiomatización de los números naturales, contenida en el
+ escrito 
+\series bold
+\shape slanted
+Arithmetices Principia Nova Methodo Exposita
+\series default
+\shape default
+ del italiano 
+\series bold
+\shape slanted
+Giuseppe Peano
+\series default
+\shape default
+, se presenta en esta sección en forma detallada, al igual que la forma
+ mas moderna de la axiomatización, la definición de las operaciones y sus
+ propiedades debidamente demostradas.
+ 
+\end_layout
+
+\begin_layout Standard
+Durante el siglo XlX, sin duda con el impulso de la aparición de las geometrías
+ no euclidianas, se multiplicaron los esfuerzos por axiomatizar la geometría
+ empeño culminado finalmente en 1899 con la publicación de Fundamentos de
+ la Geometría, de 
+\family typewriter
+David Hilbert
+\family default
+, también se presentaron varias axiomatizaciones de la aritmética o, con
+ más precisión, de los números naturales.
+ 
+\end_layout
+
+\begin_layout Standard
+Sin lugar a dudas, la más conocida es la que presentó el matemático italiano
+ Giuseppe Peano (1858-1932) por primera vez en 1889 en un pequeño libro
+ publicado en Turín titulado 
+\series bold
+\shape slanted
+Arithmetices Principia Nova Methodo Exposita
+\series default
+\shape default
+.
+ Este texto incluye sus famosos axiomas, pero más que un texto de aritmética,
+ este documento contiene una introducción a la lógica en la cual se presentan
+ por primera vez los símbolos actuales para representar la pertenencia,
+ la existencia, la contenencia (en la actualidad es invertido, acorde con
+ el de los números) y para la unión y la intersección.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Peano
+\family default
+ reconoce hacer uso de estudios de otros autores: en 1888 después de estudiar
+ a 
+\family typewriter
+G.
+ Boole
+\family default
+, 
+\family typewriter
+E.
+ Schröder
+\family default
+, 
+\family typewriter
+C.
+ S.
+ Peirce
+\family default
+ y otros, estableció una analogía entre operaciones geométricas y algebraicas
+ con las operaciones de la lógica; en aritmética menciona el trabajo de
+ 
+\family typewriter
+Dedekind
+\family default
+ publicado el año anterior reconocido de manera generalizada como la primera
+ axiomatización de la aritmética, aunque salió a la luz 7 años después del
+ artículo de 
+\family typewriter
+Peirce
+\family default
+ y un texto de 
+\family typewriter
+Grassmann
+\family default
+ de 1861.
+ Este ultimo libro posiblemente fue fuente de inspiración tanto para 
+\family typewriter
+Peano
+\family default
+ y 
+\family typewriter
+Dedekind
+\family default
+ como para 
+\family typewriter
+Peirce
+\family default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+
+\family typewriter
+Arithmetices Principia
+\family default
+, escrito en latín es el primer intento de 
+\family typewriter
+Peano
+\family default
+, para lograr una axiomatización de las matemáticas en un lenguaje simbólico.
+ 
+\end_layout
+
+\begin_layout Standard
+Consiste en un prefacio y 10 secciones:
+\end_layout
+
+\begin_layout Standard
+1.
+ Números y Adición.
+\end_layout
+
+\begin_layout Standard
+2.
+ Sustracción.
+\end_layout
+
+\begin_layout Standard
+3.
+ Máximos y Mínimos.
+ 
+\end_layout
+
+\begin_layout Standard
+4.
+ Multiplicación.
+\end_layout
+
+\begin_layout Standard
+5.
+ Potenciación.
+ 
+\end_layout
+
+\begin_layout Standard
+6.
+ División.
+\end_layout
+
+\begin_layout Standard
+7.
+ Teoremas varios.
+\end_layout
+
+\begin_layout Standard
+8.
+ Razones de Números.
+\end_layout
+
+\begin_layout Standard
+9.
+ Sistemas de Racionales e Irracionales.
+\end_layout
+
+\begin_layout Standard
+10.
+ Sistemas de Cantidades.
+\end_layout
+
+\begin_layout Standard
+En libro establece los siguientes axiomas:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $1\in\na$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+entonces 
+\begin_inset Formula $a=a.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a=b$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $b=a.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a,b,c\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a=b,$
+\end_inset
+
+ 
+\begin_inset Formula $b=c$
+\end_inset
+
+ implica 
+\begin_inset Formula $a=c.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a=b$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a\in\na.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a+1\in\na.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a=b$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $a+1=b+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a+1\neq1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Si 
+\begin_inset Formula $k$
+\end_inset
+
+ es una clase, 
+\begin_inset Formula $1\in k,$
+\end_inset
+
+ y si para 
+\begin_inset Formula $x\in\na:$
+\end_inset
+
+ 
+\begin_inset Formula $x\in k$
+\end_inset
+
+ implica 
+\begin_inset Formula $\left(x+1\right)\in k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Axiomas de los números naturales
+\end_layout
+
+\begin_layout Standard
+Empezaremos ahora la construcción de los números naturales siguiendo la
+ idea de Peano.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{axioma}{Existencia de los números naturales
+\backslash
+label{ap1}}  
+\end_layout
+
+\end_inset
+
+ Existe un conjunto 
+\begin_inset Formula $\na\neq\emptyset$
+\end_inset
+
+ llamado conjunto de los números Naturales.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{axioma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A los elementos de 
+\begin_inset Formula $\na$
+\end_inset
+
+ se les llama números naturales, este axioma no establece sus características
+ ni sus propiedades, por lo que hay que establecer otros axiomas para entender
+ el concepto de número.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{20pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{axioma}{Existencia del número mínimo
+\backslash
+label{ap4}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existe un número llamado 
+\begin_inset Formula $1\in\na.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{axioma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Del axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap1}
+\end_layout
+
+\end_inset
+
+ tenemos que como 
+\begin_inset Formula $\na\neq\emptyset$
+\end_inset
+
+ entonces debe tener por lo menos un elemento, el axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap4}
+\end_layout
+
+\end_inset
+
+ lo define como el número 
+\begin_inset Formula $1.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{axioma}{Relación de igualdad
+\backslash
+label{ap3}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existe una relación 
+\begin_inset Formula $"="$
+\end_inset
+
+ tal que 
+\begin_inset Formula $a=b$
+\end_inset
+
+ significa que 
+\begin_inset Formula $a$
+\end_inset
+
+ y 
+\begin_inset Formula $b$
+\end_inset
+
+ representan el mismo número natural, que cumpla las siguientes propiedades
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall a,b,c\in\na$
+\end_inset
+
+ se tiene que:
+\end_layout
+
+\begin_layout Description
+i) Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+entonces 
+\begin_inset Formula $a=a.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ii) Si 
+\begin_inset Formula $a\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a=b$
+\end_inset
+
+ si y sólo si 
+\begin_inset Formula $b=a.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+iii) Si 
+\begin_inset Formula $a,b,c\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a=b,$
+\end_inset
+
+ 
+\begin_inset Formula $b=c$
+\end_inset
+
+ implica 
+\begin_inset Formula $a=c.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+iv) Si 
+\begin_inset Formula $a=b$
+\end_inset
+
+ y 
+\begin_inset Formula $b\in\na$
+\end_inset
+
+ entonces 
+\begin_inset Formula $a\in\na.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{axioma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El concepto de igualdad 
+\family typewriter
+Peano
+\family default
+ lo presentó como un axioma y además establece que es una relación.
+\end_layout
+
+\begin_layout Standard
+Observamos también que generalmente cuando se define la igualdad solo se
+ establecen las tres primeras propiedades, y la propiedad iv) es nueva,
+ la cual nos asegura que un número natural sólo puede ser representado por
+ un número natural.
+ Es decir que si existen otros números estos no pueden representar a un
+ número natural.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{axioma}{Sucesor
+\backslash
+label{ap2}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existe una aplicación 
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\varphi$
+\end_inset
+
+ :
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ que cumple las siguientes propiedades
+\end_layout
+
+\begin_layout Description
+i) 
+\begin_inset Formula $\forall n\in\na,\;\varphi\left(n\right)\neq1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ii) 
+\begin_inset Formula $\forall n,m\in\na\quad\varphi\left(n\right)=\varphi\left(m\right)\Rightarrow n=m.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{axioma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La propiedad i) que establece el axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap2}
+\end_layout
+
+\end_inset
+
+ nos dice que el número uno no tiene preimagen, es decir no es sucesor de
+ ningún natural, es el primero.
+\end_layout
+
+\begin_layout Standard
+La segunda propiedad del axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap2}
+\end_layout
+
+\end_inset
+
+ establece la relación de igualdad, en función de la función sucesor, pero
+ también nos aclara que el sucesor de un número natural es único.
+ 
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{axioma}{Adición entre naturales
+\backslash
+label{ap5}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existe una operación 
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+$
+\end_inset
+
+ :
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na\times\na$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mapsto$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c=+\left(a,b\right)=a+b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ que cumple las siguientes condiciones .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall n,n\in\na$
+\end_inset
+
+ se tiene que 
+\end_layout
+
+\begin_layout Description
+i) 
+\begin_inset Formula $n+1=\varphi\left(n\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ii) 
+\begin_inset Formula $\varphi\left(n\right)+m=n+\varphi\left(m\right)=\varphi\left(n+m\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{axioma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hubiéramos podido establecer los axiomas 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap1}
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap5}
+\end_layout
+
+\end_inset
+
+ como definiciones, pero decidimos establecerlos como axiomas, porque no
+ conocemos todavía la estructura de 
+\begin_inset Formula $\na$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defi}{Sucesor}{sucesor}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La aplicación que garantiza el axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap2}
+\end_layout
+
+\end_inset
+
+ la definiremos 
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\varphi$
+\end_inset
+
+ :
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $n$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mapsto$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\varphi\left(n\right)=n+1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+ de acuerdo con la propiedad i) del axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap5}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defi}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Esta definición la podemos expresar de la siguiente manera:
+\begin_inset Formula 
+\[
+\mbox{Si \ensuremath{n\in\na\Rightarrow n+1\in\na.}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Y con el podemos construir los números naturales de la siguiente forma
+\end_layout
+
+\begin_layout Description
+i) 
+\begin_inset Formula $1\in\na$
+\end_inset
+
+ entonces existe 
+\begin_inset Formula $\varphi\left(1\right)=1+1\in\na$
+\end_inset
+
+.
+ Al número 
+\begin_inset Formula $1+1$
+\end_inset
+
+ lo llamaremos dos, es decir 
+\begin_inset Formula $1+1:=2.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ii) 
+\begin_inset Formula $2\in\na$
+\end_inset
+
+ entonces existe 
+\begin_inset Formula $\varphi\left(2\right)=2+1\in\na.$
+\end_inset
+
+ al números 
+\begin_inset Formula $2+1$
+\end_inset
+
+ lo llamaremos tres, es decir 
+\begin_inset Formula $2+1:=3.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+iii) 
+\begin_inset Formula $3\in\na$
+\end_inset
+
+ entonces existe 
+\begin_inset Formula $\varphi\left(3\right)=3+1\in\na.$
+\end_inset
+
+ al números 
+\begin_inset Formula $3+1$
+\end_inset
+
+ lo llamaremos cuatro, es decir 
+\begin_inset Formula $3+1:=4.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Podemos seguir construyendo los números naturales de manera indefinida,
+ es decir el conjunto de los números naturales es infinito.
+ 
+\end_layout
+
+\begin_layout Standard
+En estos momentos como ya conocemos la estructura del conjunto de los números
+ naturales podemos definir la adición entre naturales de acuerdo con la
+ definición 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{df:sucesor}
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sean 
+\begin_inset Formula $m$
+\end_inset
+
+ y 
+\begin_inset Formula $n$
+\end_inset
+
+ números naturales entonces 
+\begin_inset Formula $m+n=\underset{m\mbox{ veces}}{(1+1+1+\cdots+1)}+\underset{n\mbox{ veces}}{\left(1+1+1+\cdots+1\right)}$
+\end_inset
+
+ es decir:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Tabla de la adición entre números naturales.
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+resizebox{0.3
+\backslash
+hsize}{!}{
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength
+\backslash
+arrayrulewidth{1pt}
+\backslash
+arrayrulecolor{ptctitle} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" bottomline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+arrayrulecolor{ptctitle}
+\backslash
+hline
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $+$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" bottomline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\cdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $1$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\cdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $2$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\cdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $3$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\cdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $4$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $5$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $6$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $7$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $8$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{gray!50}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\cdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hline
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptctitle!50}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+cellcolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\vdots$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\backslash
+label{tun}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+Observemos en ta tabla que 
+\begin_inset Formula $1+1=2$
+\end_inset
+
+ o que 
+\begin_inset Formula $3+1=4$
+\end_inset
+
+ , que es lo que conocemos desde la básica primaria.
+\begin_inset VSpace defskip
+\end_inset
+
+
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{axioma}{ Inducción 
+\backslash
+label{induccion}}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si 
+\begin_inset Formula $A\subseteq\na,$
+\end_inset
+
+ 
+\begin_inset Formula $A\neq\emptyset,$
+\end_inset
+
+ tal que 
+\end_layout
+
+\begin_layout Description
+i) 
+\begin_inset Formula $1\in A.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ii) Si 
+\begin_inset Formula $\left(n\in A\Rightarrow n+1\in A\right)\Rightarrow A=\na.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{axioma}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El axioma de inducción se puede presentar también de la siguiente forma
+ :
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $P$
+\end_inset
+
+ una propiedad cualesquiera.
+ entonces todo número satisface la propiedad 
+\begin_inset Formula $P$
+\end_inset
+
+ si se tiene que:
+\end_layout
+
+\begin_layout Description
+i) 
+\begin_inset Formula $1$
+\end_inset
+
+ satisface la propiedad 
+\begin_inset Formula $P$
+\end_inset
+
+, es decir 
+\begin_inset Formula $P\left(1\right)$
+\end_inset
+
+es cierto.
+\end_layout
+
+\begin_layout Description
+ii) Si 
+\begin_inset Formula $n$
+\end_inset
+
+ satisface la propiedad 
+\begin_inset Formula $P$
+\end_inset
+
+, entonces 
+\begin_inset Formula $n+1$
+\end_inset
+
+ también satisface la propiedad 
+\begin_inset Formula $P$
+\end_inset
+
+, es decir 
+\begin_inset Formula 
+\[
+\mbox{Si \ensuremath{P\left(n\right)\Rightarrow P\left(n+1\right).}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+iii) Se concluye 
+\begin_inset Formula $P$
+\end_inset
+
+ se satisface para cualquier natural, es decir 
+\begin_inset Formula $P\left(m\right)$
+\end_inset
+
+ es cierta 
+\begin_inset Formula $\forall m\in\na.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{apunte}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuando el axioma se presenta de esta forma se le llama Principio de Inducción.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{apunte}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Resumiendo lo que afirman estos axiomas, podemos entender que se trata de
+ un conjunto que tiene un elemento mínimo, el uno (Axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap4}
+\end_layout
+
+\end_inset
+
+), es decir no es siguiente de ningún otro (Axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap2}.
+\end_layout
+
+\end_inset
+
+i), es decir, se trata del primer elemento del conjunto, y todos los demás
+ elementos tienen cada uno un elemento siguiente (Axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{induccion}.
+\end_layout
+
+\end_inset
+
+ii), de modo que dos elementos distintos tienen siguientes distintos.
+ El axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{induccion}
+\end_layout
+
+\end_inset
+
+ es de suma importancia por dotarnos de un método de demostración de propiedades
+, ya que nos indica que todo conjunto 
+\begin_inset Formula $A$
+\end_inset
+
+ al que pertenezca el uno, y tal que todo elemento de 
+\begin_inset Formula $A$
+\end_inset
+
+ tiene siguiente en 
+\begin_inset Formula $A$
+\end_inset
+
+, necesariamente ha de coincidir con el conjunto 
+\begin_inset Formula $\na$
+\end_inset
+
+ de los números naturales.
+ Es lo que se acostumbra a denominar método simple de inducción completa.
+ 
+\end_layout
+
+\begin_layout Standard
+A partir de estos cinco axiomas, y usando sistemáticamente el axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{induccion}
+\end_layout
+
+\end_inset
+
+, o de la inducción completa, podemos probar todas las propiedades del conjunto
+ 
+\begin_inset Formula $\na$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{teo}{}{teo1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ningún número natural coincide con su sucesor, es decir 
+\begin_inset Formula $\forall n\in\na,\:n\neq\varphi\left(n\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{teo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este teorema nos da la herramienta para establecer que el conjunto de los
+ números naturales no tiene elemento máximo, ya que todo número natural
+ tiene sucesor de acuerdo con el axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap5}
+\end_layout
+
+\end_inset
+
+ y de acuerdo con el teorema 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{th:teo1}
+\end_layout
+
+\end_inset
+
+ ningún natural coincide con su sucesor.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{defi}{Cero}{cero} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Existe un número llamado neutro aditivo o cero que representa con el símbolo
+ 
+\begin_inset Formula $"0$
+\end_inset
+
+
+\begin_inset Quotes erd
+\end_inset
+
+, tal que si 
+\begin_inset Formula $a\in\na\Rightarrow a+0=0+a=a$
+\end_inset
+
+, además definiremos la aplicación 
+\begin_inset Formula 
+\[
+\varphi^{*}\left(n\right)=\begin{cases}
+\varphi\left(n\right) & \mbox{si \ensuremath{n\in\na,}}\\
+1 & \mbox{si \ensuremath{n=0.}}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{defi}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Observe que esta definición no contradice el axioma 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+myref{ap2}i
+\end_layout
+
+\end_inset
+
+ ya que 
+\begin_inset Formula $0\notin\na$
+\end_inset
+
+ y también nos muestra que el conjunto de los números naturales lo podemos
+ definir estableciendo un elemento como mínimo y construyendo el resto con
+ la función sucesor por lo tanto podemos establecer ya sea el 
+\begin_inset Formula $0$
+\end_inset
+
+ o el 
+\begin_inset Formula $1$
+\end_inset
+
+ como el mínimo del conjunto y a partir de este construir el resto.
+\end_layout
+
+\begin_layout Standard
+Hasta aquí podemos ver que la idea intuitiva de numero está de acuerdo con
+ la construcción que hicimos, ya que el conjunto se construyó contando de
+ uno en uno a partir del 
+\begin_inset Formula $1$
+\end_inset
+
+, como lo habíamos comentado en la introducción.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{apunte}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Podemos ahora construir un nuevo conjunto 
+\begin_inset Formula $\na_{0}:=\na\cup\left\{ 0\right\} $
+\end_inset
+
+ y podemos redefinir la adición 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $+$
+\end_inset
+
+ :
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na_{0}\times\na_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\rightarrow$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\na_{0}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\left(a,b\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $\mapsto$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Formula $c=a+b$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si definimos la siguiente proposición 
+\begin_inset Formula $0:=0+0$
+\end_inset
+
+.
+ Con esta definición acabamos con la discusión si el cero es o no un número
+ natural, para nosotros no, pero cuando lo necesitemos trabajamos con el
+ conjunto 
+\begin_inset Formula $\na_{0}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+El axioma de inducción matemática lo podemos extender a 
+\begin_inset Formula $\na_{0}$
+\end_inset
+
+ cambiando la primera condición a 
+\begin_inset Formula $0\in A.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+En general el axioma es válido para cualquier subconjunto de 
+\begin_inset Formula $\text{\na\ }$
+\end_inset
+
+que le falten un numero finito de los primeros números, es decir si 
+\begin_inset Formula $B_{0}\subset\na$
+\end_inset
+
+ tal que 
+\begin_inset Formula $B_{0}=\{a_{0},a_{1},\cdots,\},\:a_{i}\in\na,\;\forall i=0,1,2,\cdots$
+\end_inset
+
+, entonces el axioma de inducción se cumple cambiando la primara condición
+ por 
+\begin_inset Formula $a_{0}\in A.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{apunte}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Propiedades de la adición entre números naturales
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{teo}{Propiedades de la adición}{ps}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\forall a,b,c\in\na_{0}$
+\end_inset
+
+ se cumplen las siguientes propiedades:
+\end_layout
+
+\begin_layout Description
+i) Propiedad asociativa: 
+\begin_inset Formula $\left(a+b\right)+c=a+\left(b+c\right).$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+ii) Propiedad conmutativa: 
+\begin_inset Formula $a+b=b+a$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Description
+iii) Propiedad cancelativa: Si 
+\begin_inset Formula $a+c=b+c\Rightarrow a=b.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{teo}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

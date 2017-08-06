@@ -1,0 +1,33 @@
+Style Teorema
+Category              MainText
+Margin                Static
+LatexType             Environment
+LatexName             exarab
+NextNoIndent          1
+LeftMargin            MMM
+RightMargin           MMM
+ParIndent             MM
+ParSkip               0
+ItemSep               0
+TopSep                0.5
+BottomSep             0.5
+ParSep                0
+Align                 Block
+AlignPossible         Block, Left, Right, Center
+Preamble
+\usepackage{multicol}
+\usepackage{etoolbox}%
+\usepackage{blindtext}%
+\usepackage{tikz}
+\usepackage[many,most]{tcolorbox}%
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{shadows,calc}
+\usetikzlibrary{shadows.blur}
+\usetikzlibrary{tikzmark,decorations.pathreplacing}
+\tcbuselibrary{breakable,minted}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{decorations.pathmorphing}
+\tcbuselibrary{skins,theorems}
+   \mtcbmaketheorem{teo}{Teorema}{lemstyle}{teorema}{th}
+    EndPreamble
+End

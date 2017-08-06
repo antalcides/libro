@@ -1,0 +1,620 @@
+% !TeX spellcheck = <es_ES>
+\documentclass[a4paper,10pt]{article}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[spanish]{translator}
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{lipsum}
+\usepackage{fancyvrb}
+\usepackage[pdfborder=0,colorlinks=true,urlcolor=blue]{hyperref}
+\usepackage{calc}
+\usepackage{changepage}
+\usepackage{tikz}
+\usepackage{minted}
+\usetikzlibrary{arrows,decorations.pathmorphing,decorations.pathreplacing,backgrounds,fit,positioning,shapes.symbols,chains,calc,datavisualization,datavisualization.formats.functions,calendar}
+\usepackage{pgfplots}
+
+
+\newcommand{\ttikz}{{\tt Ti\emph{k}Z}}
+
+\title{Introducción al paquete {\tt \ttikz\protect}}
+\author{José Miguel González Aguilera \\ jmgaguilera@gmail.com}
+\date{14 de mayo de 2016}
+
+\newcommand{\mi}[1]{\mintinline{latex}{#1}} % mi = mintinline
+
+\newenvironment{marcod}{\begin{adjustwidth}{0.5cm}{}}{\end{adjustwidth}}
+
+\definecolor{azulclaro}{RGB}{85, 221, 224} % si se usa de fondo el texto debe ir en negro o casinegro
+\definecolor{azuloscuro}{RGB}{51, 101, 138} % si se usa de fondo el texto debe ir en blanco
+\definecolor{casinegro}{RGB}{47, 72, 88} % si se usa de fondo el texto debe ir en blanco
+\definecolor{grisoscuro}{RGB}{85, 91, 110} % si se usa de fondo el texto debe ir en blanco
+\definecolor{naranja}{RGB}{255, 148, 0} % Si se usa de fondo, el texto debe ir en negro
+
+
+
+\begin{document}
+    \setmainfont{Lato}
+
+\maketitle
+
+\begin{abstract}
+Artículo introductorio a \ttikz. Incluye una breve explicación sobre la sintaxis básica de funcionamiento, el dibujo de nodos y una visión preliminar de algunas de las librerías y paquetes incluidos o que se basan en \ttikz. 
+\end{abstract}
+
+\bigskip
+
+
+\section{Introducción}
+
+\ttikz\ es un complejo lenguaje gráfico que permite \emph{dibujar} en un documento \LaTeX\ sin ninguna otra herramienta auxiliar.
+
+\bigskip
+
+\hrule
+
+\bigskip
+
+\noindent IMPORTANTE: \ttikz\ tiene un conflicto con el paquete \mi{babel} cuando se trabaja en español, ya que ambos definen como caracteres activos “<” y “>”: \mi{babel} para el entrecomillado “multinivel”, y \mi{tikz} para las flechas que aparecen al final de una línea. Por ello, es necesario eliminar este conflicto, usando, por ejemplo:
+
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble]{Latex}
+\usepackage[spanish,es-noshorthands]{babel}
+\end{minted}
+\end{marcod}
+
+\noindent Que suprime el uso "activo" de los caracteres "<" y ">" en babel.
+
+\bigskip
+
+\hrule
+
+\bigskip
+
+\ttikz\ define un conjunto de comandos y entornos \LaTeX\ elaborar gráficos.
+
+Por ejemplo, el código:
+
+\bigskip
+
+\begin{marcod}
+\begin{minted}[linenos,autogobble]{Latex}
+\tikz \draw (0,0) circle (1cm);    
+\tikz \draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+\end{minted}
+\end{marcod}
+
+Genera el siguiente dibujo:
+
+\bigskip
+
+        \tikz \draw (0,0) circle (1cm);    
+        \tikz \draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+
+\bigskip
+
+Las unidades de \ttikz\, por defecto, son en centímetros. Por lo que en un caso se dibuja un círculo de un centímetro de diámetro centrado en el punto (0,0), y en el otro se genera un cuadrado de un centímetro de lado.
+
+Se observa que el comando \mi{\tikz} genera dibujos independientes entre sí. 
+Para que ambos dibujos sean uno solo, generando una figura con el cuadrado y el círculo superpuestos, en lugar de usar el comando \mi{\tikz}, es necesario incluir los comandos de dibujo en un entorno \mi{\begin{tikzpicture}}, por ejemplo:
+
+\bigskip
+
+\begin{marcod}
+\begin{minted}[linenos,autogobble]{Latex}
+\begin{tikzpicture}
+\draw (0,0) circle (1cm);    
+\draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+\end{tikzpicture}
+\end{minted}
+\end{marcod}
+
+
+Genera lo siguiente:
+
+\bigskip
+
+\begin{tikzpicture}
+\draw (0,0) circle (1cm);    
+\draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+\end{tikzpicture}
+
+\bigskip
+
+
+Las ventajas de usar \mi{\tikz} en lugar de una herramienta externa son, entre otras:
+
+\begin{enumerate}
+    \item Control completo sobre el diagrama.
+    \item Se usa el mismo tipo de letra  que en el documento.
+    \item Capacidad de utilizar macros.
+    \item La alta calidad del resultado.
+\end{enumerate}
+
+Como inconvenientes, cabe citar:
+
+\begin{enumerate}
+    \item Elevada curva de aprendizaje.
+    \item No se “dibuja” sobre el propio “dibujo”.
+    \item El código puede ser complejo de entender.
+\end{enumerate}
+
+
+Entre las ventajas que presenta \ttikz\ frente a otros paquetes de \LaTeX\ se encuentra su independencia del “driver” de impresión, sea postscript o no. Para ello, se definió un lenguaje independiente de representación de gráficos, \emph{PGF}, Portable Graphics Format, que posteriormente, cada uno de los “drivers” existentes, convierten al formato destino elegido, sea postscript, pdf, \ldots 
+
+\section{Estructura capas}
+
+
+\ttikz\ es un lenguaje gráfico que dispone de una capa semántica avanzada que permite diseñar diagramas con relativa facilidad manteniendo en el lenguaje la relación entre los elementos del diagrama. Para conseguirlo, se sustenta en dos capas que pueden utilizarse de forma independiente. En la figura \ref{fig:capas} se puede observar la relación entre ellas.
+
+\begin{figure}
+	\begin{tikzpicture}[node distance= 1.5cm, auto,
+	% Estilos
+	every node/.style={text=white, rounded corners=0.05cm},
+	grande/.style={rectangle,  fill=azuloscuro, inner sep=5pt, text width=7cm, text badly centered, minimum height=1.3cm,font=\large}, 
+	peque/.style={rectangle, fill=grisoscuro, inner sep=5pt, text width=1.9cm, text badly centered, minimum height=1.3cm,font=\large}, 
+	comentario/.style={text=casinegro, align=left,font=\footnotesize}]
+	
+	% nodos
+	\node[grande](sistema){Capa del sistema};
+	\node[grande, above of=sistema](basico){Capa básica \\ \scriptsize (core \& módulos)};
+	\node[grande, above of=basico](tikz){TikZ \\ \scriptsize (capa frontal)};
+	\node[peque, below of=sistema](pdftex){pdftex};
+	\node[peque, left=0.25cm of pdftex](dvips){dvips};
+	\node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};
+	% comentarios a la derecha
+	\node[comentario,right=0.25cm of sistema](coment_sistema){API que abstrae las \\ 
+		diferencias entre drivers};
+	\node[comentario,right=0.25cm of basico](coment_basico)
+	{API que incorpora \\ semántica avanzada: \\
+		capas, flechas, formas\ldots};
+	\node[comentario,right=0.25cm of tikz](coment_tikz)
+	{API frontal que facilita \\
+		el uso de la capa básica \\ 
+		simplificando la sintaxis.};
+	
+	% llaves a la izquierda
+	\draw[decorate,draw=casinegro,decoration={brace,amplitude=0.20cm}] 
+	(-3.9,-0.6) node(t_k_unten){} -- 
+	(-3.9,2.1) node(t_k_opt_unten){}; 
+	\node[text=casinegro] at (-4.6,0.7){PGF};
+	
+	% drivers
+	\draw[decorate,draw=casinegro,decoration={brace,amplitude=0.20cm}] 
+	(-3.9,-2.1) node(t_k_unten){} -- 
+	(-3.9,-0.9) node(t_k_opt_unten){}; 
+	\node[text=casinegro] at (-4.8,-1.5){drivers};
+	
+	\end{tikzpicture}    
+    \caption{Estructura en capas de \ttikz}
+    \label{fig:capas}
+\end{figure}
+
+\begin{description}
+    \item[Capa del sistema.] Esta primera capa es la API básica de PGF que abstrae las diferencias entre los diversos “drivers”. Cada uno de los elementos de esta API se tiene que implementar de forma diferente para cada “driver”, por lo tanto, resulta necesario mantenerla lo más simple posible, a fin de simplificar al máximo el desarrollo y mantenimiento de aquellos.
+    
+    \item[Capa básica.] Añade semántica que facilita el diseño de gráficos. Esta capa se puede extender con paquetes adicionales.
+    
+   \item[\ttikz.] Se trata de una API avanzada, que hace de “frontal” sobre la capa básica simplificando y extendiendo su sintaxis. Su sintaxis se basa en la de METAFONT y PSTRICKS. Sobre este último presenta la ventaja de ser “portable” entre “drivers”. Lo que, actualmente, se traduce en la generación directa de documentos PDF.
+ 
+\end{description}
+
+Además de lo visto, PGF dispone de algunos paquetes de utilidades como: \mi{pgfpages}, para “jugar” con las páginas de un documento componiendo varias de ellas en una única física; \mi{pgfkeys}, para la gestión de parejas de parámetros, clave-valor; \mi{pgfcalendar}, para la generación de calendarios con \LaTeX, o \mi{pgffor}, que define el comando \mi{foreach}.
+
+\section{Dibujo básico}
+
+Normalmente, un gráfico \ttikz\ se compone utilizando el entorno \mi{tikzpicture}, como se vio en el ejemplo inicial\footnote{El círculo con el cuadrado inscrito.}.
+
+Un elemento fundamental en \ttikz\ es el \emph{camino} \footnote{\emph{Path}, en inglés.}. Existen diversos comandos, como \mi{\draw}, \mi{\filldraw} o \mi{\path} que se basan en la idea de encadenar posiciones y unirlas mediante otros elementos.
+
+En el ejemplo anterior:
+
+\begin{tikzpicture}
+\draw (0,0) circle (1cm);    
+\draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+\end{tikzpicture}
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble]{Latex}
+    \begin{tikzpicture}
+    \draw (0,0) circle (1cm);    
+    \draw (-1,0) -- (0,1) -- (1,0) -- (0,-1) -- cycle;    
+    \end{tikzpicture}
+    \end{minted}
+\end{marcod}
+
+\begin{itemize}
+    \item \mi{\draw} indica que se debe “dibujar” el camino a realizar. Cada comando \mi{\draw} inicia un camino completo nuevo.
+    \item El camino se expresa por una sucesión de puntos y “operaciones” que expresan lo que hay que hacer entre cada punto.
+    \item “(-1,0)” indica que se debe posicionar en dicho punto. En centímetros por defecto.
+    \item Con el comando \mi{draw}, la operación “-{}-” indica que se debe dibujar una línea recta entre el punto anterior y el siguiente.
+    \item Con el comando \mi{draw}, la operación “circle” indica que se debe dibujar un círculo con el radio indicado en el siguiente parámetro, en este caso “(1cm)”.
+    \item “cycle” indica que se vaya al punto de inicio del camino actual.
+\end{itemize}
+
+Existen diversas operaciones para recorrer un camino: \mi{rectangle}, \mi{grid}, \mi{ellipse}, son algunas de las factibles. Cada una de ellas necesita unos parámetros determinados para su correcto dibujo.
+
+\section{Estilos}
+
+Los diferentes comandos tienen parámetros opcionales que facilitan el diseño de diferentes estilos para los gráficos. Por ejemplo:
+
+\begin{tikzpicture}
+    \draw[step=0.5,color=red!50!white, very thin] (-1.5,-1.5) grid (1.5,1.5);
+    \draw (-2,0) -- (2,0);
+    \draw (0,-2) -- (0,2);
+    \draw[thick, color=blue] (-2,1.5) .. controls (0,-2) .. (2,1.5);
+    \filldraw[gray] (-2,1.5) circle (3pt); % inicio de la curva
+    \filldraw[gray] (2,1.5) circle (3pt); % fin de la curva
+    \filldraw[gray] (0,-2) circle (3pt); % punto de control (solamente uno)
+\end{tikzpicture}
+
+
+\begin{marcod}
+	\begin{minted}[linenos,autogobble, breaklines]{Latex}
+    \draw[step=0.5,color=red!50!white, very thin] (-1.5,-1.5) 
+         grid (1.5,1.5);
+    \draw (-2,0) -- (2,0);
+    \draw (0,-2) -- (0,2);
+    \draw[thick, color=blue] (-2,1.5) .. controls (0,-2) .. (2,1.5);
+    \filldraw[color=gray] (-2,1.5) circle (3pt); % inicio de la curva
+    \filldraw[color=gray] (2,1.5) circle (3pt); % fin de la curva
+    \filldraw[color=gray] (0,-2) circle (3pt); % punto de control
+    \end{minted}
+\end{marcod}
+
+Se observa que:
+
+\begin{itemize}
+	\item El primer comando tiene unos parámetros envueltos entre corchetes. Estos parámetros permiten matizar el funcionamiento de las operaciones a realizar en el comando. En concreto, están indicando:
+	\begin{itemize}
+		\item \mi{step}, que al dibujar el \mi{grid} la malla tenga un grosor de medio centímetro.
+		\item \mi{color}, expresa, en formato \mi{xcolor}, que debe dibujar en color rojo claro.
+		\item \mi{very thin}, expresa el grosor de las líneas que se dibujen en este comando, en este caso concreto, la malla a pintar.
+	\end{itemize}
+	\item Los dos siguientes comandos \mi{\draw} dibujan los ejes horizontales con el estilo por defecto (líneas negras de grosor \mi{thin}).
+	\item El siguiente comando \mi{\draw} dibuja una línea desde el punto \mi{(-2,1.5)} al punto \mi{(2,1.5)}, pero en lugar de ser recta, la operación \mi{.. controls (0,-2) ..}, establece que se dibuje la línea utilizando este punto de control como elemento de referencia para trazarla curva. Lo que hace \mi{tikz} es “salir” del punto inicial de forma paralela a la recta imaginaria que llegaría al punto de control, para después girar de tal modo que llegue al punto de destino de forma paralela a la recta imaginaria que va del punto de destino al punto de control.
+	
+	La sintaxis de esta operación permite utilizar dos puntos de control diferentes para el origen y el destino, así tanto el ángulo como la distancia a dichos puntos definen la forma de la curva a trazar.
+	
+	En este comando también se ha especificado un estilo entre corchetes, línea gruesa y de color azul.
+	
+	\item Los tres últimos comandos \mi{\filldraw} dibujan con relleno: se posicionan en un punto; después, la operación a ejecutar es \mi{circle}, con un radio de 3pt, que en este caso se rellenan del mismo color que se ha indicado, \mi{gray}, gris.
+\end{itemize}
+
+Con estas herramientas se pueden realizar dibujos muy complejos. Para facilitar al máximo su desarrollo, \mi{tikz} permite, además, darle nombre a los estilos y reutilizarlos tantas veces como se necesite. Por ejemplo, el dibujo anterior se puede reescribir de la siguiente forma:
+
+
+\begin{tikzpicture}[
+migrid/.style ={step=0.5,color=red!50!white, very thin},
+micurva/.style ={thick, color=blue},
+mipunto/.style ={color=gray}]
+\draw[migrid] (-1.5,-1.5) grid (1.5,1.5);
+\draw (-2,0) -- (2,0);
+\draw (0,-2) -- (0,2);
+\draw[micurva] (-2,1.5) .. controls (0,-2) .. (2,1.5);
+\filldraw[mipunto] (-2,1.5) circle (3pt); % inicio de la curva
+\filldraw[mipunto] (2,1.5) circle (3pt); % fin de la curva
+\filldraw[mipunto] (0,-2) circle (3pt); % punto de control (solamente uno)
+\end{tikzpicture}
+
+\begin{marcod}
+	\begin{minted}[linenos,autogobble, breaklines]{Latex}
+\begin{tikzpicture}[
+migrid/.style ={step=0.5,color=red!50!white, very thin},
+micurva/.style ={thick, color=blue},
+mipunto/.style ={color=gray}]
+\draw[migrid] (-1.5,-1.5) grid (1.5,1.5);
+\draw (-2,0) -- (2,0);
+\draw (0,-2) -- (0,2);
+\draw[micurva] (-2,1.5) .. controls (0,-2) .. (2,1.5);
+\filldraw[mipunto] (-2,1.5) circle (3pt); % inicio de la curva
+\filldraw[mipunto] (2,1.5) circle (3pt); % fin de la curva
+\filldraw[mipunto] (0,-2) circle (3pt); % punto de control
+\end{tikzpicture}
+	\end{minted}
+\end{marcod}
+
+\begin{itemize}
+    \item \mi{migrid/.style} define un estilo denominado \mi{migrid} que se puede utilizar entre corchetes en los diferentes comandos para aplicar los parámetros que definen el estilo.
+    \item Después del signo \mi{=}, entre llaves, se describen los parámetros que definen el estilo.
+    \item Esto permite la reutilización como se observa en los tres comandos \mi{\filldraw}.
+\end{itemize}
+
+
+\section{Nodos}
+
+Los nodos facilitan la generación de diagramas que contengan textos o que requieran mostrar relaciones entre elementos, entre otras cosas.
+
+A continuación se muestra un ejemplo de uso de los nodos que utiliza algunas librerías adicionales para facilitar su diseño.
+
+\begin{itemize}
+    \item \mi{fit}, para calcular el tamaño de los nodos.
+    \item \mi{positioning}, para colocar los nodos en posiciones relativas a otros.
+\end{itemize}
+
+Para utilizar estas librerías auxiliares de \ttikz\ se utiliza el comando: \\ \mi{\usetikzlibrary{fit,positioning}}.
+
+
+    \begin{tikzpicture}[node distance= 1.5cm, auto,
+    % Estilos
+    every node/.style={text=white, rounded corners=0.05cm},
+    grande/.style={rectangle,  fill=blue!60!white, font=\large}, 
+    peque/.style={rectangle, fill=white!30!black, font=\large}]
+    
+    % nodos
+    \node[grande](sistema){Capa del sistema};
+    \node[grande, above of=sistema](basico){Capa básica \scriptsize (core \& módulos)};
+    \node[grande, above of=basico](tikz){TikZ \scriptsize (capa frontal)};
+    \node[peque, below of=sistema](pdftex){pdftex};
+    \node[peque, left=0.25cm of pdftex](dvips){dvips};
+    \node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};
+    %flechas entre nodos
+    \draw[->] (tikz.south) -- (basico.north) (basico.south) -- (sistema.north);
+    \draw[->] (sistema.south) .. controls +(left:0.5cm) and +(up:0.5cm) .. (dvips.north);
+    \draw[->] (sistema.south) .. controls +(right:0.5cm) and +(up:0.5cm) .. (dvipdfm.north);
+    \draw[->] (sistema.south) -- (pdftex.north);
+          
+    \end{tikzpicture}
+        
+\begin{marcod}
+    \begin{minted}[linenos,autogobble, breaklines]{Latex}
+
+\begin{tikzpicture}[node distance= 1.5cm, auto,
+% Estilos
+every node/.style={text=white, rounded corners=0.05cm},
+grande/.style={rectangle,  fill=blue!60!white, font=\large}, 
+peque/.style={rectangle, fill=white!30!black, font=\large}]
+
+% nodos
+\node[grande](sistema){Capa del sistema};
+\node[grande, above of=sistema](basico){Capa básica \scriptsize (core \& módulos)};
+\node[grande, above of=basico](tikz){TikZ \scriptsize (capa frontal)};
+\node[peque, below of=sistema](pdftex){pdftex};
+\node[peque, left=0.25cm of pdftex](dvips){dvips};
+\node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};
+%flechas entre nodos
+\draw[->] (tikz.south) -- (basico.north) (basico.south) -- (sistema.north);
+\draw[->] (sistema.south) .. controls +(left:0.5cm) and +(up:0.5cm) .. (dvips.north);
+\draw[->] (sistema.south) .. controls +(right:0.5cm) and +(up:0.5cm) .. (dvipdfm.north);
+\draw[->] (sistema.south) -- (pdftex.north);
+
+\end{tikzpicture}  
+\end{minted}
+\end{marcod}
+
+
+\begin{itemize}
+    \item Las primeras líneas establecen los estilos a utilizar: El texto será de color blanco para todos los nodos y las esquinas redondeadas; los nodos con el estilo “grande” utilizan un color de relleno diferente a los pequeños, el tipo de letra será grande y deberán tener forma de “rectangle”.
+    \item En cada comando \mi{\node} se observa, entre paréntesis, el “nombre” que tendrá el nodo, seguido de su contenido entre llaves. El “nombre” se utiliza para referenciar al nodo desde otro lugar. En este caso concreto, para establecer la posición relativa entre ellos.
+    \item Entre los parámetros de cada nodo se incluye el estilo y la posición relativa a otro nodo: “above of”, “below of”, “left” y “right”. Se observa que se puede incluir la distancia relativa de separación entre ellos.
+    \item Para dibujar las líneas que conectan los nodos, se utiliza \mi{draw}. El parámetro especifica el tipo de línea a dibujar, en este caso con una flecha al final (pero no al comienzo) del camino.
+    \item Si se desease una línea con flecha tanto al comienzo como al final del camino se debería utilizar “<->”. Para expresar una flecha solo al comienzo, se utilizar “<-”.
+    \item Para indicar los lugares de origen y de destino de la línea, se indican los nombres de los respectivos nodos, seguidos de un punto y del modificador que expresa el punto del que debe salir: “north”, desde el borde superior; “south”, desde el inferior; “east”, desde el borde derecho, y “west”, desde el borde izquierdo. Si no se indican los puntos de inicio y fin de la línea, \ttikz\ busca los más próximos entre sí.
+    \item Para expresar una línea curva se utiliza \mi{controls} como se vio anteriormente. En este caso se indican dos puntos de control. Ambos, precedidos del símbolo “+”, que sirve para expresar coordenadas relativas, a los puntos de salida y llegada respectivamente.
+    \item Cada punto de control, además de ser relativo, indica posición, no mediante un punto (x,y) sino mediante un desplazamiento a través de un eje. Este se expresa con el texto “left” o “right”, en este caso.
+\end{itemize}
+
+\ttikz\ es tan potente que permite expresar el mismo dibujo de diversas maneras. En este caso se puede hacer uso de la operación \mi{edge} que facilita la unión entre nodos, sin necesidad de indicar \mi{draw}. De este modo se captura la semántica entre nodos y enlaces. El codigo queda así:
+
+    \begin{tikzpicture}[node distance= 1.5cm, auto,
+    % Estilos
+    every node/.style={text=white, rounded corners=0.05cm},
+    grande/.style={rectangle,  fill=blue!60!white, font=\large}, 
+    peque/.style={rectangle, fill=white!30!black, font=\large}]
+    
+    % nodos
+    \node[grande](sistema){Capa del sistema}
+        edge[->, bend right=20] (dvips)
+        edge[->] (pdftex)
+        edge[->, bend left=20] (dvipdfm);
+    \node[grande, above of=sistema](basico){Capa básica \scriptsize (core \& módulos)}
+        edge[->] (sistema);
+    \node[grande, above of=basico](tikz){TikZ \scriptsize (capa frontal)}
+        edge[->] (basico);
+    \node[peque, below of=sistema](pdftex){pdftex};
+    \node[peque, left=0.25cm of pdftex](dvips){dvips};
+    \node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};
+
+    \end{tikzpicture}
+
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble, breaklines]{Latex}
+\begin{tikzpicture}[node distance= 1.5cm, auto,
+% Estilos
+every node/.style={text=white, rounded corners=0.05cm},
+grande/.style={rectangle,  fill=blue!60!white, font=\large}, 
+peque/.style={rectangle, fill=white!30!black, font=\large}]
+
+% nodos
+\node[grande](sistema){Capa del sistema}
+    edge[->, bend right=20] (dvips)
+    edge[->] (pdftex)
+    edge[->, bend left=20] (dvipdfm);
+\node[grande, above of=sistema](basico){Capa básica \scriptsize (core \& módulos)}
+    edge[->] (sistema);
+\node[grande, above of=basico](tikz){TikZ \scriptsize (capa frontal)}
+    edge[->] (basico);
+\node[peque, below of=sistema](pdftex){pdftex};
+\node[peque, left=0.25cm of pdftex](dvips){dvips};
+\node[peque, right=0.25cm of pdftex](dvipdfm){dvipdfm};    
+\end{tikzpicture}
+  \end{minted}
+  \end{marcod}
+
+Como se observa, la operación \mi{edge}, en el comando \mi{\node}, facilita el dibujo del enlace entre el nodo que se está definiendo y otro que se indica por su nombre. Además, es posible expresar el “grado de curvatura” del enlace y \ttikz\ se encargará de posicionar la curva en el mejor lugar posible.
+
+\section{Otras librerías}
+
+Como se ve, \ttikz\ es un paquete muy potente. Con lo visto anteriormente se ha mostrado de forma superficial parte de esta potencia. Sin embargo, existen muchos parámetros, operaciones y comandos que no se han mostrado.
+
+Además, existen muchas librerías que proporcionan la semántica apropiada para dibujar determinados tipos de diagramas. Por ejemplo, grafos, redes de petri, capas, mapas mentales, calendario, gráficos de funciones, etc.
+
+A continuación se muestran algunos ejemplos en los que se observará cómo la semántica de \ttikz\ describe perfectamente la estructura del diagrama correspondiente:
+
+\subsection{Árboles}
+
+En \ttikz\ se pueden generar árboles como el que sigue:
+
+\begin{tikzpicture}[every node/.style={rectangle, fill=blue!20!white}]
+    \node {Animalia} [sibling distance=6cm]
+        child {node {Chordata}
+             child {node {Vertebrata} [sibling distance=1.5cm]
+                 child {node {Mammalia}}
+                 child {node {Aves}}
+             }
+        }
+        child {node {Arthoropoda} [sibling distance=4cm]
+            child {node {Mandibulata}[sibling distance=2cm]
+                child {node {Insecta}}
+                child {node {Crustacea}}
+            }
+            child {node {Chelicerata}
+                child {node {Arachnida}}
+            }
+        };
+\end{tikzpicture}
+
+El código que lo genera es el siguiente:
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble, breaklines]{Latex}
+\begin{tikzpicture}[every node/.style={rectangle, fill=blue!20!white}]
+\node {Animalia} [sibling distance=6cm]
+child {node {Chordata}
+    child {node {Vertebrata} [sibling distance=1.5cm]
+        child {node {Mammalia}}
+        child {node {Aves}}
+    }
+}
+child {node {Arthoropoda} [sibling distance=4cm]
+    child {node {Mandibulata}[sibling distance=2cm]
+        child {node {Insecta}}
+        child {node {Crustacea}}
+    }
+    child {node {Chelicerata}
+        child {node {Arachnida}}
+    }
+};
+\end{tikzpicture}
+\end{minted}
+\end{marcod}
+
+Los árboles se pueden dibujar también en horizontal. Existe, además, una librería, \mi{mindmap}, de \ttikz\ que facilita el diseño de árboles con un diseño más aproximado para los mapas mentales.
+
+\subsection{Gráficos}
+
+
+En \ttikz\ se pueden generar gráficos como el que sigue:
+
+\begin{tikzpicture}
+\datavisualization [scientific axes, visualize as smooth line]
+     data [format=function] { 
+         var x : interval [-360:360]; 
+         func y = sin(\value x);
+};
+\end{tikzpicture}
+
+El código es el que sigue:
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble, breaklines]{Latex}
+\begin{tikzpicture}
+\datavisualization [scientific axes, visualize as smooth line]
+data [format=function] { 
+    var x : interval [-360:360]; 
+    func y = sin(\value x);
+};
+\end{tikzpicture}
+\end{minted}
+\end{marcod}
+
+Para diagramas más avanzados, como por ejemplo, un diagrama de barras, se puede utilizar el paquete \mi{pgfplots} que se basa en \mi{pgf/tikz} y simplifica su construcción.
+
+Para ello es necesario incluir en el preámbulo: \mi{\usepackage{pgfplots}}, que añade la librería \mi{pgfplots}.
+
+Por ejemplo:
+
+\begin{tikzpicture}
+    \begin{axis}[
+    xbar, xmin=0,
+    width=12cm, height=6cm, enlarge y limits=0.2,
+    xlabel={Lenguajes de programación (repositorios activos)},
+    symbolic y coords={Javascript, Java, Python, CSS, PHP, Ruby, C++},
+    nodes near coords, nodes near coords align={horizontal},
+    ]
+    % Valores obtenidos de githut.info, repositorios activos (Q4/14)
+    \addplot coordinates {(323928,Javascript) 
+        (222852,Java)
+        (164852,Python)
+        (164585,CSS)
+        (138771,PHP)
+        (132848,Ruby)
+        (86505,C++)};
+    \end{axis}
+\end{tikzpicture}
+
+Se obtiene con este código:
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble, breaklines]{Latex}
+\begin{tikzpicture}
+\begin{axis}[
+xbar, xmin=0,
+width=12cm, height=6cm, enlarge y limits=0.2,
+xlabel={Lenguajes de programación (repositorios activos)},
+symbolic y coords={Javascript, Java, Python, CSS, PHP, Ruby, C++},
+nodes near coords, nodes near coords align={horizontal},
+]
+\addplot coordinates {(323928,Javascript) 
+    (222852,Java)
+    (164852,Python)
+    (164585,CSS)
+    (138771,PHP)
+    (132848,Ruby)
+    (86505,C++)};
+\end{axis}
+\end{tikzpicture}
+\end{minted}
+\end{marcod}
+
+
+\subsection{Calendarios}
+
+Existe un paquete basado en \ttikz\ que permite gestionar días, días de la semana, meses y años, y dibujarlos de forma sencilla. Para utilizarlo, se incluye \mi{\usetikzlibrary{calendar}}. Por ejemplo:
+
+\begin{tikzpicture} [column sep=1cm]
+    \matrix {
+    \calendar[dates=2016-04-01 to 2016-04-last,week list, month label above centered];
+    &
+    \calendar[dates=2016-05-01 to 2016-05-last,week list, month label above centered]; \\
+    };
+\end{tikzpicture}
+
+Se genera con el siguiente código: 
+
+\begin{marcod}
+    \begin{minted}[linenos,autogobble, breaklines]{Latex}
+\begin{tikzpicture} [column sep=1cm]
+\matrix {
+\calendar[dates=2016-04-01 to 2016-04-last,week list, month label above centered];
+&
+\calendar[dates=2016-05-01 to 2016-05-last,week list, month label above centered]; \\
+};
+\end{tikzpicture}
+\end{minted}
+\end{marcod}
+
+Para que el texto de los meses salga en español es necesario incluir en el preámbulo, lo siguiente: \mi{\usepackage[spanish]{translator}}. Justo después de cargar el paquete babel.
+
+\section{Referencias}
+
+
+\begin{enumerate}
+    \item Página del proyecto \href{https://www.ctan.org/pkg/pgf}{\ttikz} en CTAN.
+    \item Introducción simple a \ttikz : \href{http://cremeronline.com/LaTeX/minimaltikz.pdf}{A very minimal introduction to \ttikz}.
+    \item Página del paquete \href{https://www.ctan.org/pkg/pgfplots}{\mi{pgfplots}}.
+\end{enumerate}
+
+\end{document}

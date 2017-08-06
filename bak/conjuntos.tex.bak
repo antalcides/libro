@@ -1,0 +1,1634 @@
+%% LyX 2.0.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,svgnames,x11names,x11names,HTML]{book}
+\usepackage[utf8x]{inputenc}
+\pagestyle{headings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{float}
+\usepackage{amstext}
+\usepackage{amssymb}
+\usepackage[cm]{fullpage}
+\usepackage{layouts}
+\printinunitsof{cm}
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\lyxmathsym}[1]{\ifmmode\begingroup\def\b@ld{bold}
+  \text{\ifx\math@version\b@ld\bfseries\fi#1}\endgroup\else#1\fi}
+
+%% Special footnote code from the package 'stblftnt.sty'
+%% Author: Robin Fairbairns -- Last revised Dec 13 1996
+\let\SF@@footnote\footnote
+\def\footnote{\ifx\protect\@typeset@protect
+    \expandafter\SF@@footnote
+  \else
+    \expandafter\SF@gobble@opt
+  \fi
+}
+\expandafter\def\csname SF@gobble@opt \endcsname{\@ifnextchar[%]
+  \SF@gobble@twobracket
+  \@gobble
+}
+\edef\SF@gobble@opt{\noexpand\protect
+  \expandafter\noexpand\csname SF@gobble@opt \endcsname}
+\def\SF@gobble@twobracket[#1]#2{}
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
+\newenvironment{lyxlist}[1]
+{\begin{list}{}
+{\settowidth{\labelwidth}{#1}
+ \setlength{\leftmargin}{\labelwidth}
+ \addtolength{\leftmargin}{\labelsep}
+ \renewcommand{\makelabel}[1]{##1\hfil}}}
+{\end{list}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\input{preamble2}
+\input{composicion-codigo}
+\usepackage{subcaption}
+\usepackage{fancyvrb}
+\usepackage{cancel}
+\usetikzlibrary{fit,shapes}
+\usepackage{mivenndiagram}
+\usepackage{tikz-cd}% diagramas commutativos
+\usetikzlibrary{matrix}
+\usepackage{mathtools}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ \makeatletter
+\def\input@path{{./}{./build/}{./styles/}}
+\makeatother
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\setcounter{problema}{1}
+%\usepackage[spanish]{babel}
+ 
+
+%}
+\newcommand{\triangulo}{\tikz \filldraw[scale=0.5,fill=teal!20] (0,0) -- ++(60:1) -- ++(-60:1) -- cycle ;
+                 }
+                 \newcommand{\linea}[1]{\overleftrightarrow{#1}}
+\newcommand{\degre}{\ensuremath{^\circ}}
+\newenvironment{prueba}[2]{\renewcommand{\arraystretch}{1.06}
+\vskip 5pt  {
+ \colorbox{teal!30}{\color{white}{Prueba:}}
+ }\vskip 5pt
+$ %
+\begin{tabular}
+[t]{ll||l}\hline
+\multicolumn{2}{c||}{\mbox{Afirmaciones}} & \mbox{Razones}\\\hline\hline
+1. & 
+#1 
+& \multicolumn{1}{|l}{\mbox{Dado}}\\
+#2
+\end{tabular}
+\ \ \ $ 
+\vskip 5pt}{\hfill  \raggedright{ \rule{0.5em}{0.5em} }\vskip 5pt }
+\newcommand{\problemas}[1]
+{
+\section{Problemas}
+\peque
+\begin{changemargin}{23.2cm}{18cm}{0cm}{0cm}{0cm}
+\begin{multicols}{2}
+ \noindent #1
+\end{multicols}
+\end{changemargin}
+{\setlength{\parindent}{0mm}\color{ptctitle}\rule{\linewidth}{1mm}}
+}
+\setlength\columnsep{40pt} 
+%\renewcommand\columnseprulecolor{\color{ptctitle}}
+\setlength{\tabcolsep}{8pt}
+%\setlength\columnseprule{2pt} %linea entrecolumnas por defecto 0pt
+\def\firstcircle{(0,0) circle (1.5cm)} 
+\def\secondcircle{(45:2cm) circle (1.5cm)}
+\def\thirdcircle{(0:2cm) circle (1.5cm)} 
+\def\rectangulo{(-2,-2) rectangle (4,3.6)}
+\def\fourcircle{(1.1,1) circle (1.5cm)}
+\def\fivecircle{(-2,1) circle (1.5cm)}
+\def\rect{(-4,-2) rectangle (4,3.6)} 
+\def\sixcircle{(-2.3,1) circle (0.8cm)} 
+\def\sevencircle{(1.1,1) circle (0.8cm)}
+\def\myref#1{\thesection .\ref{#1}}
+
+\makeatother
+
+\usepackage[english,spanish]{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+\pagecolor{white} \mainmatter \pagestyle{headings} 
+
+
+\chapter{Teor\'ia de conjuntos y sistemas num\'ericos }
+
+ \chaptertoc  
+
+\begin{competencias}  \begin{lista}  
+
+\item Interpreta correctamente los conceptos de conjunto y elemento. 
+
+\item Argumenta los procedimientos para realizar operaciones entre
+conjuntos . 
+
+\item Maneja con criterio las operaciones y sus propiedades en los
+diferentes sistemas numéricos.
+
+\end{lista} \end{competencias}
+
+\begin{logros}  \begin{lista}  
+
+\item Identifica conjuntos. 
+
+\item Clasifica conjuntos. 
+
+\item Realiza operaciones entre conjuntos.
+
+\item Deduce las propiedades de los conjuntos a partir de los axiomas,
+definiciones y otras propiedades.
+
+\item Aplica bien las propiedades de los conjuntos.
+
+\item Utiliza los diagramas de Venn para representar operaciones
+y relaciones entre conjuntos. 
+
+\end{lista} \end{logros}
+
+
+\section{Introducción}
+
+La \textsf{teoría de conjuntos}, es la rama de las matemáticas a la
+que el matemático alemán Georg Cantor dio su primer tratamiento formal
+en el siglo XIX. El concepto de conjunto es uno de los más fundamentales
+en matemáticas, incluso más que la operación de contar, pues se puede
+encontrar, implícita o explícitamente, en todas las ramas de las matemáticas
+puras y aplicadas. En su forma explícita, los principios y terminología
+de los conjuntos se utilizan para construir proposiciones matemáticas
+más claras y precisas y para explicar conceptos abstractos como el
+de infinito.
+
+
+\subsection{Un poco de historia}
+
+En el último cuarto del siglo XIX se vivió un episodio apasionante
+de la historia de las matemáticas que las ligaría desde entonces a
+la historia de la lógica.
+
+Primero, Georg Boole (1815-1864) en su Mathematical Analysis of Logic
+trató de presentar la lógica como parte de las matemáticas. 
+
+Poco después Gottlob Frege (1848-1925) intentó mostrar que la aritmética
+era parte de la lógica en su Die Grundlagen der Arithmetik. Pero,
+dando un gran paso tanto en la historia de las matemáticas como en
+la historia de la lógica, G. Cantor se había adelantado a Frege con
+una fundamentación lógica de la aritmética.
+
+Cantor había demostrado que la totalidad de los números naturales
+comprendidos en el intervalo de extremos 0 y 1 no es numerable, en
+el sentido de que su infinitud no es la de los números naturales.
+Como una consecuencia de esa situación, Cantor creó una nueva disciplina
+matemática entre 1874 y 1897: la teoría de conjuntos. 
+
+Su obra fue admirada y condenada simultáneamente por sus contemporáneos.
+
+Desde entonces los debates en el seno de la teoría de conjuntos han
+sido siempre apasionados, sin duda por hallarse estrechamente conectados
+con importantes cuestiones lógicas. 
+
+Según la definición de conjunto de Cantor, éste es “una colección
+en un todo de determinados y distintos objetos de nuestra percepción
+o nuestro pensamiento, llamados los elementos del conjunto”.
+
+Frege fue uno de los admiradores de la nueva teoría de Cantor, y dio
+una definición de conjunto similar. 
+
+En 1903 B. Russell demostraría que la teoría de conjuntos de Cantor
+era inconsistente y cuestionaría la definición de conjunto en la teoría
+de Cantor.
+
+Pero pronto la teoría axiomática de Zermelo (1908) y refinamientos
+de ésta debidos a Fraenkel (1922), Skolem (1923), von Newman (1925)
+y otros sentaron las bases para la teoría de conjuntos actual.
+
+Es indiscutible el hecho de que la teoría de conjuntos es una parte
+de las matemáticas, es además, la teoría matemática dónde fundamentar
+la aritmética y el resto de teorías matemáticas.
+
+Es también indiscutible que es una parte de la lógica y en particular
+una parte de la lógica de predicados. 
+
+En esta historia cruzada de las matemáticas, la lógica y los fundamentos
+de ambas, la teoría de conjuntos permitiría por un lado una fundación
+logicista de las matemáticas; pero por otro lado la teoría de conjuntos
+mirada como parte de las matemáticas proporciona el metalenguaje,
+el contexto o sustrato de las teorías lógicas. Finalmente, puede ser
+completamente expresada en un lenguaje de primer orden y sus axiomas
+y teoremas constituyen una teoría de primer orden a la que pueden
+aplicarse los resultados generales que se aplican a cualquier teoría
+de primer orden.
+
+
+\subsection{Teoría intuitiva de conjuntos }
+
+La definición inicial de Cantor es totalmente intuitiva: 
+
+\begin{definicionn}{Conjunto según Cantor}un conjunto es cualquier
+colección $C$ de objetos determinados y bien distintos de nuestra
+percepción o nuestro pensamiento (objetos $x$ que se denominan elementos
+de $C$), reunidos en un todo.\end{definicionn}
+
+Igual que en Frege su idea de lo que es un conjunto coincide con la
+extensión de un predicado (la colección de objetos que satisface el
+predicado). Esta idea sencilla y tan intuitiva resulta ser también
+ingenua porque produce enormes contradicciones de inmediato, como
+por ejemplo la paradoja de Russell.
+
+Para poder mostrarlo es necesario empezar por formalizar esta teoría
+intuitiva que, aparte de los símbolos para los conjuntos y sus elementos
+($x$, $C$, etc.), tendrá los símbolos de pertenencia, $\in$ e igualdad
+$=$ (de los objetos del lenguaje formal). 
+
+Que $x$ es un elemento del conjunto $C$ se expresa `` $x$ pertenece
+a $C$'' o bien $x$ $\in$ $C$. 
+
+Que $x$ no es un elemento de $C$ se expresa `` $x$ no pertenece
+a $C$'' o bien $x\notin C$. 
+
+Tendremos en cuenta que no es necesario denotar siempre con mayúsculas
+a los conjuntos y con minúsculas a sus elementos, ya que un conjunto
+puede ser a su vez un elemento de otro conjunto e incluso podemos
+considerar que en nuestra teoría no hay objetos que no sean conjuntos.
+
+El problema ahora el el siguiente:
+
+¿Cómo se determina una colección? 
+
+De acuerdo con la definición intuitiva de Cantor un conjunto queda
+definido si es posible describir completamente sus elementos. 
+
+\begin{lista}
+
+\item  El procedimiento mas sencillo de descripción es nombrar cada
+uno de sus elementos, esta descripción se llama definición por extensión;
+es conocida la notación de encerrar entre llaves los elementos del
+conjunto. 
+
+\begin{ejems}{Listar un conjunto }\begin{enumerate} 
+
+\item$A={a,b,c}$. Donde $A$ es el conjunto formado por la colección
+de objetos $a,b$ y $c$.
+
+\item $B=\left\{ \oplus,\ominus,\otimes,\oslash,\odot\right\} $
+Donde $B$ es el conjunto formado exactamente por esos cinco círculos.
+Entonces es cierto que $b\in A$ y que $\oplus\in B$.
+
+\end{enumerate}\end{ejems}
+
+El inconveniente para este método de listado o enumeración de los
+elementos del conjunto es que éstos deben poseer un número finito
+de elementos y, en la práctica, un número muy pequeño.
+
+¿Entonces qué hacer cuando la colección es infinita, o cuando es finita
+pero numerosa? 
+
+\item Cuando el número de elementos del conjunto es infinito (como
+el de los número impares) o demasiado numeroso (como el de todas las
+palabras que pueden formarse con el alfabeto latino) se utiliza el
+método de definición por extensión, que consiste en la descripción
+de un conjunto como la extensión de un predicado, esto es, mediante
+una o varias propiedades (el predicado) que caracterizan a los elementos
+de ese conjunto.
+
+En principio podría tomarse cualquier lengua natural para describir
+los objetos (español, inglés, italiano, vasco, catalán, etc), sin
+embargo es preferible utilizar un lenguaje formal que ofrezca rigor
+y precisión. 
+
+Dicho lenguaje debe ser suficientemente rico; esto es, lo suficientemente
+expresivo como para poder describir todas las colecciones matemáticas.
+Pero también lo suficientemente restrictivo como para limitarse a
+sólo las colecciones de objetos matemáticos. 
+
+Para expresar predicados utilizaremos el lenguaje formal de la la
+lógica de predicados de primer orden (el lenguaje de la lógica de
+proposiciones con los símbolos lógicos de las conectivas $\sim,\wedge,\vee,\rightarrow,\leftrightarrow$
+más los cuantificadores universal $\forall$ y existencial $\exists$)
+al que se añade variables, igualdad y el relator binario de pertenencia.
+
+Este lenguaje puede ser ampliado con los símbolos propios de las operaciones,
+relaciones o funciones del lenguaje específico de teoría de conjuntos.
+
+En la primera parte, al presentar la Teoría básica de conjuntos, utilizaremos
+con frecuencia el lenguaje natural para describir propiedades.
+
+Estas propiedades pueden ser aritméticas ($>,<,/$, etc.) o matemáticas
+en general, pero también pueden ser propiedades expresadas en lenguaje
+natural (nombres, verbos,...) que describan colecciones no estrictamente
+matemáticas.
+
+\begin{ejems}{Descripción de un conjunto por extensión}\begin{enumerate} 
+
+\item $C={x\in I\!\! N/0<x<230000\wedge2/x}$, donde $I\!\! N$ es
+el conjunto de los números naturales con la ordenación habitual, $<$
+significa “menor que” y $2/x$ significa que “$2$ divide a $x$”. 
+
+\item $D=\{x/x$ es una palabra de $2$ letras del alfabeto griego
+(pueden estar repetidas)$\}$
+
+\item $E={x/P_{2}(x)\vee P_{3}(x)\vee\cdots\vee P_{10}(x)}$ . Donde
+$P_{i}(x)$ significa “$x$ es una palabra de$i$ letras del alfabeto
+griego (pueden estar repetidas).\end{enumerate}\end{ejems} \end{lista}
+
+
+\subsubsection{Problemas en la teoría intuitiva de conjuntos: la paradoja de Russell
+\footnote{La paradoja original era sobre el barbero de un pueblo que afeitaba
+a todos los del pueblo que no se afeitaban a sí mismos: ¿Se afeita
+entonces el barbero a sí mismo? %
+}}
+
+Pero la definición intuitiva de conjunto como el de una colección
+de objetos ‘describible’ por un predicado conduce inevitablemente
+a ciertas contradicciones que se llaman paradojas, la más célebre
+es la conocida como paradoja de Russell: 
+
+Consideremos el conjunto $A={x:x\notin x}$, descrito mediante el
+predicado del lenguaje formal $x\notin x$ . 
+
+Obviamente, para cualquier $b$, $b\in A$ si y sólo si $b\notin b$.
+Es decir, está en $A$ cuando verifica las condiciones que definen
+a $A$. Pero, ¿qué sucede con el propio $A$? 
+
+Evidentemente, $A\in A$ si y sólo si $A\notin A$. Pero este resultado
+es contradictorio. En vano se debe intentar descubrir un error en
+el razonamiento, más bien parece que el problema proviene de admitir
+expresiones como $A\in A$ (o conjuntos como el conjunto de todos
+los conjuntos que produce también paradojas). Se ha visto claramente
+que el concepto de conjunto no es tan sencillo y que identificarlo
+sin mayor investigación con el de colección resulta problemático.
+Para evitar la paradoja de Russell, y otras de esta naturaleza, es
+necesario tener más cuidado en la definición de conjunto, lo veremos
+en lo que sigue. Otras paradojas, de hecho las primeras en descubrirse,
+afectaban a colecciones grandes, como por ejemplo la de los ordinales,
+o la de todos los conjuntos. entonces estas colecciones no podrían
+ser conjuntos. 
+
+
+\subsubsection{Solución de las paradojas}
+
+Una solución radical al problema de las paradojas es la propuesta
+en 1903 por Russell, su Teoría de Tipos. 
+
+Observa que en todas las paradojas conocidas hay una componente de
+reflexividad, de circularidad. Técnicamente se evitan las paradojas
+al eliminar del lenguaje las formaciones circulares.
+
+Se reconoce que nuestro universo matemático no es plano, sino jerarquizado,
+por niveles, y que el lenguaje más adecuado para hablar de un universo
+debe tener diversos tipos de variables que correspondan a cada nivel;
+en particular, la relación de pertenencia se da entre objetos de distinto
+nivel. 
+
+En 1908 Zermelo da como solución la definición axiomática de la Teoría
+de Conjuntos, refinada más tarde por Fraenkel, Skolem, von Neumann
+y otros. En esta teoría se evita que las colecciones que llevaban
+a las paradojas puedan ser conjuntos. De hecho, en la solución de
+Zermelo-Fraenkel, una colección de objetos será un conjunto si los
+axiomas la respaldan. Dichos axiomas permiten formar conjuntos a partir
+de conjuntos previamente construídos y postulan la existencia del
+$\textrm{Ø}$ y de al menos un conjunto infinito. Sin embargo, en
+la solución de von Neumann se admiten colecciones que no son conjuntos,
+las denominadas clases últimas.
+
+Se definen clases mediante propiedades, sin restricción, pero habrá
+que mostrar que se trata de conjuntos viendo que pertenecen a alguna
+clase. Las clases últimas, como la clase universal o la de los ordinales,
+no pertenecen a ninguna otra clase. 
+
+
+\subsubsection{El Universo matemático}
+
+La idea intuitivamente más fructífera y también la más extendida es
+nuestro universo matemático, esto es, el que contiene todas las colecciones
+de objetos matemáticos, pero solamente los objetos matemáticos constituyen
+una jerarquía de conjuntos, la denominada Jerarquía de Zermelo. 
+
+En la construcción de los conjuntos que formarán la jerarquía se parte
+de una colección inicial $M_{0}$ de objetos dados y a continuación
+se construye una colección $M_{1}$ de conjuntos de elementos de $M_{0}$
+, después una colección $M_{2}$ de conjuntos de objetos de $M_{0}$
+y $M_{1}$ , etc. ??, el universo de conjuntos construídos es una
+jerarquía.
+
+Para proporcionar mayor precisión debemos responder a las preguntas
+siguientes:
+\begin{enumerate}
+\item ¿Cual será nuestra colección de partida, ?$M_{0}$ 
+\item ¿Qué conjuntos de objetos de niveles inferiores se toman para formar
+nuevos niveles en la jerarquía? 
+\item ¿Hasta dónde se extiende esta jerarquía?. 
+\end{enumerate}
+Para responder a la primera pregunta debemos considerar si nos interesa
+tomar objetos que no sean conjuntos o si nos basta con partir de un
+primer nivel que sea sencillamente el conjunto $\emptyset$.
+
+Está claro que se toman sólo objetos matemáticos, pero habrá que ver
+que es suficiente y que podremos finalmente contar en la jerarquía
+con todos los objetos matemáticos.
+
+Una respuesta a la segunda pregunta que parece razonable es, al ir
+tomando nuevos conjuntos, que éstos se puedan describir con nuestro
+lenguaje. Al tomar esta opción formamos la Jerarquía de conjuntos
+que se pueden construir. Otra posibilidad es tomar como objetos de
+un nuevo nivel a todos los posibles. Veremos que esta es la opción
+de Zermelo. 
+
+Finalmente, la tercera de las preguntas es hasta donde se extiende
+la jerarquía. 
+
+La respuesta es que la jerarquía de conjuntos no tiene fin, siempre
+se pueden construir nuevos niveles. Para precisar un poco más esta
+imagen intuitiva de nuestro Universo matemático es conveniente contar
+con algunas nociones de teoría de conjuntos básica y con el concepto
+de ordinal. 
+
+
+\subsubsection{Teoría axiomática de conjuntos }
+
+Recordemos los componentes de una teoría axiomática: 
+\begin{enumerate}
+\item El lenguaje o símbolos formales de la teoría. 
+\item Los axiomas, que son proposiciones acerca de los objetos de la teoría
+y que imponen el funcionamiento de dichos objetos. 
+\item Los teoremas, que son todas las proposiciones demostrables con herramientas
+lógicas a partir de los axiomas. 
+\end{enumerate}
+En la teoría de conjuntos axiomática de Zermelo Fraenkel se usará
+el lenguaje formal de la lógica de predicados de primer orden. 
+
+Las variables de dicho lenguaje formal se referirán a conjuntos; es
+decir, en la interpretación usual todos los objetos son conjuntos.
+
+Es decir, existir será sinónimo de ser un conjunto.
+
+El lenguaje básico sólo tiene el relator binario de pertenencia, pero
+se extiende, mediante definiciones pertinentes, para dar cabida a
+operaciones. 
+
+Los conceptos primitivos de esta teoría son el de conjunto y el de
+pertenencia. 
+
+En realidad la mayoría de los axiomas sirven para garantizar la existencia
+de los conjuntos que nos interesa tener. 
+
+Por ello la idea de construcción es esencial en la teoría axiomática
+de Zermelo-Fraenkel (que notaremos ZF). En la teoría axiomática de
+conjuntos se respeta la idea fundamental de aceptar que una colección
+de objetos pueda ser un conjunto, pero se impone la condición de que
+todos los objetos de una colección deben haberse formado antes de
+definir dicha colección, y de esta manera se evitarán los problemas
+que conducen a las paradojas.
+
+Uno de los axiomas de la teoría (se verá más adelante) impondrá esta
+restricción: ”Si $X$ es un conjunto ya construido existe un conjunto
+$Y$ formado por los elementos de $X$ que satisfacen un predicado
+$P$ que los describe (o lo que es lo mismo, una fórmula con al menos
+una variable libre)”. Así un predicado describirá un conjunto sólo
+si los objetos han sido ya construidos (son de otro conjunto X) y
+además satisfacen el predicado. Con esta restricción a la definición
+de conjunto de Cantor desaparece la paradoja de Rusell ya que para
+que $A={x:x\notin x}$ sea un conjunto se debería tener un conjunto
+$X$ a partir del cual construirse; es decir, $A={x\in X:x\notin x}$.
+¿Cómo se resuelve la paradoja? 
+
+Al construirse a partir de un conjunto ya construido desaparece el
+problema. Ahora, para cualquier $b$ se verifica: $b\in A$ si y sólo
+si $b\in X$ y $b\notin b$. En realidad, puesto que la condición
+$b\notin b$ la cumplen todos, $A$ será el propio $X$. Además, es
+imposible que exista el conjunto de todos los conjuntos. 
+
+Desgraciadamente, Bertrand Russell descubrió que la axiomática de
+Frege era contradictoria.
+
+En efecto, uno de los axiomas básicos de Frege afirmaba lo a siguiente: 
+
+Para toda propiedad $\phi(X)$ definida en la teoría, existe un conjunto
+$Y$ cuyos elementos son exactamente los conjuntos $X$ que cumplen
+$\phi(X)$. En otros términos, Frege postulaba la existencia del conjunto
+$Y={X|\phi(X)}$. 
+
+Lo que Russell observó fue que esto podía aplicarse a $\phi(X)\equiv X\notin X$,
+que era una propiedad trivialmente definida en la teoría de Frege,
+de modo que debía existir un conjunto $R={X:X\notin X}$, que claramente
+nos lleva a la contradicción $R\in R\Leftrightarrow R\notin R$. 
+
+A partir de aquí la minuciosa lógica de Frege permitía probar con
+el mismo rigor que $2+2=4$ y que $2+2=5$, por lo que su teoría se
+volvía inservible. El mismo Russell, junto con A. N. Whitehead, present\'{ó}
+un tiempo después otra teoría axiomática que, al menos en apariencia,
+estaba exenta de contradicciones, si bien era tan inútil como la de
+Frege, esta u vez no por contradictoria sino por complicada. Se trata
+de los Principia Mathematica. 
+
+La primera teoría axiomática construida por un matemático a gusto
+de los matemáticos fue la de Zermelo. La forma en que Zermelo evitó
+la paradoja de Russell fue debilitar el axioma de formación de conjuntos
+de Frege, reduciéndolo a: \begin{axioma}{Zermelo}Para toda propiedad
+$\phi(X)$ definible en la teoría y todo conjunto $U$ , existe un
+conjunto $Y$ cuyos elementos son exactamente los elementos $X\in U$
+que cumplen $\phi(X).$ \end{axioma}
+
+Así, lo que Zermelo postulaba era la existencia de 
+\[
+Y=\left\{ X\in U:\phi\left(X\right)\right\} .
+\]
+
+
+Ahora bien, este axioma sólo permite definir conjuntos a partir de
+otros conjuntos, por lo que Zermelo tuvo que añadir otros axiomas
+que garantizaran la existencia de aquellos conjuntos necesarios que
+no podían obtenerse como subconjuntos de otros conjuntos dados. Enseguida
+describiremos con detalle la axiomática de Zermelo, pero antes daremos
+a algunas indicaciones sobre la lógica matemática que subyace a toda
+teoría de conjuntos moderna.
+
+
+\subsubsection{El lenguaje de la Teoría de Conjuntos}
+
+Un lenguaje formalizado está constituido por un conjunto de símbolos
+básicos y por reglas que nos permiten formar expresiones más complicadas
+partir de esos símbolos originales. 
+
+A continuación presentamos el lenguaje formalizado $L_{\in}$ con
+le cual escribiremos la Teoría de Conjuntos. 
+
+Este lenguaje puede entenderse de dos maneras distintas: como lenguaje
+formal y como abreviaturas de expresiones en español. Esta segunda
+interpretación será posiblemente la conveniente en un curso introductorio
+como este.
+
+Los símbolos del lenguaje formal de la teoría de conjuntos serán:
+\begin{enumerate}
+\item Los símbolos de conjuntos serán las letras del alfabeto, mayúsculas
+y minúsculas, es decir: Variables: $x,y,z,X,Y,Z,x1,x2,...$, en general,
+las últimas letras del alfabeto latino, minúsculas o mayúsculas con
+o sin subíndices. Su significado es el habitual en matemáticas y su
+rango son los conjuntos.
+\item Constantes: $a,b,c,A,B,C,...$ , en general, las primeras letras del
+alfabeto latino. Sirven para referirnos a conjuntos específicos.
+\item El símbolo de la relación de pertenencia entre conjuntos es $\in$.
+\item Los símbolos lógicos de la lógica de predicados: ($\sim$negación),
+$\wedge$(conjunción), $\vee$(disyunción), $\rightarrow$(condicional),
+$\leftrightarrow$(bicondicional),$\Rightarrow$ (implicación), $\Leftrightarrow$o
+$\equiv$ (equivalencia), $\forall$ (cuantificador universal) y $\exists$
+(cuantificador existencial). Con estos signos básicos se generan todas
+las fórmulas de la teoría de con juntos. \medskip{}
+Cualquier cadena finita formada por estos símbolos es una expresión
+o del lenguaje, pero no toda expresión es aceptable o significativa.
+Sólo aceptaremos aquellas a las que llamaremos Fórmulas de $L_{\in}$ 
+\item $($, $)$ (paréntesis). Usados como signos de puntuación
+\item Las reglas de formación de fórmulas son las habituales en la lógica
+de primer orden. A saber:
+
+\begin{enumerate}
+\item $x\in y$ y $x=y$ son fórmulas. Para cualesquiera variables $x$,
+$y$. 
+\item Si  $\phi$ y $\psi$ son fórmulas, también lo son: $\sim\phi$, $\phi\wedge\psi$,
+$\phi\vee\psi$, $\phi\rightarrow\psi$y $\phi\leftrightarrow\psi$. 
+\item Si $\phi$ es una fórmula, $\left(\forall x\right)\phi$ y $\left(\exists x\right)\phi$
+también lo son.
+\end{enumerate}
+\end{enumerate}
+Solamente aquellas expresiones obtenidas por la aplicación de (un
+o número finito de) estas reglas es una fórmula de $L_{\in}$ . 
+
+Entonces el lenguaje $L_{\in}$ se generan mediante las reglas precedentes: 
+
+
+\section{Relaciones y axiomas en la teoría de conjuntos}
+
+\begin{tndefinido}{Conjunto y elemento}
+
+Los términos conjunto y elemento , los consideramos como primitivos
+, esto es no definidos. 
+
+\end{tndefinido}
+
+\begin{definicionn}{ Pertenencia}
+
+$a\in B$ significa que el objeto $a$ es un elemento del conjunto
+$B$
+
+\end{definicionn}
+
+\begin{definicionn}{ No pertenece}
+
+$a\notin A$ significa que el objeto $a$ no es un elemento del conjunto
+$A.$\end{definicionn}
+
+\begin{ejem} Dado el conjunto $A=\{1,2,3,4\}$ entonces $1\in A$,
+porque $1$ es un elemento de $A.$
+
+En cambio $b\notin A$, porque $b$ no es un elemento del conjunto
+$A.$
+
+\end{ejem}
+
+\begin{ideas}{Representación}
+
+Se dice que un nombre, diagrama o una proposición representa a un
+objeto si explica de forma precisa cuales son sus propiedades. 
+
+\end{ideas}
+
+Como ejemplos de representación están:
+\begin{enumerate}
+\item La fórmula $y=f(x)$ que representa al una función $f$.
+\item Si $A:=\{1,2,3,4,5\}$, en este caso $A$ representa al conjunto $\{1,2,3,4,5\}.$
+\item Los grafos dirigidos son diagramas que representan a las relaciones.
+\item Una tabla de datos es un diagrama que representa a una relación.
+\end{enumerate}
+\begin{ideas}{Igualad}
+
+Se dice que dos representaciones son iguales si representan al mismo
+objeto,
+
+\end{ideas}
+
+Por ejemplo $x=2$, en este caso los nombres equis y dos representan
+al mismo número.
+
+\begin{axioma}{Propiedades de la igualdad}
+\begin{enumerate}
+\item $\left(\forall x\right)\left(x=x\right),$ propiedad reflexiva.
+\item $\left(\forall x\right)\left(\text{\ensuremath{\forall}\ensuremath{y}}\right)\left(x=y\Longleftrightarrow y=x\right),$
+propiedad simétrica.
+\item $\left(\forall x\right)\left(\text{\ensuremath{\forall}\ensuremath{y}}\right)\left(\forall z\right)\left(x=y\wedge y=z\Rightarrow x=z\right),$
+propiedad transitiva.
+\end{enumerate}
+\end{axioma}
+
+El siguiente axioma nos muestra el uso de la idea de igualad. 
+
+\begin{axioma}{ (Axioma de extensión)}\label{A1}
+
+Dos conjuntos son iguales si y solo si tienen los mismos elementos.
+Esto es: el conjunto $A$ es igual al conjunto $B$ si todo elemento
+de $A$ es elemento de $B$ y si todo elemento de $B$ es elemento
+de $A$. 
+
+En el lenguaje $L_{\in}$ se expresa.
+
+$\forall x(x\in A\Leftrightarrow x\lyxmathsym{∈}B)\Rightarrow\left(A=B\right)$.
+\end{axioma}
+
+Este axioma nos permite demostrar la unicidad de muchos conjuntos
+definidos de alguna forma concreta. Haremos un ejemplo, dejando el
+resto de casos de unicidad como ejercicio, explícito o implícito: 
+
+\begin{ejem}{ Igualdad de conjuntos }
+
+Por ejemplo A = \{ Los ríos de de América\} y B = \{ Los Ríos de Colombia\}.
+
+Es claro que en Colombia no están todos los ríos de América, por tanto
+$A\neq B$, Es decir que los conjuntos $A$ y $B$ no tienen los mismos
+elementos.\end{ejem}
+
+Veamos otro ejemplo :
+
+El primer axioma de Zermelo, afirma que si dos conjuntos tienen los
+mismos elementos entonces son iguales (el recíproco es un caso particular
+de un principio lógico: si $X=Y$ entonces todo lo que vale para $X$
+vale para $Y$ ).
+
+Según hemos comentado en la introducción , el problema que presenta
+la fundamentación de la teoría de conjuntos es que no podemos permitirnos
+el lujo de postular que toda propiedad define un conjunto. 
+
+En su lugar, la teoría de Zermelo postula la existencia de conjuntos
+definidos por ciertas propiedades inofensivas (no como $X\notin X$).
+Tal vez el conjunto más inofensivo de todos sea el que nos da el axioma
+del conjunto vacío 
+
+\begin{axioma}{ Conjunto vacío} Existe un conjunto que no contiene
+ningún elemento.
+\[
+\left(\exists X\forall x\right)x\notin X
+\]
+
+
+\end{axioma}
+
+Este axioma afirma la existencia de un conjunto que no tiene elementos.
+Dicho conjunto es único, pues dos conjuntos sin elementos tendrían
+los mismos elementos, como lo probaremos mas adelante. Esto nos permite
+definir el término
+\[
+\textrm{\ensuremath{\emptyset}}\equiv\left\{ X:\left(\forall U\right)U\notin X\right\} .
+\]
+
+
+\nota\ Observe que $\emptyset$ no es un signo del lenguaje de la
+teoría de conjuntos, si no una abreviatura de un término que puede
+eliminarse de cualquier expresión sin más que sustituirla por el miembro
+derecho de la definición. 
+
+\begin{lema}{ Unicidad del vacío} Existe un único conjunto que no
+contiene ningún elemento.\end{lema} 
+
+\begin{dems}
+
+Según el axioma de extensión, dos conjuntos A y B son iguales si y solo si \[ \forall Z (Z\in A\Leftrightarrow Z\in B). \] Por otro lado, el axioma del conjunto vacío dice \begin{equation}\label{vacio} \exists Y\forall Z{\sim}(Z\in Y) \end{equation} Si suponemos que existen conjuntos $Y$ y $Y'$ que satisfacen la condición~\eqref{vacio} y $Y\neq Y'$; entonces es claro que, para todo $Z$, se satisface \[ Z\in Y\Leftrightarrow Z\in Y' \] pues ambas expresiones son falsas. Así, por el axioma de extensión resulta que $Y=Y'$.
+
+\end{dems}
+
+\begin{definicionn}{ Subconjunto}\label{subset}Decimos que $X$
+es subconjunto de $Y$ , en símbolos , $X\subseteq Y$ , si y sólo
+si todo elemento de $X$ es un elemento de $Y$. O sea,\label{subc}
+\[
+X\subseteq Y\Leftrightarrow\forall x(x\in X\Rightarrow x\in Y).
+\]
+
+
+\end{definicionn} Usando la definición \myref{subset} se puede escribirse
+más abreviado el axioma de extensión;
+\[
+\left(\forall X\text{\ensuremath{\forall}}Y\right)(X\subseteq Y\wedge Y\subseteq X\Rightarrow X=Y).
+\]
+
+
+\nota Si tenemos dos conjuntos $A$ y $B$ tal que $A\subseteq B$,
+de la definición \myref{subset} se sigue que es suficiente que exista
+al menos un elemento del conjunto $A$ que no sea elemento de $B$
+para que $A$ no sea subconjunto de $B,$ en este caso se dice que
+$A\nsubseteq B.$
+
+\begin{ejem}{ Subconjuntos }
+
+Dados dos conjuntos $A=\left\{ 1,3,5\right\} $ y $B=\left\{ 1,2,3,4,5,6,7\right\} $,
+que relación hay entre ellos
+
+\end{ejem}
+
+\solucion  La relación que existe entre ellos es que $A$ es subconjunto
+de $B$, es decir, $A\subseteq B.$ En efecto se observa por simple
+inspección que todo elemento de $A$ es también elemento de $B.$
+
+\begin{definicionn}{Subconjunto propio}\label{subcp}
+
+Decimos que un conjunto $X$ es un subconjunto propio de un conjunto
+$Y$, o parte de $Y$, si se verifica $X\subseteq Y$ y además existe
+algún $x\in Y$ tal que $x\notin X.$
+
+\end{definicionn}
+
+\notacion Si un conjunto $X$ es subconjunto propio de un conjunto
+$Y$ se denota $X\subset Y.$
+
+La definición de subconjunto propio también se puede expresar de la
+siguiente forma;
+\[
+X\subset Y\Leftrightarrow X\subseteq Y\,\wedge X\neq Y.
+\]
+
+
+\begin{ejem}{Subconjunto Propio}
+
+Dados los conjuntos $A=\left\{ 2,4,6\right\} $ y $B=\left\{ 1,2,3,4,5,6\right\} $.
+Indicar si $A$ es subconjunto propio de $B,$ 
+
+\end{ejem}
+
+\solucion Es evidente que $A\subseteq B$, además los elementos de
+$B$ $1,3$ y $5$ no pertenecen al conjunto $A,$ por tanto existe
+un elemento de $B$ que no está en $A.$ Por lo que podemos asegurar
+que $A\subset B$ de acuerdo con la definición \myref{subcp}.
+
+\begin{definicionn}{Comparables}
+
+Se dice que dos conjuntos $X$ e $Y$ son comparables si $A\subseteq B\vee B\subseteq A$.
+
+y se dice que no son comparables si $A\nsubseteq B\wedge B\nsubseteq A$.
+
+\end{definicionn}
+
+\begin{ejem}{Comparables}\label{cc}
+
+Dados los conjuntos $A=\left\{ a,e,i\right\} $ y $B=\left\{ a,e,o,i,u\right\} .$
+Determine si los conjuntos $A$ y $B$ son comparables.
+
+\end{ejem}
+
+\solucion
+
+Es evidente que $A\subseteq B,$ por tanto los conjuntos $A$ y $B$
+son comparables.
+
+\begin{ejem}{Comparables}
+
+Dados los conjuntos $M=\left\{ 1,5,7,8\right\} $ y $N=\left\{ 2,5,6,8,9\right\} .$
+Determine si los conjuntos $M$ y $N$ son comparables.
+
+\end{ejem}
+
+\solucion Los conjuntos $M$ y $N$ no son comparables ya que solo
+el elemento $5\in M$ está en $N$. Por tanto $M\nsubseteq N$ y solo
+el $5\in N$ está en $M$ de lo que se concluye que $N\nsubseteq M,$
+es decir $M\nsubseteq N\wedge N\nsubseteq M$ y de acuerdo con la
+definición \myref{cc} los conjuntos $M$ y $N$ no son comparables.
+
+\begin{axioma}{ Especificación o separación} \label{A3}A todo conjunto
+$A$ y a toda condición o fórmula $\psi=S(x)$, corresponde un conjunto
+$B$ cuyos elementos son precisamente aquellos elementos de $A$ que
+cumplen $S(x)$. \end{axioma}
+
+El axioma de especificación en el lenguaje $L_{\in}$ se escribe 
+\[
+\left(\forall A\exists B\right)\left(\forall z\right)\left(z\in B\Leftrightarrow\left(z\in A\wedge S\left(x\right)\right)\right)\,\mbox{ó \ensuremath{B=\left\{ x\in A\,:\,\psi=S(x)\right\} .}}
+\]
+
+
+Este axioma nos dice que para cualquier propiedad (expresada por $S(x)$)
+y cualquier conjunto $A$ existe el subconjunto de $A$ formado por
+los elementos que verifican esa propiedad. Obviamente este conjunto
+es único. 
+
+Este Axioma ayuda a construir subconjuntos de un conjunto dado.
+
+\begin{definicionn}{}Si $S(x)$ es una fórmula de $L_{\in}$ y $A$
+un conjunto, el conjunto cuya existencia está garantizada por el axioma
+\myref{A3} se denotará con el símbolo ${x\in A\,:\, S(x)}$ y se
+lee “el conjunto de los elementos de $A$ tales que cumplen $S(x)$”.
+\end{definicionn}
+
+Por último, cabe destacar que este no es propiamente un axioma si
+no más bien un esquema. En efecto, para cada fórmula $S(x)$ de $L_{\in}$
+tenemos un axioma distinto, o sea, hay una cantidad ilimitada de instancias
+para este axioma.
+
+Recordemos que la paradoja de Russell se produce al tratar de construir
+el conjunto de todos los conjuntos que verifican una propiedad cualquiera
+$S(x)$. Este axioma limita nuestra capacidad de formar conjuntos
+de objetos que verifican una cierta propiedad, sólo podemos referirnos
+a aquellos elementos que perteneciendo a un cierto conjunto dado,
+verifican la propiedad en cuestión. Veamos que esta restricción evita
+que se produzca la paradoja.
+
+Para ello tratemos de formar la clase de Russell. Dado un conjunto
+$A$ , el axioma de extensión nos permite formar el conjunto 
+\[
+R=\left\{ x\in A:x\notin x\right\} 
+\]
+En este caso tenemos que si $R\in A$ y $R\notin R,$
+
+lo cual es contradicción, luego $R\notin R$, lo que, que a diferencia
+de antes, no es contradictorio, sólo implica que $R\notin A$.
+
+\begin{teorema}{}
+
+No hay ningún conjunto $A$ tal que $\forall x\left(x\in A\leftrightarrow x\notin x\right),$
+es decir el conjunto $R=\left\{ x\,:\, x\notin x\right\} $ no existe.
+
+\end{teorema}
+
+\begin{dems}
+
+Vamos a efectuar una prueba indirecta.
+
+Es decir suponemos que existe un conjunto $A$ tal que 
+\[
+\forall x\left(x\in A\leftrightarrow x\notin x\right).
+\]
+Este vale en particular para el caso $x=A,$ de modo que 
+\[
+A\in A\leftrightarrow A\notin A
+\]
+lo cual es contradictorio. 
+
+\end{dems}
+
+Si bien hay un conjunto mínimo, el conjunto vacío, veremos ahora que
+no hay un conjunto máximo. El proceso de construcción de conjuntos
+no puede darse nunca por acabado.
+
+\begin{teorema}{Conjunto de todos los conjuntos}
+
+No existe el conjunto de todos los conjuntos, es decir $\left(\sim\exists A\forall x\right)\left(x\in A\right)$
+\end{teorema}
+
+\begin{dems}
+
+Supongamos que si existe el conjunto de todos los conjuntos y llamaremos
+$A$, con la propiedad de que $\left(\forall x\right)\left(x\in A\right)$.
+Entonces podemos aplicar el axioma \ref{A3} (axioma de separación)
+al conjunto $A$ con la proposición $x\notin x$, obteniendo de ese
+modo el conjunto $B=\left\{ x\,:\, x\in A\wedge x\notin x\right\} .$
+Sin embargo la propiedad $x\in A\wedge x\notin x$ se puede sustituir
+por $x\notin x$, porque la propiedad $x\in A$ la verifican todos
+los objetos$x.$ al efectuar la sustitución obtenemos el conjunto
+$B=\left\{ x\,:\, x\notin x\right\} $, pero ese conjunto no existe
+, lo cual es una contradición.
+
+\end{dems}
+
+\begin{axioma}{ Axioma de Pares}
+
+Dados dos conjuntos $X$ e $Y$, existe un conjunto cuyos únicos elementos
+son $X$ e $Y.$
+
+Su expresión en el lenguaje $L_{\in}$ es 
+\[
+\left(\forall X\forall Y\exists Z\right)\forall x\left(x\in Z\Leftrightarrow\left(x=X\vee x=Y\right)\right)\,\acute{o}\: Z=\left\{ X,Y\right\} .
+\]
+
+
+\end{axioma}
+
+Resulta claro por el axioma \ref{A1} que este conjunto es único.
+Lo denotaremos 
+\[
+\{X,Y\}
+\]
+ y lo llamaremos par no ordenado $X,Y$.
+
+El axioma \ref{A1}también garantiza de un conjunto cuyo único elemento
+es el conjunto $X$
+
+\[
+\left\{ X,X\right\} =X,
+\]
+
+
+\begin{ejem}{ conjunto $\left\{ \emptyset\right\} $ }
+
+Tomando $X=Y=\emptyset,$ llegamos a la conclusión de que $\left\{ \emptyset\right\} $
+es un conjunto no vacío, ya que contiene un elemento. Ahora si tomamos
+$X=\emptyset,\, Y=\left\{ \emptyset\right\} ,$ llegamos a la conclusión
+que $\left\{ \emptyset,\left\{ \emptyset\right\} \right\} $ es un
+conjunto con dos elementos. 
+
+\end{ejem}
+
+
+\section{Operaciones entre conjuntos}
+
+En realidad, los axiomas que tenemos hasta ahora sólo garantiza la
+existencia del conjunto vacío, y la existencia de conjuntos más pequeños
+a partir de conjuntos ya conocidos. los siguientes axiomas nos permitirán
+construir conjuntos más grandes.
+
+El siguiente axioma nos permite construir uniones arbitrarias de conjuntos
+(siempre que los conjuntos que queramos anexar formen un conjunto:
+recordemos que no existe el conjunto de todos los conjuntos).
+
+\begin{axioma}{Union de conjuntos}\label{union}
+
+Para todo conjunto $S,$ existe un conjunto, que denotaremos $\bigcup S,$
+tal que $x\in\bigcup S$ si y sólo si $x\in X$ para algún $X\text{\ensuremath{\in}\ensuremath{S}.}$
+
+\end{axioma}
+
+\nota  El conjunto $\bigcup S$ es la unión de los subconjuntos $X$
+de $S.$
+
+\begin{ejem}{Union de conjuntos} Si $S=\left\{ X,Y\right\} ,$ entonces
+obtenemos la unión de $X$ e $Y,$ que denotamos $X\cup Y.$ Además,
+tomando $S=\left\{ X\cup Y,Z\right\} ,$ podemos obtener $\left(X\cup Y\right)\cup Z$
+y en general, la unión de un número finito de conjuntos.
+
+\end{ejem}
+
+\nota Si $S=\left\{ X,Y\right\} $ el conjunto $\bigcup S$ se puede
+definir como: 
+\[
+\bigcup S=X\cup Y=\{x\,:\: x\in X\vee x\in Y,\: X,Y\in S\}.
+\]
+
+
+\begin{ejem}{Union}
+
+Dado el conjunto $S=\left\{ \left\{ 1,2,3\right\} ,\left\{ 0,2,4,6\right\} ,\left\{ 5,7,9\right\} ,\left\{ a,b,c,d\right\} \right\} $.
+Determine $\bigcup S.$
+
+\end{ejem}
+
+\solucion Sean $X_{1}=\left\{ 1,2,3\right\} ,\, X_{2}=\left\{ 0,2,4,6\right\} ,\, X_{3}=\left\{ 5,7,9\right\} $
+y $X_{4}=\left\{ a,b,c,d\right\} ,$ tenemos que los elementos $1,2,3$
+están $\bigcup S$ porque son elementos $X_{1}$ de la misma forma
+podemos decir que los elementos $0,2,4,6;$ $5,7,9;$ y $a,b,c,d$
+están en $\bigcup S$ porque pertenecen a los conjuntos $X_{2},X_{3}$
+y $X_{4}$ respectivamente, entonces de acuerdo con el axioma \myref{union}
+$\bigcup S=X_{1}\cup X_{2}\cup X_{3}\cup X_{4}=\left\{ 0,1,2,3,4,5,6,7,9,a,b,c,d\right\} $.
+
+Aplicando el axioma de separación podemos demostrar la existencia
+del la intersección de conjuntos
+
+\begin{lema}{Intersección de conjuntos}\label{interseccion}
+
+Dados dos conjuntos, $X,Y,$ existe un (único) conjunto $Z$ tal que
+$x\in Z$ si y sólo si $x\in X$ y $x\in Y.$
+
+\end{lema}
+
+\begin{dems} 
+
+Definamos la propiedad $P\left(x\right)$ que sea $x\in Y.$ Entonces,
+por el axioma de separación , existe el conjunto $Z=\left\{ x\in X\,:\, P\left(x\right)\right\} $
+, que es el conjunto buscado. La demostración de la unicidad se deja
+como ejercicio, esto se demuestra a partir del axioma de Extensión.
+
+\end{dems}
+
+\begin{definicionn}{Intersecci\'on de conjuntos}\label{inter}
+
+El conjunto $Z$ cuya existencia acabamos de demostrar se llama intersección
+de $X$ e $Y,$y se denota $Z=X\cap Y.$
+
+De acuerdo con el lema \myref{interseccion} podemos definir la intersección
+entre dos conjuntos $X$ e $Y$ como: 
+\[
+\mbox{\ensuremath{X}\ensuremath{\cap}\ensuremath{Y=\ensuremath{\left\{ x\,:\, x\in X\wedge x\in Y\right\} }.}}
+\]
+
+
+\end{definicionn}
+
+\begin{ejem}{Intersección}
+
+Dados conjuntos $A=\left\{ -1,0,1,2,3,4,5\right\} $ y $B=\left\{ 1,2,3,4,5,6,7,8,9\right\} .$
+Determine $A\cap B.$ 
+
+\end{ejem}
+
+\solucion Sean las proposiciones abiertas $A_{x}=x\in A$, $B_{x}=x\in B$
+y $\left(A\cap B\right)_{x}=x\in\left(A\cap B\right)\equiv x\in X\wedge x\in B.$
+Usemos las tablas de verdad para resolver la proposición $x\in X\wedge x\in B.$
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la Intersección de conjuntos.}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{cc|c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$x$ & \cellcolor{ptctitle!50}$A_{x}$ & \cellcolor{ptctitle!50}$B_{x}$ & \cellcolor{ptctitle!50}$\left(A\cap B\right)_{x}$\tabularnewline
+\hline\cellcolor{ptcbackground}$-1$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $f$ & \cellcolor{ptcbackground}$f$\tabularnewline
+\hline\cellcolor{gray!50}$0$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50} $f$ & \cellcolor{gray!50}$f$\tabularnewline
+\hline\cellcolor{ptcbackground}$1$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$2$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50}$v$\tabularnewline
+\hline\cellcolor{ptcbackground}$3$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $v$\tabularnewline
+\hline\cellcolor{gray!50}$4$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50} $v$\tabularnewline
+\hline\cellcolor{ptcbackground}$5$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $v$\tabularnewline
+\hline\cellcolor{gray!50}$6$ & \cellcolor{gray!50} $f$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50} $f$\tabularnewline
+\hline\cellcolor{ptcbackground}$7$ & \cellcolor{ptcbackground} $f$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $f$\tabularnewline
+\hline\cellcolor{gray!50}$8$ & \cellcolor{gray!50} $f$ & \cellcolor{gray!50} $v$ & \cellcolor{gray!50} $f$\tabularnewline
+\hline\cellcolor{ptcbackground}$9$ & \cellcolor{ptcbackground} $f$ & \cellcolor{ptcbackground} $v$ & \cellcolor{ptcbackground} $f$\tabularnewline
+\end{tabular}
+
+\label{tinter}
+\end{table}
+
+
+En la ultima columna de la tabla \ref{tinter} tenemos que los elementos
+que están en $A\cap B$ son $1,2,3,4$ y $5$ ya que $\left(A\cap B\right)_{x}$
+es verdadera . Entonces
+\[
+A\cap B=\left\{ 1,2,3,4,5\right\} .
+\]
+ \begin{definicionn}{Conjuntos Disjuntos}
+
+Sean $X$ e $Y$ se dicen que son disjuntos $\left(\nexists x\right)\left(x\in X\vee x\in Y\right)$ 
+
+\end{definicionn}
+
+\begin{teorema}{Diferencia de conjuntos}
+
+Dados dos conjuntos $X,Y,$ existe un (único) conjunto $Z$ tal que
+$x\in Z$ si y sólo si $x\text{\ensuremath{\in}\ensuremath{X}}$y
+$x\text{\ensuremath{\notin}\ensuremath{Y}.}$ Dicho conjunto se llama
+diferencia de los conjuntos $X$ e $Y.$ 
+
+\end{teorema}
+
+La demostración queda de tarea.
+
+\begin{definicionn}{Diferencia simétrica}
+
+Dados dos conjuntos $X,Y,$ se llama diferencia simétrica de $X$
+e $Y$ al conjunto $X\bigtriangleup Y:=\left(X-Y\right)\cup\left(Y-X\right)$
+
+\end{definicionn}
+
+\begin{axioma}{Conjunto Potencia} Dado cualquier conjunto $X,$ existe
+un conjunto, que denotaremos $\mathcal{P}\left(X\right)$ tal que
+$x\in\mathcal{P}\left(X\right)$ si y sólo si $x$ es un subconjunto
+de $X.$ 
+
+\end{axioma}
+
+
+\paragraph{Algunas propiedades del Conjunto Potencia}
+
+  \def\po#1{\mathcal{P}(#1)}
+Recuerda que si $A$ es un conjunto, la colección que tiene por elementos a los subconjuntos de $A$ es un conjunto al que denotamos $\po{A}$ y llamamos el conjunto potencia de $A$. Por ejemplo, 
+\begin{enumerate} 
+\item $\po{\emptyset}=\{\emptyset\}$ 
+\item $\po{\{a\}}=\{\emptyset, \{a\}\}$ 
+\item $\po{\{a,b\}}=\{\emptyset, \{a\},\{b\},\{a,b\}\}$ 
+\end{enumerate}
+Nota que el conjunto potencia de un conjunto $A$ siempre tiene como elementos al conjunto vacío $\emptyset$ y a $A$ mismo. En particular,  $\po{A}$ siempre es diferente del vacío. 
+
+\begin{definicionn}{Conjunto universal}\label{uni}
+
+Sea $X$ un conjunto y sea $P(x)$ una condición definida $\psi=P\left(x\right):=P_{1}\left(x\right)\wedge P_{2}\left(x\right)\wedge P_{3}\left(x\right)\wedge\cdots\wedge P_{n}\left(x\right)$,
+entonces por el axioma de separación existe un conjunto definido $U:=\{x\in X\,:\,\psi=P\left(x\right).$
+A este conjunto se le llama conjunto universal o de referencia. 
+
+\end{definicionn}
+
+Teniendo el conjunto universal como referencia podemos aplicar el
+axioma de separación de la siguiente manera:
+
+Sea $U$ el conjunto Universal y sea la condición $\psi=P^{j}\left(x\right):=\{P_{1}\left(x\right)\wedge P_{2}\left(x\right)\wedge P_{3}\left(x\right)\wedge\cdots\wedge P_{j}\left(x\right)$
+ó cualquier conjunción de propiedades $P_{i}(x)$\}, con $i\leq j<n$.
+Por el axioma de separación existe un conjunto $A_{j}=\left\{ x\in U\,:\,\psi=P\left(x\right)\right\} ,$
+pero en este caso $A_{j}$ no es único , si no que es una colección
+de subconjuntos de $U.$
+
+Por esta razón es que el conjunto Universal lo podemos definir como
+el conjunto que contiene todos los elementos que poseen las propiedades
+de referencia que nos interesa.
+
+\nota Observe que el conjunto $X$ utilizado para definir el conjunto
+universal es su vez un conjunto universal. Pero esto de ningún modo
+establece una contradicción, porque el conjunto universal es solo
+un conjunto de referencia que tomamos para construir una colección
+de subconjuntos, es decir cualquier conjunto con dos o más elementos
+nos puede servir de referencia.
+
+\begin{definicionn}{Complemento de un conjunto}
+
+Sean $X,Y$ conjuntos tales que, $Y\subset X,$ definimos utilizando
+el axioma de separación, un conjunto con la propiedad: $x\in X\wedge x\notin Y$
+dicho conjunto llameremos complemento del conjunto $Y$ con respecto
+al conjunto $X$ y lo notaremos $Y_{X}^{c}$.
+
+\end{definicionn}
+
+\nota En el caso que definamos un conjunto universal $U$ tal que
+$X\subset U$ denotamos el complemento de $X$ con respecto a $U$
+como $X^{c}$.
+
+
+\section{Propiedades de los conjuntos}
+
+Ahora podemos hacer una relación entre la teoría axiomática de conjuntos
+y la teoría intuitiva vista en secundaria.
+
+Sea $U$ el conjunto referencia definido en la definición \ref{uni}
+podemos establecer el producto $U\times U$ y luego las operaciones
+de la forma %
+\begin{tabular}{cccc}
+$\oplus$ : & $U\times U$ & $\rightarrow$ & %
+$U$%
+\tabularnewline
+ & $\left(A,B\right)$ & $\mapsto$ & $C=A\oplus B$\tabularnewline
+\end{tabular}.
+
+
+\paragraph{Unión de conjuntos}
+
+Sean $A,B\subseteq U$ se define el conjunto $A\text{\ensuremath{\cup}\ensuremath{B=\ensuremath{\left\{ x\,:\, x\in A\vee x\in B\right\} }}}$.
+
+
+\paragraph{Intersección de conjuntos}
+
+Sean $A,B\subseteq U$ se define el conjunto $A\text{\ensuremath{\cap}\ensuremath{B=\ensuremath{\left\{ x\,:\, x\in A\wedge x\in B\right\} }}}$.
+
+
+\paragraph{Algunas propiedades de la unión y la intersección son las siguientes.}
+
+\begin{teorema}{Propiedades de la unión y la intersección} Si $A$, $B$ y $C$ son conjuntos, entonces: \begin{enumerate} 
+\item $A\cap A=A$ y $A\cup A=A$ \hfill {\sc (Idempotencia)} 
+\item $A\cap B=B\cap A$ y $A\cup B=B\cup A$ \hfill {\sc (Conmutatividad)} 
+\item $(A\cap B)\cap C=A\cap(B\cap C)$ y $(A\cup B)\cup C=A\cup(B\cup C)$ \hfill {\sc (Asociatividad)}
+\item $C\cup (A\cap B)=(C\cup A)\cap (C\cup B)$ y $C\cap (A\cup B)=(C\cap A)\cup (C\cap B)$ \hfill {\sc (Distributividad)}
+\item  $A\cap \emptyset= \emptyset$ y $A\cup \emptyset =A$ 
+\end{enumerate}
+\end{teorema}
+
+
+\paragraph{Diferencia de conjuntos}
+
+Sean $A,B\subseteq U$ se define el conjunto $A\backslash B=A\text{-\ensuremath{B=\left\{ x\,:\, x\in A\wedge x\notin B\right\} }}$.
+
+\newcommand{\dif}{\backslash}
+\begin{teorema}{Propiedades de la diferencia} Si $A$ es un conjunto, entonces  
+\begin{enumerate} 
+\item $A-\emptyset = A$ 
+\item $\emptyset- A= \emptyset$    
+\item $A- A=\emptyset$ 
+\end{enumerate} 
+\end{teorema}
+
+
+\section{Representación de conjuntos}
+
+Cuando tenemos definido un conjunto de referencia podemos usar diagrama
+para representar los conjuntos sus operaciones y sus relaciones. estos
+diagramas se llaman de Venn y consisten el dibujar un rectángulo que
+representa al conjunto de referencia y dentro de el dibujamos con
+ovalos o circunferencias sus subconjuntos.
+
+
+\subsection{Diagrama de Venn}
+
+Sea $U$ el conjunto de referencia y $A\subseteq U$ el siguiente
+diagrama los representa.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[scale=0.7]  \fill[gray!20]\rectangulo;         \fill[blue!20] \fourcircle ;   \draw[thick] \fourcircle node [above](c2) {$B$};     \draw[thick] \rectangulo node [below left of=c2, yshift=2.0cm, xshift=2.5cm]  {$U$};     \end{tikzpicture} 
+\caption{Diagrama de Venn- Euler} 
+\label{venn}
+\end{figure}  
+
+En los diagramas de Venn-Euler se representa el conjunto de referencia
+con un rectángulo, y los subconjuntos se representan con círculos
+o elipses, como se muestra en la figura \ref{venn}. 
+
+
+\subsubsection{Subconjuntos}
+
+\begin{figure}[H]
+\centering
+ \begin{subfigure}[b]{0.30\textwidth}
+\centering
+\begin{tikzpicture}[scale=0.5,every node/.style={scale=0.5}] 
+\fill[gray!20]\rect;        
+\fill[blue!20] \fourcircle ;    
+     \fill[red!20] \fivecircle ;  
+      \draw[thick] \fivecircle node [above](c3) {$A$}; 
+ \draw[thick] \fourcircle node [above](c2) {$B$};  
+  \draw[thick] \rect node [below left of=c2, yshift=2.3cm, xshift=2.7cm]  {$U$};
+    \end{tikzpicture}   
+ \caption{$A\nsubseteq B$}   
+ \label{subfig1}    
+\end{subfigure}\hspace{25pt}     
+   \begin{subfigure}[b]{0.30\textwidth} 
+\centering
+   \begin{tikzpicture}[scale=0.5,every node/.style={scale=0.5}] 
+   \fill[gray!30,thick] \rectangulo;  
+        \fill[red!30,thick] \secondcircle;   
+       \fill[blue!30,thick] \sevencircle;  
+\draw[thick] \sevencircle node [above](c1) {$A$};
+    \draw[thick] \secondcircle node [above right of=c1](c2) {$B$};  
+      \draw[thick] \rectangulo node [below right of=c2, yshift=1.8cm, xshift=1.1cm]  {$U$};
+                            \end{tikzpicture}                
+   \caption{$A \subseteq B$}    
+\label{subfig2}  
+                 \end{subfigure} 
+          \begin{subfigure}[b]{0.30\textwidth}
+\centering
+               \begin{tikzpicture}[scale=0.5,every node/.style={scale=0.5}]                    \fill[gray!30,thick] \rectangulo;
+          \fill[red!30,thick] \secondcircle; 
+         \fill[blue!30,thick] \firstcircle;
+    \draw[thick]\firstcircle node[below](c1) {$A$}; 
+   \draw[thick] \secondcircle node [above](c2) {$B$};
+       \draw[thick] \rectangulo node [below left of=c2, yshift=2.3cm, xshift=2.7cm]  {$U$};
+         \end{tikzpicture}   
+       \subcaption{$A\nsubseteq B$}
+    \label{subfig3}    
+      \end{subfigure} 
+        \caption{Contenencia De Conjuntos} 
+         \label{subcfig}
+        \end{figure} 
+
+En la figura \ref{subcfig} observamos en la figuras \ref{subfig1}
+y \ref{subfig3} que el circulo que representa al conjunto $A$ no
+se encuentra totalmente en el interior del circulo que representa
+al conjunto $B$, por tanto decimos que $A\nsubseteq B,$ mientras
+que el figura \ref{subfig2} si se da que el circulo que representa
+al conjunto $A$ si se encuentra en el interior del circulo que representa
+al conjunto $B$, por tanto podemos decir que $A\subset B.$
+
+\begin{ejem}{Subconjunto}\label{sub2}
+
+Consideremos los siguientes conjuntos: $A=\left\{ 1,3,5,7\right\} ,\, B=\left\{ 1,3,5,7,9,11\right\} ,\, M=\left\{ a,b,c,d,e\right\} $
+y $N=\left\{ b,c,d,m,n\right\} .$ Que podemos afirmar sobre la relación
+entre $A$ y $B$, e $M$ y $N.$ 
+
+\end{ejem}
+
+\solucion 
+\begin{lyxlist}{00.00.0000}
+\item [{i)}] $A\subseteq B,$ porque todos los elementos de $A$ están
+en $B.$
+\item [{ii)}] $M\nsubseteq N,$ porque algunos elementos de $M$, $m\text{\,\ \ensuremath{\mbox{y }}}n$
+no están en $N.$
+\end{lyxlist}
+Este ejemplo se puede representar usando los diagramas de Venn-Euler
+como se muestra en la figura \ref{sub}
+
+\begin{figure}[H] 
+\centering 
+\begin{subfigure}[b]{0.40\textwidth}  
+ \centering 
+   \begin{tikzpicture}[scale=0.8,every node/.style={scale=0.8}] 
+            \fill[red!30,thick] \secondcircle; 
+         \fill[blue!30,thick] \sevencircle; 
+         \draw[thick] \sevencircle node [above](c1) {$A$};
+         \draw[thick] \secondcircle node [above right of=c1](c2) {$B$};
+         \node at (1,2.3) {11};           \node at (2.5,1.5) {9};
+          \node at (0.6,0.8) {1};           \node at (1,0.6) {4};
+          \node at (1.4,0.9) {3};           \node at (0.8,1.3) {5};  
+                     \end{tikzpicture} 
+     \caption{$A \subseteq B$} 
+     \label{subfig4}   
+   \end{subfigure} 
+  \begin{subfigure}[b]{0.40\textwidth}
+   \centering 
+    \begin{tikzpicture}[scale=0.8,every node/.style={scale=0.8}] 
+                            \fill[red!30,thick] \secondcircle; 
+         \fill[blue!30,thick] \firstcircle;
+          \draw[thick]\firstcircle node[below](c1) {$M$}; 
+         \draw[thick] \secondcircle node [above](c2) {$N$};
+          \node at (0.6,0.8) {c};           \node at (0.6,-0.5) {e}; 
+         \node at (-0.5,0.1) {a};           \node at (1,2.5) {m};
+          \node at (2,1) {n};           \node at (1.1,0.2){d}; 
+         \node at (0.2,1.2) {b};  
+           \end{tikzpicture}  
+     \subcaption{$A\nsubseteq B$}  
+    \label{subfig5}   
+     \end{subfigure}       
+  \caption{Ejemplo \ \myref{sub2}} 
+\label{sub}
+  \end{figure}   
+
+
+\paragraph{Unión de conjuntos}
+
+Sean $A,B\subseteq U$ el conjunto $A\text{\ensuremath{\cup}\ensuremath{B}}$
+se representa 
+
+\begin{figure}[H]
+\centering
+\begin{venndiagram2sets}[shadeA=red,shadeB=red,tikzoptions={scale=0.8,thick,opacity=0.8}]
+\fillNotAorB 
+\fillA\fillB
+\end{venndiagram2sets}
+\end{figure}
+
+Sean $A,B\subseteq U$ el conjunto $A\text{\ensuremath{\cap}\ensuremath{B}}$
+se representa 
+
+\begin{figure}[H]
+\centering
+\begin{venndiagram2sets}[shadeA=red,shadeB=red,tikzoptions={scale=0.8,thick,opacity=0.8}]
+\fillA
+\fillB
+\fillNotAorNotB 
+\end{venndiagram2sets}
+\end{figure}
+
+Sean $A,B\subseteq U$ el conjunto $A\text{-\ensuremath{B}}$ se representa 
+
+\begin{figure}[H]
+\centering
+\begin{venndiagram2sets}[shadeA=red,tikzoptions={scale=0.8,thick,opacity=0.8}]
+\fillNotB
+\fillA \fillB
+
+\end{venndiagram2sets}
+\end{figure}
+
+\label{sec:problema} \problemas{ 
+
+\begin{enumerate} 
+\item Demuestra que si $A$ es un conjunto, la colección de todos los objetos que no son elementos de $A$ no es un conjunto. 
+\item $A\cap B=A\dif (A\dif B)$. 
+\item Si $A\cup B\subset C$, entonces $A\dif B=A\cap (C\dif B)$. 
+\item $A\subset B$ si y sólo si para todo conjunto $E$, $E\dif B\subset E\dif A$. 
+\item $A\dif (B\dif C)=(A\dif B)\cup (A\cap C)$.
+\item Muestra por medio de ejemplos que las siguientes proposiciones son falsas:  \begin{enumerate}   
+\item $A\dif B=B\dif A$.   
+\item Si $A\subset B\cup C$ entonces $A\subset B$ o $A\subset C$. 
+\end{enumerate} 
+\newcommand{\tri}{\triangle} 
+\item Definimos la \emph{diferencia simétrica} de $A$ y $B$ como el conjunto $(A\dif B)\cup (B\dif A)$ y lo denotamos por $A\tri B$. Demuestra que:  
+\begin{enumerate}    
+\item $A\tri \emptyset=A$.    
+\item $A\tri B=\emptyset$ si y sólo si $A=B$.  
+ \item Si $A\tri B= A\tri C$, entonces $B=C$.  
+\end{enumerate} 
+\item $A\times B=\emptyset$ si y sólo si $A=\emptyset$ o $B=\emptyset$. 
+\item $A\times B=B\times A$ si y sólo si $A=B$. 
+\item $A\times (B\cup C)=(A\times B)\cup (B\times C)$. 
+\item $A\times (B\cap C)=(A\times B)\cap (B\times C)$. 
+\item Usando las leyes de De Morgan y el ejercicio 4 enuncia y demuestra las igualdades duales de los siguientes enunciados:
+ \begin{enumerate}   
+\item $A\cup(B\cup C)=(A\cup B)\cup C$.    
+\item $A\cap\big(\underset{i\in I}{\bigcup}B_i\big)=            \underset{i\in I}{\bigcup}(A\cap B_i)$  
+\end{enumerate} 
+\item $\po{A} \cap \po{B}=\po{A\cap B}$ 
+\item $\po{A} \cup \po{B}\subset\po{A\cup B}$  
+\item Muestra con un ejemplo que la igualdad en el ejercicio 14 no siempre se cumple.  \end{enumerate}
+%%%%%%%%%%%%%%
+\item  Determinar por extensión los siguientes conjuntos
+\begin{enumerate}
+\item $A=\left\{ x\in I\! N\,:\, x\leq3\vee5<x<7\right\} $
+\item $B=\left\{ y\in\mathcal{\mathfrak{\mathcal{\mathbb{Z}}}}\,:\, y=x^{2}-1\wedge-1<x<3,\, x\in\mathbb{Z}\right\} $
+\item $C=\left\{ y\in\mathrm{\mathbb{Z\,\mathrm{:}\,\mathrm{y}=\mathrm{3-5x\wedge-2<x<5\wedge3\leq x\leq8,}\,\mathrm{x}\in Z}}\right\} $
+\end{enumerate}
+\item  Determinar por compresión el conjunto $T=\left\{ -1,1,2\right\} $
+
+\item  Si $A=\left\{ 2,3,5,7\right\} $, indica cuales de las siguientes
+afirmaciones son verdaderas y cuales son falsas
+\begin{enumerate}
+\item $5\in A$
+\item $3\subset A$
+\item $\left\{ 7\right\} \subset A$
+\item $\left\{ 3,5\right\} \in A.$
+\end{enumerate}
+\item  Si $A=\left\{ x\in I\! N\,:\, x\leq2\vee x=7\right\} ,$ hallar
+todos los subconjuntos propios de $A.$
+
+\item  Dados los siguientes conjuntos
+
+$A=\left\{ y\in\mathbb{Z}\::\, y=7x+2\wedge x\in\mathbb{Z}\right\} ,\,$
+
+$B=\left\{ y\in\mathbb{Z}\,:\: y=7x-26\wedge x\in\mathbb{Z}\right\} ,\,$ 
+
+$C=\left\{ y\in\mathbb{Z}\text{\,:\,\ \ensuremath{y}\ensuremath{=4x+1\wedge x\in\mathbb{Z}}}\right\} $
+y 
+
+$D=\left\{ y\in\mathbb{Z}\,:\: y=2x+1\wedge x\in\mathbb{Z}\right\} ,$
+analizar y justificar debidamente su conclusión en cada caso:
+\begin{enumerate}
+\item $A=B$
+\item $C=D$
+\item $C\subset D$
+\item $A\cup B$=$A$
+\item $C\cap D=\left\{ \right\} $
+\end{enumerate}
+\item  Sean $U=\left\{ 1,2,3,4,5,6,7,8,9,0\right\} ,\, A=\left\{ 2,4,6,8\right\} $
+y $C=\left\{ 3,4,5\right\} .$ Al hallar un subconjunto $X$ de $U$
+tal que $X\subset C,\, x\nsubseteq A,\, X\nsubseteq B,$ cuántas soluciones
+existen.
+
+\item Cuántos de los siguientes conjuntos son vacíos:
+\begin{enumerate}
+\item $A=\left\{ x\in U\,:\: x\notin U\right\} $
+\item $B=\left\{ x\in\mathbb{Z}\,:\: y=x^{3}=3,\, y\in\mathbb{Z}\right\} $
+\item $C=\left\{ y\in I\! R\,:\, y=\frac{1}{x},x\in\mathbb{Z}\right\} $
+\item $D=\left\{ x\in\mathbb{Q}\,:\, x^{2}-1=2\right\} $
+\end{enumerate}
+\item Si $A,\, B$ y $C$ son conjuntos tal que $A\subseteq B\subseteq C$
+¿Cuál es la relación entre $C-B$ y $C-A$?
+
+\item  Si $A,\, B,\, C$ y $D$ son conjuntos. Demostrar las siguientes
+propiedades
+\begin{enumerate}
+\item Si $A\subseteq U,\: A\cup U=U$
+\item $B\subseteq A\cup B$
+\item Si $A\subseteq C\wedge B\subseteq C\Rightarrow A\cup B\subseteq C$
+\item $A\cap B\subseteq B$
+\item Si $A\subseteq C$ y $B\subseteq D\Rightarrow\mbox{\ensuremath{A\cap B\subseteq C\cap D}}$
+\item Si $A\subseteq U$, $A\cap U=A$
+\item Si $A\subseteq B\Rightarrow A\cap C\subseteq B\subseteq C,\forall C$
+\item $A-A=\emptyset$
+\item $\emptyset-A=\emptyset$
+\item $A\cap\left(B-C\right)=\left(A\cap B\right)-\left(A\cap C\right)$
+\item $A-\emptyset=\emptyset$
+\item $A-B\neq B-A$
+\item $\left(A-B\right)\subseteq A$
+\item Si $A\subseteq B\Rightarrow A-C\subseteq B-C,\,\forall C$
+\item Si $A\subseteq B\Rightarrow A-B=\emptyset$
+\item $B\cap\left(A-B\right)=\emptyset$
+\item Si $A$ y $B$ son disjuntos, entonces $A\cap B=\emptyset$
+\end{enumerate}
+\item  Si $A,\, B$ y $C$ son conjuntos y $U$ el conjunto definido
+en \myref{uni} demostrar las siguientes propiedades
+\begin{enumerate}
+\item $\left(A^{c}\right)^{c}=A$
+\item $A\cap A^{c}=\emptyset$
+\item Si $A\subseteq U,$ entonces $A\cup A_{U}^{c}=U$
+\item Si $A\subseteq B,$ entonces $B^{c}\subseteq A^{c}$
+\item $\left(A\cup B\right)^{c}=A^{c}\cap B^{c}$
+\item $\left(A\cap B\right)^{c}=A^{c}\cup B^{c}$
+\item $A\triangle A=\emptyset$
+\item $A\triangle\emptyset=A$
+\item $A\triangle B=B\triangle A$
+\item $\left(A\triangle B\right)\triangle C=A\triangle\left(B\triangle C\right)$
+\item $\left(A\triangle B\right)\cap C=\left(A\cap C\right)\triangle\left(B\cap C\right)$
+\item $\left(A\triangle B\right)\cup\left(B\triangle C\right)=\left(A\cup B\cup C\right)-\left(A\cap B\cap C\right)$
+\item $\emptyset_{r}^{c}=U$
+\item $U^{c}=\emptyset_{r}$
+\end{enumerate}
+\item  Dados los conjuntos $A=\left\{ a,c,d\right\} ,\, B=\left\{ e,f,g\right\} $
+y $C=\left\{ l,e,j,k\right\} ,$ hallar $A\cup\left(B\cap C\right).$
+
+\item Si $U=\left\{ a,b,c,d,e\right\} ,$ $A\cup B=\{a,c\}$ y $A-B=\left\{ b\right\} .$
+Hallar $A$ y $B.$
+
+\item  Considere los conjuntos $A=\left\{ x\in I\! N\,:\, x\right\} \mbox{es divisor de \ensuremath{12}}$,
+$B=\left\{ x\in I\! N\,:\, x\mbox{ es divisor de \ensuremath{18}}\right\} $
+y $C=\left\{ x\in I\! N\,:\, x\mbox{ es divisor de \ensuremath{16}}\right\} .$
+Hallar 
+\begin{enumerate}
+\item $\left(A-B\right)\cap\left(B-C\right)$
+\item $\left(A-B\right)\cup\left(B-C\right).$
+\end{enumerate}
+\item Dados los conjuntos $A=\left\{ 1,2,5,7,8\right\} ,$ $B=\left\{ 2,3,4,7,9\right\} ,$
+$C=\left\{ 1,3,5,6,8\right\} $ y $U=\left\{ x\in I\! N\,:\, x<10\right\} .$
+Hallar
+\begin{enumerate}
+\item $\left[\left(A\cup B\right)-\left(A\cap C\right)\right]^{c}$
+\item $\left[\left(A\cap B\right)-\left(A\cup B\right)\right]^{c}$
+\item $\left[\left(A-B\right)\cup\left(A-C\right)\right]^{c}$
+\item $\left[\left(A^{c}-B\right)\cap\left(A-C\right)\right]^{c}$
+\item $\left[\left(C-B^{c}\right)-\left(A^{c}\cup c\right)\right]^{c}$
+\item $\left(A^{c}-B^{c}\right)\triangle\left(B^{c}\cup C\right)^{c}$.
+\end{enumerate}
+\item Utilice el diagrama de Venn-Euler para demostrar las siguientes
+propiedades
+\begin{enumerate}
+\item $A\cup B=B\cup A$
+\item $A\cap B=B\cap A$
+\item $\left(A\cap B\right)\cap C=A\cap\left(B\cap C\right)$
+\item $\left(A\cup B\right)\cup C=A\cup\left(B\cup C\right)$
+\item $A^{c}\cap B^{c}=\left(A\cup B\right)^{c}$
+\item $A^{c}\cup B^{c}=\left(A\cup B\right)^{c}$
+\item $A-B=A\cap B^{c}$
+\item $A\subseteq A\cup B.$
+\end{enumerate}
+\item Utilice el diagrama de Venn-Euler para demostrar las siguientes
+propiedades
+\begin{enumerate}
+\item $A\cup B=B\cup A$
+\item $A\cap B=B\cap A$
+\item $\left(A\cap B\right)\cap C=A\cap\left(B\cap C\right)$
+\item $\left(A\cup B\right)\cup C=A\cup\left(B\cup C\right)$
+\item $A^{c}\cap B^{c}=\left(A\cup B\right)^{c}$
+\item $A^{c}\cup B^{c}=\left(A\cup B\right)^{c}$
+\item $A-B=A\cap B^{c}$
+\item $A\subseteq A\cup B.$
+\end{enumerate}
+\item Utilice el diagrama de Venn-Euler para demostrar las siguientes
+propiedades
+\begin{enumerate}
+\item $A\cup B=B\cup A$
+\item $A\cap B=B\cap A$
+\item $\left(A\cap B\right)\cap C=A\cap\left(B\cap C\right)$
+\item $\left(A\cup B\right)\cup C=A\cup\left(B\cup C\right)$
+\item $A^{c}\cap B^{c}=\left(A\cup B\right)^{c}$
+\item $A^{c}\cup B^{c}=\left(A\cup B\right)^{c}$
+\item $A-B=A\cap B^{c}$
+\item $A\subseteq A\cup B.$
+\end{enumerate}
+\item Utilice las tablas de verdad para demostrar las siguientes
+propiedades
+\begin{enumerate}
+\item $A\cup B=B\cup A$
+\item $A\cap B=B\cap A$
+\item $\left(A\cap B\right)\cap C=A\cap\left(B\cap C\right)$
+\item $\left(A\cup B\right)\cup C=A\cup\left(B\cup C\right)$
+\item $A^{c}\cap B^{c}=\left(A\cup B\right)^{c}$
+\item $A^{c}\cup B^{c}=\left(A\cup B\right)^{c}$
+\item $A-B=A\cap B^{c}$
+\item $A\subseteq A\cup B.$
+\end{enumerate}
+\item Utilice las leyes de inferencia para simplificar las siguientes
+proposiciones:
+\begin{enumerate}
+\item $A\cup\emptyset$
+\item $A\cap U$
+\item $A\cap\emptyset$
+\item $A\cap A^{c}$
+\item $\left(A^{c}\right)^{c}$
+\item $\left(A-B\right)^{c}$
+\end{enumerate}
+\item Pruebe: $A\cap B=A\Rightarrow A\subseteq B$
+
+\item  Sean $A$ y $B$ dos conjuntos no comparables. Hacer el diagrama
+lineal de $A,$ $B,$ $A\cap B,$ $A\cup B$ y el vacío. 
+
+
+				 
+
+}
+%\layout
+%\pagevalues
+
+\end{document}
