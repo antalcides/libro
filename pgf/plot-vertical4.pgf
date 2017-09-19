@@ -1,5 +1,0 @@
-\begin{tikzpicture}
-\tkzInit[xmax=5,ymax=5]
-\tkzAxeXY
-\tkzVLines[color = green]{1,2,...,4}
-\end{tikzpicture}

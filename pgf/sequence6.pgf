@@ -1,9 +1,0 @@
- \begin{tikzpicture}
-        \path[draw, thick, ->] (-.3,0) -- (6.3,0);
-        \foreach \x in {0,...,6}{
-            \path[draw, thick] (\x,0) -- ++(0,-.15) node [below] {\x};
-        }
-        \foreach \x/\name in {0/A,.6/B,1/C,1.5/D,2/E,2.3/F,3/G,3.3/H,4/I,4.6/J,5/K,5.5/L}{
-            \path[draw, fill=blue] (\x,0) circle[radius=2pt] node [above=2 mm, blue] {\name};
-        }
-    \end{tikzpicture}

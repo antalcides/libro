@@ -1,5 +1,0 @@
-\begin{tikzpicture}
-\tkzInit[xmax=80,xstep=20,ymax=2]
-\tkzAxeXY
-\tkzHLine[color=red]{exp(1)-1}
-\end{tikzpicture}

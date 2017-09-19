@@ -1,7 +1,0 @@
-\begin{tikzpicture}
-\foreach \x [count=\xi] in {2,...,4} {
-  \foreach \y  in {\x,...,4} {
-    \node at (\xi,\y) {(\xi,\y)};
-  }
-}
-\end{tikzpicture}
