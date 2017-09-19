@@ -1,0 +1,17 @@
+\usetikzlibrary{intersections}
+
+\tikzset{
+   name plot/.style={every path/.style={name path global=#1}}
+}
+
+
+\begin{tikzpicture}
+\tkzInit[ymax=15,xmax=4,ystep=5]
+\tkzAxeXY
+%
+\tkzFct[name plot=A,color=red,domain=0:4]{2*x**2+5}
+%
+\tkzFct[name plot=B,color=blue,domain=0:4]{-x**3+15}
+%
+\draw [name intersections={of=A and B, by=AxB},fill] (AxB) circle (2pt);
+\end{tikzpicture}

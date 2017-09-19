@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+  \begin{axis}[
+  ymin = -1,
+  ymax = 1,
+  xmin = 0,
+  xmax = 5,
+  axis x line=center,
+  axis y line=left]
+    \addplot[samples at={1,...,5}, only marks]{(-1)^x};
+  \end{axis}
+\end{tikzpicture}

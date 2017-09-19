@@ -1,0 +1,9 @@
+ \begin{tikzpicture}
+    \tkzInit[xmin=-5,xmax=2,ymin=-7,ymax=6]
+    \tkzGrid[color=lightgray]
+    \tkzAxeXY
+
+    \tkzFct[green,domain=-5:2]{\x*\x+3*\x-4}
+    \tkzDrawArea[color=green!50!white,domain=-5:-4]
+    \tkzDrawArea[color=green!50!white,domain=1:2]
+  \end{tikzpicture}

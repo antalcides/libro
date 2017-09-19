@@ -1,0 +1,27 @@
+\newcommand{\ticknum}{10}
+\pgfmathsetmacro\min{\ticknum-1}
+\begin{tikzpicture}
+\tkzInit[ymax=0.5,ymin=-0.5,,xmax=10,xmin=-3]
+%\tkzDefPoints{1/1/A, 4/4/B};
+\tkzDefPoint(0,0){C}
+\tkzDefPoint(6,0){D}
+\tkzDefPoint(-2,0){E}
+\tkzDefPoint(8,0){F}
+ \tkzDefPoint(-1,0){A}
+ \tkzDefPoint(7.5,0){B}
+\tkzClip
+%\tkzGrid
+ \tkzLabelPoints[ below=0.1 ](A,B)
+\draw[<->] (E) -- (F);
+ \draw(C) -- (D);
+%\node[right] at (A) {\tiny aangrijpingspunt};
+
+\tkzCalcLength(C,D)\tkzGetLength{CDl} % calculates and stores length
+
+\foreach \x in {1,...,\min}{
+    \pgfmathsetmacro\myl{((\CDl/\ticknum)/\CDl)*\x}
+    \tkzMarkSegment[pos=\myl, mark=|](C,D)
+}
+\tkzDrawPoint[shape=cross,size=20](B)
+\tkzDrawPoint[shape=cross,size=20](A)
+\end{tikzpicture}

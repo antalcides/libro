@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+  
+  \draw[<->] (-0.1,0) -- (1.1,0) node [below] {$\mathbb{R}$};
+
+  \foreach \x in {0.1,0.2,0.3,...,1}
+    \draw (\x,0.1) -- (\x,-0.1) node [below] {};
+
+\end{tikzpicture}

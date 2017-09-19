@@ -1,0 +1,22 @@
+\definecolor{blanco}{rgb}{1.,1.,1.}
+\definecolor{azul}{rgb}{0.,0.2,0.6}
+\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+%\clip(-0.7,0.2) rectangle (13.7,7);
+\fill[fill=azul,fill opacity=0.95] (-0.2,5) -- (14,5.) -- (13,4.) -- (14,2.8) -- (-0.2,2.8) -- cycle;
+\draw [color=azul,fill=azul,fill opacity=1.0] (2.,4.) circle (1.7cm);
+\draw [color=blanco,fill=blanco,fill opacity=0.9] (2.,4.) circle (1.3cm);
+%\draw [color=azul] (-0.19662464224173895,5.02969097531027)-- (13.8,5.);
+%\draw [color=azul] (13.8,5.)-- (13.2,4.);
+%\draw [color=azul] (13.2,4.)-- (13.8,2.8);
+%\draw [color=azul] (13.8,2.8)-- (-0.2,2.8);
+%\draw [color=azul] (-0.2,2.8)-- (-0.19662464224173895,5.02969097531027);
+\draw [color=blanco] (0.2,4.8)-- (0.74,4.8);
+\draw [color=blanco] (3.258,4.8)-- (13.2,4.8);
+\draw [color=blanco] (12.6,4.)-- (13.2,3.);
+\draw [color=blanco] (3.12,3.)-- (13.2,3.);
+\draw [color=blanco] (0.88,3.)-- (0.2,3.);
+\draw [color=blanco] (0.2,3.)-- (0.2,4.8);
+\draw [color=blanco] (12.6,4.)-- (13.2,4.8);
+\draw [shift={(2.,4.)},color=blanco]  plot[domain=0.57:2.58,variable=\t]({1.*1.5*cos(\t r)+0.*1.5*sin(\t r)},{0.*1.5*cos(\t r)+1.*1.5*sin(\t r)});
+ \draw [shift={(2.,4.)},color=blanco]  plot[domain=3.87:5.557,variable=\t]({1.*1.5*cos(\t r)+0.*1.5*sin(\t r)},{0.*1.5*cos(\t r)+1.*1.5*sin(\t r)});
+\end{tikzpicture}

@@ -1,0 +1,17 @@
+\definecolor{zanahoria}{RGB}{235,59,0}
+\pgfplotsset{
+  %compat=1.9,% bei Nutzung von writeLaTeX auskommentieren
+  flaeche/.style={draw=none,fill=gray,fill opacity=0.2},
+  salmon/.style={draw=none,fill=zanahoria,fill opacity=0.2}
+}
+
+ 
+\begin{tikzpicture} 
+\begin{axis}[axis lines=middle,enlargelimits=0.05,grid]
+  \newcommand*\plotfunc{x^2+3*x-4}
+  \addplot[flaeche,domain=-5.5:-4]{\plotfunc}\closedcycle; 
+  \addplot[flaeche,domain=1:2.5]{\plotfunc}\closedcycle;
+  \addplot[green,domain=-5.5:2.5]{\plotfunc}; 
+  \addplot[salmon,domain=-4:1]{\plotfunc}\closedcycle;
+\end{axis} 
+\end{tikzpicture} 

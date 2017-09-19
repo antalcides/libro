@@ -1,0 +1,33 @@
+\begin{tikzpicture}[scale=5]
+\tkzDefPoint(-0.1,0){P}
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(1.2,0){A}
+\tkzDefPoint(0,0.8){B}
+\tkzDefPoint(0,1.6){C}
+\tkzDefPoint(1.2,0){G}
+\tkzDefPoint(1.2,.83){U}
+\tkzDefPointBy[rotation= center B angle 110](C) \tkzGetPoint{D}
+\tkzDefPointBy[rotation= center O angle  35](G) \tkzGetPoint{E}
+\tkzDefShiftPoint[B](-0.2,0){B'} 
+\tkzDefShiftPoint[C](-0.2,0){C'} 
+\tkzDefShiftPoint[O](-0.6,0){O''} 
+\tkzDefShiftPoint[C](-0.6,0){C''} 
+
+\tkzMarkAngle[thick,scale=0.5,fill=black!20!white](A,O,E)
+\tkzMarkAngle[thick,scale=0.4,fill=black!20!white](E,B,C)
+\tkzDrawSegment[thick](P,A)
+\tkzDrawSegment[ultra thick,Goldenrod,dashed](O,U)
+\tkzDrawSegments[ultra thick](O,C B,E)
+\tkzDrawSegment[ultra thick,Magenta](C,E)     
+\tkzDrawSegments[|<->|](B',C' O'',C'') 
+
+\tkzLabelSegment[above=0.2](B,E){Arm} 
+\tkzLabelSegment[below left](B,E){$0.8$m} 
+\tkzLabelSegment[above=0.2,right, Magenta](C,E){$\mathit{\mathbf{L}}$} 
+\tkzLabelSegment[above=1,Magenta](C,E){\bfseries Markiseduk}  
+\tkzLabelSegment[pos=.4,fill=white,inner sep=10pt](B',C'){$0.8$ m}
+ \tkzLabelSegment[pos=.4,fill=white,inner sep=10pt,align=center](O'',C''){$\Delta_1y_0$} 
+\tkzLabelPoint[below=1.75,left,Goldenrod](E){\bfseries Solstr\aa le} 
+\tkzLabelAngle[pos=0.3](A,O,E){$u$}
+\tkzLabelAngle[pos=0.225](E,B,C){$v$}  
+\end{tikzpicture}

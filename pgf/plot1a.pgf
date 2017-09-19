@@ -1,0 +1,9 @@
+
+\begin{tikzpicture}
+\begin{axis}[legend entries={\(\alpha\),\(\beta\)},grid=major]
+    \addplot[domain=-4:4,red,very thick] {x^2};
+    \addplot[domain=-4:4,blue,very thick] {x};
+    \node at (2,2) {Hi};
+    \draw[cyan,line width=5pt] (-2,2) -- (0,10);
+  \end{axis}
+\end{tikzpicture}

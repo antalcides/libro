@@ -1,0 +1,7 @@
+#  \DeclareLaTeXClass[libro-matua]{ Libros del programa de matem'aticas de UDELA)}
+
+Format 35
+
+Input book.layout
+Input knitr.module
+Input teorema.module

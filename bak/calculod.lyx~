@@ -1,0 +1,1085 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass libro-matua
+\begin_preamble
+%\usepackage[utf8x]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+%\usepackage{makeidx}
+\usepackage{imakeidx}
+\makeindex[program=truexindy,options=-M texindy -L spanish -C utf8]
+%\usepackage[totoc]{idxlayout}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\graphicspath{{ps/}{logo/}{image/}{sections/Figures/}}
+%\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage{fancyvrb}
+\usepackage{cancel}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\usepackage{pgf}
+\usepackage{mathrsfs}
+\usetikzlibrary{fit,shapes}
+\usepackage{mivenndiagram}
+\usepackage{tikz-cd}% diagramas commutativos
+\usetikzlibrary{matrix}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{zahlen}
+\usepackage{fixltx2e}
+\usepackage{mathtools}
+\usepackage{theoremref}
+\MakeRobust{\eqref}
+\mathtoolsset{showonlyrefs=true,showmanualtags=true}
+\def\myref#1{\textcolor{ptctitle}{\thesection .\ref{#1}}}
+\usepackage[hmargin=2cm,bmargin=3cm,tmargin=4.5cm,centering]{geometry}
+\def\yy{\rowcolor{ptcbackground}}
+\def\yyy{\rowcolor{gray!50}}
+\def\xxx{\rowcolor{ptctitle!50}}
+\def\ccc{\cellcolor{ptctitle!50}}
+\usepackage{multirow}
+\def\maxwidth{8cm}
+% Length to control the \fancyheadoffset and the calculation of \headline
+% simultaneously
+\RequirePackage{hyperref}
+\hypersetup{
+             linktoc=all,
+             hidelinks,
+             pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor = ptctitle,
+            backref=true,
+            pagebackref=true,
+            hyperindex=true,
+            breaklinks=true,
+            urlcolor=ocre,
+            citecolor = ocre,
+            bookmarks=true,
+            bookmarksopen=false,
+            pdftitle={Title},
+            pdfauthor={Author}
+                              }
+\newlength\FHoffset
+\setlength\FHoffset{0.5cm}
+
+\addtolength\headwidth{2\FHoffset}
+
+\fancyheadoffset{\FHoffset}
+
+% these lengths will control the headrule trimming to the left and right 
+\newlength\FHleft
+\newlength\FHright
+
+% here the trimmings are controlled by the user
+\setlength\FHleft{1cm}
+\setlength\FHright{0cm}
+
+% The new definition of headrule that will take into acount the trimming(s)
+\newbox\FHline
+\setbox\FHline=\hbox{\hsize=\paperwidth%
+  \hspace*{\FHleft}%
+  \rule{\dimexpr\headwidth-\FHleft-\FHright\relax}{\headrulewidth}\hspace*{\FHright}%
+}
+\renewcommand\headrule{\vskip-.7\baselineskip\copy\FHline}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand\phantomsection{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\fullwidthcolor#1{\color{#1}\leaders\vrule\hskip\textwidth\hskip-\textwidth\kern0pt}
+\def\resetLTcolor{\global\let\zz\zzb}
+\def\yy{\rowcolor{ptcbackground}}
+\def\yyy{\rowcolor{gray!50}}
+\def\xxx{\rowcolor{ptctitle!50}}
+\def\ccc{\cellcolor{ptctitle!50}}
+\def\yya{\cellcolor{gray!50}}
+\def\yyb{\cellcolor{ptcbackground}}
+\def\maxwidth{8cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\firstcircle{(0,0) circle (1.5cm)} 
+\def\secondcircle{(45:2cm) circle (1.5cm)}
+\def\thirdcircle{(0:2cm) circle (1.5cm)} 
+\def\rectangulo{(-2,-2) rectangle (4,3.6)}
+\def\fourcircle{(1.1,1) circle (1.5cm)}
+\def\fivecircle{(-2,1) circle (1.5cm)}
+\def\rect{(-4,-2) rectangle (4,3.6)} 
+\def\sixcircle{(1.5,1) circle (1.5cm)} 
+\def\sevencircle{(1.1,1) circle (0.8cm)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% pies de p\'agina %%%%%%%%%%%%%%%%
+ \fancyfoot[LE]{\hspace*{-0.2\headwidth}\colorbox{ptctitle!20}{\makebox[\dimexpr 0.6\headwidth-2\fboxsep][r]{\strut\bf\color{ptctitle}C\'alculo diferencial}}%
+               \colorbox{zanahoria!60}{\makebox[\dimexpr 0.6\headwidth-2\fboxsep][l]{\strut\bf\color{white}\sffamily\itshape\small\protect\nouppercase{Autor1\hfill Autor2 \hfill Autor3}}}}               
+               %%%%%%%%%%%%%%%%%%%%%%
+                \fancyfoot[LO]{\hspace*{-0.2\headwidth}\colorbox{ptctitle!20}{\makebox[\dimexpr0.6\headwidth-2\fboxsep][c]{\strut\bf\color{ptctitle}C\'alculo diferencial}}%
+               \colorbox{zanahoria!60}{\makebox[\dimexpr0.6\headwidth-2\fboxsep][r]{\strut\bf\color{white}\sffamily\itshape\small\protect\nouppercase{Autor1\hfill Autor2 \hfill Autor3}}}}               
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% conjuntos n\'umericos
+\newcommand{\CC}{\mathbb{C}}
+%\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\pp}{\mathbb{\overline{P}}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\der}{\mathcal{D}}
+\newcommand{\kk}{\mathcal{K}}
+\newcommand{\mm}[1]{{\mathcal{M}\/}(#1)}
+\newcommand{\nequiv}{{\equiv \hspace*{-3.7mm}/}}
+\newcommand{\capa}[1]{\mbox{{\em Cap\/}}(#1)}
+\newcommand{\gra}[1]{\mbox{{\em grad\/}}(#1)}
+\newcommand{\sop}[1]{\mbox{{\em supp\/}}(#1)}
+\newcommand{\esup}[1]{{\mbox{\rm ess\,sup\/}}#1}
+\newcommand{\lqqd}{\hfill $\blacksquare$}
+\newcommand{\II}{\mathbb{I}}
+%\newcommand{\na}{I\! N}
+%\newcommand{\re}{I\! R}
+{\makeatletter   % dies ist lokal, damit man die Datei wahlweise
+                 % mit \input oder mit \documentstyle[...] einlesen kann.
+ 
+\gdef\re{\relax\ifmmode I\hskip -3\p@ R\else
+    \hbox{$I\hskip -3\p@ R$}\fi} %Reales
+\gdef\na{\relax\ifmmode I\hskip -2.7\p@ N\else
+    \hbox{$I\hskip -2.7\p@ N$}\fi} % Naturales
+\gdef\en{\relax\ifmmode Z\hskip -4.8\p@ Z\else
+    \hbox{$Z\hskip -4.8\p@ Z$}\fi} %Enteros
+\gdef\co{\relax\ifmmode C\hskip-4.8\p@\vrule \@height 5.8\p@ \@depth\z@
+    \hskip 6.3\p@\else
+    \hbox{$C\hskip-4.8\p@\vrule \@height 5.8\p@ \@depth\z@ \hskip 6.3\p@$}\fi}% Complejos
+\gdef\ra{\relax\ifmmode Q\hskip-5.0\p@\vrule
+          \@height 6.0\p@ \@depth \z@ \hskip 6\p@\else
+    \hbox{$Q\hskip-5.0\p@\vrule \@height 6.0\p@ \@depth \z@ \hskip 6\p@$}\fi}% Racionales
+\gdef\hz{\relax\ifmmode I\hskip -3\p@ H\else
+    \hbox{$I\hskip -3\p@ H$}\fi} % Espacio de Hilbert
+\gdef\kz{\relax\ifmmode I\hskip -3\p@ K\else
+    \hbox{$I\hskip -3\p@ K$}\fi} % campo K
+    \gdef\ir{\relax\ifmmode I\hskip -3\p@ I\else
+    \hbox{$I\hskip -3\p@ K$}\fi} % Irracionales}
+    %%%%%%%%%%%%%%%%%%%%%%%%%
+   % \renewcommand\p@axioma{\thesection.\theaxioma}
+   \makeatother
+\end_preamble
+\options 2m,twoside,svgnames,x11names,HTML,twoside,12pt
+\use_default_options false
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8x
+\fontencoding default
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 0
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 0
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+frontmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagecolor{ptcbackground}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+begin{center} 
+\backslash
+vspace*{5cm} 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+Huge{Cálculo Diferencial}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+[5pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+Large{UNIVERSIDAD DEL ATLÁNTICO}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+Large{FACULTAD DE CIENCIAS BÁSICAS}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+Large{DEPARTAMENTO DE MATEMÁTICAS} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+
+\backslash
+ 
+\backslash
+Large{Autores} 
+\backslash
+end{center} 
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{-3cm}
+\backslash
+Large Titulo}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{-3cm}
+\backslash
+Large Prefacio}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+makeatletter 
+\backslash
+def
+\backslash
+@classoptionslist{<class options except `margin` OR empty>} 
+\backslash
+makeatother
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{-3cm}
+\backslash
+Large
+\backslash
+'Indice General}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+myclearpage
+\backslash
+relax
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{-3cm}
+\backslash
+Large Lista de Figuras}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+let
+\backslash
+myclearpage
+\backslash
+relax
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+nocite{*}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+color{black}
+\backslash
+pagecolor{white} 
+\backslash
+mainmatter 
+\backslash
+newgeometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part{Preliminares}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagestyle{fancy}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hypersetup{linkcolor=ptctitle}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "conjuntos.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "estructuras"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "cnumericos.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "geometria.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "limitsusesiones.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part{Funciones}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "funciones.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "limites.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+part{Derivadas}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "derivadas.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+stopcontents[chapters]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "aplicaciones.lyx"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+backmatter
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part{Apendices}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+appendix
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Tabajando con Geogebra }
+\end_layout
+
+\begin_layout Plain Layout
+
+aaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Trabajando con Maple}
+\end_layout
+
+\begin_layout Plain Layout
+
+aaaaa
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+clearpage 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+phantomsection 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Trabajando con WxMaxima}
+\end_layout
+
+\begin_layout Plain Layout
+
+bbbbbb
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Trabajando con SageMath}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chapter{Trabajando con Mathway}
+\end_layout
+
+\begin_layout Plain Layout
+
+bbbb
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+part*{Referencias}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+backmatter
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+%
+\backslash
+printindex
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "bibliografia"
+options "default"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "calculo"
+options "plain"
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+
+\backslash
+bibliographystyle{plain}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+ 
+\backslash
+renewcommand{
+\backslash
+indexname}{
+\backslash
+'Indice}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+phantomsection
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+printindex
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{-1cm}
+\backslash
+Large
+\backslash
+'Indice}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+bf 
+\backslash
+Huge
+\end_layout
+
+\end_inset
+
+ Notas finales
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

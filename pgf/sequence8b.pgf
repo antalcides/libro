@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+\draw (0,0) -- ++(1,0) -- ++(-1,1) -- cycle;
+\foreach \x in {0,.1,...,1}
+{
+  \pgfmathsetmacro{\z}{1-\x}
+  \foreach \y in {0,.1,...,\z}
+  {
+  \draw [->] (\x,\y)--(-1 + \x + 2*\y,-\y);
+  }
+}
+\end{tikzpicture}

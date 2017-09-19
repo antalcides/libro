@@ -1,0 +1,12 @@
+\begin{tikzpicture}
+
+\foreach \x in {1,...,7} {
+    \pgfmathsetmacro\result{\x * pi}
+    \draw (\x,-4pt) -- (\x,4pt)
+        node [below,yshift=-2ex] {\x}
+        node [above] {\pgfmathprintnumber{\result}};
+}
+
+\draw [-latex] (1,0) -- (7.6,0);
+
+\end{tikzpicture}

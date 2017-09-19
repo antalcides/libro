@@ -1,0 +1,373 @@
+#LyX file created by tex2lyx 2.1
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass book
+\begin_preamble
+\usepackage{graphicx}
+\usepackage{lipsum-es}
+
+
+\usepackage{cleveref}
+
+ %%%%%%%%%%%%%
+% \renewcommand\thesection{\arabic{chapter}.\arabic{section}}
+%\renewcommand\thesubsection{\Roman{subsection}}
+%\renewcommand\p@subsection{\thesection.}
+ %%%%%%%%%%
+ 
+
+\def\label#1{\@bsphack
+  \protected@write\@auxout{}%
+         {\string\newlabel{#1}{{\thechapter  .\@currentlabel}{\thepage}}}%
+  \@esphack}
+ 
+
+
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package none
+\inputencoding auto
+\fontencoding default
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_bookmarks 0
+\pdf_bookmarksnumbered 0
+\pdf_bookmarksopen 0
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks 0
+\pdf_pdfborder 0
+\pdf_colorlinks 0
+\pdf_backref section
+\pdf_pdfusetitle 0
+\papersize default
+\use_geometry false
+\use_package amsmath 2
+\use_package amssymb 0
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 2
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+|
+\end_layout
+
+\begin_layout Chapter
+bbbb1
+\end_layout
+
+\begin_layout Section
+aaaa
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:sec1"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Subsubsection
+cc
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+lipsum
+\end_layout
+
+\end_inset
+
+[2] 
+\begin_inset Formula \begin{align}
+y&=a_1x+b_1\label{eqn:1}\\
+y&=a_2x+b_2\label{eqn:2}\\
+y&=a_3x+b_3\label{eqn:3}\\
+y&=a_4x+b_4\label{eqn:4}
+\end{align}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Range example: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+crefrange
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eqn:1
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+{
+\end_layout
+
+\end_inset
+
+eqn:4
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset Float figure
+placement ht
+wide false
+sideways false
+status open
+
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset line
+LatexCommand rule
+width "50line%"
+height "10line%"
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Standard
+First figure
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+Mixed references example: 
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+%
+\backslash
+cref{eqn:1,eqn:3,eqn:4,fig:1}
+\backslash
+
+\backslash
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eqn:1"
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Section
+bbb
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+lipsum
+\end_layout
+
+\end_inset
+
+[1] 
+\end_layout
+
+\begin_layout Subsubsection
+cc
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+lipsum
+\end_layout
+
+\end_inset
+
+[2] 
+\end_layout
+
+\begin_layout Chapter
+cc2
+\end_layout
+
+\begin_layout Standard
+
+\begin_inset ERT
+status collapsed
+
+\begin_layout Plain Layout
+
+\backslash
+lipsum
+\end_layout
+
+\end_inset
+
+ al artículo
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eqn:1"
+
+\end_inset
+
+el sec
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:sec1"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

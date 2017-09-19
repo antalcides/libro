@@ -1,0 +1,20 @@
+\pgfplotsset{compat=1.12}
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+        xmin=-1, xmax=3,
+        ymin=-1, ymax=3,
+        axis lines=middle,
+      ]  
+      \addplot[samples=100, domain=0:3, name path=A] {3/(2*x+1)}; 
+      \addplot[samples=50, domain=0:3,name path=B] {3*x-2}; 
+      \path[name path=xaxis] (\pgfkeysvalueof{/pgfplots/xmin}, 0) -- (\pgfkeysvalueof{/pgfplots/xmax},0);
+       \addplot[gray, pattern=north west lines] fill between[of=B and xaxis, soft clip={domain=0.66666:1}];
+      \addplot[gray, pattern=north west lines] fill between[of=A and xaxis, soft clip={domain=1:2}];
+      \addplot +[mark=none] coordinates {(2, -1) (2, 3)};
+    \end{axis}
+  \end{tikzpicture}
+\end{figure}

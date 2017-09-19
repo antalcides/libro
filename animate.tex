@@ -1,0 +1,25 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{animate}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{ifthen}
+\begin{document}
+
+\begin{animateinline}[autoplay,
+begin={
+  \begin{tikzpicture}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  \useasboundingbox (0, 0) rectangle (5, 5);
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+},end={\end{tikzpicture}}
+]{1}%
+\multiframe{5}{iAlpha=1+1}{%
+\draw (0,0) -- (\iAlpha , \iAlpha );
+}%
+\end{animateinline}
+
+\begin{animateinline}[autoplay]{1}
+\multiframe{5}{iCount=1+1}{
+Frame \iCount}
+\end{animateinline}
+\end{document}

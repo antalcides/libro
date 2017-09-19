@@ -1,0 +1,3033 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin C:/Users/Antalcides/Documents/MEGA/calculo_I/libro/
+\textclass libro-matua
+\begin_preamble
+%\usepackage[utf8x]{inputenc}
+\usepackage[spanish, es-tabla]{babel}
+%\usepackage{makeidx}
+\usepackage{imakeidx}
+\makeindex[program=truexindy,options=-M texindy -L spanish -C utf8]
+%\usepackage[totoc]{idxlayout}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\graphicspath{{ps/}{logo/}{image/}{sections/Figures/}}
+%\usepackage{lmodern}
+%\usepackage{lipsum}
+\usepackage{fancyvrb}
+\usepackage{cancel}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\usepackage{pgf}
+\usepackage{mathrsfs}
+\usetikzlibrary{fit,shapes}
+\usepackage{mivenndiagram}
+\usepackage{tikz-cd}% diagramas commutativos
+\usetikzlibrary{matrix}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usepackage{zahlen}
+%\usepackage{fixltx2e}
+%\usepackage{mathtools}
+%\usepackage{theoremref}
+\usepackage{ amsmath,amsfonts,amssymb}
+\usepackage{fixltx2e}
+\usepackage{mathtools,theoremref}
+%\MakeRobust{\eqref}
+%\mathtoolsset{showonlyrefs=true}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[version=4]{mhchem}
+
+\makeatletter
+% detach \eqref and \tag making
+\def\eqref#1{\textup{\eqreftagform@{\ref{#1}}}}
+\let\eqreftagform@\tagform@
+\def\tagform@#1{%
+  \maketag@@@{\color{zanahoria}(\ignorespaces#1\unskip\@@italiccorr)}%
+}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\myref#1{\textcolor{ptctitle}{\thesection .\ref{#1}}}
+\usepackage[hmargin=2cm,bmargin=3cm,tmargin=4.5cm,centering]{geometry}
+\def\yy{\rowcolor{ptcbackground}}
+\def\yyy{\rowcolor{gray!50}}
+\def\xxx{\rowcolor{ptctitle!50}}
+\def\ccc{\cellcolor{ptctitle!50}}
+\usepackage{multirow}
+\def\maxwidth{8cm}
+% Length to control the \fancyheadoffset and the calculation of \headline
+% simultaneously
+\RequirePackage{hyperref}
+\hypersetup{
+             linktoc=all,
+             hidelinks,
+             pdfborder={0 0 0},
+            colorlinks=true,
+            linkcolor = ptctitle,
+            backref=true,
+            pagebackref=true,
+            hyperindex=true,
+            breaklinks=true,
+            urlcolor=ocre,
+            citecolor = ocre,
+            bookmarks=true,
+            bookmarksopen=false,
+            pdftitle={Title},
+            pdfauthor={Author}
+                              }
+\newlength\FHoffset
+\setlength\FHoffset{0.5cm}
+
+\addtolength\headwidth{2\FHoffset}
+
+\fancyheadoffset{\FHoffset}
+
+% these lengths will control the headrule trimming to the left and right 
+\newlength\FHleft
+\newlength\FHright
+
+% here the trimmings are controlled by the user
+\setlength\FHleft{1cm}
+\setlength\FHright{0cm}
+
+% The new definition of headrule that will take into acount the trimming(s)
+\newbox\FHline
+\setbox\FHline=\hbox{\hsize=\paperwidth%
+  \hspace*{\FHleft}%
+  \rule{\dimexpr\headwidth-\FHleft-\FHright\relax}{\headrulewidth}\hspace*{\FHright}%
+}
+\renewcommand\headrule{\vskip-.7\baselineskip\copy\FHline}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\providecommand\phantomsection{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\fullwidthcolor#1{\color{#1}\leaders\vrule\hskip\textwidth\hskip-\textwidth\kern0pt}
+\def\resetLTcolor{\global\let\zz\zzb}
+\def\yy{\rowcolor{ptcbackground}}
+\def\yyy{\rowcolor{gray!50}}
+\def\xxx{\rowcolor{ptctitle!50}}
+\def\ccc{\cellcolor{ptctitle!50}}
+\def\yya{\cellcolor{gray!50}}
+\def\yyb{\cellcolor{ptcbackground}}
+\def\maxwidth{8cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\firstcircle{(0,0) circle (1.5cm)} 
+\def\secondcircle{(45:2cm) circle (1.5cm)}
+\def\thirdcircle{(0:2cm) circle (1.5cm)} 
+\def\rectangulo{(-2,-2) rectangle (4,3.6)}
+\def\fourcircle{(1.1,1) circle (1.5cm)}
+\def\fivecircle{(-2,1) circle (1.5cm)}
+\def\rect{(-4,-2) rectangle (4,3.6)} 
+\def\sixcircle{(1.5,1) circle (1.5cm)} 
+\def\sevencircle{(1.1,1) circle (0.8cm)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% pies de p\'agina %%%%%%%%%%%%%%%%
+ \fancyfoot[LE]{\hspace*{-0.2\headwidth}\colorbox{ptctitle!20}{\makebox[\dimexpr 0.6\headwidth-2\fboxsep][r]{\strut\bf\color{ptctitle}C\'alculo diferencial}}%
+               \colorbox{zanahoria!60}{\makebox[\dimexpr 0.6\headwidth-2\fboxsep][l]{\strut\bf\color{white}\sffamily\itshape\small\protect\nouppercase{Autor1\hfill Autor2 \hfill Autor3}}}}               
+               %%%%%%%%%%%%%%%%%%%%%%
+                \fancyfoot[LO]{\hspace*{-0.2\headwidth}\colorbox{ptctitle!20}{\makebox[\dimexpr0.6\headwidth-2\fboxsep][c]{\strut\bf\color{ptctitle}C\'alculo diferencial}}%
+               \colorbox{zanahoria!60}{\makebox[\dimexpr0.6\headwidth-2\fboxsep][r]{\strut\bf\color{white}\sffamily\itshape\small\protect\nouppercase{Autor1\hfill Autor2 \hfill Autor3}}}}               
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%% conjuntos n\'umericos
+\newcommand{\CC}{\mathbb{C}}
+%\newcommand{\NN}{\mathbb{N}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\HH}{\mathbb{H}}
+\newcommand{\pp}{\mathbb{\overline{P}}}
+\newcommand{\DD}{\mathbb{D}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\EE}{\mathbb{E}}
+\newcommand{\TT}{\mathbb{T}}
+\newcommand{\XX}{\mathbb{X}}
+\newcommand{\der}{\mathcal{D}}
+\newcommand{\kk}{\mathcal{K}}
+\newcommand{\mm}[1]{{\mathcal{M}\/}(#1)}
+\newcommand{\nequiv}{{\equiv \hspace*{-3.7mm}/}}
+\newcommand{\capa}[1]{\mbox{{\em Cap\/}}(#1)}
+\newcommand{\gra}[1]{\mbox{{\em grad\/}}(#1)}
+\newcommand{\sop}[1]{\mbox{{\em supp\/}}(#1)}
+\newcommand{\esup}[1]{{\mbox{\rm ess\,sup\/}}#1}
+\newcommand{\lqqd}{\hfill $\blacksquare$}
+\newcommand{\II}{\mathbb{I}}
+%\newcommand{\na}{I\! N}
+%\newcommand{\re}{I\! R}
+{\makeatletter   % dies ist lokal, damit man die Datei wahlweise
+                 % mit \input oder mit \documentstyle[...] einlesen kann.
+ 
+\gdef\re{\relax\ifmmode I\hskip -3\p@ R\else
+    \hbox{$I\hskip -3\p@ R$}\fi} %Reales
+\gdef\na{\relax\ifmmode I\hskip -2.7\p@ N\else
+    \hbox{$I\hskip -2.7\p@ N$}\fi} % Naturales
+\gdef\en{\relax\ifmmode Z\hskip -4.8\p@ Z\else
+    \hbox{$Z\hskip -4.8\p@ Z$}\fi} %Enteros
+\gdef\co{\relax\ifmmode C\hskip-4.8\p@\vrule \@height 5.8\p@ \@depth\z@
+    \hskip 6.3\p@\else
+    \hbox{$C\hskip-4.8\p@\vrule \@height 5.8\p@ \@depth\z@ \hskip 6.3\p@$}\fi}% Complejos
+\gdef\ra{\relax\ifmmode Q\hskip-5.0\p@\vrule
+          \@height 6.0\p@ \@depth \z@ \hskip 6\p@\else
+    \hbox{$Q\hskip-5.0\p@\vrule \@height 6.0\p@ \@depth \z@ \hskip 6\p@$}\fi}% Racionales
+\gdef\hz{\relax\ifmmode I\hskip -3\p@ H\else
+    \hbox{$I\hskip -3\p@ H$}\fi} % Espacio de Hilbert
+\gdef\kz{\relax\ifmmode I\hskip -3\p@ K\else
+    \hbox{$I\hskip -3\p@ K$}\fi} % campo K
+    \gdef\ir{\relax\ifmmode I\hskip -3\p@ I\else
+    \hbox{$I\hskip -3\p@ K$}\fi} % Irracionales}
+    %%%%%%%%%%%%%%%%%%%%%%%%%
+   % \renewcommand\p@axioma{\thesection.\theaxioma}
+   \makeatother
+\usepackage{wrapfig}%%% bordear imagen o tabla con texto
+\usepackage{siunitx}
+\newgeometry{left=2cm,right=2cm,top=2.5cm,bottom=2.5cm}
+\newcommand{\inline}{\refstepcounter{equation}~~\mbox{\color{zanahoria}(\theequation)}}%enumera eq inline
+\input{macros}
+\end_preamble
+\options 2m,twoside,svgnames,x11names,HTML,twoside,12pt
+\use_default_options true
+\master calculo_Inf.lyx
+\maintain_unincluded_children false
+\language spanish
+\language_package default
+\inputencoding utf8x
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 0
+\use_package amssymb 0
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language french
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+capitulo{Introducci
+\backslash
+'on metodol
+\backslash
+'ogica e hist
+\backslash
+'orica }
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+PartialToc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%
+\backslash
+hypersetup{linkcolor=ptctitle}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -1.5cm*
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+El principio de razón suficiente, que afirma que nada
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+sucede gratuitamente, es decir, que a todo fenómeno 
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+le corresponde una explicación, una razón de ser 
+\end_layout
+
+\begin_layout Standard
+\align right
+
+\shape italic
+\size footnotesize
+que se presente admisible a la razón.
+ 
+\end_layout
+
+\begin_layout Standard
+\align right
+Leibniz: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 10mm*
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Antes de empezar a definir los conceptos abstractos (generales) sobre los
+ cuales se basa el 
+\shape slanted
+Cálculo
+\shape default
+ 
+\shape slanted
+Infinitesimal
+\shape default
+, nos parece conveniente desde el punto de vista psicológico, adelantar
+ algunas ideas acerca de ciertos problemas que dieron origen a esta rama
+ importante de la 
+\shape slanted
+Matemática Moderna
+\shape default
+.
+ el desarrollo lógico del tema no requiere de esta introducción panorámica,
+ sino que se bastaría con dar las definiciones abstractas necesarias y después
+ ir demostrando las relaciones importantes entre los conceptos definidos.
+ Para la mayoría de los matemáticos este es el único camino 
+\begin_inset Quotes fld
+\end_inset
+
+correcto
+\begin_inset Quotes frd
+\end_inset
+
+ y esta es la causa de que casi todos los textos de la materia, impecable
+ la mayoría de ellos desde el punto de vista lógico resulten inasequibles
+ a los principiantes; y es natural que así sea, pues no todo el mundo tiene
+ sentido de la adivinación para descubrir de antemano que problemas puede
+ resolver, qué uso puede dar, a aquellos instrumentos abstractos que el
+ matemático le va presentando como por arte de magia.
+\end_layout
+
+\begin_layout Standard
+Los que proceden de esta forma, es decir limitándose a dar las definiciones
+ y teoremas, sin anticipar una descripción global ( aunque no sea definitivament
+e rigurosa) de los problemas que requieren para su solución aquellas definicione
+s y teoremas , condenan al alumno al hastío y la esterilidad, pues dejan
+ inoperantes las fuerzas vitales concurrentes en el proceso de enseñanza-aprendi
+zaje.
+ No hay que olvidar que 
+\begin_inset Quotes fld
+\end_inset
+
+El martillear fue antes que el martillo
+\begin_inset Quotes frd
+\end_inset
+
+; los problemas fueron anteriores a los métodos para resolverlos, y es difícil,
+ para la mayoría de las inteligencias, moverse comprensivamente, en un plano
+ de ideas abstractas sin entrever de donde fueron abstraídas.
+ de aquí la necesidad psicológica ( no lógica) de anticipar la descripción
+ de los problemas que dieron origen a los nuevos métodos, pues ellos fueron
+ la base de lo que nació síntesis de conceptos y relaciones que constituyen
+ el moderno 
+\shape slanted
+Cálculo
+\shape default
+ 
+\shape slanted
+Infinitesimal.
+ 
+\shape default
+Si a ser inteligente, que nunca hubiese visto un martillo, se le muestra
+ uno, indicándole previamente que ese instrumento se va a usar para martillear,
+ comprenderá muy bien por qué tiene el diseño que todos nosotros conocemos,
+ y hasta es posible que, si tiene genio para ello, idee un nuevo diseño
+ para el martillo, más adecuado para la acción de martillear.
+ Consecuentemente con estas ideas, hemos decidido, aunque esto sea salirnos
+ de los moldes euclidianos de la mayoría de los textos, escribir el libro
+ que nos hubiese gustado leer cuando teníamos quince o dieciséis años, anticipan
+do la descripción de los problemas más importantes que dieron origen al
+ Cálculo Infinitesimal.
+ 
+\end_layout
+
+\begin_layout Standard
+Los problemas típicos que dieron origen al Cálculo Infinitesimal comenzaron
+ a plantearse en la época clásica de Grecia (hacia el siglo III antes de
+ nuestra era cristiana) y no se encontraron métodos generales y sistemáticos
+ de resolución hasta veinte siglos después ( en el siglo XVII por obra de
+ Newton y Leibniz).
+ 
+\end_layout
+
+\begin_layout Standard
+Se debe al matemático y filósofo griego 
+\shape slanted
+Eudoxio
+\shape default
+ el 
+\begin_inset Quotes fld
+\end_inset
+
+método de Exhaustación
+\begin_inset Quotes frd
+\end_inset
+
+ (método de agotamiento) para resolver ciertos problemas típicos de lo que,
+ pasados los siglos, habría de llamarse 
+\shape slanted
+Cálculo Infinitesimal
+\shape default
+.
+ Con dicho método se atacaron con éxito los problemas relativos al cálculo
+ de las áreas y volúmenes de las figuras elementales (círculos, esferas,
+ conos, pirámides, etc.)
+\end_layout
+
+\begin_layout Standard
+por la misma época, el más grande de los matemáticos griegos, y uno de los
+ mayores de toda la historia de la humanidad, 
+\shape slanted
+ARQUIMEDES
+\shape default
+, resolvió problemas, por el 
+\begin_inset Quotes fld
+\end_inset
+
+Método de los Recubrimientos
+\begin_inset Quotes frd
+\end_inset
+
+, tan difíciles que, aún hoy en día , después de conocer los modernos 
+\begin_inset Quotes fld
+\end_inset
+
+Métodos Infinitesimales
+\begin_inset Quotes frd
+\end_inset
+
+, resultan laboriosos.
+ por este motivo se le llama 
+\begin_inset Quotes fld
+\end_inset
+
+el precursor del Cálculo Infinitesimal
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Describamos uno de estos problemas típicos, que fue resuelto con éxito por
+ Arquímides y que nosotros resolveremos al final de este libro con los métodos
+ modernos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problema}[Segmento de Arquímides]
+\backslash
+label{prob:pro1}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Hallar el área de un segmento de parábola.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{wrapfigure}{r}{0.4
+\backslash
+linewidth} 
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pdf/cal_int1.pdf
+	lyxscale 80
+	scale 60
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Segmento de una  Parábola $POP'$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:myfig1}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{wrapfigure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si por un punto 
+\begin_inset Formula $M$
+\end_inset
+
+ del eje de una parábola trazamos un segmento 
+\begin_inset Formula $PP'$
+\end_inset
+
+ perpendicular a dicho eje, en la figura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:myfig1}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $POP'$
+\end_inset
+
+ representa la región determinada por el segmento parabólico y el segmento
+ 
+\begin_inset Formula $PP'$
+\end_inset
+
+el cual es llamado 
+\begin_inset Quotes fld
+\end_inset
+
+
+\shape slanted
+Segmento de parábola
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El método seguido por Arquímides para hallar el área del 
+\shape slanted
+Segmento parabólico
+\shape default
+ 
+\begin_inset Formula $POP'$
+\end_inset
+
+ fue el siguiente: recubrir el segmento de parábola por una serie de rectángulos
+ inscritos con bases paralelas a 
+\begin_inset Formula $PP'$
+\end_inset
+
+ y alturas muy pequeñas.
+ En la figura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:myfig1}
+\end_layout
+
+\end_inset
+
+ se destaca uno de tales rectángulos inscritos, así como.
+ Si suponemos que la altura del Segmento parabólico como 
+\begin_inset Formula $h=OM$
+\end_inset
+
+, se divide por ejemplo en 100 partes iguales, y por los puntos de división
+ se trazan paralela a 
+\begin_inset Formula $PP'$
+\end_inset
+
+ (base del segmento parabólico), se tendrían 100 rectángulos inscritos y
+ otros 100 circunscritos.
+\end_layout
+
+\begin_layout Standard
+Se dice que los 100 rectángulos inscritos constituyen un 
+\begin_inset Quotes fld
+\end_inset
+
+recubrimiento interno
+\begin_inset Quotes frd
+\end_inset
+
+ del Segmento parabólico y los cien rectángulos circunscritos un 
+\begin_inset Quotes fld
+\end_inset
+
+recubrimiento externo
+\begin_inset Quotes frd
+\end_inset
+
+, ahora se comprende fácilmente que: la suma de las áreas de los rectángulos
+ del recubrimiento interno será menor que el área del segmento parabólico
+ y la suma de las áreas de los rectángulos del recubrimiento externo será
+ mayor que el área de dicho Segmento parabólico.
+\end_layout
+
+\begin_layout Standard
+Supongamos que el área del recubrimiento externo menos la del interno fuese
+ igual a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.1 $
+\backslash
+si{cm^2}$
+\end_layout
+
+\end_inset
+
+; en este caso podría tomarse como el área del Segmento parabólico; bien
+ la del recubrimiento interno o la del recubrimiento externo, con un error
+ menor de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+0.1 $
+\backslash
+si{cm^2}$
+\end_layout
+
+\end_inset
+
+.
+ Si 
+\begin_inset Quotes fld
+\end_inset
+
+queremos afinar más
+\begin_inset Quotes frd
+\end_inset
+
+ el resultado (es decir reducir el error) podríamos dividir la altura 
+\begin_inset Formula $OM$
+\end_inset
+
+ en 1000 partes iguales , en vez de 100, y obtener los respectivos recubrimiento
+s externos e internos, formados por los rectángulos circunscritos e inscritos
+ , respectivamente .
+ el área de cualquiera de estos recubrimientos es una aproximación más precisa
+ que la proporcionada anteriormente.
+\end_layout
+
+\begin_layout Standard
+Se comprende que si quisiéramos el valor exacto del área del segmento parabólico
+, tendríamos que proseguir indefinidamente la operación de dividir la altura
+ 
+\begin_inset Formula $OM$
+\end_inset
+
+ en un número cada vez mayor de partes iguales,construyendo los correspondientes
+ recubrimientos del segmento parabólico con rectángulos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+La idea contenida en este método es genial, y como todas las ideas geniales
+ esta es extraordinariamente simple y directa, surgida de la esencia misma
+ del problema: Recubrir una magnitud desconocida (el Segmento parabólico)
+ con piezas conocidas (rectángulos); la novedad que se presenta es que,
+ el número de piezas necesarias para que el recubrimiento se confunda con
+ el Segmento parabólico es un número infinito.
+ (estas ideas descriptivas serán presentadas más adelante con todo rigor,
+ pues son de gran importancia en la Matemática Superior Moderna).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{resumen}
+\backslash
+peque
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\shape slanted
+En resumen:
+\end_layout
+
+\begin_layout Standard
+A la operación de sumar las áreas de los rectángulos que 
+\begin_inset Quotes fld
+\end_inset
+
+integran
+\begin_inset Quotes frd
+\end_inset
+
+ cada recubrimiento hay que añadir una operación nueva, que definiremos
+ después con precisión, y que se llama 
+\begin_inset Quotes fld
+\end_inset
+
+operación de paso al límite
+\begin_inset Quotes frd
+\end_inset
+
+, y que consiste en obtener el valor correspondiente al área de un recubrimiento
+ cuando el número de sus rectángulos crece indefinidamente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{resumen}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+El ejemplo que acabamos de describir corresponde a un problema típico del
+ 
+\shape slanted
+Cálculo Integral
+\shape default
+, y como tal será resuelto después.
+\end_layout
+
+\begin_layout Standard
+Otro de los problemas históricos que dieron origen al 
+\shape slanted
+Cálculo
+\shape default
+ 
+\shape slanted
+Infinitesimal 
+\shape default
+es el problema de la recta tangente , el cual describiremos a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problema}[Pendiente de la recta tangente]
+\backslash
+label{prob:pro2}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Hallar la pendiente de una recta tangente a una curva.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{wrapfigure}{r}{0.4
+\backslash
+linewidth} 
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pdf/cal_int2.pdf
+	lyxscale 80
+	scale 75
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Recta tangente a $f(x)$.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:myfig2}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{wrapfigure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea dada una curva, cuya ecuación referida  a un sistema de ejes cartesianos
+ cartesianos, donde 
+\begin_inset Formula $y=f(x)$
+\end_inset
+
+ como se muestra en la figura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:myfig2}
+\end_layout
+
+\end_inset
+
+.
+ Se define la tangente a la curva en uno de sus puntos.
+ 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ , como la posición límite de las secantes 
+\begin_inset Formula $P_{0}P_{n}$
+\end_inset
+
+, cuando 
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ se mueve sobre la curva aproximándose indefinidamente a 
+\begin_inset Formula $P_{0},$
+\end_inset
+
+ teniendo a confundirse con él.
+ (Estas nociones descriptivas serán precisadas en el capítulo 1, cuando
+ demos el concepto riguroso de infinitésimo).
+ 
+\end_layout
+
+\begin_layout Standard
+Si las coordenadas de 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ son 
+\begin_inset Formula $(x_{0},y_{0})$
+\end_inset
+
+, para determinar la ecuación de la recta 
+\begin_inset Formula $\overleftrightarrow{P_{0}T}$
+\end_inset
+
+, tangente a la curva en 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+, bastará determinar su pendiente, pues según sabemos por Geometría Analítica,
+ si la recta pasa por 
+\begin_inset Formula $P_{0}(x_{0},y_{0})$
+\end_inset
+
+, y tiene pendiente conocida, 
+\begin_inset Formula $m,$
+\end_inset
+
+ la ecuación de dicha recta es: 
+\begin_inset Formula $y-y_{0}=m\left(x-x_{0}\right),$
+\end_inset
+
+ (recta que pasa por 
+\begin_inset Formula $P_{0}\left(x_{0},y_{0}\right)$
+\end_inset
+
+ y tiene pendiente 
+\begin_inset Formula $m$
+\end_inset
+
+).
+ El problema de la determinación analítica de la tangente a una curva en
+ uno de sus puntos se reduce por tanto a la determinación de la pendiente
+ o coeficiente angular de dicha tangente.
+ Describamos el proceso mediante el cual se logra esta determinación.
+ 
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ otro punto sobre la curva 
+\begin_inset Formula $f(x)$
+\end_inset
+
+.
+ Los puntos 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ determinan una recta secante 
+\begin_inset Formula $\overleftrightarrow{P_{1}P_{0}}$
+\end_inset
+
+ a 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ , y si 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ está muy próximo a 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ la secante 
+\begin_inset Formula $\overleftrightarrow{P_{1}P_{0}}$
+\end_inset
+
+ estará muy próxima a 
+\begin_inset Formula $\overleftrightarrow{P_{0}T}$
+\end_inset
+
+ en 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Tratando por 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ una paralela al eje 
+\begin_inset Formula $OX$
+\end_inset
+
+, y por 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ una paralela al eje 
+\begin_inset Formula $OY$
+\end_inset
+
+, se forma el triángulo 
+\begin_inset Formula $P_{0}P_{1}P'_{1},$
+\end_inset
+
+ que llamaremos triángulo de incrementos, pues el cateto 
+\begin_inset Formula $P_{o}P'_{1}$
+\end_inset
+
+ es el incremento que experimenta la 
+\begin_inset Formula $x$
+\end_inset
+
+ al pasar de 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+a 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+, y el cateto 
+\begin_inset Formula $P'_{1}P_{1}$
+\end_inset
+
+es el incremento que experimenta la 
+\begin_inset Formula $y$
+\end_inset
+
+, al pasar de 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ a 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+.
+ Representaremos estos incrementos así: 
+\begin_inset Formula $P_{0}P'_{1}=\Delta_{1}x_{0}$
+\end_inset
+
+ y 
+\begin_inset Formula $P'_{1}P_{1}=\Delta y_{0}$
+\end_inset
+
+ respectivamente.
+ El cociente que resulta de dividir el incremento de la ordenada por el
+ de la abscisa, o sea: 
+\begin_inset Formula $\dfrac{\Delta_{1}y_{0}}{\Delta_{1}x_{0}},$
+\end_inset
+
+ recibe el nombre de cociente incremental y será muy usado en este libro.
+\end_layout
+
+\begin_layout Standard
+Si llamamos 
+\begin_inset Formula $\alpha_{1}$
+\end_inset
+
+ al ángulo 
+\begin_inset Formula $P'_{1}P_{0}P_{1},$
+\end_inset
+
+ se ve en la figura 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:myfig2}
+\end_layout
+
+\end_inset
+
+ que 
+\begin_inset Formula 
+\begin{equation}
+\tan\alpha_{1}=\dfrac{\Delta_{1}y_{0}}{\Delta_{1}x_{0}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como hemos dicho antes, la 
+\begin_inset Formula $\tan\alpha_{1}$
+\end_inset
+
+ es un valor aproximado de la pendiente de la tangente, 
+\begin_inset Formula $P_{0}T,$
+\end_inset
+
+ a la curva 
+\begin_inset Formula $P_{0}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si quisiéramos aumentar la precisión en el valor aproximado de la 
+\begin_inset Formula $\tan\alpha_{1}$
+\end_inset
+
+, tomaríamos un nuevo punto, 
+\begin_inset Formula $P_{2},$
+\end_inset
+
+ sobre la curva, más próximo a 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ que el punto 
+\begin_inset Formula $P_{1}.$
+\end_inset
+
+ Construiríamos la secante 
+\begin_inset Formula $\overleftrightarrow{P_{0}P_{2}}$
+\end_inset
+
+ y trazaríamos por 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ la paralela al eje 
+\begin_inset Formula $OY,$
+\end_inset
+
+ con lo que se formaría el nuevo triángulos de incrementos 
+\begin_inset Formula $P_{0}P'_{2}P_{2}$
+\end_inset
+
+ (con ángulo recto en 
+\begin_inset Formula $p'_{2}$
+\end_inset
+
+).
+ Si llamamos 
+\begin_inset Formula $\alpha_{2}$
+\end_inset
+
+ al ángulo 
+\begin_inset Formula $P'_{2}P_{p}P_{2}$
+\end_inset
+
+ se tendría:
+\begin_inset Formula 
+\begin{equation}
+\tan\alpha_{2}=\dfrac{\Delta_{2}y_{0}}{\Delta_{2}x_{0}},\text{(véase la figura \ref{fig:myfig2}) }
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si quisiéramos aproximar aún más la pendiente, tomaríamos un nuevo punto
+ sobre la curva 
+\begin_inset Formula $f(x)$
+\end_inset
+
+, 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ que los anteriores, y con construcciones análogas a las descritas para
+ los puntos 
+\begin_inset Formula $P_{1}$
+\end_inset
+
+ y 
+\begin_inset Formula $P_{2},$
+\end_inset
+
+ y con la notación también análoga, se tendría:
+\begin_inset Formula 
+\begin{equation}
+\tan\alpha_{3}=\dfrac{\Delta_{3}y_{0}}{\Delta_{2}x_{0}},
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+que sería un valor más aproximado de la pendiente de la recta tangente 
+\begin_inset Formula $\overleftrightarrow{P_{0}T}$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Standard
+Si continuáramos indefinidamente el proceso de acercamiento de los puntos
+ sobre la curva 
+\begin_inset Formula $f\left(x\right)$
+\end_inset
+
+ al punto 
+\begin_inset Formula $P_{0},$
+\end_inset
+
+ obtendríamos la siguiente sucesión de coeficientes incrementales: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\tan\alpha_{1}=\dfrac{\Delta_{1}y_{0}}{\Delta_{1}x_{0}},\,\tan\alpha_{2}=\dfrac{\Delta_{2}y_{0}}{\Delta_{2}x_{0}},\,\tan\alpha_{3}=\dfrac{\Delta_{3}y_{0}}{\Delta_{3}x_{0}},\cdots,\tan\alpha_{n}=\dfrac{\Delta_{n}y_{0}}{\Delta_{n}x_{0}}\label{eq:ec4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Cuán más grande sea el valor de 
+\begin_inset Formula $n$
+\end_inset
+
+ en la ecuación 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eqref{eq:ec4}
+\end_layout
+
+\end_inset
+
+, más próximo será el valor de 
+\begin_inset Formula $\alpha_{n}$
+\end_inset
+
+ al valor de la pendiente de 
+\begin_inset Formula $\overleftrightarrow{P_{0}T}$
+\end_inset
+
+ en 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+; pero si queremos el valor exacto, no aproximado, de la pendiente de la
+ tangente, tendremos que calcular el valor hacia el cual tienden los cocientes
+ incrementales dados el la ecuación 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eqref{eq:ec4}
+\end_layout
+
+\end_inset
+
+, cuando el punto 
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ tiende a confundirse con el punto 
+\begin_inset Formula $P_{0};$
+\end_inset
+
+ es decir, nos encontramos nuevamente con la necesidad de efectuar la nueva
+ operación que se será estudiada en el capítulo 1 de este libro y que se
+ llama 
+\begin_inset Quotes fld
+\end_inset
+
+
+\shape slanted
+operación de paso al límite
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los límites del tipo que aquí descrito reciben el nombre de derivadas.
+ El método seguido en la descripción de este problema permite descubrir
+ una analogía con el problema del área del 
+\shape slanted
+Segmento parabólico
+\shape default
+: Se calcula una sucesión de aproximaciones, cada vez más finas, de la magnitud
+ que se desea obtener; después, por una operación nueva , de 
+\begin_inset Quotes fld
+\end_inset
+
+
+\shape slanted
+paso al límite
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+, efectuada sobre estas aproximaciones, se obtiene el valor exacto de la
+ magnitud incógnita.
+ Esta analogía se mantiene en los problemas que describiremos a continuación
+ , y en todos los problemas del 
+\shape slanted
+Cálculo Infinitesimal
+\shape default
+; de ahí la importancia de realizar un estudio sistemático y general de
+ las sucesiones 
+\begin_inset Quotes fld
+\end_inset
+
+
+\shape slanted
+sucesiones de números reales
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+, (como la de recubrimientos en el problema (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro1}
+\end_layout
+
+\end_inset
+
+), la de los cocientes incrementales, en el problema (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro2}
+\end_layout
+
+\end_inset
+
+), y otras muchas más que nos encontraremos a lo largo del libro), y de
+ la forma de obtener sus límites.
+ Puede decirse que toda la tarea del 
+\shape slanted
+Cálculo Infinitesimal
+\shape default
+ consiste en dar reglas para obtener ciertos límites especiales que ocurren
+ con bastante frecuencia en la solución de problemas importantes.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problema}[Velocidad Instantánea]
+\backslash
+label{prob:pro3}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Hallar la velocidad instantánea de un movimiento variado.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sabemos de la Física, que un movimiento se llama uniforme cuando un móvil
+ recorre espacios iguales en intervalos de tiempos iguales, y variado cuando
+ los espacios recorridos en intervalos iguales no son iguales.
+ 
+\end_layout
+
+\begin_layout Standard
+En el caso del movimiento uniforme los espacios son proporcionales a los
+ intervalos de tiempos invertidos en recorrerlos, pues a doble, triple,
+ ..., intervalos de tiempo, corresponde el doble, triple,..., espacio.
+\end_layout
+
+\begin_layout Standard
+La constante de proporcionalidad recibe el nombre de velocidad del movimiento
+ y es igual al cociente de dividir el espacio recorrido entre el intervalo
+ de tiempo empleado.
+\end_layout
+
+\begin_layout Standard
+Si representamos al espacio recorrido por el móvil por 
+\begin_inset Formula $e$
+\end_inset
+
+, y el tiempo empleado por 
+\begin_inset Formula $t$
+\end_inset
+
+, y a la velocidad por 
+\begin_inset Formula $v$
+\end_inset
+
+, se cumple para el movimiento uniforme que 
+\begin_inset Formula $v=\dfrac{e}{t}$
+\end_inset
+
+ es constante, siendo el espacio 
+\begin_inset Formula $e$
+\end_inset
+
+ el espacio recorrido y 
+\begin_inset Formula $t$
+\end_inset
+
+ el tiempo empleado cantidades con las unidades correspondientes a un sistema
+ de medidas cualquiera.
+\end_layout
+
+\begin_layout Standard
+La característica esencial del movimiento del movimiento uniforme es la
+ constancia de la velocidad a lo largo del recorrido; pero en un movimiento
+ variado la velocidad cambia de unos puntos a otros del recorrido.
+\end_layout
+
+\begin_layout Standard
+Si queremos tener un conocimiento exacto de un movimiento variado necesitamos
+ conocer la velocidad del móvil en cada punto del trayecto, es decir, la
+ velocidad en cada instante del tiempo que dura el movimiento, que recibe
+ el nombre de 
+\shape slanted
+
+\begin_inset Quotes fld
+\end_inset
+
+velocidad instantánea
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Para simplificar la exposición del método seguido para obtener la 
+\begin_inset Quotes fld
+\end_inset
+
+
+\shape slanted
+velocidad instantánea
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+ de un movimiento variado, supondremos que el móvil se mueve sobre la recta
+ 
+\begin_inset Formula $AB$
+\end_inset
+
+, en negativo, como se muestra en la figura (
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig3"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename pdf/cal_int3.pdf
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Velocidad instantánea}
+\backslash
+label{fig:fig3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sea 
+\begin_inset Formula $P$
+\end_inset
+
+ el punto del trayecto en el cual queremos obtener la velocidad del móvil;
+ el espacio lo tomaremos como la longitud del segmento 
+\begin_inset Formula $PP_{1},$
+\end_inset
+
+ y lo representaremos como 
+\begin_inset Formula $\Delta_{1}e$
+\end_inset
+
+ ( primer incremento de espacio) y el tiempo invertido en recorrer 
+\begin_inset Formula $\Delta_{1}e$
+\end_inset
+
+ lo representaremos por 
+\begin_inset Formula $\Delta_{1}t$
+\end_inset
+
+.
+ Emplearemos una notación análoga para los espacios 
+\begin_inset Formula $PP_{2},\;PP_{3},\cdots,PP_{n}$
+\end_inset
+
+, y para sus tiempos correspondientes.
+ 
+\end_layout
+
+\begin_layout Standard
+Describamos como se obtendría la velocidad en el punto 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ El cociente incremental, 
+\begin_inset Formula $\dfrac{\Delta_{1}e}{\Delta_{1}t}=\dfrac{PP_{1}}{\Delta_{1}t}\inline\text{\label{eq:ec5}}$
+\end_inset
+
+
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+\lang english
+,
+\family default
+\series default
+\shape default
+\size default
+\emph default
+\bar default
+\strikeout default
+\uuline default
+\uwave default
+\noun default
+\color inherit
+\lang spanish
+ nos da la velocidad promedio en el trayecto 
+\begin_inset Formula $PP_{1}$
+\end_inset
+
+, y si dicho trayecto es pequeño, cociente incremental (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{eq:ec5}
+\end_layout
+
+\end_inset
+
+) es un valor aproximado de la velocidad en el punto 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ Si queremos aproximarnos más al valor de la velocidad en el punto 
+\begin_inset Formula $P$
+\end_inset
+
+ consideraríamos un nuevo punto, 
+\begin_inset Formula $P_{2}$
+\end_inset
+
+ más próximo a 
+\begin_inset Formula $P$
+\end_inset
+
+ que 
+\begin_inset Formula $P_{1},$
+\end_inset
+
+ y hallaríamos 
+\begin_inset Formula $\dfrac{\Delta_{2}e}{\Delta_{2}t}=\dfrac{PP_{2}}{\Delta_{2}t},$
+\end_inset
+
+ que es la velocidad promedio en el trayecto 
+\begin_inset Formula $PP_{2},$
+\end_inset
+
+ más próxima que la anterior a la velocidad en el punto 
+\begin_inset Formula $P.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Si queremos acercarnos aún más al valor de la velocidad en el punto 
+\begin_inset Formula $P,$
+\end_inset
+
+ consideraríamos un nuevo punto, 
+\begin_inset Formula $P_{3},$
+\end_inset
+
+ más cercano a 
+\begin_inset Formula $P$
+\end_inset
+
+ que los anteriores, obteniendo; 
+\begin_inset Formula $\dfrac{\Delta_{3}e}{\Delta_{3}t}=\dfrac{PP_{3}}{\Delta_{3}t}.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Prosiguiendo indefinidamente este proceso de forma que los cocientes incremental
+es de los espacios recorridos para alcanzar 
+\begin_inset Formula $P$
+\end_inset
+
+ divididos por los tiempos empleados en recorrerlos, para espacios cada
+ vez más pequeños, se obtiene la siguiente sucesión de cocientes incrementales:
+\begin_inset Formula 
+\begin{equation}
+\dfrac{\Delta_{1}e}{\Delta_{1}t},\;\dfrac{\Delta_{2}e}{\Delta_{2}t},\;\dfrac{\Delta_{3}e}{\Delta_{3}t},\cdots,\dfrac{\Delta_{n}e}{\Delta_{n}t}\cdots.\label{eq:ec6}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Los valores de los términos de la sucesión dada por la ecuación 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eqref{eq:ec6}
+\end_layout
+
+\end_inset
+
+ se aproximan más y más a la velocidad del movimiento en el punto 
+\begin_inset Formula $P,$
+\end_inset
+
+ pero si queremos el valor exacto de dicha velocidad, necesitamos de la
+ nueva operación, ya citada en los ejemplos anteriores: 
+\begin_inset Quotes fld
+\end_inset
+
+
+\shape slanted
+La operación de paso al límite
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+ que consiste en hallar el valor hacia el cual tienden los términos de la
+ sucesión dada en 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+eqref{eq:ec6}
+\end_layout
+
+\end_inset
+
+ cuando 
+\begin_inset Formula $P_{n}$
+\end_inset
+
+ tiende a 
+\begin_inset Formula $P,$
+\end_inset
+
+ de forma que 
+\begin_inset Formula $\Delta_{n}t$
+\end_inset
+
+ tienda a cero.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este problema que acabamos de describir, es de importancia capital en la
+ Física, necesita también para ser resuelto del instrumento da la 
+\begin_inset Quotes fld
+\end_inset
+
+teoría de los límites
+\begin_inset Quotes frd
+\end_inset
+
+.
+ este problema quedará clasificados dentro de los límites que llamaremos
+ 
+\shape slanted
+derivada
+\shape default
+.
+\end_layout
+
+\begin_layout Standard
+El lector habrá captado la identidad estructural entre el problema (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro3}
+\end_layout
+
+\end_inset
+
+) y el de la tangente (problema: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro2}
+\end_layout
+
+\end_inset
+
+).
+ Ambos son problemas que conducen a límites de cocientes incrementales que
+ reciben al aplicarle 
+\begin_inset Quotes fld
+\end_inset
+
+ 
+\shape slanted
+el paso al límite
+\shape default
+
+\begin_inset Quotes frd
+\end_inset
+
+ el nombre de derivada.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problema}[Trabajo realizado por una fuerza]
+\backslash
+label{prob:pro4}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Hallar el trabajo realizado por una fuerza variable a lo largo de un segmento
+ de linea recta.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+a)
+\end_layout
+
+\end_inset
+
+ Si una 
+\shape slanted
+fuerza constante
+\shape default
+ actúa sobre un cuerpo a lo largo de un 
+\shape slanted
+segmento rectilíneo
+\shape default
+, 
+\begin_inset Formula $AB$
+\end_inset
+
+, de longitud 
+\begin_inset Formula $l,$
+\end_inset
+
+ tenemos de acuerdo con la 
+\shape slanted
+Física
+\shape default
+ que el 
+\shape slanted
+trabajo
+\shape default
+ realizado por dicha 
+\shape slanted
+fuerza constante
+\shape default
+ sobre el objeto se obtiene del producto de la magnitud de la fuerza 
+\begin_inset Formula $F$
+\end_inset
+
+ por el desplazamiento 
+\begin_inset Formula $l.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+b)
+\end_layout
+
+\end_inset
+
+ Si una 
+\shape slanted
+fuerza variable
+\shape default
+ actúa sobre un cuerpo a lo largo de un 
+\shape slanted
+segmento rectilíneo
+\shape default
+, 
+\begin_inset Formula $AB,$
+\end_inset
+
+ de longitud 
+\begin_inset Formula $l,$
+\end_inset
+
+ el cálculo del 
+\shape slanted
+trabajo
+\shape default
+ realizado por esta fuerza sobre un cuerpo se complica extraordinariamente,
+ hasta el extremo de necesitarse una 
+\shape slanted
+operación de paso al límite
+\shape default
+ como veremos a continuación.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename pdf/cal_int4.pdf
+	scale 80
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{Trabajo realizado por una fuerza}
+\backslash
+label{fig:fig4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{2pt}
+\backslash
+begin{nota}
+\backslash
+peque
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\noun on
+Descripción
+\emph default
+\noun default
+: si dividimos el segmento 
+\begin_inset Formula $AB$
+\end_inset
+
+ en un número de partes iguales, por ejemplo 100 partes iguales (en la figura
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:fig4}
+\end_layout
+
+\end_inset
+
+) se señala una parte, de centro en 
+\begin_inset Formula $x$
+\end_inset
+
+ y una fuerza horizontal aplicada en al centro del objeto, igual a 
+\begin_inset Formula $f\left(x\right),$
+\end_inset
+
+ podemos considerar que la fuerza horizontal en cada parte es constante
+ (lo cual no es cierto, pues hemos supuesto que la fuerza es continuamente
+ variable a lo largo de 
+\begin_inset Formula $AB$
+\end_inset
+
+, 
+\begin_inset Quotes fld
+\end_inset
+
+en realidad 
+\begin_inset Formula $f\left(\Delta x\right)$
+\end_inset
+
+ es aproximadamente constante en cada 
+\begin_inset Formula $\Delta x=\dfrac{AB}{100},$
+\end_inset
+
+ si es bien pequeño
+\begin_inset Quotes frd
+\end_inset
+
+), e igual valor que corresponde a la fuerza horizontal aplicada en el centro
+ del objeto, es decir para cada 
+\begin_inset Formula $\Delta_{i}x$
+\end_inset
+
+ se tiene que 
+\begin_inset Formula $f\left(\Delta_{i}x\right)=f\left(x_{i}\right)$
+\end_inset
+
+ para todo 
+\begin_inset Formula $i=1,2,3,\cdots,100$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nota}
+\backslash
+vspace*{2pt}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Con esta simplificación podemos calcular el trabajo realizado por la fuerza
+ horizontal sobre el objeto en cada parte, al cual llamaremos 
+\shape slanted
+trabajo elemental
+\shape default
+ o 
+\shape slanted
+elemento de trabajo
+\shape default
+: el trabajo de cada parte es igual al producto del recorrido, 
+\begin_inset Formula $\Delta_{i}x$
+\end_inset
+
+, por la fuerza horizontal sobre el objeto, 
+\begin_inset Formula $f\left(\Delta_{i}x\right).$
+\end_inset
+
+ se comprende fácilmente que si sumamos los elementos de trabajo en las
+ 100 partes obtendremos un valor aproximado del trabajo total realizado
+ por la fuerza horizontal variable a lo largo del segmento rectilíneo 
+\begin_inset Formula $AB.$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Si queremos afinar más la aproximación dividimos el segmento 
+\begin_inset Formula $AB$
+\end_inset
+
+ en 1000 partes iguales y procederíamos igual que antes, calculando el trabajo
+ elemental de cada parte como el producto de su desplazamiento por la fuerza
+ horizontal y sumando los mil trabajos elementales, es decir 
+\begin_inset Formula 
+\[
+W_{Total}\approx f\left(\Delta_{1}x\right)\Delta_{1}x+f\left(\Delta_{2}x\right)\Delta_{2}x+f\left(\Delta_{3}x\right)\Delta_{3}x+\cdots+f\left(\Delta_{1000}x\right)\Delta_{1000}x.
+\]
+
+\end_inset
+
+Podríamos tener obtener valores más aproximados si dividimos 
+\begin_inset Formula $AB$
+\end_inset
+
+ por un numero cada vez mayor de partes iguales y calculamos el trabajo
+ sobre cada parte y luego sumamos todos los trabajos, pero si queremos el
+ valor exacto del trabajo realizado por la fuerza horizontal variable para
+ desplazar el objeto sobre el segmento rectilíneo 
+\begin_inset Formula $AB$
+\end_inset
+
+, debemos proseguir indefinidamente la división del segmento rectilíneo
+ 
+\begin_inset Formula $AB$
+\end_inset
+
+ en segmentos cada vez más pequeños y pasar al límite las sumas de los trabajos
+ elementales cuando el número de partes iguales en las que se divide el
+ segmento 
+\begin_inset Formula $AB$
+\end_inset
+
+ tiende a infinito.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este problema tiene una estructura matemática similar al problema (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro1}
+\end_layout
+
+\end_inset
+
+); ambos conducen, como veremos más adelante, a un tipo de límite que recibe
+ el nombre de
+\shape slanted
+ integral definida
+\shape default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{problema}[Cuerpo con densidad heterogénea]
+\backslash
+label{prob:pro}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Hallar la masa de un cuerpo con densidad heterogénea.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{problema}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Una sustancia es homogénea si cuando volúmenes iguales del mismo material
+ tienen la misma masa, es decir, que una fuerza de igual magnitud produce
+ sobre dos cuerpos de igual volumen y de la misma sustancia aceleraciones
+ diferentes.
+\end_layout
+
+\begin_layout Standard
+Cuando no se cumple la condición anterior se dice que la sustancia es heterogéne
+a.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+a)
+\end_layout
+
+\end_inset
+
+ Si una sustancia es homogénea, el cociente de dividir su masa por su volumen
+ es constante, cualquiera que sea el volumen de la sustancia que se se considere
+, y este cociente recibe el nombre de 
+\shape slanted
+densidad
+\shape default
+.
+ La densidad de una sustancia homogénea se mide en gramos por centímetro
+ cúbico.
+ (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$
+\backslash
+si{g/cm^3}$
+\end_layout
+
+\end_inset
+
+).(Un gramo es la masa que corresponde 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+1
+\backslash
+si{cm^3}
+\end_layout
+
+\end_inset
+
+ de agua pura a la temperatura de 
+\begin_inset Formula $4^{\circ}$
+\end_inset
+
+ centígrados).
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Argument item:1
+status open
+
+\begin_layout Plain Layout
+b)
+\end_layout
+
+\end_inset
+
+ Sustancia heterogénea 
+\end_layout
+
+\begin_layout Standard
+Consideremos una sustancia, que para simplificar la explicación la supondremos
+ en un recipiente cilíndrico de sección de 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1
+\backslash
+si{cm^2}$
+\end_layout
+
+\end_inset
+
+,(como muestra la figura(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:myfig5}
+\end_layout
+
+\end_inset
+
+).
+ Supondremos además que la sustancia es heterogénea y que su densidad cambia
+ de forma continua al variar la altura, 
+\begin_inset Formula $x,$
+\end_inset
+
+ de las capas de sustancia al fondo del recipiente.
+ Se supone finalmente que todos los puntos de un plano paralelo al del fondo
+ (de igual altura sobre el fondo) tienen la misma densidad.
+\end_layout
+
+\begin_layout Standard
+¿Cómo haríamos para calcular la densidad de la sustancia en la capa situada
+ a una altura 
+\begin_inset Formula $x$
+\end_inset
+
+ sobre el fondo?
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{2pt}
+\backslash
+begin{nota}
+\backslash
+peque
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\noun on
+Descripción
+\emph default
+\noun default
+: Se rodea a la capa de altura 
+\begin_inset Formula $x$
+\end_inset
+
+ de un volumen comprendido entre dos capas simétricas de la anterior separadas
+ una distancia igual a 
+\begin_inset Formula $\Delta_{1}x$
+\end_inset
+
+ ; puesto que hemos considerado la sección del recipiente igual a 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+$1
+\backslash
+si{cm^2}$,
+\end_layout
+
+\end_inset
+
+ este volumen coincidirá con la capa de altura 
+\begin_inset Formula $\Delta_{1}x$
+\end_inset
+
+ (vea la figura: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{fig:myfig5}
+\end_layout
+
+\end_inset
+
+) 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nota}
+\backslash
+vspace*{2pt}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{wrapfigure}{r}{0.4
+\backslash
+linewidth} 
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pdf/cal_int5.pdf
+	lyxscale 80
+	scale 55
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+caption{densidad de una sustancia heterogénea.}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{fig:myfig5}
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{wrapfigure}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Si dividimos la masa que hay entre las dos capas que rodean a la capa de
+ altura 
+\begin_inset Formula $x,$
+\end_inset
+
+ que representamos por 
+\begin_inset Formula $\Delta_{1}m,$
+\end_inset
+
+ por el volumen comprendido entre ellas, que ya hemos dicho que es 
+\begin_inset Formula $\Delta_{1}x,$
+\end_inset
+
+ obtenemos 
+\begin_inset Formula $\rho_{1}=\dfrac{\Delta_{1}m}{\Delta_{1}x}\inline\text{\label{eq:ec7}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+El cociente incremental de la ecuación (
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{eq:ec7}
+\end_layout
+
+\end_inset
+
+) es un valor aproximado de la densidad de la capa de altura 
+\begin_inset Formula $x,$
+\end_inset
+
+ tanto más aproximado cuanto menor sea 
+\begin_inset Formula $\Delta_{1}x;$
+\end_inset
+
+ él representa la 
+\shape slanted
+densidad media
+\shape default
+ de las capas comprendidas en el volumen considerado.
+\end_layout
+
+\begin_layout Standard
+Si queremos aproximarnos más al valor exacto de la densidad correspondiente
+ a la capa de altura 
+\begin_inset Formula $x,$
+\end_inset
+
+ trazamos dos nuevas capas simétricas también de la altura 
+\begin_inset Formula $x,$
+\end_inset
+
+ y más próximas a ella que las anteriores, separadas entre sí una distancia
+ 
+\begin_inset Formula $\Delta_{2}x<\Delta_{1}x.$
+\end_inset
+
+ Con notación análoga a la anterior, se tiene: 
+\begin_inset Formula $\rho_{2}=\dfrac{\Delta_{2}m}{\Delta_{2}x}\inline\text{\label{eq:ec8}.}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Este proceso de aproximaciones sucesivas hacia la densidad verdadera de
+ la capa de altura 
+\begin_inset Formula $x$
+\end_inset
+
+ se puede proseguir indefinidamente, obteniendo la siguiente sucesión de
+ densidades medias, cada vez más próximas a la densidad buscada:
+\begin_inset Formula 
+\begin{equation}
+\rho_{1}=\dfrac{\Delta_{1}m}{\Delta_{1}x},\;\rho_{2}=\dfrac{\Delta_{2}m}{\Delta_{2}x},\;\rho_{3}=\dfrac{\Delta_{3}m}{\Delta_{3}x},\cdots,\rho_{n}=\dfrac{\Delta_{n}m}{\Delta_{n}x}.\label{eq:ec9}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pero si queremos obtener el valor exacto de la densidad de la capa de altura
+ 
+\begin_inset Formula $x,$
+\end_inset
+
+ necesitamos también en esta ocasión efectuar una operación de
+\shape slanted
+ paso al límite 
+\shape default
+sobre la sucesión 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{eq:ec9},
+\end_layout
+
+\end_inset
+
+ o sea, encontrar el valor hacia el cual tiende la sucesión de densidades
+ medias cuando 
+\begin_inset Formula $\Delta_{n}x$
+\end_inset
+
+ tiende a cero.
+ Este problema corresponde a un límite análogo a los que se presentaron
+ en los problemas 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro2}
+\end_layout
+
+\end_inset
+
+ y 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+ref{prob:pro3},
+\end_layout
+
+\end_inset
+
+ que después será llamado derivada.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{solucion}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{2pt}
+\backslash
+begin{nota}
+\backslash
+peque
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+\noun on
+Conclusión
+\emph default
+\noun default
+: El lector que haya reflexionado atentamente sobre las descripciones de
+ los problemas anteriores, comprenderá la necesidad de un estudio sistemático
+ y general de esta operación que le hemos hecho entrever y que hemos denominado
+ de 
+\shape slanted
+paso al límite
+\shape default
+; sin ella, todos estos problemas, y otros muchísimos análogos de capital
+ importancia en Física, Química, Estadística, Economía, etc., quedarían sin
+ resolver.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{nota}
+\backslash
+vspace*{2pt}
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\end_body
+\end_document

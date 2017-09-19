@@ -1,0 +1,9 @@
+\documentclass[draft]{article}
+\usepackage{ifdraft, blindtext}
+\ifdraft{%
+    \usepackage{todonotes}}{ % draft with TODOs
+    \usepackage[disable]{todonotes} % final without TODOs
+}
+\begin{document}
+\blindtext\todo{Insert a more meaningful text here}
+\end{document}

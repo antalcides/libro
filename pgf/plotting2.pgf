@@ -1,0 +1,6 @@
+\begin{tikzpicture}[scale=0.7]
+  \begin{axis}[legend entries={\(\alpha\),\(\beta\)},grid=major]
+        \addplot[domain=-4:4,blue,very thick] {x};
+       \draw[cyan,line width=5pt] (-2,2) -- (0,10);
+  \end{axis}
+\end{tikzpicture}

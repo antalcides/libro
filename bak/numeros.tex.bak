@@ -1,0 +1,808 @@
+%% LyX 2.0.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,svgnames,x11names,x11names,HTML]{book}
+\usepackage[utf8x]{inputenc}
+\pagestyle{headings}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\usepackage{float}
+\usepackage{amstext}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\input{preamble2}
+\input{composicion-codigo}
+\usepackage{fancyvrb}
+\usepackage{cancel}
+\usetikzlibrary{fit,shapes}
+\usepackage{mivenndiagram}
+\usepackage{tikz-cd}% diagramas commutativos
+\usetikzlibrary{matrix}
+\usepackage{mathtools}
+\usepackage[unicode=true,pdfusetitle,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=true,bookmarksopenlevel=1,
+ breaklinks=false,pdfborder={0 0 0},backref=false,colorlinks=false]
+ {hyperref}
+\hypersetup{
+ pdfpagelayout=OneColumn, pdfnewwindow=true, pdfstartview=XYZ, plainpages=false}
+ \newsavebox{\LstBox}
+ %\graphicspath{ {./img/} }
+ \makeatletter
+\def\input@path{{./}{./build/}{./styles/}}
+\makeatother
+ \graphicspath{{./}{./img/}{./build/}}
+ \renewcommand{\baselinestretch}{1.5}
+\raggedbottom %para que no distibuya los espacios verticales en una hoja
+\setcounter{problema}{1}
+%\usepackage[spanish]{babel}
+ 
+
+%}
+\newcommand{\triangulo}{\tikz \filldraw[scale=0.5,fill=teal!20] (0,0) -- ++(60:1) -- ++(-60:1) -- cycle ;
+                 }
+                 \newcommand{\linea}[1]{\overleftrightarrow{#1}}
+\newcommand{\degre}{\ensuremath{^\circ}}
+\newenvironment{prueba}[2]{\renewcommand{\arraystretch}{1.06}
+\vskip 5pt  {
+ \colorbox{teal!30}{\color{white}{Prueba:}}
+ }\vskip 5pt
+$ %
+\begin{tabular}
+[t]{ll||l}\hline
+\multicolumn{2}{c||}{\mbox{Afirmaciones}} & \mbox{Razones}\\\hline\hline
+1. & 
+#1 
+& \multicolumn{1}{|l}{\mbox{Dado}}\\
+#2
+\end{tabular}
+\ \ \ $ 
+\vskip 5pt}{\hfill  \raggedright{ \rule{0.5em}{0.5em} }\vskip 5pt }
+\newcommand{\problemas}[1]
+{
+\section{Problemas}
+\peque
+\begin{changemargin}{23.2cm}{18cm}{0cm}{0cm}{0cm}
+\begin{multicols}{2}
+ \noindent #1
+\end{multicols}
+\end{changemargin}
+{\setlength{\parindent}{0mm}\color{ptctitle}\rule{\linewidth}{1mm}}
+}
+\setlength\columnsep{40pt} 
+%\renewcommand\columnseprulecolor{\color{ptctitle}}
+\def\spanishtablename{Tabla}
+\setlength{\tabcolsep}{8pt}
+%\setlength\columnseprule{2pt} %linea entrecolumnas por defecto 0pt
+
+\makeatother
+
+\usepackage[english,spanish]{babel}
+\addto\shorthandsspanish{\spanishdeactivate{~<>}}
+
+\begin{document}
+
+%\pagecolor{white} \mainmatter 
+\pagestyle{headings} 
+
+
+\chapter{Conjuntos Numéricos.}
+
+ \chaptertoc  
+
+\begin{competencias}  \begin{lista}  
+
+\item Interpreta correctamente las propiedades de las operaciones
+definidas en los conjuntos numéricos. 
+
+\item Clasifica correctamente los diferentes conjuntos numéricos. 
+
+\item Argumenta sobre las diferencias entre las propiedades de los
+conjuntos numéricos. 
+
+\end{lista} \end{competencias}
+
+\begin{logros}  \begin{lista}  
+
+\item Identifica los diferentes números. 
+
+\item Diferencia las propiedades válidas en cada conjunto numérico. 
+
+\item Argumenta sobre las diferencias entre los conjuntos numéricos
+y sus construcciones.. 
+
+\end{lista} \end{logros}
+
+
+\section{Introducción}
+
+En este capítulo realizaremos la construcción de los conjuntos numéricos
+empezando con una construcción axiomática de los números Naturales
+según los axiomas de Peano , luego a partir de los números Naturales
+haremos una construcción de los números Enteros construyendo primero
+un conjunto equicomparable con los Naturales bajo una aplicación,
+llamado el conjunto de los Enteros números, también haremos una construcción
+alternativa donde a partir de la definición de la diferencia entre
+dos números Naturales construiremos conjuntos que representaran cada
+uno un número, esa misma idea la utilizaremos para construir los números
+racionales a partir de la definición de división de números Enteros,
+luego demostraremos que existen números que no se pueden representar
+como el cociente de dos Enteros a ese conjunto lo llamaremos Irracionales.
+Y para terminar construiremos de manera axiomática los números Reales.
+Para terminar veremos que existen números que al elevarlos al cuadrado
+nos da un número negativo, ese conjunto es el de los números Complejos.
+
+
+\section{Números Naturales}
+
+
+\subsection{Introducción}
+
+En la antigüedad, el concepto de número surgió como consecuencia de
+la necesidad práctica de contar objetos. Para ello, al principio el
+hombre se valió de los elementos de que disponía a su alrededor: dedos,
+piedras... Basta recordar, por ejemplo, que la palabra cálculo deriva
+de la palabra latina calculus, que significa 'contar con piedras'.
+La serie de números naturales era, obviamente, limitada; pero la conciencia
+sobre la necesidad de ampliar el conjunto de los números naturales,
+representaba ya una importante etapa en el camino hacia la matemática
+moderna. Paralelamente a la ampliación de los conjuntos numéricos,
+se desarrollaron su simbología y los sistemas de numeración diferentes
+para cada civilización.
+
+Fue en la India entre los siglos V y XII d.C. donde se empezaron a
+usar correctamente los números negativos, se introdujo el cero e incluso
+se llegó a aceptar como válidos los números irracionales. Es indiscutible
+la procedencia hindú del sistema de numeración decimal y de las reglas
+de cálculo. 
+
+\textbf{El cero ¿es o no un número natural? }
+
+Este es uno de los temas de más frecuente discusión entre quienes
+se dedican a las matemáticas. 
+
+Cuando Peano introdujo los axiomas para definir el conjunto de los
+números naturales, inició este conjunto por el número uno. Pero cuando
+Cantor estudió la teoría de conjuntos, encontró que debía empezar
+por el cero, dada la necesidad de asignarle un cardinal al conjunto
+vacío. Quizá fue esto lo que hizo que, diez años más tarde, Peano
+empezara los números naturales con el cero.
+
+En las últimas décadas ha sido muy popular la teoría de conjuntos,
+lo cual justifica que muchos profesores prefieran comenzar el conjunto
+de los números naturales por el cero. En este capítulo se elige iniciar
+el conjunto de los números naturales por el uno, aunque el cero es
+necesario para el cardinal del conjunto vacío, para el neutro de la
+suma y para tantas otras aplicaciones. Pero en algunos temas, como
+el de las sucesiones, es mejor iniciar los números naturales sin el
+cero, pues es normal que se relacione el primer término con el número
+uno, el segundo término con el número dos y así sucesivamente, recordando
+que no hay un ordinal para el cardinal cero. 
+
+\textbf{Axiomas de Peano}
+
+La más conocida axiomatización de los números naturales, contenida
+en el escrito \textbf{\textsl{Arithmetices Principia Nova Methodo
+Exposita}} del italiano \textbf{\textsl{Giuseppe Peano}}, se presenta
+en esta sección en forma detallada, al igual que la forma mas moderna
+de la axiomatización, la definición de las operaciones y sus propiedades
+debidamente demostradas. 
+
+Durante el siglo XlX, sin duda con el impulso de la aparición de las
+geometrías no euclidianas, se multiplicaron los esfuerzos por axiomatizar
+la geometría empeño culminado finalmente en 1899 con la publicación
+de Fundamentos de la Geometría, de David Hilbert , también se presentaron
+varias axiomatizaciones de la aritmética o, con más precisión, de
+los números naturales. 
+
+Sin lugar a dudas, la más conocida es la que presentó el matemático
+italiano Giuseppe Peano (1858-1932) por primera vez en 1889 en un
+pequeño libro publicado en Turín titulado \textbf{\textsl{Arithmetices
+Principia Nova Methodo Exposita}}. Este texto incluye sus famosos
+axiomas, pero más que un texto a de aritmética, este documento contiene
+una introducción a la lógica en la cual se presentan por primera vez
+los símbolos actuales para representar la pertenencia, la existencia,
+la contenencia (en la actualidad es invertido, acorde con el de los
+números) y para la unión y la intersección. 
+
+Peano reconoce hacer uso de estudios de otros autores: en 1888 después
+de estudiar a G. Boole, E. Schröder, C. S. Peirce y otros, estableció
+una o o analogía entre operaciones geométricas y algebraicas con las
+operaciones de la lógica; en aritmética menciona el trabajo de Dedekind
+publicado el año anterior reconocido de manera generalizada como la
+primera axiomatización de la aritmética, aunque salió a la luz 7 años
+después del artículo de Peirce y un texto de Grassmann de 1861. Este
+ultimo libro posiblemente fué fuente de inspiración tanto para Peano
+y Dedekind como para Peirce. 
+
+Arithmetices Principia, escrito en latín es el primer intento de Peano
+, para lograr una axiomatización de las matemáticas en un lenguaje
+simbólico. 
+
+Consiste en un prefacio y 10 secciones:
+
+1. Números y Adición.
+
+2. Sustracción.
+
+3. Máximos y Mínimos. 
+
+4. Multiplicación.
+
+5. Potenciación. 
+
+6. División.
+
+7. Teoremas varios.
+
+8. Razones de Números.
+
+9. Sistemas de Racionales e Irracionales.
+
+10. Sistemas de Cantidades.
+
+En libro establece los siguientes axiomas:
+\begin{enumerate}
+\item $1\in\na$.
+\item Si $a\in\na$entonces $a=a.$
+\item Si $a\in\na$ entonces $a=b$ si y sólo si $b=a.$
+\item Si $a,b,c\in\na$ entonces $a=b,$ $b=c$ implica $a=c.$
+\item Si $a=b$ y $b\in\na$ entonces $a\in\na.$
+\item Si $a\in\na$ entonces $a+1\in\na.$
+\item Si $a\in\na$ entonces $a=b$ si y sólo si $a+1=b+1$.
+\item Si $a\in\na$ entonces $a+1\neq1.$
+\item Si $k$ es una clase, $1\in k,$ y si para $x\in\na:$ $x\in k$ implica
+$x+1$.
+\end{enumerate}
+
+\subsection{Axiomas de los números naturales}
+
+Empezaremos ahora la construcción de los números naturales siguiendo
+la idea de Peano.
+
+\begin{axioma}{Existencia de los números naturales}\label{ap1}
+
+Existe un conjunto $\na\neq\emptyset$ llamado conjunto de los números
+Naturales.
+
+\end{axioma}
+
+Podríamos decir que este axioma establece uno de los términos no definidos
+de la teoría el cual es el número natural.
+
+\begin{axioma}{Existencia del número mínimo}\label{ap4}
+
+Existe un número llamado $1\in\na.$
+
+\end{axioma}
+
+Del axioma \ref{ap1} tenemos que como $\na\neq\emptyset$ entonces
+debe tener por lo menos un elemento, el axioma \ref{ap4} lo define
+como el número $1.$
+
+\begin{axioma}{Relación de igualdad}\label{ap3}
+
+Existe una relación $"="$ tal que $a=b$ significa que $a$ y $b$
+representan el mismo número natural, que cumpla las siguientes propiedades
+
+$\forall a,b,c\in\na$ se tiene que:
+\begin{description}
+\item [{i)}] Si $a\in\na$entonces $a=a.$
+\item [{ii)}] Si $a\in\na$ entonces $a=b$ si y sólo si $b=a.$
+\item [{iii)}] Si $a,b,c\in\na$ entonces $a=b,$ $b=c$ implica $a=c.$
+\item [{iv)}] Si $a=b$ y $b\in\na$ entonces $a\in\na.$
+\end{description}
+\end{axioma}
+
+En el capítulo \ref{chap:chap2} página \pageref{tii} presentamos
+el concepto de igualdad como un término no definido, pero Peano lo
+presentó como un axioma y además establece que es una relación, algo
+que no planteamos en la teoría de conjuntos al presentar el término
+, pero si cuando se estableció el axioma de extensión.
+
+Observamos también que el axioma \ref{ax: igualdad} establece las
+tres primeras propiedades, por tanto este axioma establece sólo la
+propiedad iv), la cual nos asegura que un número natural sólo puede
+ser representado por un número natural. Es decir que si existen otros
+números estos no pueden representar a un número natural.
+
+\begin{axioma}{Sucesor}\label{ap2}
+
+Existe una aplicación %
+\begin{tabular}{cccc}
+$\varphi$ : & $\na$ & $\rightarrow$ & %
+$\na$%
+\tabularnewline
+\end{tabular} que cumple las siguientes propiedades
+\begin{description}
+\item [{i)}] $\forall n\in\na,\;\varphi\left(n\right)\neq1$
+\item [{ii)}] $\forall n,m\in\na\quad\varphi\left(n\right)=\varphi\left(m\right)\Rightarrow n=m.$
+\end{description}
+\end{axioma}
+
+La propiedad i) que establece el axioma \ref{ap2} nos dice que el
+número uno no tiene preimagen, es decir no es sucesor de ningún natural,
+es el primero.
+
+La segunda propiedad del axioma \ref{ap2} establece la relación de
+igualdad, en función de la función sucesor, pero también nos aclara
+que el sucesor de un número natural es único. 
+
+\begin{axioma}{Adición entre naturales}\label{ap5}
+
+Existe una operación %
+\begin{tabular}{cccc}
+$+$ : & $\na\times\na$ & $\rightarrow$ & %
+$\na$%
+\tabularnewline
+ & $\left(a,b\right)$ & $\mapsto$ & $c=+\left(a,b\right)=a+b$\tabularnewline
+\end{tabular} que cumple las siguientes condiciones .
+
+$\forall n,n\in\na$ se tiene que 
+\begin{description}
+\item [{i)}] $+\left(n,1\right)=\varphi\left(n\right)$
+\item [{ii)}] $+\left(\varphi\left(n\right),m\right)=+\left(n,\varphi\left(m\right)\right)=\varphi\left(+\left(n,m\right)\right)$
+\end{description}
+\end{axioma}
+
+Hubiéramos podido establecer los axiomas \ref{ap1} y \ref{ap5} como
+definiciones, pero decidimos establecerlos como axiomas, porque no
+conocemos todavía la estructura de $\na$.
+
+\begin{definicionn}{Sucesor}\label{def:sucesor}
+
+La aplicación que garantiza el axioma \ref{ap2} la definiremos %
+\begin{tabular}{cccc}
+$\varphi$ : & $\na$ & $\rightarrow$ & %
+$\na$%
+\tabularnewline
+ & $n$ & $\mapsto$ & $\varphi\left(n\right)=n+1$\tabularnewline
+\end{tabular} de acuerdo con la propiedad i) del axioma \ref{ap5}
+
+\end{definicionn}
+
+Esta definición la podemos expresar de la siguiente manera:
+\[
+\mbox{Si \ensuremath{n\in\na\Rightarrow n+1\in\na.}}
+\]
+
+
+Y con el podemos construir los números naturales de la siguiente forma
+\begin{description}
+\item [{i)}] $1\in\na$ entonces existe $\varphi\left(1\right)=1+1\in\na$.
+Al número $1+1$ lo llamaremos dos, es decir $1+1:=2.$
+\item [{ii)}] $2\in\na$ entonces existe $\varphi\left(2\right)=2+1\in\na.$
+al números $2+1$ lo llamaremos tres, es decir $2+1:=3.$
+\item [{iii)}] $3\in\na$ entonces existe $\varphi\left(3\right)=3+1\in\na.$
+al números $3+1$ lo llamaremos cuatro, es decir $3+1:=4.$
+\end{description}
+Podemos seguir construyendo los números naturales de manera indefinida,
+es decir el conjunto de los números naturales es infinito y de acuerdo
+con el axioma del conjunto infinito ( axioma \fullref{ainf}) este
+conjunto es posible ya que sigue la misma construcción que determina
+este axioma. 
+
+En estos momentos como ya conocemos la estructura del conjunto de
+los números naturales podemos definir la adición entre naturales de
+acuerdo con la definición \ref{def:sucesor}.
+
+Sean $m$ y $n$ números naturales entonces $m+n=\underset{m\mbox{ veces}}{(1+1+1+\cdots+1)}+\underset{n\mbox{ veces}}{\left(1+1+1+\cdots+1\right)}$
+es decir:
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de la adición entre números naturales.}
+\resizebox{0.3\hsize}{!}{
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|ccccc}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$+$ & \cellcolor{ptctitle!50}$1$ & \cellcolor{ptctitle!50}$2$ & \cellcolor{ptctitle!50}$3$ & \cellcolor{ptctitle!50}$4$ & \cellcolor{ptctitle!50}$\cdots$\tabularnewline
+\hline 
+\hline\cellcolor{ptctitle!50}$1$ & \cellcolor{ptcbackground} $2$ & \cellcolor{ptcbackground} $3$ & \cellcolor{ptcbackground}$4$ & \cellcolor{ptcbackground}$5$ & \cellcolor{ptcbackground}$\cdots$\tabularnewline
+\hline\cellcolor{ptctitle!50}$2$ & \cellcolor{gray!50} $3$ & \cellcolor{gray!50} $4$ & \cellcolor{gray!50}$5$ & \cellcolor{gray!50}$6$ & \cellcolor{gray!50}$\cdots$\tabularnewline
+\hline\cellcolor{ptctitle!50}$3$ & \cellcolor{ptcbackground} $4$ & \cellcolor{ptcbackground} $5$ & \cellcolor{ptcbackground} $6$ & \cellcolor{ptcbackground} $7$ & \cellcolor{ptcbackground} $\cdots$\tabularnewline
+\hline\cellcolor{ptctitle!50}$4$ & \cellcolor{gray!50} $5$ & \cellcolor{gray!50} $6$ & \cellcolor{gray!50} $7$ & \cellcolor{gray!50} $8$ & \cellcolor{gray!50} $\cdots$\tabularnewline
+\hline\cellcolor{ptctitle!50}$\vdots$ & \cellcolor{ptcbackground} $\vdots$ & \cellcolor{ptcbackground} $\vdots$ & \cellcolor{ptcbackground} $\vdots$ & \cellcolor{ptcbackground} $\vdots$ & \cellcolor{ptcbackground} $\vdots$\tabularnewline
+\end{tabular}
+
+}\label{tun}
+\end{table}
+Observemos en ta tabla que $1+1=2$ o que $3+1=4$ , que es lo que
+conocemos desde la básica primaria.
+
+\begin{axioma}{ Inducción }\label{induccion}
+
+Si $A\subseteq\na,$ $A\neq\emptyset,$ tal que 
+\begin{description}
+\item [{i)}] $1\in A.$
+\item [{ii)}] Si $\left(n\in A\Rightarrow n+1\in A\right)\Rightarrow A=\na.$
+\end{description}
+\end{axioma}
+
+El axioma de inducción se puede presentar también de la siguiente
+forma :
+
+Sea $P$ una propiedad cualesquiera. entonces todo número satisface
+la propiedad $P$ si se tiene que:
+\begin{description}
+\item [{i)}] $1$ satisface la propiedad $P$, es decir $P\left(1\right)$es
+cierto.
+\item [{ii)}] Si $n$ satisface la propiedad $P$, entonces $n+1$ también
+satisface la propiedad $P$, es decir 
+\[
+\mbox{Si \ensuremath{P\left(n\right)\Rightarrow P\left(n+1\right).}}
+\]
+
+\item [{iii)}] Se concluye $P$ se satisface para cualquier natural, es
+decir $P\left(m\right)$ es cierta $\forall m\in\na.$ 
+\item [{\nota }] Cuando el axioma se presenta de esta forma se le llama
+Principio de Inducción. Queda da tarea su demostración.
+\end{description}
+Resumiendo lo que afirman estos postulados o axiomas, podemos entender
+que se trata de un conjunto que tiene un elemento mínimo, el uno (Axioma
+\ref{ap4}), es decir no es siguiente de ningún otro (Axioma \ref{ap2}.i)),
+es decir, se trata del primer elemento del conjunto, y todos los demás
+elementos tienen cada uno un elemento siguiente (Axioma \ref{ap4}.ii)
+), de modo que dos elementos distintos tienen siguientes distintos.
+El \ref{induccion} postulado es de suma importancia por dotarnos
+de un método de demostración de propiedades, ya que nos indica que
+todo conjunto $A$ al que pertenezca el uno, y tal que todo elemento
+de $A$ tiene siguiente en $A$, necesariamente ha de coincidir con
+el conjunto $\na$ de los números naturales. Es lo que se acostumbra
+a denominar método simple de inducción completa. 
+
+A partir de estos cinco axiomas, y usando sistemáticamente el \ref{induccion}
+axioma, de la inducción completa, podemos probar todas las propiedades
+del conjunto $\na$. 
+
+\begin{teorema}{}
+
+Ningún número natural coincide con su sucesor, es decir $\forall n\in\na,\: n\neq\varphi\left(n\right).$
+
+\end{teorema}
+
+\begin{dems}
+
+Sea $A=\left\{ n\in\na\::\: n\neq\varphi\left(n\right)\right\} $,
+ahora apliquemos el axioma de inducción (\ref{induccion}) 
+\begin{enumerate}
+\item $1\in A,$ por el axioma del mínimo (\ref{ap4}) y el axioma del sucesor
+(\ref{ap2}.i)) $\varphi\left(1\right)\neq1$.
+\item $\forall n\in A,$ $n\neq\varphi\left(n\right)\Rightarrow\varphi\left(n\right)\neq\varphi\left(\varphi\left(n\right)\right)$
+por el recíproco del axioma \ref{ap2}.ii), de lo que se deduce que
+$\varphi\left(n\right)\in A.$
+\item Por tanto vemos que de 1) $1\in A$ y de 2) si $n\in\na\Rightarrow\varphi\left(n\right)\in A$
+se deduce que $A=\na$ por el axioma de inducción (\ref{induccion}),
+luego $\forall n\in\na$, $n\neq\varphi\left(n\right).$ 
+\end{enumerate}
+\end{dems}
+
+\begin{teorema}{}
+
+Si dos aplicaciones definidas en $\na\rightarrow\na$ conmutan con
+la aplicación sucesor ($\varphi\left(n\right))$ y tiene la misma
+imagen para el 1, entonces ambas coinciden.
+
+En el lenguaje $L_{\in}$ lo podemos expresar :
+
+Si \foreignlanguage{english}{$f\;:\;\na\rightarrow\na$ y $g\;:\;\na\rightarrow\na$
+son }aplicaciones tal que\foreignlanguage{english}{ 
+\[
+f\circ\varphi=\varphi\circ f\;\wedge\; g\circ\varphi=\varphi\circ g\;\wedge\; f\left(1\right)=g\left(1\right),\;\forall n\in\na\Rightarrow f\left(n\right)=g\left(n\right).
+\]
+}
+
+\end{teorema}
+
+\begin{dems}
+
+Sea $A=\left\{ n\in\na\;:\: f\left(n\right)=g\left(n\right)\right\} $,
+ahora apliquemos el axioma de inducción.
+\begin{description}
+\item [{i)}] $1\in A,$ pues por hipótesis $f\left(1\right)=g\left(1\right).$
+\item [{ii)$\forall\in\na,$}] 
+\begin{eqnarray*}
+f\left(n\right)=g\left(n\right) & \Rightarrow & \varphi\left(f\left(n\right)\right)=\varphi\left(g\left(n\right)\right)\\
+ & \Rightarrow & \left(\varphi\circ f\right)\left(n\right)=\left(g\circ\varphi\right)\left(n\right)\\
+ & \Rightarrow & \left(f\circ\varphi\right)\left(n\right)=\left(g\circ\varphi\right)\left(n\right)\\
+ & \Rightarrow & f\left[\varphi\left(n\right)\right]=g\left[\varphi\left(n\right)\right]\\
+ & \Rightarrow & \varphi\left(n\right)\in A.
+\end{eqnarray*}
+
+\item [{iii)}] En definitiva, vemos de i) $1\in A$ , de ii) si $n\in A\Rightarrow\varphi\left(n\right)\in A$,
+de lo que se deduce por el axioma \ref{induccion} que $A=\na.$
+\end{description}
+\end{dems}
+
+\begin{teorema}{}\label{teo:fidg}
+
+Dadas dos aplicaciones \foreignlanguage{english}{$f\;:\;\na\rightarrow\na$
+y $g\;:\;\na\rightarrow\na$} si existe alguna tercera aplicación
+\foreignlanguage{english}{$\psi\;:\;\na\rightarrow\na$} tal que,\foreignlanguage{english}{
+\[
+f\circ\varphi=\psi\circ f\;\wedge\; g\circ\varphi=\psi\circ g\;\wedge\; f\left(1\right)=g\left(1\right),\;\forall n\in\na\Rightarrow f\left(n\right)=g\left(n\right).
+\]
+}
+
+\end{teorema}
+
+\begin{dems}
+
+Sea $A=\left\{ n\in\na\;:\: f\left(n\right)=g\left(n\right)\right\} $,
+ahora apliquemos el axioma de inducción.
+\begin{description}
+\item [{i)}] $1\in A,$ pues por hipótesis $f\left(1\right)=g\left(1\right).$
+\item [{ii)$\forall n\in\na,$}] 
+\begin{eqnarray*}
+\left(f\circ\varphi\right)\left(n\right)=\left(\psi\circ f\right)\left(n\right) & \Rightarrow & f\left(\varphi\left(n\right)\right)=\psi\left(f\left(n\right)\right)=\psi\left(g\left(n\right)\right)=g\left(\varphi\left(n\right)\right)\\
+ & \Rightarrow & \varphi\left(n\right)\in A.
+\end{eqnarray*}
+
+\item [{iii)}] En definitiva, vemos de i) $1\in A$ , de ii) si $n\in A\Rightarrow\varphi\left(n\right)\in A$,
+de lo que se deduce por el axioma \ref{induccion} que $A=\na.$
+\end{description}
+\end{dems}
+
+
+\subsection{Propiedades de la adición entre números naturales}
+
+\begin{teorema}{unicidad de la suma}
+
+La aplicación $+$ es única, es decir si $+_{1}$ y $+_{2}$ son sumas
+entonces $+_{1}=+_{2}.$
+
+\end{teorema}
+
+\begin{dems}
+
+Definamos dos aplicaciones, $f$ y $g$, mediante $+_{1}$ y $+_{2}$
+de la siguiente manera 
+
+Sea \foreignlanguage{english}{$f\;:\;\na\rightarrow\na$ }definida\foreignlanguage{english}{
+$\forall n\in\na\: f\left(n\right)=+_{1}\left(n,m\right),\quad\mbox{para algún \ensuremath{m\in\na}}$
+.}
+
+Sea \foreignlanguage{english}{$g\;:\;\na\rightarrow\na$ }definida\foreignlanguage{english}{
+$\forall n,m\in\na\: g\left(n\right)=+_{2}\left(n,m\right),\quad\mbox{para algún \ensuremath{m\in\na}}$
+.}
+
+Entonces : 
+\begin{description}
+\item [{i)}] $1\in\na$
+\[
+\left|\begin{array}{c}
+f(1)=+_{1}(1,m)=1+m\\
+g(1)=+_{2}(1,m)=1+m
+\end{array}\right\} \Rightarrow f(1)=g(1).
+\]
+
+\item [{ii)}] $\forall n\in\na$
+\[
+\left(f\circ\varphi\right)\left(n\right)=+_{1}(\varphi\left(n\right),m)=\varphi\left(+_{1}\left(n,m\right)\right)=\varphi\left[f\left(n\right)\right]=\left(\varphi\circ f\right)\left(n\right)
+\]
+entonces $\forall n\in\na,$ $\left(f\circ\varphi\right)\left(n\right)=\left(\varphi\circ f\right)\left(n\right)\Rightarrow f\circ\varphi=\varphi\circ f.$
+\item [{iii)}] $\forall n\in\na$
+\[
+\left(g\circ\varphi\right)\left(n\right)=+_{2}(\varphi\left(n\right),m)=\varphi\left(+_{2}\left(n,m\right)\right)=\varphi\left[g\left(n\right)\right]=\left(\varphi\circ g\right)\left(n\right)
+\]
+entonces $\forall n\in\na,$ $\left(g\circ\varphi\right)\left(n\right)=\left(\varphi\circ g\right)\left(n\right)\Rightarrow g\circ\varphi=\varphi\circ g.$
+\end{description}
+Es decir las aplicaciones $f$ y $g$ con la aplicación sucesor $\varphi$
+de acuerdo con el teorema \ref{teo:fidg} , entonces $f\left(n\right)=g\left(n\right),\quad\forall n\in\na.$
+p $+_{1}\left(n,m\right)=+_{2}\left(n,m\right).$
+
+\end{dems}
+
+\notacion  representaremos de aquí en adelante la adición entre dos
+números naturales $n$ y $m$ como $n+m$ en vez de $+\left(n,m.\right)$
+por tanto las condiciones que cumple la operación se denotará
+\begin{description}
+\item [{i)}] $\varphi\left(n\right)=n+1$
+\item [{ii)}] $\varphi\left(n\right)+m=\varphi\left(n+m\right).$
+\end{description}
+\begin{definicionn}{Menor que}
+
+Se dice que $a\in\na$ es menor o igual que $b\in\na$ si existe un
+$c\in\na$ tal que $b=a+c.$ 
+
+\end{definicionn}
+
+\notacion  Si un número $a$ es menor o igual a un número $b$ se
+denota $a\leq b.$
+
+\begin{definicionn}{Meyor que}
+
+Se dice que $a\in\na$ es mayor o igual que $b\in\na$ si existe un
+$c\in\na$ tal que $a=b+c.$ 
+
+\end{definicionn}
+
+\notacion  Si un número $a$ es mayor o igual a un número $b$ se
+denota $a\geq b.$
+
+\begin{axioma}{Principio de la buena ordenación}
+
+Si $A\neq\emptyset$ y $A\subseteq\na$ existe un único número $m\in A$
+tal que $m\leq a,$ $\forall a\in A$, $m$ recibe de mínimo elemento
+de $A.$
+
+\end{axioma}
+
+\begin{definicionn}{Cero} 
+
+Existe un número llamado neutro aditivo o cero que representa con
+el símbolo $"0$'', tal que si $a\in\na\Rightarrow a+0=0+a=a$, además
+definimos la aplicación 
+\[
+\varphi^{*}\left(n\right)=\begin{cases}
+\varphi\left(n\right) & \mbox{si \ensuremath{n\in\na,}}\\
+1 & \mbox{si \ensuremath{n=0.}}
+\end{cases}
+\]
+
+
+\end{definicionn}\nota  Podemos ahora construir un nuevo conjunto
+$\na_{0}:=\na\cup\left\{ 0\right\} $ y podemos redefinir la adición 
+
+\begin{center}
+\begin{tabular}{cccc}
+$+$ : & $\na_{0}\times\na_{0}$ & $\rightarrow$ & %
+$\na_{0}$%
+\tabularnewline
+ & $\left(a,b\right)$ & $\mapsto$ & $c=a+b$\tabularnewline
+\end{tabular}
+\par\end{center}
+
+Si definimos la siguiente proposición $0:=0+0$. Con esta definición
+acabamos con la discusión si el cero es o no un número natural, para
+nosotros no, pero cuando lo necesitemos trabajamos con el conjunto
+$\na_{0}$ 
+
+El axioma de inducción matemática lo podemos extender a $\na_{0}$
+cambiando la primera condición a $0\in A.$ 
+
+En general el axioma es válido para cualquier subconjunto de $\text{\na\ }$que
+le falten un numero finito de los primeros números, es decir si $B_{0}\subset\na$
+tal que $B_{0}=\{a_{0},a_{1},\cdots,\},\: a_{i}\in\na,\;\forall i=0,1,2,\cdots$,
+entonces el axioma de inducción se cumple cambiando la primara condición
+por $a_{0}\in A.$
+
+\begin{teorema}{Propiedades de la adición}\label{teo: ps}
+
+$\forall a,b,c\in\na_{0}$ se cumplen las siguientes propiedades:
+\begin{description}
+\item [{i)}] Propiedad conmutativa: $a+b=b+a$.
+\item [{ii)}] Propiedad asociativa: $\left(a+b\right)+c=a+\left(b+c\right).$
+\item [{iii)}] Propiedad cancelativa: Si $a+c=b+c\Rightarrow a=b.$
+\end{description}
+\end{teorema}
+
+\begin{dems}
+\begin{description}
+\item [{i)}]~
+
+\begin{description}
+\item [{1}] Veamos primero que $\forall a,b\in\na,\quad0+b=b+0$
+\[
+\mbox{Sea }A=\left\{ b\in\na\,:\:0+b=b+0\right\} 
+\]
+\[
+0\in A,\mbox{ ya que \ensuremath{0+0=0+0.}}
+\]
+\[
+\forall b\in A,\;\varphi^{*}\left(b\right)+0=\varphi^{*}\left(b+0\right)=\varphi^{*}\left(b\right)=0+\varphi^{*}\left(b\right)\Rightarrow\varphi^{*}\left(b\right)\in A.
+\]
+Luego por el axioma de inducción para $\na_{0}$, tenemos que $A=\na_{0},$
+y se verifica que $\forall b\in\na$$_{0},\;0+b=b+0.$ 
+\item [{2}] Veamos ahora que $\forall b\in\na_{0},$ $\varphi^{*}\left(0\right)+b=b+\varphi^{*}\left(0\right)$
+\[
+\mbox{Sea \ensuremath{A=\left\{ b\in\na_{0}\,:\;\varphi^{*}\left(0\right)+b=b+\varphi^{*}\left(0\right)\right\} }}
+\]
+\[
+0\in A,\mbox{ pues \ensuremath{\varphi^{*}\left(0\right)+0=\varphi^{*}\left(0+0\right)=0+\varphi^{*}\left(0\right)}}
+\]
+\begin{eqnarray*}
+\forall b\in A,\;\varphi^{*}\left(b\right)+\varphi^{*}\left(0\right) & = & \varphi^{*}\left(b+\varphi^{*}\left(0\right)\right)\\
+ & = & \varphi^{*}\left(\varphi^{*}\left(0\right)+b\right)\\
+ & = & \varphi^{*}\left(\varphi^{*}\left(0+b\right)\right)\\
+ & = & \varphi^{*}\left(b\right)\\
+ & = & \varphi^{*}\left(0++\varphi^{*}\left(b\right)\right)\\
+ & = & \varphi^{*}\left(0\right)+\varphi^{*}\left(b\right)\Rightarrow\varphi^{*}\left(b\right)\in A.
+\end{eqnarray*}
+
+\item [{3}] Veamos finalmente que $\forall a,b\in\na_{0},\quad a+b=b+a$
+\[
+\mbox{Sea }A=\left\{ b\in\na_{0}\,:\; a+b=b+a,\quad\mbox{ para cada }a\in\na_{0}\right\} 
+\]
+
+
+\[
+0\in A,\quad a+0=0+a,\forall a\in\na_{0}
+\]
+ 
+\begin{eqnarray*}
+\forall b\in A,\; a+\varphi^{*}\left(b\right) & = & a+\varphi^{*}\left(0+b\right)\\
+ & = & a+\varphi\left(0\right)+b\\
+ & = & \varphi^{*}\left(a\right)+0+b\\
+ & = & 0+\varphi^{*}\left(a\right)+b\\
+ & = & \varphi^{*}\left(0\right)+a+b\\
+ & = & \varphi^{*}\left[0+(a+b)\right]\\
+ & = & \varphi^{*}\left(a+b\right)\\
+ & = & \varphi^{*}\left(b+a\right)\\
+ & = & \varphi^{*}\left(b\right)+a\Rightarrow\varphi^{*}\left(b\right)\in A
+\end{eqnarray*}
+
+\end{description}
+
+Luego , por el axioma de inducción para $\na_{0}$, $A=\na_{0},$
+y se verifica que $\forall a,b\in\na_{0},\; a+b=b+a.$
+
+\end{description}
+\end{dems}
+
+Las demostraciones de las otras propiedades quedan como ejercicio
+para el lector.
+
+
+\subsubsection{Multiplicación entre números naturales}
+
+\begin{definicionn}{Multiplicación entre números naturales}\label{def:produt}
+
+Definimos la multiplicación entre números naturales como una aplicación
+\begin{tabular}{cccc}
+ $\times$: & $\na\times\na$ & $\rightarrow$ & %
+$\na$%
+\tabularnewline
+ & $\left(n,m\right)$ & $\mapsto$ & $l=\times\left(n,m\right)$$=nm$\tabularnewline
+\end{tabular}, de modo que $\forall a,b\in\na$ se cumple 
+\begin{description}
+\item [{i)}] $\times\left(1,m\right)=\times\left(m,1\right)=m$
+\item [{ii)}] $\times\left(\varphi\left(n\right),m\right)=\times\left(n,m\right)+m.$
+\end{description}
+\end{definicionn}
+
+
+\section{Números Enteros}
+
+
+\section{Números Racionales}
+
+
+\section{Números Reales}
+
+
+\section{Números Complejos.}
+
+\label{sec:problema3} \problemas{ 
+\begin{enumerate}
+\item En los incisos del \textbf{a)} al \textbf{e)}, escriba las proposiciones
+como implicaciones, luego decida si es falso o verdadero 
+
+\begin{enumerate}
+\item \textbf{Hipótesis} $p:$ Un hombre vive en Barranquilla, \textbf{Conclusión}
+$q:$ Vive en Antioquía. 
+\item \textbf{Hipótesis} $p:$ Algunas manzanas son rojas, \textbf{Conclusión}
+$q:$ Los caballos tienen cuatro patas. 
+\item \textbf{Hipótesis} $p:$ Dos rectas se intersecan, \textbf{Conclusión}
+$q:$ Las dos rectas no son paralelas. 
+\item \textbf{Conclusión} $q:$ Dos rectas son perpendiculares, \textbf{Hipótesis}
+$p:$ Las rectas se intersecan. 
+\item \textbf{Hipótesis} $p:$ Dos ángulos tienen la misma medida, \textbf{Conclusión}
+$q:$ Los ángulos son congruentes. 
+\end{enumerate}
+\item \textbf{Analice la siguiente conjetura}: Si un triángulo tiene un
+ángulo recto, tiene dos lados congruentes.\textbf{ Comentario:} Para
+demostrar que la conjetura es falsa, debe presentar un contraejemplo,
+para explicar que es verdadera use las definiciones. 
+\end{enumerate}
+				 
+
+}
+
+\end{document}

@@ -1,0 +1,32 @@
+\newcommand{\ticknum}{6}
+\pgfmathsetmacro\min{\ticknum-1}
+\begin{tikzpicture}
+\tkzInit[ymax=1,ymin=-0.5,xmax=4,xmin=-4]
+%\tkzDefPoints{1/1/A, 4/4/B};
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(6,0){D}
+\tkzDefPoint(-4,0){E}
+\tkzDefPoint(4,0){F}
+ \tkzDefPoint(3,0){A}
+ \tkzDefPoint(-3,0){B}
+\tkzClip
+%\tkzGrid
+ \tkzLabelPoints[ below=0.1 ](O)
+\draw[<->] (E) -- (F);
+ \draw(A) -- (B);
+%\node[right] at (A) {\tiny aangrijpingspunt};
+
+\tkzCalcLength(A,B)
+)\tkzGetLength{CDl} % calculates and stores length
+
+\foreach \x in {1,...,\min}{
+    \pgfmathsetmacro\myl{((\CDl/\ticknum)/\CDl)*\x}
+    \tkzMarkSegment[pos=\myl, mark=|](A,B)
+}
+\begin{scope}[line width=1]
+\tkzDrawPoint[size=6,fill=white](B)
+\tkzDrawPoint[size=6,fill=white](A)
+\end{scope}
+\node[above =0.1] at (B) {$A(-3)$};
+\node[above =0.1] at (A) {$A'(3)$};
+\end{tikzpicture}

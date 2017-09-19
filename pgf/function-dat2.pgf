@@ -1,0 +1,15 @@
+\definecolor{fondpaille}{cmyk}{0,0,0.1,0}
+\pagecolor{fondpaille} 
+\tkzSetUpColors[background=fondpaille,text=Maroon]
+\begin{tikzpicture}
+\tkzInit[xmax = 12,
+         ymin=36,ymax = 41,xmin=5,ystep=1]
+\tkzGrid[color=orange!30]
+\tkzAxeX[below right,
+       label=]  
+\tkzAxeY[above left,
+         label =  Temp. (${}^\circ$C)]
+\tkzDefSetOfPoints{6/38,7/39,8/40,9/39.5,10/39,11/38,12/37.5} 
+\tkzJoinSetOfPoints[thick,color=Maroon,double]
+\tkzDrawSetOfPoints
+\end{tikzpicture}

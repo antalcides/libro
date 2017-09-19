@@ -1,0 +1,19 @@
+\usetikzlibrary{intersections,patterns,pgfplots.fillbetween}
+
+
+\begin{tikzpicture}
+  \draw[thick,name path=thick] 
+    (1.7, 1.5) to[out=90,in=180] (5.8, 5.2);
+  \draw[name path=thin] 
+    (.7, 1.5) to[out=90,in=180] (5.8, 3.5) ;
+  \draw[->, very thick] (0,0) -- (6,0);
+  \draw[->, very thick] (0,0) -- (0,6);
+  \fill[name intersections={of=thick and thin, by={intersect}}] 
+    (intersect) circle (1.5pt);
+  \draw[dashed] (intersect) -- (intersect |- 0,0);
+\draw[dashed,orange] (intersect) -- (0,0 |- intersect);
+  \tikzfillbetween[
+    of=thick and thin,split,
+    every even segment/.style={pattern=crosshatch}
+  ] {pattern=grid};
+\end{tikzpicture}

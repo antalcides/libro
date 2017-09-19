@@ -1,0 +1,3454 @@
+
+
+
+\pagecolor{white} \mainmatter \pagestyle{headings} 
+
+
+\chapter{Introducci\'on a la L\'ogica }
+
+ \chaptertoc  
+
+\begin{competencias}  \begin{lista}  
+
+\item Interpreta correctamente las proposiciones. 
+
+\item Clasifica correctamente las condiciones. 
+
+\item Argumenta los diferentes métodos de demostración. 
+
+\end{lista} \end{competencias}
+
+\begin{logros}  \begin{lista}  
+
+\item Identifica proposiciones. 
+
+\item Diferencia entre demostraciones directas e indirectas. 
+
+\item Argumenta los distintos tipos de demostraci\'{o}n indirectas. 
+
+\end{lista} \end{logros}
+
+
+\section{Introducción}
+
+Este primer capítulo es una breve introducción a la lógica, que es
+la herramienta que usan las matemáticas para desarrollarse.
+
+El objetivo del mismo es describir en que consiste una teoría matemática.
+Para lograrlo, primero hay que exponer sucintamente las reglas de
+la lógica de proposiciones, definir con precisión que es un razonamiento
+lógico y, por ultimo, explicar en que consiste una teoría matemática
+(brevemente, una serie de axiomas, definiciones y teoremas relacionados
+entre sí mediante argumentos lógicos, como veremos mas adelante). 
+
+La lógica es un esquema de reglas que permite deducir verdades a partir
+de o otras verdades. El medio que lleva de las primeras verdades a
+las otras deducidas se llama razonamiento lógico. La lógica estudia,
+precisamente, los razonamientos lógicos, estableciendo cuándo un razonamiento
+es valido, independientemente del contenido de las verdades que se
+enuncien. Sólo le interesan las manipulaciones que se hacen con los
+enunciados, no su contenido.
+
+Todos los resultados mostrados en este capítulo se prueban rigurosamente.
+Sin embargo, no se usa para ello el razonamiento lógico, que que se
+utiliza en un curso de lógica matemática sino el simple y eficaz camino
+de las tablas introducidas en la sección \ref{sub:Relaciones-entre-proposiciones}
+. Por supuesto, algunos resultados si se podrán demostrar a partir
+de otros anteriores mediante las leyes del álgebra de proposiciones,
+que se exponen en la a sección \ref{sub:Operaciones-entre-proposiciones}.
+Pero hemos preferido dejar todo el capítulo en manos de las tablas.
+
+Por otra parte Uno de los aspectos fundamentales en cualquier interpretación
+rigurosa de la realidad es la coherencia interna de la explicación.
+Es conveniente atender a este aspecto con toda la claridad que sea
+posible. y a aquí es donde echamos mano de la lógica que es la que
+se ocupa del estudio de las formas correctas de pensar y sirve, por
+tanto, no sólo para comprobar la validez formal de los argumentos,
+sino que permite también la elaboración formalmente rigurosa de las
+explicaciones teóricas.
+
+En la medida en que las ciencias procuran interpretar la realidad
+física sin depender excesivamente de implícitos no controlables, y
+en que la realidad que estudian es compleja y difícil de comprender
+intelectualmente; necesitan aumentar el control sobre las propias
+formulaciones teóricas. Este dominio debe ejercerse en dos campos
+principales: 
+
+El significado estricto de las nociones que emplea. 
+
+La validez formal de las teorías y leyes en que las ordena. 
+
+El método que permite dar cumplimiento a estas necesidades es el de
+la axiomatización. 
+
+El cual es aplicable en toda su pureza en las llamadas ciencias formales
+como, lógica y las matemáticas, pero proporciona grandes ventajas
+en la ciencias, y sigue siendo el ideal en otras ramas del saber.
+
+No es posible alcanzar un control objetivo absoluto acerca del saber.
+es decir tenerlo todo explicitado sin presupuestos. No cabe alcanzar
+un dominio total de la objetividad.
+
+Pero sí merece la pena que lo objetivable se exprese del modo más
+claro y formalmente riguroso que pueda alcanzarse, conscientes de
+las limitaciones inherentes al intento y de la necesidad de presupuestos
+no sistematizables para que el conocimiento pueda cumplirse. 
+
+El conocimiento humano puede dividirse en inmediato y mediato.
+
+Todo posible conocimiento debe alcanzarse desde aquel que ya se posee,
+y el modo de poseer con claridad objetiva lo que se sabe se apoya
+en la posibilidad de expresarlo mediante enunciados con sentido.
+
+Así pues, lo que se desconoce directamente habrá de poderse concluir
+desde los enunciados conocidos, con la ayuda de una regla que nos
+permita comprender su validez.
+
+El proceso avanza desde las premisas hacia la conclusión, según las
+reglas válidas de la demostración y de la lógica . 
+
+
+\section{Sistema axiomático }
+
+Toda teoría matemática tiene una estructura que la diferencia de las
+teorías presentadas en las otras disciplinas.
+
+A ésta estructura se le llama \textsf{sistema axiomático.}
+
+Un sistema axiomático formal consta de los siguientes elementos: 
+
+\begin{lista}
+
+\item Un alfabeto $S$ para construir expresiones formales que incluye:
+\begin{description}
+\item [{{*}}] Un conjunto mínimo de elementos o términos propios de la
+teoría que no se pueden construir a partir de otros. ( ``\textsf{Es
+decir no se pueden definir}'').
+\item [{{*}}] Un conjunto de términos construidos a partir de los elementos
+del conjunto anterior. (Definiciones)
+\item [{{*}}] Un conjunto de símbolos para conectivas lógicas y cuantificadores.
+(operaciones)
+\item [{{*}}] Un conjunto de símbolos para designar variables.
+\item [{{*}}] Un conjunto de símbolos para constantes (que tendrán en un
+modelo una interpretación fija). 
+\item [{{*}}] Un conjunto de símbolos que serán interpretados como funciones. 
+\item [{{*}}] Un conjunto de símbolos que serán interpretados como relaciones. 
+\end{description}
+\item Una gramática formal que incluirá:
+\begin{description}
+\item [{{*}}] Reglas de buena formación, que reproducen la \textquotedbl{}morfología\textquotedbl{}
+del lenguaje formal.
+\item [{{*}}] Reglas de inferencia que permitirán deducir unas proposiciones
+de otras, estas reglas reproducen la \textquotedbl{}sintaxis\textquotedbl{}
+del lengua formal. 
+\end{description}
+\item Un conjunto de axiomas inicial, o expresiones bien formadas,
+que son el punto de partida de cualquier deducción. 
+
+\end{lista}
+
+Para el conjunto de expresiones bien formadas expresadas en el lenguaje
+formal anterior puede definirse una $S-estructura$ en la que a cada
+variable constante o cada ocurrencia libre de una variable reciba
+un valor dentro del modelo (es decir, las constantes y variables libres
+serán conjuntos preasignados de la $S-estructura$). Las funciones
+y relaciones serán definidas como funciones y relaciones matemáticas
+dentro de la $S-estructura$. Una vez definidas las constantes, variables
+libres, funciones y relaciones resulta trivial atribuir un significado
+concreto a las expresiones del lenguaje formal en la $S-estructura$.
+
+
+\subsection{Modelos para un sistema axiomático formal}
+
+Si un conjunto de proposiciones (fórmulas bien formadas) de un sistema
+axiomático formal admiten una $S-estructura$ donde se satisfacen,
+entonces se dice que dicha estructura es un modelo para el conjunto
+de proposiciones.
+
+Un sistema de axiomas que admite un modelo es un sistema de axiomas
+consistente. Un sistema formal bien construido satisface \textquotedbl{}teorema
+de validez\textquotedbl{} que viene a afirmar que cualquier proposición
+deducible de los axiomas o teorema del sistema axiomático, se satisface
+también, en todos los modelo que sean un modelo en el que se satisfacen
+los axiomas. La propiedad recíproca no siempre se cumple, una proposición
+que se satisface en todos los modelos de una teoría no tiene porqué
+ser deducible del sistema de axiomas. Este último punto es ilustrado
+por los teoremas de incompletitud de Gödel, que viene a afirmar que
+una sistema formal de ciertos sistemas matemáticos con un conjunto
+de axiomas que satisface determinada propiedad formal (ser un recursivamente
+enumerables ) admitirá un modelo en el que algunas proposiciones serán
+ciertas pero no serán deducibles. Es decir, la teoría asociada al
+sistema axiomático formal será esencialmente incompleta. 
+
+
+\subsection{Concepto de lógica matemática}
+
+La lógica matemática estudia los sistemas formales en relación con
+el modo en el que codifican conceptos intuitivos de objetos matemáticos
+como conjuntos, números, demostraciones y computación. 
+
+La lógica estudia las reglas de deducción formales, las capacidades
+expresivas de los diferentes lenguajes formales y las propiedades
+metalógicas de los mismos. 
+
+En un nivel elemental, la lógica proporciona reglas y técnicas para
+determinar si es o no válido un argumento dado dentro de un determinado
+sistema formal. 
+
+En un nivel avanzado, la lógica matemática se ocupa de la posibilidad
+de axiomatizar las teorías matemáticas, de clasificar su capacidad
+expresiva, y desarrollar métodos computacionales útiles en sistemas
+formales.
+
+La teoría de la demostración y la matemática inversa son dos de los
+razonamientos más recientes de la lógica matemática abstracta. 
+
+Debe señalarse que la lógica matemática se ocupa de sistemas formales
+que pueden no ser equivalentes en todos sus aspectos, por lo que la
+lógica matemática no es método de descubrir verdades del mundo físico
+real, sino sólo una fuente posible de modelos lógicos aplicables a
+teorías científicas, muy especialmente a la matemática convencional. 
+
+La lógica matemática no se encarga por otra parte del concepto de
+razonamiento humano general o del proceso creativo de construcción
+de demostraciones matemáticas mediante argumentos rigurosos pero hechas
+usando lenguaje informal con algunos signos o diagramas, sino sólo
+de demostraciones y razonamientos que pueden ser completamente formalizados
+en todos sus aspectos. 
+
+
+\section{Enunciados y proposiciones}
+
+Empezaremos el estudio de la lógica construyéndola como expondremos
+a continuación:
+\begin{itemize}
+\item Lo primero es establecer un conjunto mínimo de términos, los cuales
+no se pueden definir, pero que de forma natural se pueden conocer
+sus características o propiedades.
+\item A partir de los elementos anteriores se construyen otros usando proposiciones
+en forma de equivalencia. estas proposiciones se llaman definiciones.
+\item Un conjunto de operaciones y relaciones.
+\item Luego se establecen un conjunto de propiedades independientes,\ los
+cuales son ciertos por si solos , es decir su validez es evidente.
+A este conjunto de propiedades se llaman axiomas y/o postulados.
+\item Para terminar se construyen a partir de todo lo anterior un conjunto
+ilimitado de propiedades, las cuales no son evidentes por si solas
+y por lo tanto es necesario demostrarlas a partir de proposiciones
+verdaderas usando los métodos de demostración establecidos por la
+lógica. 
+\end{itemize}
+Antes de empezar la construcción de la lógica estableceremos alguna
+ideas generales.\\
+ Por ejemplo:
+
+\begin{ideas}{} Término Es una palabra o propiedad que representa
+a un objeto o la relación entre varios objetos. \end{ideas}\index{%
+Término%
+}
+
+En el lenguaje común existen conceptos como son los \textsf{enunciados,
+oraciones y proposiciones} que ayudan construir la sintaxis del un
+idioma en particular, pero estos conceptos son muy amplios y permiten
+que una expresión o termino pueda tener varios significados, lo cual
+es un problema para utilizarlo en la ciencia donde cada termino debe
+tener una y solo una interpretación. A continuación expondremos estos
+conceptos de acuerdo con el idioma Español.
+
+
+\subsection{Enunciados}
+
+Los enunciados están constituidos de manera diversa, según las palabras
+que lo forman y las relaciones que se establecen entre ellas.
+
+Llamamos enunciado a cada secuencia delimitada entre dos silencios,
+marcada por una determinada curva entonativa, y que constituye un
+mensaje que ofrece sentido completo en una situación dada. El enunciado
+es, por tanto, una unidad mínima de comunicación. Existen varios tipos
+de enunciados
+
+\begin{lista}
+
+\item Enunciativos: este tipo de enunciados informan acciones que
+han ocurrido en el pasado, están ocurriendo en ese preciso momento
+o pasarán en el futuro. Algunos ejemplos son: \medskip{}
+\begin{ejems}{}\begin{enumerate}
+
+\item Ayer estuve de visita en la casa de José. 
+
+\item Me estoy comiendo un helado de chocolate y vainilla. 
+
+\item Mañana mi tía entra al trabajo más tarde. 
+
+\item Miguel está enfermo desde la semana pasada. El viernes voy
+al cine con mis primas. \end{enumerate}\end{ejems}
+
+\item Dubitativos: en este caso las ideas expresadas tienen un carácter
+dudoso o solo existe la posibilidad de que se hagan realidad. Algunos
+ejemplos de estos enunciados son: \medskip{}
+\begin{ejems}{}\begin{enumerate}
+
+\item Quizá llueva esta noche.
+
+\item Es probable que mañana me levante muy temprano para hacer compras
+Posiblemente Romina llegue tarde. 
+
+\item Tal vez el viernes vamos a comer a la casa de Agustín. 
+
+\item Puede ser que salgamos en veinte minutos.
+
+\end{enumerate}\end{ejems}
+
+\item Interrogativos: estos enunciados son utilizados para formular
+preguntas. Algunos ejemplos son:\medskip{}
+\begin{ejems}{}\begin{enumerate} 
+
+\item ¿Qué hora es? ¿Cómo estás?
+
+\item ¿Falta mucho para llegar? 
+
+\item ¿Has hablado con Esteban en los últimos días?
+
+\item ¿Entendiste la última pregunta del examen de matemática? \end{enumerate}\end{ejems}
+
+\item Exhortativos: en este caso los enunciados son utilizados para
+dar órdenes, peticiones, consejos o ruegos. Algunos ejemplos son:
+\medskip{}
+\begin{ejems}{}\begin{enumerate} 
+
+\item ¿Podrías traerme un vaso de agua?
+
+\item ¡No vayas por allá! Trata de no llegar tarde esta noche. 
+
+\item Me alcanzarías los papeles que están sobre la mesa por favor. 
+
+\item Cierra las ventanas de tu cuarto.\end{enumerate}\end{ejems} 
+
+\item Exclamativos: estos enunciados son utilizados para expresar
+emociones, como alegría, dolor, nostalgia, ira, etc. Por ejemplo:
+\medskip{}
+\begin{ejems}{}\begin{enumerate} 
+
+\item ¡Cuánto me alegra que hayas podido venir! 
+
+\item ¡Estoy muy enojada con tu primo! 
+
+\item ¡Es un día precioso!
+
+\item ¡Estoy muy feliz! ¡Siento mucho la muerte de tu gato! \end{enumerate}\end{ejems}
+
+\end{lista}
+
+
+\subsubsection{Oración}
+
+Llamamos oración a un tipo particular de enunciados caracterizado
+por la presencia de una forma verbal:
+
+Si el verbo establece con el sujeto una relación predicativa basada
+en la concordancia de persona y número, se trata de una oración personal.
+Si la relación predicativa no es posible, la oración es impersonal. 
+
+En la escritura, una oración se reconoce porque comienza con grafía
+inicial mayúscula y termina con un punto.
+
+La oración es una unidad:
+\begin{description}
+\item [{semántica,}] con sentido completo en sí misma; 
+\item [{fonética,}] con pausas orales delimitadas y marcadas; y
+\item [{sintácticamente}] independiente. 
+\end{description}
+Cuando una oración incluye uno o más enunciados pasa a ser compuesta.
+Si no es así, se trata de una oración simple.
+
+Es decir la oración es la unidad lingüística más pequeña que tiene
+sentido propio (sujeto y predicado), sintácticamente independiente,
+donde :
+\begin{description}
+\item [{Sujeto}] : Es la persona, animal o cosa de la que se dice algo.
+Para localizarlo se pregunta \textsf{¿Quién?, ¿Quiénes? o ¿Qué cosa?,
+¿Qué cosas?} al verbo. \medskip{}
+\textsf{El sujeto concuerda siempre en persona y número con el verbo}:
+A Luis le gustan\textsf{ las canciones de Bisbal}. “Las canciones
+de Bisbal” es el Sujeto porque responde a la pregunta ¿qué cosas le
+gustan a Luis? Y porque concuerda en persona y número (ellos/ellas)
+con el verbo.
+\item [{Predicado}] : Es lo que se dice del sujeto. Para localizarlo es
+fácil: \textquotedbl{}\textsf{Lo que no es sujeto}\textquotedbl{}. 
+\item [{Clases}] de sujetos. 
+
+\begin{description}
+\item [{Sujeto}] expreso . Es el que aparece en la oración y lo llamaremos
+Sujeto 
+\item [{Sujeto}] omitido o elíptico . Es el sujeto que no aparece pero
+que nos descubre el verbo.
+\end{description}
+\end{description}
+\begin{ejems}{}\begin{enumerate} 
+
+\item %
+\begin{tabular}{r|l}
+\multicolumn{1}{r}{Alfonso} &
+corre mucho.\tabularnewline
+\hline 
+Sujeto &
+Predicado\tabularnewline
+\end{tabular}
+
+\item%
+\begin{tabular}{l|l}
+Corren mucho.  &
+(Ellos/as)\tabularnewline
+\hline 
+Predicado &
+Sujeto omitido\tabularnewline
+\end{tabular}
+
+\end{enumerate}\end{ejems}
+
+
+\subsubsection{Frase }
+
+Los enunciados que carecen de una forma verbal personal son las denominadas
+frases . Los constituyentes de las frases son siempre palabras de
+índole nominal, esto es, sustantivos, adjetivos o adverbios. Al no
+existir un núcleo verbal del que dependan sus demás componentes, las
+relaciones internas no son idénticas a las que se establecen en la
+oración. Por ello, las frases no deben clasificarse por analogía con
+las oraciones a las que pudieran ser semánticamente equivalentes.
+
+Las frases pueden ser constituidas por una sola palabra (¡Lástima!,
+¡gracias!, ¡vaya!), (¡Mi alma!, ¡buenas tardes!, ¡a estudiar mucho!,
+¡gajes del oficio!). Por ejemplo:
+
+\begin{ejems}{}\begin{enumerate}
+
+\item Perro ladrador, poco mordedor. 
+
+\item Prohibida la entrada. 
+
+\item ¡Qué tiempos aquellos! 
+
+\item A mal tiempo, buena cara. 
+
+\item ¡A mi edad, hacer estas cosas! 
+
+\item De tal palo, tal astilla. 
+
+\item En casa del herrero, cuchillo de palo. 
+
+\item Vivir para ver.\end{enumerate}\end{ejems}
+
+
+\subsubsection{Proposición: }
+
+Es parecida a la oración, pero carece de un elemento y se puede interpretar
+como la unidad de lenguaje que tiene sujeto y predicado, verbo en
+modo personal, pero cuyo sentido es incompleto. 
+
+Esta unidad de lenguaje depende de otra con sentido completo. También
+recibe el nombre de oración subordinada, es decir.
+
+La proposición es un sintagma más reducido que la oración. Y por lo
+tanto, cualquiera que sea su estructura, estará siempre incluida en
+la oración.
+
+Tanto la oración como la proposición son unidades semánticas, sintácticas
+y fonéticas. La diferencia estriba en que la proposición es una unidad
+menor y formante de la oración compuesta, ya sea por coordinación
+o por subordinación.
+
+Por lo tanto, la proposición es también una unidad:
+
+\begin{lista} 
+
+\item semántica, sin sentido completo en sí misma o si lo tiene,
+por ser un miembro de la oración a que pertenece, será un sentido
+más restringido;
+
+\item fonética, sin pausas tan delimitadas, marcadas gráficamente
+por la coma o el punto y coma; y \item sintáctica, con enlaces gramaticales
+que la hacen dependiente de una oración principal o la relacionan
+con otra u otras proposiciones.
+
+\end{lista}
+
+Podemos clasificar las proposiciones de la siguiente forma:
+
+\begin{lista}
+
+\item Proposición Sustantiva: Equivale a un sustantivo y funciona
+como tal en la oración compuesta. Funciona sintácticamente como:
+
+\begin{ejems}{}Sujeto: 
+\begin{enumerate}
+\item Es necesario \textsf{que te levantes temprano}. 
+\item Lo racional es \textsf{que continúes trabajando}. 
+\item Parecía injusto \textsf{que se olvidara de mí}.
+\end{enumerate}
+\end{ejems}
+
+\begin{ejems}{}Complemento directo: 
+\begin{enumerate}
+\item Veo\textsf{ lo que dices}. 
+\item Pide \textsf{lo que quieras}.
+\item Olvidé decirle a Carlos \textsf{lo que me habías encargado}. 
+\item Dijeron \textsf{que vendrían hoy}.
+\end{enumerate}
+\end{ejems}
+
+
+
+\begin{ejems}{}Complemento de un adjetivo: 
+\begin{enumerate}
+\item Pedro está arrepentido \textsf{de lo que hizo}. 
+\item El jurado está convencido \textsf{de que el reo es inocente}. 
+\item El niño está cansado \textsf{de que no lo tomen en serio}.
+\end{enumerate}
+\end{ejems}
+
+\begin{ejems}{}Complemento de un adverbio:
+\begin{enumerate}
+\item Ella está muy lejos \textsf{de que la inviten}. 
+\item El pueblo está más cerca \textsf{de lo que imaginan}.
+\end{enumerate}
+\end{ejems}
+
+\item Proposición Adjetiva: Equivale a un adjetivo. Cumple sus mismas
+funciones. Nada más que en lugar de ser una sola palabra constituyen
+una oración subordinada. Hay proposiciones adjetivas de sujeto y en
+el complemento indirecto. Cabe mencionar que el subordinante \textquotedbl{}Que\textquotedbl{}
+es el más empleado en las proposiciones adjetivas.
+
+\item Proposición Adjetiva de sujeto: Modifican directamente al núcleo
+del sujeto. Fíjate en las siguientes oraciones:
+
+\begin{ejems}{}
+\begin{enumerate}
+\item El marido \textsf{que respeta a su mujer} cumple con su deber. 
+\item El cuadro \textsf{que adquirieron ayer} no vale lo que pagaron. 
+\item Ese club, \textsf{al cual se adhirieron ayer}, cumple bien sus funciones. 
+\item El periódico \textsf{cuyo director renunció}, subirá de prestigio. 
+\item La silla \textsf{donde te sentaste} está rota. 
+\end{enumerate}
+\end{ejems}
+
+Está muy clara la función desempeñada por las proposiciones resaltadas:
+modifican al sustantivo, núcleo del sujeto, que es su antecedente.
+
+\item Proposición Adjetiva en el complemento directo: Modifican directamente
+al núcleo del complemento directo (El complemento directo es el nombre
+del objeto que se ve afectado por la acción del verbo). Nota que inmediatamente
+después del sustantivo viene la proposición que se convierte en el
+complemento directo.
+
+\begin{ejems}{}
+\begin{enumerate}
+\item Te escribí una carta \textsf{en la que te informaba sobre el nuevo
+carro}. 
+\item Deberías apreciar el regalo q\textsf{ue te hizo Bertha}. 
+\item Algún día visitarás la casa \textsf{que tengo en El Valle}. 
+\item Todavía estoy esperando la cena \textsf{que me prometiste}. 
+\item Me sacaron la muela \textsf{que me dolía mucho}.
+\end{enumerate}
+\end{ejems}
+
+\item Proposición Adjetiva en el complemento indirecto: Modifican
+directamente al núcleo del complemento indirecto (El complemento indirecto
+siempre va precedido de las preposiciones a y para). Analiza las siguientes
+oraciones compuestas: 
+
+\begin{ejems}{}
+\begin{enumerate}
+\item Regalé ropa y cobijas a la Cruz Roja, \textsf{que necesita de todos
+nosotros}. 
+\item Escogieron una bellísima canastilla para la joven \textsf{que va a
+cumplir quince años}. 
+\item Los distintos clubes sociales de la ciudad dieron su aportación para
+los niños \textsf{que sufren poliomielitis}. 
+\item Trajeron la tarjeta de crédito para el señor \textsf{que vive al lado}. 
+\item Llegó un telegrama para el hombre \textsf{cuyo padre vive en Europa}.
+\end{enumerate}
+\end{ejems}
+
+Las proposiciones están modificando al sustantivo que es núcleo del
+complemento indirecto.
+
+\item Proposición Adjetivas en el complemento circunstancial: Modifican
+directamente al núcleo del complemento circunstancial. 
+
+\begin{ejems}{}
+\begin{enumerate}
+\item Juan está en la casa \textsf{donde encontraron oro}. 
+\item Te espero en el café \textsf{que está en la calle Morelos}. 
+\item Escuché la conferencia de Raiza en Pedasí, \textsf{cuyas playas son
+formidables}. 
+\item Me quedo con la carretilla \textsf{que tiene más espacio}. 
+\item No voy al cine \textsf{que exhibe películas de guerra}.
+\end{enumerate}
+\end{ejems}
+
+\item Proposiciones Adjetivas en el predicado nominal: Modifican
+al núcleo del predicado nominal, cuando es un sustantivo o equivalente.
+Como en las siguientes oraciones:
+
+\begin{ejems}{}
+\begin{enumerate}
+\item Hortensia es la persona \textsf{a quien he estado buscando}. 
+\item Los niños son los seres \textsf{que tienen mayor inocencia}. 
+\item Apreciar esta pintura es la forma\textsf{ como se concilia uno con
+el mundo}. 
+\item Estos son los poemas \textsf{cuyos autores no los hubieran escrito
+sin sentirse realmente desolados en el universo}.
+\end{enumerate}
+\end{ejems}
+
+En estos casos las proposiciones adjetivas están modificando directamente
+a los sustantivos que están funcionando como núcleos del predicado
+nominal. 
+\begin{enumerate}
+\item persona; 
+\item seres; 
+\item forma; 
+\item poemas. 
+\end{enumerate}
+Los subordinantes son respectivamente: quien, que, como, cuyos.
+
+\item Proposiciones Adjetivas explicativas: Añaden una cualidad al
+sustantivo que están modificando directamente,\textsf{ van entre comas}.
+De hecho las comas son la principal forma de diferenciarlas de las
+especificativas. La proposición en sí no es indispensable para dar
+sentido cabal a la oración. 
+
+\begin{ejems}{}
+\begin{enumerate}
+\item Socorrimos a la madre, \textsf{que estaba gritando}. 
+\item Escoge la corbata roja, \textsf{que es la más fina de todas}. 
+\item Los niños, \textsf{que iniciaron el juego}, llegaron primero.
+\end{enumerate}
+\end{ejems}
+
+\item Proposiciones Adjetivas especificativas: Limitan al sustantivo
+al cual están determinando; restringen el sentido de lo enunciado.
+La proposición en si es indispensable para dar sentido cabal a la
+oración. Ejemplos:
+
+\begin{ejems}{}
+\begin{enumerate}
+\item Los niños \textsf{que iniciaron el juego} llegaron primero. 
+\item Adquirimos los libros \textsf{que estaban en oferta}. 
+\item La alberca \textsf{que estaba recién pintada} fue inaugurada.
+\end{enumerate}
+\end{ejems}\end{lista}
+
+\begin{ejem}{Oración compuesta (por una proposición subordinada)}
+La madre creyó que el niño dormía en su cuna. \end{ejem}
+
+Oración compuesta en donde encontramos una frase subordinada: que
+el niño dormía en su cuna. El sujeto de la oración es La madre y el
+predicado es creyó que el niño dormía en su cuna. El niño es el sujeto
+de la proposición y dormía en su cuna es el predicado de la proposición.
+
+
+\subsection{Proposición lógica}
+
+De acuerdo con lo expuesto anteriormente vemos la necesidad de establecer
+un concepto menos amplio de enunciado y de proposición por lo que
+estableceremos un nuevo concepto determinado como
+
+\begin{tndefinido}{Enunciado lógico}\textsf{ Un enunciado lógico}
+es una oración o conjunto de oraciones con sentido completo.\end{tndefinido} 
+
+En este concepto usaremos el concepto de oración en toda su dimensión,
+pero no así el de enunciado.
+
+Presentaremos dos ejemplos de Enunciados lógicos
+
+\begin{lista}
+
+\item Escuché la conferencia de Raiza en Pedasí, \textsf{cuyas playas
+son formidables}.
+
+\item Estos son los poemas \textsf{cuyos autores no los hubieran
+escrito sin sentirse realmente desolados en el universo.}
+
+\end{lista}
+
+Ahora presentaremos un nuevo concepto como un término que se construye
+a partir de uno ya conocido.
+
+\begin{definicionn}{Proposición lógica}\textbf{ Una proposición
+lógica} es un enunciado lógico al cual se le puede asignar un valor
+de verdad, es decir puede ser falso o verdadero, pero no ambas.\end{definicionn}
+
+\nota\ De aquí en adelante a las proposiciones lógicas y a los enunciodos
+lógicos los llamaremos simplemente proposiciones y enunciados, a no
+ser que no estemos en el contexto de la lógica matemática, por que
+en ese caso debemos hacer la aclaración 
+
+Por ejemplo: 
+
+\begin{lista} 
+
+\item $3+2=5$. De acuerdo con la definición de adición entre naturales,
+este enunciado es verdadero, por lo tanto es una proposición. 
+
+\item Mañana llueve. esto es algo que no se puede saber antes de
+termine el día, por lo tanto no se le puede asignar un valor de verdad,
+es decir este enunciado no es una proposición.
+
+\end{lista} 
+
+\notacion\ Las proposiciones lógicas serán denotadas generalmente
+con letras minúsculas $p,\, q,\, r\,,t$, etc. A la veracidad o falsedad
+de una proposición se denomina valor de verdad. 
+
+\begin{definicionn}{ Valor de verdad } Se llama valores de verdad
+de una proposición a sus dos valores posibles; verdadero o falso.
+\end{definicionn}
+
+Estos posibles valores se puede esquematizar en una tabla, llamada
+tabla de verdad, en la forma. 
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad}
+
+
+\begin{tabular}{c}
+\tabularnewline[6ex]\arrayrulecolor{ptctitle}\hline\cellcolor{gray!50}$p$\tabularnewline
+\hline\cellcolor{ptcbackground}$f$\tabularnewline
+\hline\cellcolor{ptcbackground}$v$\tabularnewline\arrayrulecolor{ptctitle}\hline\tabularnewline
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Tipos de proposiciones}
+
+\begin{ideas}{Tautología} Una \textbf{tautología} es una proposición
+que siempre es verdadera. 
+
+\end{ideas}
+
+A las tautologías a veces en matemáticas se les llama verdades o afirmaciones.
+Las verdades generales de las matemáticas se deducen a partir del
+razonamiento lógico, siendo las premisas o afirmaciones, las definiciones,
+postulados o principios previamente establecidos. El razonamiento
+utilizado para establecer cualquier verdad o principio es llamado
+una demostración.
+
+\begin{ideas}{Falacia} Una \textbf{falacia o contradicción} es
+una proposición que siempre es falsa. 
+
+\end{ideas}
+
+\begin{ideas}{Contingencia} Las contingencia son proporciones compuestas
+que no son ni tautología ni contradicciones, es decir, son proposiciones
+que en algunos casos es $f$, y en otros es $v$.\end{ideas} 
+
+
+\subsubsection{Tipos de tautologías}
+
+Los siguientes términos son siempre tautologías
+
+\begin{ideas}{Definición} Una \textbf{definición} es una afirmación
+que explica el significado de un término o una palabra, en función
+de palabras o términos conocidos.
+
+\end{ideas}
+
+En caso de que un término no se pueda expresar en función de otros
+términos ya establecidos, se dice que es un término no definido. 
+
+\begin{ideas}{Teorema}Un \textbf{teorema} es una verdad que requiere
+demostración. \end{ideas} 
+
+\begin{ideas}{Axioma}Un \textbf{axioma} es una verdad auto-evidente.
+\end{ideas} 
+
+Un \textbf{PROBLEMA} es una situación o proposición que requiere solución. 
+
+\begin{ideas}{Postulado}Un \textbf{Postulado} es un problema auto-evidente.
+\end{ideas} 
+
+\begin{ideas}{Hipótesis}Una \textbf{hipótesis} es una suposición
+hecha, bien en el texto de una proposición, o en el curso de una demostración.
+\end{ideas} 
+
+
+\subsubsection{Tipos de proposiciones}
+
+Cuando las proposiciones costan de una única oración es fácil especificar
+su valor de verdad, pero cuando consta de varias oraciones, no lo
+es tanto; además debemos establecer la forma de conectar las oraciones
+para que tengan sentido, completo, por lo que se hace necesario establecer
+una serie de términos para este fin, estos términos son los llamados
+conectivos lógicos.
+
+\textsf{\textbf{Conectivos lógicos}}
+
+Son expresiones que sirven para unir dos o más proposiciones, entre
+los más importantes conectivos lógicos tenemos. La conjunción, disyunción,
+condicional, bicondicional, negación, esto mostraremos en la siguiente
+tabla:
+\begin{table}[H]
+\centering
+
+\caption{Tabla de los conectivos lógicos}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}Símbolo lógico &
+\cellcolor{ptctitle!50}Expresión\tabularnewline
+\hline\cellcolor{ptcbackground}$\wedge$ &
+\cellcolor{ptcbackground}$p$ y $q$\tabularnewline
+\hline\cellcolor{gray!50}$\vee$ &
+\cellcolor{gray!50}o $p$ o $q$\tabularnewline
+\hline\cellcolor{ptcbackground}$\veebar$ &
+\cellcolor{ptcbackground}$p$ ó $q$\tabularnewline
+\hline\cellcolor{gray!50}$\rightarrow$ &
+\cellcolor{gray!50}Si $p,$ entonces $q$\tabularnewline
+\hline\cellcolor{ptcbackground}$\longleftrightarrow$ &
+\cellcolor{ptcbackground}$p$ si y sólo si $q$\tabularnewline
+\hline\cellcolor{gray!50}$\sim$o $\neg$ &
+\cellcolor{gray!50}ni $p$, no $p$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+ \nota\ Generalmente usamos el conectivo $\vee$ de la siguiente
+forma 2 es par o 3 es impar, en vez de o 2 es par o 3 es impar. también
+se puede usar: $2$ es par o/y $3$es impar.
+
+\begin{lista}
+
+\item Las proposiciones atómicas ó simples, son las proposiciones
+que no utiliza conectivos lógicos.
+
+\begin{ejems}{}
+\begin{enumerate}
+\item 6 es par. 
+\item 2+5=7. 
+\item $\sqrt{2}$ es un número real.
+\end{enumerate}
+\end{ejems}
+
+\item Las proposiciones compuestas ó moleculares, son aquellas que
+utilizan al menos un conectivo lógico.
+
+\begin{ejems}{}
+\begin{enumerate}
+\item 6 es par y 5 es primo. 
+\item Si 3+5=8, entonces la suma de primos no es primo. 
+\item o $\sqrt{-2}$ no es un número real o $\sqrt{2}$ es real.
+\end{enumerate}
+\end{ejems}
+
+\end{lista}
+
+
+\section{Conjunto y operaciones con proposiciones}
+
+Antes de seguir con la construcción de la lógica matemática debemos
+conocer los conceptos de conjunto, producto cruz, relación y función.
+
+\begin{tndefinido}{Conjunto}\textsf{ Un conjunto es o la existencia
+o agrupación de objetos que poseen varias características en común,
+ó la ausencia de }objetos.\end{tndefinido} 
+
+Realmente un conjunto es una estructura mental con alguna de las siguientes
+características :
+
+\begin{lista}
+
+\item  No posee objetos.
+
+\item  Posee sólo un objeto.
+
+\item  Posee muchos objetos.
+
+\item  Posee infinitos objetos
+
+\end{lista}
+
+\nota\ Los objetos que se encuentran en un conjunto se les llama
+elementos
+
+Hasta ahora no hemos explicado como se representan los conjuntos ,
+ya que recordemos que los conjuntos son estructuras abstractas.
+
+Los conjuntos se pueden representar de dos maneras por extensión y
+por comprensión.
+
+\begin{ideas}{ Conjuntos por extensión} Un conjunto esta representado
+por extensión cuando los elementos del conjunto se listan entre llaves.\end{ideas}
+
+Por ejemplo $A=\{1,2,3,4,5,6,\}$
+
+\begin{ideas}{ Conjuntos por compresión} Un conjunto esta representado
+por comprensión cuando los elementos del conjunto se clasifican especificando
+una o varias propiedades que los identifica.\end{ideas}
+
+\begin{ejem}{representación de conjuntos} 
+\begin{description}
+\item [{{*}}] Los números pares.
+\item [{{*}}] Los carros marca Ford.
+\end{description}
+
+
+\end{ejem}
+
+\notacion\ A los conjuntos se les representa con letras mayúsculas
+$A,\, B\, C,\dots\,,$ etc. Y a los elementos se les representa con
+lestras minúsculas $a,\, b,\, c\,\dots\,$ etc. Cuando un elemento
+$a$ se encuentra en un conjunto $B$ se denota $a\in B.$ `` Se
+lee $a$ pertenece a $B.$'' 
+
+\begin{ejem}{Notación de conjuntos} Dados los conjuntos $A=\{1,2,3\}$
+y $B=\{3,4,5.6\}$ tenemos.
+\begin{description}
+\item [{{*}}] $3\in A,$ se lee 3 pertenece al conjunto $A.$
+\item [{{*}}] $5\notin A,$ se lee 2 no pertenece al conjunto $A.$
+\end{description}
+
+
+\end{ejem}
+
+\nota Se dice que dos conjuntos son iguales si tienen los mismos
+elementos
+
+
+\subsection{Proposiciones abiertas}
+
+Regresando al concepto de proposición lógica, donde las expresiones
+solo pueden ser falsas o verdaderas, nos encontramos regularmente
+en matemáticas con expresiones como 
+
+\begin{lista}
+
+\item $x^{2}-5x+6=0.$
+
+\item $x+1=3.$
+
+\item $x^{2}-9=\left(x-3\right)\left(x+3\right).$
+
+\item $x^{2}=25\wedge x+1=6.$
+
+\end{lista}
+
+En estos enunciados no es posible deducir el valor de verdad, porque
+no conocemos el valor de $x$, pero si por ejemplo en la expresión
+$x+1=3$ decimos que $x=3$ entonces el enunciado es verdadero y es
+falso si $x\neq3,$ por lo tanto la expresión es una proposición.
+
+Para poder trabajar con este tipo de expresiones es necesario especificar
+que es $x$, lo que estudiaremos a continuación.
+
+\begin{definicionn}{Variable}Una variable es un termino que representa
+cualquier elemento de un conjunto en particular y puede ser sustituido
+por cualquier elemento del conjunto.\end{definicionn}
+
+\begin{ejem}{Variable} Sea $A=\{1,2,3,4,5\}$. $x$ es par, para
+algún$x\in A$.
+
+En este caso la variable es $x$ y la proposición es cierta si $x=2,$
+ya que $2\in A.$\end{ejem}
+
+\begin{definicionn}{Constante} Una constante es un termino que representa
+a un elemento fijo de un conjunto. \end{definicionn}
+
+\notacion\ Las variables se representan generalmenta con las letras
+minúsculas $l,\cdots,\, u,\, v,\, w\, x,\, y,\, z$ y las constantes
+generalmente con las letras minúsculas $a,\, b\, c,\,\cdots,k.$
+
+\nota\ Las letras $i,\, j,\, k,\: n$ y $m,$ como variables, generalmente
+representan números naturales.
+
+\begin{definicionn}{Proposiciones abiertas} Una proposición abierta
+es aquella donde el sujeto o los sujetos son representados por variables\end{definicionn}
+
+\begin{ejems}{Proposiciones abiertas}\begin{lista}\label{ejem1}
+
+\item $x^{2}-5x+6=0,\: x\in I\!\! R.$
+
+\item $x+1=3,\: x\in I\!\! R.$
+
+\item $x^{2}-9=\left(x-3\right)\left(x+3\right),\: x\in I\!\! R.$
+
+\item $x^{2}=25\wedge x+1=6,\: x\in I\!\! R.$
+
+\end{lista}
+
+\end{ejems}
+
+\begin{definicionn}{Dominio de una proposición abierta} El dominio
+de una proposición abierta o una variable, es el conjunto de valores
+que puede tomar una variable.\end{definicionn}
+
+En los ejemplos \ref{ejem1} el dominio de las proposiciones o de
+la variable es el conjunto de los números reales.
+
+\begin{definicionn}{Conjunto solución} El conjunto solución de una
+proposición abierta el el conjunto de valores del dominio de una variable
+que hacen que la proposición sea verdadera.\end{definicionn}
+
+\begin{ejem}{Conjuto solución} Dada la proposición \foreignlanguage{english}{$x^{2}-5x+6=0,\: x\in I\!\! R$}
+encuentre el conjunto solución. \end{ejem}
+
+\solucion Tenemos que el conjunto solución es $\{-3,2\}$ ya que
+\begin{description}
+\item [{{*}$\left(-3\right)^{2}-5\left(-3\right)+6=0$}] y,
+\item [{{*}}] $\left(2\right)^{2}-5\left(2\right)+6=0.$
+\end{description}
+Además $-3,2\in I\!\! R.$
+
+\notacion Las proposiciones abiertas se denotan $p\left(x\right)$ó
+$p(x,y,\cdots,z)$ para indicar cuales son las variables.
+
+Esta notación nos ayuda a representar mejor los conjuntos por extensión
+usando la estructura: $A=\{x:\, p(x),\, x\in A\}$
+
+Como por ejemplo $A=\{x:\: x\,\mbox{es impar, \ensuremath{x\in I\!\! N}}\}$
+
+
+\subsection{Conjuntos especiales}
+
+
+\subsubsection{Conjunto vacío}
+
+\begin{definicionn}{Conjunto vacío} El conjunto vacío es aquel que
+no tiene elementos\end{definicionn}
+
+\notacion\ El conjunto vacío es único y se representa con los símbolos
+$\varnothing$ ó $\{\}.$
+
+
+\subsubsection{Conjunto unitario}
+
+\begin{definicionn}{ Conjunto unitario} Un conjunto unitario es
+aquel que posee un solo elemento.\end{definicionn}
+
+\begin{ejems}{Conjuntos unitarios} 
+\begin{description}
+\item [{{*}}] $\{1\}$
+\item [{{*}}] $\{a\}$
+\item [{{*}}] $\{\varnothing\}$
+\end{description}
+\end{ejems}
+
+
+\subsubsection{Conjunto universal}
+
+\begin{definicionn}{Conjunto universal} Un conjunto es universal
+cuando es el conjunto referencia, es decir es el conjunto que contiene
+a todos los elementos con las mismas propiedades. \end{definicionn}
+
+\notacion Al conjunto universal se le representa con la letra $U.$
+
+\begin{ejems}{Conjuntos universales} 
+\begin{description}
+\item [{{*}}] El conjunto de los números naturales.
+\item [{{*}}] El conjunto de las letras del alfabeto.
+\item [{{*}}] El conjunto de todos los alumnos de la Universidad Del Atlántico. 
+\end{description}
+\end{ejems}
+
+
+\subsubsection{Subconjunto}
+
+\begin{definicionn}{ Subconjunto} Se dice que un conjunto $A$ es
+un subconjunto de un conjunto $B$ no vacío. Si $A$ contiene sólo
+elementos de $B$ ó ningún elemento. \end{definicionn}
+
+Esta definición nos asegura que el vacío es subconjunto de cualquier
+conjunto.
+
+\notacion\ Si $A$ es subconjunto de $B$ se denota $A\subseteq B$
+ó $B\supseteq A.$
+
+\begin{ejem}{Subconjunto} Sea $A=\{x:\, x$ es una letra del alfabeto
+español\} ¿Cuales de los siguientes conjuntos son subconjunto de $A$
+\begin{enumerate}
+\item $B=\{a,b,c,d\}.$
+\item $C=\{\varnothing\}.$
+\item $D=\varnothing$.
+\item $E=\{\alpha,a,b\}$.
+\end{enumerate}
+\end{ejem}
+
+\solucion $B$ y $D$ ya que $C\cancel\subset A $\, porque $\varnothing$
+no es un elemento de $A$ sino un subconjunto y $D\cancel\subset A $\,
+porque $\alpha$ no es una letra del alfabeto español.
+
+\textsf{\textbf{Diagramas de Venn}}
+
+anteriormente dijimos que los conjuntos podíamos representarlos por
+extensión y por comprensión, pero en algunas ocasiones es mejor representarlos
+gráficamente, utilizando un rectángulo para el conjunto universal
+y los conjuntos con figuras geométricas en su interior.
+
+por ejemplo sea $U$el conjunto referencia de los conjuntos $A,B$
+y $C$ entonces podemos representarlos así.
+
+
+\subsubsection{Producto cruz}
+
+\begin{definicionn}{Producto cruz} Sean $A$ y $B$ conjuntos no
+vacíos, se llama producto cruz al conjunto de elementos que tienen
+la forma $\left(x,y\right)$ de tal forma que $x\in A$ y $y\in B$.
+Es decir los elementos de $A$ están en la primera posición y los
+elementos de $B$ están en la segunda posición del elemento $\left(x,y\right).$
+\end{definicionn}
+
+\notacion Sean $A$ y $B$ dos conjuntos diferentes del vacío, el
+producto cruz entre los conjuntos $A$ y $B$ se denota $A\times B.$
+\nota\ Al elemento $\left(x,y\right)$ se le llama pareja ordenada
+y a $x$ se le llama primera componente y a $y$ segunda componente.
+
+\begin{ejem}{} Sean $A=\{1,2,3\}$ y $B=\{4,5,6\}$ hallar 
+\begin{lyxlist}{00.00.0000}
+\item [{a.}] $A\times B.$
+\item [{b.}] $B\times A.$
+\item [{c.}] $A\times A$
+\end{lyxlist}
+\end{ejem}
+
+\solucion\ 
+\begin{lyxlist}{00.00.0000}
+\item [{a.}] $A\times B=\{\left(1,4\right),\left(1,5\right),\left(1,6\right),\left(2,4\right),\left(2,5\right),\left(2,6\right),\left(3,4\right),\left(3,5\right),\left(3,6\right)\}$.
+\item [{b.}] $B\times A=\{\left(4,1\right),\left(5,1\right),\left(6,1\right),\left(4,2\right),\left(5,2\right),\left(6,2\right),\left(4,3\right),\left(5,3\right),\left(6,3\right)\}$.
+\item [{c.}] $A\times A=\{\left(1,1\right),\left(1,2\right),\left(1,3\right),\left(2,1\right),\left(2,2\right),\left(2,3\right),\left(3,1\right),\left(3,2\right),\left(3,3\right)\}$.
+\end{lyxlist}
+Observe que $A\times B\neq B\times A.$
+
+
+\subsubsection{Relación binaria}
+
+\begin{definicionn}{Relación binaria} Una relación binaria es un
+subconjunto del producto cruz diferente del vacio . \end{definicionn}
+
+\notacion Si una pareja $\left(x,y\right)$pertenece a una relación
+binaria $R$ se denota $xRy.$ Que se lee $x$ está relacionada con
+$y.$
+
+\begin{ejem}{ Relación binaria} Sean $A=\{2,4,6,8,10\}$ y $B=\{1,2,3,4,5\}$,
+indique cuales conjuntos son relaciones binarias,
+\begin{enumerate}
+\item $R_{1}=\{\left(x,y\right):\: x=y,\: x\in A,y\in B\}.$
+\item $R_{2}=\{\left(x,y\right):\: x<y,\: x\in A,y\in B\}.$
+\item $R_{3}=\{\left(2,1\right),\left(4,1\right),\left(6,1\right),\left(8,1\right),\left(10,1\right)\}.$
+\item $R_{4}=\{\left(1,2\right),\mbox{\ensuremath{\left(4,5\right)} }\}.$
+\end{enumerate}
+\end{ejem}
+
+\solucion\
+\begin{enumerate}
+\item $R_{1}=\{\left(2,2\right),\left(4,4\right)\}\subseteq A\times B,$
+entonces $R_{1}$ es relación binaria .
+\item $R_{2}=\{\left(2,3\right),\left(2,4\right),\left(2,5\right),\left(4,5\right)\}\subseteq A\times B,$
+entonces $R_{2}$es relación binaria.
+\item $R_{3}=\{\left(x,y\right):\: y=1,\: x\in A,y\in B\}\subseteq A\times B,$
+entonces $R_{3}$ es relación binaria.
+\item $R_{4}$ no es relación binaria ya que $\left(1,2\right)\notin A\times B.$
+\end{enumerate}
+\nota  De aquí en adelante a las relaciones binarias las nombraremos
+sólo relaciones.
+
+
+\subsubsection{Función}
+
+Se va a introducir el concepto de función, hablando libremente una
+función $f$ de un conjunto $A$ en un conjunto $B$ es una regla
+(procedimiento o mecanismo) que nos transporta de un conjunto a otro
+de manera que asociamos cada elemento de $A$ un único elemento en
+$B.$ 
+
+\begin{definicionn}{Función} Consideremos dos conjuntos cualquiera
+$A$ y $B$ no vacíos, a la relación binaria $f$ de $A$ en $B$
+le llamaremos función de $A$ en $B$, si y sólo si, verifica: 
+\begin{lyxlist}{00.00.0000}
+\item [{i)}] $f\subseteq A\times B$
+\item [{ii)}] Si $\left(x,y_{1}\right)\in f$ y $\left(x,y_{2}\right)\in f$,
+entonces $y_{1}=y_{2}.$
+\end{lyxlist}
+\end{definicionn}
+
+\nota La segunda condición indica, que dos parejas ordenadas distintas
+no pueden tener la misma primera componente. 
+
+\textbf{Observaciones}
+
+\begin{lista}
+
+\item A una función $f$ de $A$ en $B$ la denotaremos por %
+\begin{tabular}{cccc}
+$f$ : &
+$A$ &
+$\rightarrow$ &
+%
+$B$%
+\tabularnewline
+ &
+$x$ &
+$\mapsto$ &
+$y$\tabularnewline
+\end{tabular} ó $A\overset{f}{\rightarrow}B$ y se lee `` $f$ es una función
+de $A$ en $B$'', donde el conjunto $A$ le llamamos conjunto de
+partida y el conjunto $B$ le llamaremos conjunto de llegada.
+
+\item  Si el par $\left(x,y\right)\in f$, escribimos $y=\mbox{\ensuremath{f\left(x\right)}}$
+y se dice que $y$ es imagen de $x$ por $f$ ó también, que $y=f\left(x\right)$
+es el valor de $f$ en $x.$ 
+
+\item También se puede decir que $y=f\left(x\right)\mbox{si y sólo si}\left(x,y\right)\in f.$
+
+\item  Otra forma de representar una función es $f=\{\left(x,y\right)\in A\times B:\, y=f\left(x\right)\}$
+
+\item Una consecuencia inmediata de la definición es que toda función
+es una relación pero no toda relación es una función.
+
+\end{lista}
+
+\begin{ejem}{Función}
+
+Dada la relación $R=\{\left(1,2\right),\left(2,3\right),\left(3,4\right),\left(2,5\right)\}$
+indicar si $R$ es una función. \end{ejem}
+
+\solucion $R$ no es una función, puesto que para la componente $2$
+existen dos componentes $3$ y $5$ tales que $\left(2,3\right)$
+y $\left(2,5\right)\in R$, lo que contradice la segunda condición
+de la definición de función.
+
+\nota Sea $f:\, A\overset{f}{\rightarrow}B$ una función de $A$
+en $B$, llamaremos dominio de la función $f$, al conjunto de todas
+las primeras componentes, el cual denotaremos por $D_{f}$ , es decir:
+
+\[
+D_{f}=\left\{ x\in A:\:\mbox{tal que existe un }y\in B\wedge\left(x,y\right)\in f\right\} \subseteq A.
+\]
+
+
+Llamaremos rango de la función $f$ al conjunto de las imágenes de
+todos los elementos de $A$, mediante $f$ al cual denotaremos por
+$R_{f}$ es decir: 
+\[
+R_{f}=\left\{ y\in B:\:\mbox{tal que existe un }x\in A\wedge\left(x,y\right)\in f\right\} \subseteq B.
+\]
+
+
+\begin{ejem}{} Sea $f={(1,2),(3,4),(5,6).(7,8)}$ su dominio y rango
+es: $D_{f}={1,3,5,7}$; $R_{f}={2,4,6,8}.$\end{ejem} 
+
+\nota A una función $f$, le llamaremos aplicación de $A$ en $B$,
+si y sólo si: $D_{f}=A$. 
+
+\begin{ejem}{} Sean $A={1,3,5}$, $B={2,4,6}$, calcule $A\times B$ 
+\begin{lyxlist}{00.00.0000}
+\item [{a)}] El conjunto $f={(1,4),(3,2)}$ es función donde $D_{f}={1,3}$
+y $R_{f}={4,2}$ pero $f$ no es una aplicación de $A$ en $B$ puesto
+que $D_{f}\neq A.$
+\item [{b)}] El conjunto $f={(1,2),(3,4),(5,6)}$ es una función donde:
+$D_{f}={1,3,5}$ y $R_{f}={2,4,6}$, como $D_{f}=A$ entonces $f$
+es una aplicación de $A$ en $B.$
+\end{lyxlist}
+\end{ejem}
+
+
+\subsection{\label{sub:Operaciones-entre-proposiciones}Operaciones entre proposiciones}
+
+En en sistema axiomático son importantes las operaciones que se pueden
+realizar con sus elementos, pero en este punto es necesario definir
+lo que es una operación.
+
+\begin{definicionn}{Operación binaria} Dados tres conjuntos $A,B$
+y $C$ no vacíos, una operación binaria es una aplicación de la forma
+:
+
+\begin{center}%
+\begin{tabular}{cccc}
+$\otimes$: &
+$A\times B$ &
+$\rightarrow$ &
+%
+$C$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}\end{center}\vspace{-5pt}\end{definicionn}
+
+\notacion Si $\left(\left(x,y\right),z\right)\in\otimes$ se denota
+$x\otimes y=z.$
+
+Si convenimos en considerar el conjunto $U$ de todas las posibles
+proposiciones del lenguaje como conjunto universo, y además el conjunto
+$V=\{v,f\}$ el conjunto de los valores de verdad de una proposición.
+Entonces podemos definir las siguientes aplicaciones :
+
+\begin{center} %
+\begin{tabular}{cccc}
+$P$: &
+$U$ &
+$\rightarrow$ &
+$V$\tabularnewline
+ &
+$p$ &
+$\mapsto$ &
+$x$\tabularnewline
+\end{tabular} , %
+\begin{tabular}{cccc}
+$\otimes$ : &
+$V\times V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}y %
+\begin{tabular}{cccc}
+$\oplus$ : &
+$U\times U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$\left(p,q\right)$ &
+$\mapsto$ &
+$r$\tabularnewline
+\end{tabular}\end{center}
+
+\begin{lista}
+
+\item La aplicación $P$ establece que a cada proposición se le puede
+asignar un valor y sólo un valor de verdad, lo que está de acuerdo
+con la definición, y que cada proposición tiene asignado un valor
+de verdad.
+
+\item La operación $\otimes$ establece que dados dos valores de
+verdad estos se pueden operar y obtener un único valor de verdad
+
+\item La operación $\oplus$ establece que dadas dos proposiciones
+se pueden operar y obtener una única proposición.
+
+\end{lista}
+
+Teniendo en cuenta las aplicaciones definidas podemos establecer la
+siguiente estructura 
+
+\begin{center} $U\times U\overset{R}{\rightarrow}V\times V\overset{\otimes}{\rightarrow}V$
+\end{center}
+
+de tal forma que dadas dos proposiciones se pueden operar sus valores
+de verdad bajo la operación $\otimes$.
+
+Usando ésta estructura podemos definir las siguientes operaciones
+entre proposiciones.
+
+\nota En este curso no demostraremos que las operaciones están bien
+definidas, es decir que es una función y el conjunto de partida es
+igual al conjunto de llegada.
+
+
+\subsubsection{Conjunción}
+
+La conjunción es la operación de la forma %
+\begin{tabular}{cccc}
+$O_{\wedge}$ : &
+$U\times U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$\left(p,q\right)$ &
+$\mapsto$ &
+$p\wedge q$\tabularnewline
+\end{tabular}de tal forma que se pueden operar sus valores de verdad usando la
+definición %
+\begin{tabular}{cccc}
+$\wedge$ : &
+$V\times V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}, obtenemos una estructura de la forma: $U\times U\overset{O_{\wedge}}{\rightarrow}V\times V\overset{\wedge}{\rightarrow}V$.
+
+\begin{definicionn}{ Conjunción} La ley que establece la conjunción
+es la siguiente: la conjunción es verdadera, sólo si las dos proposiciones
+son verdaderas.\end{definicionn} 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la conjunción}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\wedge q$\tabularnewline
+\hline\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\hline\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\end{tabular}
+\end{table}
+
+
+\begin{ejem}{Conjunción}Sí $p:\:4<7$ y $q:\ 6\,\mbox{ es número par}$.
+Calcular el valor de verdad de $p\wedge q.$ \end{ejem}
+
+\solucion 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad}
+
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{gray!50}$p$ &
+\cellcolor{gray!50}$q$ &
+\cellcolor{gray!50}$p\wedge q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Disyunción}
+
+La disyunción es la operación de la forma %
+\begin{tabular}{cccc}
+$O_{\vee}$ : &
+$U\times U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$\left(p,q\right)$ &
+$\mapsto$ &
+$p\vee q$\tabularnewline
+\end{tabular}de tal forma que se pueden operar sus valores de verdad usando la
+definición %
+\begin{tabular}{cccc}
+$\vee$ : &
+$V\times V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}, obtenemos una estructura de la forma: $U\times U\overset{O_{\vee}}{\rightarrow}V\times V\overset{\vee}{\rightarrow}V$.
+
+\begin{definicionn}{ Conjunción} La ley que establece la disyunción
+es la siguiente: la disyunción es falsa, sólo si las dos proposiciones
+son falsas.\end{definicionn} 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la disyunción}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\vee q$\tabularnewline
+\hline\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\end{tabular}
+\end{table}
+
+
+\begin{ejem}{Disyunción}Sí $p:\:7>9$ y $q:\ 4<5$. Calcular el
+valor de verdad de $p\vee q.$ \end{ejem}
+
+\solucion 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad}
+
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{gray!50}$p$ &
+\cellcolor{gray!50}$q$ &
+\cellcolor{gray!50}$p\vee q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Condicional}
+
+La condicional es la operación de la forma %
+\begin{tabular}{cccc}
+$O_{\rightarrow}$ : &
+$U\times U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$\left(p,q\right)$ &
+$\mapsto$ &
+$p\rightarrow q$\tabularnewline
+\end{tabular}de tal forma que se pueden operar sus valores de verdad usando la
+definición %
+\begin{tabular}{cccc}
+$\rightarrow$ : &
+$V\times V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}, obtenemos una estructura de la forma: $U\times U\overset{O_{\rightarrow}}{\rightarrow}V\times V\overset{\rightarrow}{\rightarrow}V$.
+
+\nota En la condicional a la proposición $p$ se le llama antecedente
+y a $q$ consecuente.
+
+\begin{definicionn}{ Condicional} La ley que establece la condicional
+es la siguiente: la bicondicional es verdadera cuando las dos proposiciones
+tienen el mismo valor de verdad.\end{definicionn}
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la bicondicional}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\longleftrightarrow q$\tabularnewline
+\hline\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\hline\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\end{tabular}
+\end{table}
+
+
+\begin{ejem}{Condicional}Sea $p:$ Cristóbal Colón descubrió América.
+; $q:\,6+3=8$ Hallar el valor de verdad de $p\rightarrow q$ \end{ejem}
+
+\solucion 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad}
+
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{gray!50}$p$ &
+\cellcolor{gray!50}$q$ &
+\cellcolor{gray!50}$p\leftrightarrow q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Bicondicional}
+
+La bicondicional es la operación de la forma %
+\begin{tabular}{cccc}
+$O_{\longleftrightarrow}$ : &
+$U\times U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$\left(p,q\right)$ &
+$\mapsto$ &
+$p\leftrightarrow q$\tabularnewline
+\end{tabular}de tal forma que se pueden operar sus valores de verdad usando la
+definición %
+\begin{tabular}{cccc}
+$\leftrightarrow$ : &
+$V\times V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}, obtenemos una estructura de la forma: $U\times U\overset{O_{\leftrightarrow}}{\rightarrow}V\times V\overset{\leftrightarrow}{\rightarrow}V$.
+
+\begin{definicionn}{ Bicondicional} La ley que establece la bicondicional
+es la siguiente: la bicondicional es verdadera cuando las dos proposiciones
+tienen el mismo valor de verdad.\end{definicionn}
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la bicondicional}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\longleftrightarrow q$\tabularnewline
+\hline\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\hline\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\end{tabular}
+\end{table}
+
+
+\begin{ejem}{Bicondicional}Sea $p:$ Cristóbal Colón descubrió América.
+; $q:\,6+3=8$ Hallar el valor de verdad de $p\rightarrow q$ \end{ejem}
+
+\solucion
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad}
+
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{gray!50}$p$ &
+\cellcolor{gray!50}$q$ &
+\cellcolor{gray!50}$p\rightarrow q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Disyunción exclusiva}
+
+La disyunción exclusiva es la operación de la forma %
+\begin{tabular}{cccc}
+$O_{\veebar}$ : &
+$U\times U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$\left(p,q\right)$ &
+$\mapsto$ &
+$p\veebar q$\tabularnewline
+\end{tabular}de tal forma que se pueden operar sus valores de verdad usando la
+definición %
+\begin{tabular}{cccc}
+$\veebar$ : &
+$V\times V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$\left(x,y\right)$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}, obtenemos una estructura de la forma: $U\times U\overset{O_{\veebar}}{\rightarrow}V\times V\overset{\veebar}{\rightarrow}V$.
+
+\begin{definicionn}{ Disyunción exclusiva} La ley que establece
+la disyunción exclusiva es la siguiente: la disyunción exclusiva es
+falsa cuando las dos proposiciones tienen el mismo valor de verdad.\end{definicionn}
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la bicondicional}
+
+
+\setlength\arrayrulewidth{1pt}\arrayrulecolor{ptctitle} 
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\hline\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\veebar q$\tabularnewline
+\hline\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\end{tabular}
+\end{table}
+
+
+\begin{ejem}{Disyunción exclusiva}Sea $p:$ Cristóbal Colón descubrió
+América. ; $q:\,6+3=8$ Hallar el valor de verdad de $p\veebar q$
+\end{ejem}
+
+\nota Ésta operación se llama excluyente porque porque sólo se puede
+dar ambas pero no una sola. 
+
+\solucion
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad}
+
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{gray!50}$p$ &
+\cellcolor{gray!50}$q$ &
+\cellcolor{gray!50}$p\veebar q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Negación}
+
+La negación es la operación de la forma %
+\begin{tabular}{cccc}
+$O_{\sim}$ : &
+$U$ &
+$\rightarrow$ &
+%
+$U$%
+\tabularnewline
+ &
+$p$ &
+$\mapsto$ &
+$q$\tabularnewline
+\end{tabular}de tal forma que se pueden operar su valor de verdad usando la definición
+\begin{tabular}{cccc}
+$\sim$ : &
+$V$ &
+$\rightarrow$ &
+%
+$V$%
+\tabularnewline
+ &
+$x$ &
+$\mapsto$ &
+$z$\tabularnewline
+\end{tabular}.
+
+\begin{definicionn}{Negación} La ley que establece la negación es
+la siguiente: La negación cambia el valor de verdad de una proposición.\end{definicionn}
+
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad de la negación.}
+
+
+\begin{tabular}{c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$\sim p$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline 
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $v$\tabularnewline
+\end{tabular}
+\end{table}
+
+
+
+\subsection{\label{sub:Relaciones-entre-proposiciones}Relaciones entre proposiciones}
+
+En esta sección trabajaremos con tautologías y falacias por lo que
+presentaremos algunos ejemplos para aprender a determinar cuando una
+proposición es una tautología, contingencia ó falacia.
+
+\begin{ejems}{Tautológias}
+\begin{enumerate}
+\item $p\vee\sim p$ (principio del tercio excluido) 
+\item $\left[(p\rightarrow q)\wedge p\right]\rightarrow q$
+\item $\sim\left(p\wedge\sim p\right)$
+\end{enumerate}
+\end{ejems}
+
+\solucion
+\begin{enumerate}
+\item Vemos que en la última columna de la tabla de verdad (\ref{tau1})
+nos muestra que $p\vee\sim p$ es una tautología. 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+\label{tau1}
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$\sim p$ &
+\cellcolor{ptctitle!50}$p\vee\sim p$\tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\item Si observamos en la tabla de verdad (\ref{tau2}) nos queda demostrado
+que $\left[(p\rightarrow q)\wedge p\right]\rightarrow q$ es una tautología.
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+\label{tau2}
+
+\begin{tabular}{c|c|c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\rightarrow q$ &
+\cellcolor{ptctitle!50}$\left(p\rightarrow q\right)\wedge p$ &
+\cellcolor{ptctitle!50}$\left[\left(p\rightarrow p\right)\wedge p\right]\rightarrow q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\item Este queda de ejercicio al lector.
+\end{enumerate}
+\begin{ejems}{Falacias}
+\begin{enumerate}
+\item $p\wedge\sim p$ (principio de contradicción) 
+\item $(p\rightarrow q)\wedge\left(p\wedge\sim q\right)$
+\item $\sim\left(p\vee\sim p\right)$
+\end{enumerate}
+\end{ejems}
+
+\solucion
+\begin{enumerate}
+\item Vemos que en la última columna de la tabla de verdad (\ref{fal1})
+nos muestra que $p\wedge\sim p$ es una falacia. 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+\label{fal1}
+
+\begin{tabular}{c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$\sim p$ &
+\cellcolor{ptctitle!50}$p\wedge\sim p$\tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline 
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\item Si observamos en la tabla de verdad (\ref{fal2}) nos queda demostrado
+que $(p\rightarrow q)\wedge\left(p\wedge\sim q\right)$ es una falacia.
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+\label{fal2}
+
+\begin{tabular}{c|c|c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$p\rightarrow q$ &
+\cellcolor{ptctitle!50}$p\wedge\sim q$ &
+\cellcolor{ptctitle!50}$(p\rightarrow q)\wedge\left(p\wedge\sim q\right)$\tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline 
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$\tabularnewline
+\hline 
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$f$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+\item Este queda de ejercicio al lector
+\end{enumerate}
+
+\subsubsection{Implicación}
+
+\begin{definicionn}{Implicación} Se dice que una proposición $q$
+se deduce de $p$ o que una proposición $p$ implica una proposición
+$q$ cuando $p\rightarrow q$ es una tautología.\end{definicionn}
+
+\notacion  Si una proposición $p$ implica a una proposición $q$
+se denota $p\Rightarrow q.$
+
+\begin{ejem}{Implicación}
+
+Determinar si $\left[\left(\sim p\vee q\right)\wedge\sim q\right]\Rightarrow\sim p$
+\end{ejem}
+
+\solucion 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+
+
+\begin{tabular}{c|c|c|c|c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$\sim p$ &
+\cellcolor{ptctitle!50}$\sim p\vee q$ &
+\cellcolor{ptctitle!50}$\sim q$ &
+\cellcolor{ptctitle!50}\foreignlanguage{english}{$\left(\sim p\vee q\right)\wedge\sim q$} &
+\cellcolor{ptctitle!50}$\left[\left(\sim p\vee q\right)\wedge\sim q\right]\rightarrow\sim p$ \tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{ejem}{Implicación}
+
+Determinar si $\left(p\wedge\sim p\right)\Rightarrow q$ \end{ejem}
+
+\solucion 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+
+
+\begin{tabular}{c|c|c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$\sim p$ &
+\cellcolor{ptctitle!50}$p\wedge\sim p$ &
+\cellcolor{ptctitle!50}$\left(p\wedge\sim p\right)\rightarrow q$\tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+
+\subsubsection{Equivalencia lógica}
+
+\begin{definicionn}{Equivalencia lógica} Se dice que una proposición
+$q$ es equivalente a $p$, cuando $p\leftrightarrow q$ es una tautología.\end{definicionn}
+
+\notacion  Si una proposición $p$ es equivalente a una proposición
+$q$ se denota $p\Leftrightarrow q$ ó $p\equiv q.$
+
+\begin{ejem}{Equivalencia lógica}Analice el valor de verdad de la
+proposición compuesta \ensuremath{(p\rightarrow q)\leftrightarrow(\sim q\rightarrow\sim p)}
+\end{ejem}
+
+\solucion
+
+%
+\begin{tabular}{ccccccc} \ensuremath{p} &  \ensuremath{q} &  \ensuremath{p\rightarrow q} &  \ensuremath{\sim q} &  \ensuremath{\sim p} &  \ensuremath{\sim q\rightarrow\sim p} &  \ensuremath{(p\rightarrow q)\leftrightarrow(\sim q\rightarrow\sim p)}\\V  &  V  &  V  &  F  &  F  &  V  &  V\\V  &  F  &  F  &  V  &  F  &  F  &  V\\F  &  V  &  V  &  F  &  V  &  V  &  V\\F  &  F  &  V  &  V  &  V  &  V  &  V \end{tabular}\ 
+
+%
+Es decir las proposiciones: $p\rightarrow q$ y $\sim q\rightarrow\sim p$\ son
+equivalentes.
+
+\begin{ejem}{Equivalencia lógica}
+
+Probar usando las tablas de verdad que las proposiciones $(p\rightarrow q)$
+y $(\sim q\rightarrow\sim p)$, son lógicamente equivalentes. 
+
+\end{ejem}
+
+\solucion Para probar que las proposiciones $(p\rightarrow q)$ y
+$(\sim q\rightarrow\sim p)$ son lógicamente equivalentes debemos
+probar que $(p\rightarrow q)$ $\leftrightarrow$ $(\sim q\rightarrow\sim p)$
+es una tautología. 
+\begin{table}[H]
+\centering
+
+\caption{Tabla de verdad.}
+\label{equil1}
+
+\begin{tabular}{c|c|c|c|c|c|c}
+\arrayrulecolor{ptctitle}\cellcolor{ptctitle!50}$p$ &
+\cellcolor{ptctitle!50}$q$ &
+\cellcolor{ptctitle!50}$\sim p$ &
+\cellcolor{ptctitle!50}$\sim q$ &
+\cellcolor{ptctitle!50}$p\rightarrow q$ &
+\cellcolor{ptctitle!50}\foreignlanguage{english}{$\sim q\rightarrow\sim p$} &
+\cellcolor{ptctitle!50}$(p\rightarrow q)$ $\leftrightarrow$ $(\sim q\rightarrow\sim p)$\tabularnewline
+\hline 
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$f$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground} $v$ &
+\cellcolor{ptcbackground}$f$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$ &
+\cellcolor{ptcbackground}$v$\tabularnewline
+\hline 
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $f$ &
+\cellcolor{gray!50} $v$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$v$ &
+\cellcolor{gray!50}$v$\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\nota Para verificar si dos proposiciones son lógicamente equivalentes
+basta comprobar que las dos proposiciones tienen la misma tabla de
+verdad. Como se observa en la tabla (\ref{equil1}) al comparar las
+columnas $5$ y $6$.
+
+
+\subsection{Cuantificadores y otras formas de expresar la implicación}
+
+En algunos casos las condicionales, vienen expresadas de tal forma
+que cada proposición simple se puede representar como un conjunto,
+por ejemplo 
+\begin{equation}
+\mbox{Los polígonos de cuatro lados son cuadriláteros.}\label{ec1}
+\end{equation}
+ En este caso llamaremos $P_{x}=\{x:x\ \mbox{es un polígono}\}$\ y
+$Q_{x}=\{x:x\ \mbox{es un cuadrilátero}\}$ %
+\footnote{A las proposiciones que dependen de una variable y de un conjunto
+referencia, como es el caso de $P_{x}$\
+y $Q_{x}$ se llaman proposiciones abiertas. %
+} y representamos la proposición (\ref{ec1}) como $P_{x}\rightarrow Q_{x}$,
+pero a nosotros nos interesan son las implicaciones, por tanto veamos
+cuando está proposición es verdadera. Para ello tomaremos otro conjunto
+$U_{x}=\{x:x\ \mbox{es una figura plana}\}$, a este conjunto lo llamaremos
+universal o de referencia. Ahora realizaremos un diagrama de Venn
+mostrado en la figura(\ref{impli})
+
+\begin{figure}[H]
+\definecolor{qqqqff}{rgb}{0,0,1}
+\definecolor{ffttww}{rgb}{1,0.2,0.4}
+\definecolor{ttttff}{rgb}{0.2,0.2,1}
+\definecolor{zzttqq}{rgb}{0.6,0.2,0} 
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\centering
+\begin{tikzpicture}[line cap=round,font=\fontsize{6}{6}\selectfont,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(1,0.42) rectangle (9.53,3.71);
+\fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (1.5,3.5) -- (1.5,1) -- (5,1) -- (5,3.5) -- cycle; \fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (5.5,3.5) -- (5.5,1) -- (9,1) -- (9,3.5) -- cycle;
+\draw [color=zzttqq] (1.5,3.5)-- (1.5,1);
+\draw [color=zzttqq] (1.5,1)-- (5,1);
+\draw [color=zzttqq] (5,1)-- (5,3.5);
+\draw [color=zzttqq] (5,3.5)-- (1.5,3.5);
+\draw [color=zzttqq] (5.5,3.5)-- (5.5,1);
+\draw [color=zzttqq] (5.5,1)-- (9,1);
+\draw [color=zzttqq] (9,1)-- (9,3.5);
+\draw [color=zzttqq] (9,3.5)-- (5.5,3.5);
+\draw [rotate around={-20.14:(3.26,2.23)},line width=2pt,color=ttttff,fill=ttttff,fill opacity=0.1] (3.26,2.23) ellipse (1.58cm and 0.87cm);
+\draw [rotate around={-17.08:(7.14,2.21)},line width=2pt,color=ttttff,fill=ttttff,fill opacity=0.1] (7.14,2.21) ellipse (1.48cm and 0.88cm);
+\draw [line width=2pt,color=ffttww,fill=ffttww,fill opacity=0.1] (3.22,2.23) circle (0.64cm);
+\draw [line width=2pt,color=ffttww,fill=ffttww,fill opacity=0.1] (7.27,2.07) circle (0.63cm); \draw (4.00,3.41) node[anchor=north west] {$\mathbf{U_x}$};
+\draw (2.07,3.07) node[anchor=north west] {$\mathbf{P_x}$};
+\draw (3.12,2.79) node[anchor=north west] {$\mathbf{Q_x}$};
+\draw (4.0,2.26) node[anchor=north west] {$\mathbf{x_1}$}; 
+\draw (5.99,2.94) node[anchor=north west] {$\mathbf{P_x}$};
+\draw (7.63,3.47) node[anchor=north west] {$\mathbf{U_x}$};
+\draw (7.18,2.11) node[anchor=north west] {$\mathbf{x_2}$};
+\draw (6.96,2.64) node[anchor=north west] {$\mathbf{Q_x}$};
+\draw (2.81,0.84) node[anchor=north west] {Diagrama 1};
+\draw (6.76,0.83) node[anchor=north west] {Diagrama 2};
+\fill [color=qqqqff] (7.22,1.86) circle (1.5pt);
+\fill [color=qqqqff] (4.16,1.86) circle (1.5pt);
+\end{tikzpicture}\caption{Proposiciones abiertas}\label{impli}
+\end{figure}
+
+
+Si tomamos un polígono, el cual representaremos con el símbolo $x_{1}$,\
+observamos en el diagrama 1 que $x_{2}$\ no está en el conjunto
+de los cuadriláteros, por tanto en este caso $P_{x}\rightarrow Q_{x}$\ es
+falsa, mientras en el diagrama 2 tomaremos un polígono representado
+por $x_{2}$\ el cual está en $Q_{x}$,\ por tanto $P_{x}\rightarrow Q_{x}$\ es
+verdadera, de lo que podemos concluir que para que $P_{x}\rightarrow Q_{x}$\ sea
+una tautología debe cumplirse la relación. 
+\[
+Q_{x}\subseteq P_{x}
+\]
+ Para indicar que $P_{x}\rightarrow Q_{x}$\ es una tautología utilizamos
+unos operadores lógicos de existencia, los cuales son: \begin{lista} 
+
+\item Existe algún: Se representa $\exists x$\ y se lee existe
+algún $x.$ 
+
+\item Para todo: se representa $\forall x$\ y se lee para todo
+$x.$ 
+
+\item Existe un único: Se representa $\exists\,!x$\ y se lee existe
+uno y sólo un $x.$ 
+
+\item Ningún: Se representa $\sim\exists x$\ y se lee no existe
+ningún $x.$ \end{lista} En nuestro caso la proposición quedaría:
+\[
+\forall x\in U,\,(p_{x}\Longrightarrow q_{x})
+\]
+ De aquí en adelante el conjunto que representa a la proposición se
+representará con letras mayúsculas y las proposiciones con letras
+minúsculas con la variable como subíndice: 
+
+Analicemos nuevamente el diagrama 2 de la figura (\ref{impli}) Como,
+$x_{2}$\ está en el conjunto, entonces podemos decir que $P$ es
+condición suficiente para que $x_{2}$\ esté en el conjunto $Q$.
+En este sentido, se dice que $p_{x}$ es condición suficiente para
+$q_{x}$. Además es claro que para que un elemento $x_{2}$ esté en
+$P$\ se necesita que $x_{2}$ esté en en $Q$. De aquí que se diga
+que $q_{x}$ es condición necesaria para $p_{x}.$ También se observa
+que un elemento $x_{2}$ está en el conjunto $Q$ si está en el conjunto
+$P$. Este análisis precedente sugiere otras maneras de expresar la
+implicación 
+\[
+p_{x}\Longrightarrow q_{x}
+\]
+ éstas son:
+\begin{enumerate}
+\item $p_{x}$ implica a $q_{x}$
+\item $p_{x}$ es condición suficiente para $q_{x}$
+\item $q_{x}$ es condición necesaria para $p_{x}$
+\item $q_{x},$ si $p_{x}$ 
+\end{enumerate}
+
+\subsubsection{Negación de los cuantificadores}
+
+La regla general para construir la negación de una proposición abierta
+es la siguiente: Los $\forall$ se cambian por o $\exists$ y los
+$\exists$ se cambian por \foreignlanguage{english}{$\forall$} y
+después se niega la proposición abierta. 
+
+La negación de la proposición se construye mecánicamente del mismo
+modo como se o a realiza la negación de una proposición . 
+
+
+\section{Inferencia y esquemas de razonamiento}
+
+
+\subsection{Principales leyes lógicas o tautológicas}
+
+Siguiendo las construcción axiomática de la lógica nos queda establecer
+los axiomas y los teoremas, cual estableceremos en ésta sección. 
+
+\begin{ideas}{Leyes de inferencia lógica}
+
+Dadas dos proposiciones $p$ y $q$ al término $p\equiv q$ se le
+llama ley de inferencia.
+
+\end{ideas}
+
+En la lógica los teoremas son leyes de inferencia.
+
+
+\subsubsection{Axiomas}
+
+Estableceremos tres axiomas,
+
+\begin{axioma}{ Toda proposición es idéntica a si misma, es decir
+$p\equiv p$
+
+}{Identidad}\end{axioma}
+
+\begin{axioma}{ una proposición no puede ser cierta y falsa a la
+vez, es decir $\sim\left(p\wedge\sim p\right)\equiv v.$
+
+}{Contradicción}\end{axioma}
+
+\begin{axioma}{ Toda proposición es cierta ó es falsa , es decir
+$p\vee\sim p\equiv v.$
+
+}{Tercer excluido}\end{axioma}
+
+
+\subsubsection{Leyes de inferencia}
+
+\begin{ley}{Involutiva}
+
+$\sim\left(\sim p\right)\equiv p$
+
+\end{ley}
+
+\begin{ley}{Indempotencia}
+\begin{enumerate}
+\item $p\wedge p\equiv p$
+\item $p\vee p\equiv p$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{Comutativas}
+\begin{enumerate}
+\item $\left(p\wedge q\right)\equiv\left(q\wedge p\right)$
+\item $\left(p\vee q\right)\equiv\left(q\vee p\right)$
+\item $p\leftrightarrow q\equiv q\leftrightarrow p$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{Asociativas}
+\begin{enumerate}
+\item $p\wedge\left(q\wedge r\right)\equiv\left(p\wedge q\right)\wedge r$
+\item $p\vee\left(q\vee r\right)\equiv\left(p\vee q\right)\vee r$
+\item $p\leftrightarrow\left(q\leftrightarrow r\right)\equiv\left(p\leftrightarrow q\right)\leftrightarrow r$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{Distributivas}
+\begin{enumerate}
+\item $p\wedge\left(q\vee r\right)\equiv\left(p\wedge q\right)\vee\left(p\wedge r\right)$
+\item $p\vee\left(q\wedge r\right)\equiv\left(p\vee q\right)\wedge\left(p\vee r\right)$
+\item $p\rightarrow\left(q\vee r\right)\equiv\left(p\rightarrow q\right)\vee\left(p\rightarrow r\right)$
+\item $p\rightarrow\left(q\wedge r\right)\equiv\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{Morgan}
+\begin{enumerate}
+\item $\sim\left(p\wedge q\right)\equiv\sim p\vee\sim q$
+\item $\sim\left(p\vee q\right)\equiv\sim p\wedge\sim q$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{Del condicional}
+\begin{enumerate}
+\item $p\rightarrow q\equiv\sim p\vee q$
+\item $\sim\left(p\rightarrow q\right)\equiv p\wedge\sim q$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{Del bicondicional}
+\begin{enumerate}
+\item $p\leftrightarrow q\equiv\left(p\rightarrow q\right)\wedge\left(q\rightarrow p\right)$
+\item $p\leftrightarrow q\equiv\left(p\wedge q\right)\vee\left(\sim p\vee\sim q\right)$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{De la absorción}
+\begin{enumerate}
+\item $p\wedge\left(p\text{\ensuremath{\vee}\ensuremath{q}}\right)\equiv p$
+\item $p\wedge\left(\sim p\vee q\right)\equiv p\wedge q$
+\item $p\vee\left(p\wedge q\right)\equiv p$
+\item $p\vee\left(\sim p\wedge q\right)\equiv p\vee q$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{De transposición}
+\begin{enumerate}
+\item $\left(p\rightarrow q\right)\equiv\sim q\rightarrow\sim p$ contrareciproco
+\item $p\leftrightarrow q\equiv\sim q\leftrightarrow\sim p$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{De exportación}
+\begin{enumerate}
+\item $\left(p\wedge q\right)\rightarrow r\equiv p\rightarrow\left(q\rightarrow r\right)$
+\item $\left(p_{1}\wedge p_{2}\wedge p_{3}\wedge\cdots\wedge p_{n}\right)\rightarrow r\equiv\left(p_{1}\wedge p_{2}\wedge p_{3}\wedge\cdots\wedge p_{n-1}\right)\rightarrow\left(p_{n}\rightarrow r\right)$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{De los modulos}
+\begin{enumerate}
+\item $p\wedge v\equiv p$ 
+\item $p\vee f\equiv p$
+\end{enumerate}
+\end{ley}
+
+\begin{ley}{De la simplificación}
+\begin{enumerate}
+\item $\left(p\vee q\right)\wedge\left(p\vee\sim q\right)\equiv p$
+\item $\left(p\wedge q\right)\vee\left(p\wedge\sim q\right)\equiv p$
+\end{enumerate}
+\end{ley}
+
+\nota Estas Leyes son muy útiles para simplificar los problemas,
+puesto que es válido reemplazar una proposición por su equivalente
+sin alterar el resultado. 
+
+\begin{ejems}{}
+
+Simplificar las proposiciones siguientes aplicando las leyes lógicas 
+\begin{enumerate}
+\item $\left[\left(p\vee\sim q\right)\wedge q\right]\rightarrow p$
+\item $\sim\left[\sim\left(p\wedge q\right)\rightarrow\sim q\right]\vee q$
+\item $\left[\left(\sim p\wedge q\right)\rightarrow\left(r\wedge\sim r\right)\right]\wedge\sim q$
+\end{enumerate}
+\end{ejems}
+
+\solucion
+\begin{enumerate}
+\item Apliquemos las leyes de inferencia 
+\begin{eqnarray*}
+\left[\left(p\vee\sim q\right)\wedge q\right]\rightarrow p & \equiv & \sim\left[\left(p\vee\sim q\right)\wedge q\right]\vee p\\
+ & \equiv & \left[\sim\left(p\vee\sim q\right)\vee\sim q\right]\vee p\\
+ & \equiv & \left[\sim\left(p\vee\sim q\right)\right]\vee\left(p\vee\sim q\right)\\
+ & \equiv & \left(\sim\left(p\vee\sim q\right)\vee p\right)\vee\sim q\\
+ & \equiv & \left(\left[\sim p\wedge\sim q\right]\vee p\right)\vee\sim q\\
+ & \equiv & \left[\left(\sim p\vee p\right)\wedge\left(\sim q\vee p\right)\right]\vee\sim q\\
+ & \equiv & \left[v\wedge\left(\sim q\vee p\right)\right]\vee\sim q\\
+ & \equiv & \left(\sim q\vee p\right)\vee\sim q\\
+ & \equiv & \left(p\vee\sim q\right)\vee\sim q\\
+ & \equiv & p\vee\left(\sim q\vee\sim q\right)\\
+ & \equiv & p\vee\sim q
+\end{eqnarray*}
+
+\item Apliquemos las leyes de inferencia
+\begin{eqnarray*}
+\sim\left[\sim\left(p\wedge q\right)\rightarrow\sim q\right]\vee q & \equiv & \left[\sim\left(p\wedge q\right)\wedge\sim\left(\sim q\right)\right]\vee q\\
+ & \equiv & \left[\left(\sim p\vee\sim q\right)\wedge q\right]\vee q\\
+ & \equiv & \left[\left(\sim p\wedge q\right)\vee\left(\sim q\wedge q\right)\right]\vee q\\
+ & \equiv & \left[\left(\sim p\wedge\sim q\right)\vee f\right]\vee q\\
+ & \equiv & \left(\sim p\wedge\sim q\right)\vee q\\
+ & \equiv & \left(\left(\sim p\vee q\right)\wedge\left(\sim q\vee q\right)\right)\\
+ & \equiv & \left(\sim p\vee q\right)\wedge v\\
+ & \equiv & \sim p\vee q
+\end{eqnarray*}
+
+\item Queda de tarea al lector.
+\end{enumerate}
+
+\subsection{\label{sub:Esquemas-de-razonamiento}Esquemas de razonamiento}
+
+
+\subsubsection{Método inductivo}
+
+El razonamiento inductivo es el proceso mediante el cual se obtienen
+conclusiones a partir de nuestras propias observaciones o a partir
+de ejemplos particulares, es decir al observar que una acción o propiedad
+se repite se concluye en general que esa acción o propiedad siempre
+es cierta 
+
+\begin{ideas}{Conjetura}
+
+Es la conclusión que se obtiene a partir de un proceso inductivo 
+
+\end{ideas}
+
+\nota Al utilizar el razonamiento inductivo debemos tener cuidado
+de no construir conjeturas o generalizaciones falsas, por lo siempre
+hay que tratar de encontrar casos donde no se cumpla la conjetura,
+en caso de que no se consiga, no quiere decir que la conjetura es
+cierta, sólo nos indica que no hemos encontrado un caso donde no se
+cumple. A continuación mostraremos un ejemplo para explicar paso a
+paso como podemos obtener una conjetura a partir de una secuencia
+de casos o fenómenos. Aunque en ese ejemplo no trataremos de verificar
+si la conjetura es siempre cierta, el objetivo es de aprender a construir
+conjeturas. 
+
+\begin{ejem}{} Suponga que una persona mide los lados de cuatro triángulos
+como muestra la figura(\ref{dest}). Establezca una conjetura sobre
+los lados de un triángulo
+
+\end{ejem}
+
+\begin{figure}[H]
+
+
+\centering\caption{Desigualdad triangular}
+\label{dest}
+
+ \definecolor{xdxdff}{rgb}{0.49,0.49,1}
+\definecolor{qqqqff}{rgb}{0,0,1}
+\begin{tikzpicture}[scale=2.0, font=\fontsize{8}{9}\selectfont,line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm] 
+\clip(-2.49,3.16) rectangle (4.47,5.53);
+\draw (-1.92,3.96)-- (-1.15,3.96); 
+\draw (-1.92,3.96)-- (-1.38,4.5); 
+\draw (-1.38,4.5)-- (-1.15,3.96);
+\draw (0.2,4.68)-- (-0.07,3.97);
+\draw (0.2,4.68)-- (0.51,3.98); 
+\draw (0.51,3.98)-- (-0.07,3.97);
+\draw (1.42,4.22)-- (2.03,4.22);
+\draw (1.07,4.72)-- (1.42,4.22); 
+\draw (1.07,4.72)-- (2.03,4.22); 
+\draw (3.44,4.72)-- (3.02,4.27);
+\draw (3.44,4.72)-- (3.89,4.3); 
+\draw (3.89,4.3)-- (3.02,4.27);
+\begin{scriptsize} 
+\fill [color=qqqqff] (-1.92,3.96) circle (1.5pt);
+\draw[color=qqqqff] (-2.04,3.97) node {$A$};
+\fill [color=xdxdff] (-1.15,3.96) circle (1.5pt);
+\draw[color=xdxdff] (-1.06,3.88) node {$B$};
+\draw[color=black] (-1.56,3.84) node {$0.77$};
+\fill [color=xdxdff] (-1.38,4.5) circle (1.5pt);
+\draw[color=xdxdff] (-1.4,4.75) node {$C$}; 
+\draw[color=black] (-1.88,4.43) node {$0.77$};
+\draw[color=black] (-0.96,4.29) node {$0.59$};
+\fill [color=qqqqff] (0.2,4.68) circle (1.5pt);
+\draw[color=qqqqff] (0.19,4.85) node {$D$}; \fill [color=xdxdff] (-0.07,3.97) circle (1.5pt); \draw[color=xdxdff] (-0.22,3.97) node {$E$};
+\draw[color=black] (-0.2,4.51) node {$0.76$};
+\fill [color=xdxdff] (0.51,3.98) circle (1.5pt);
+\draw[color=xdxdff] (0.67,4) node {$F$};
+\draw[color=black] (0.58,4.4) node {$0.75$};
+\draw[color=black] (0.26,3.84) node {$0.58$};
+\fill [color=qqqqff] (1.42,4.22) circle (1.5pt);
+\draw[color=qqqqff] (1.39,4.03) node {$G$};
+\fill [color=xdxdff] (2.03,4.22) circle (1.5pt);
+\draw[color=xdxdff] (2.14,4.39) node {$H$};
+\draw[color=black] (1.71,4.11) node {$0.61$}; 
+\fill [color=xdxdff] (1.07,4.72) circle (1.5pt);
+\draw[color=xdxdff] (1.14,4.89) node {$I$};
+\draw[color=black] (1.12,4.32) node {$0.61$};
+\draw[color=black] (1.66,4.68) node {$1.08$};
+\fill [color=xdxdff] (3.02,4.27) circle (1.5pt);
+\draw[color=xdxdff] (2.9,4.29) node {$K$}; 
+\draw[color=black] (2.99,4.64) node {$0.62$};
+\fill [color=qqqqff] (3.44,4.72) circle (1.5pt);
+\draw[color=qqqqff] (3.43,4.91) node {$J$};
+\fill [color=xdxdff] (3.89,4.3) circle (1.5pt);
+\draw[color=xdxdff] (4.11,4.31) node {$L$};
+\draw[color=black] (3.46,4.16) node {$0.62$};
+\draw[color=black] (3.84,4.64) node {$0.88$};
+\end{scriptsize}
+\end{tikzpicture}
+
+\end{figure}
+
+
+De acuerdo con la figura \ref{dest} tenemos que en $\triangulo ABC $ se tiene: \begin{eqnarray} 
+AC+AB & = & 1.54 > BC = 0.31 \\
+AB + BC & = & 1.36> AC =  0.77 \end{eqnarray}
+En el $\triangulo DEF$ se tiene que  
+\begin{eqnarray}
+DE+DF & = & 1.51 > EF=0.58 \\
+DE + EF &=& 1.48> AC =0.75 \end{eqnarray}
+En el $\triangulo IGH$ se tiene que 
+\begin{eqnarray} IG+GH & = & 1.22 > HI=1.08 \\
+IG + IH &=& 1.69> GH=0.61 \end{eqnarray} 
+En el $\triangulo JKL$ se tiene que 
+\begin{eqnarray}
+JK+KL & = & 1.29 > JL=0.88 \\
+JK + JL &=& 1.50> KL=0.75 
+\end{eqnarray}
+
+De los anteriores resultados , a pesar que los triángulos $ABC$,
+$HIG$ y $JKL$ son isósceles, podemos concluir. \textquotedbl{} Que
+la suma de las longitudes de dos lados de un triángulo siempre es
+menor que la longitud de su tercer lado\textquotedbl{}
+
+
+\subsubsection{Método del contraejemplo}
+
+Hay ocasiones donde después de un razonamiento inductivo obtenemos
+una conjetura que no se cumple para todos los casos, es decir obtenemos
+una generalización falsa, entonces para indicar que esa generalización
+es falsa buscamos un ejemplo donde no se cumpla la acción o la propiedad. 
+
+\begin{ideas}{Contraejemplo}Es el método que se usa para demostrar
+que una generalización es falsa, utilizando un ejemplo que la contradiga.
+\end{ideas}
+
+\nota\ Los ejemplos sólo son validos para demostrar que una proposición
+es falsa, nunca demuestra que una proposición es verdadera. \begin{ejem}{Contraejemplo}Si
+un cuadrilátero tiene sus diagonales perpendiculares, entonces es
+un rombo.\end{ejem}
+
+\begin{figure}[H]
+\centering
+
+\caption{Cometa}
+\label{com}\definecolor{qqwuqq}{rgb}{0.13,0.13,0.13}
+\definecolor{uququq}{rgb}{0.25,0.25,0.25}
+\definecolor{xdxdff}{rgb}{0.66,0.66,0.66}
+\definecolor{qqqqff}{rgb}{0.33,0.33,0.33}
+\begin{tikzpicture}[scale=1.2,line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+\clip(-3.42,-1.42) rectangle (2.68,5.54);
+\draw[color=qqwuqq,fill=qqwuqq,fill opacity=0.1] (0.59,2.02) -- (0.58,2.44) -- (0.16,2.44) -- (0.16,2.01) -- cycle; 
+\draw (0.12,4.92)-- (0.2,-0.54);
+\draw (0.12,4.92)-- (2.1,2.04);
+\draw (2.1,2.04)-- (0.2,-0.54);
+\draw (0.12,4.92)-- (-2.96,1.97);
+\draw (-2.96,1.97)-- (0.2,-0.54);
+\draw (-2.96,1.97)-- (2.1,2.04);
+\begin{scriptsize}
+\fill [color=qqqqff] (0.12,4.92) circle (1.5pt);
+\draw[color=qqqqff] (0.12,5.24) node {$A$};
+\fill [color=qqqqff] (0.2,-0.54) circle (1.5pt);
+\draw[color=qqqqff] (0.22,-0.74) node {$B$};
+\fill [color=qqqqff] (2.1,2.04) circle (1.5pt);
+\draw[color=qqqqff] (2.26,2.3) node {$C$}; 
+\draw[color=black] (1.66,3.54) node {$3.49$}; 
+\fill [color=xdxdff] (-2.96,1.97) circle (1.5pt);
+\draw[color=xdxdff] (-3.08,2.22) node {$D$};
+\draw[color=black] (-1.9,3.58) node {$4.27$};
+\fill [color=uququq] (0.16,2.01) circle (1.5pt);
+\draw[color=uququq] (-0.1,1.84) node {$E$};
+\draw[color=qqwuqq] (0.46,2.72) node {$90\degre$};
+\end{scriptsize} 
+\end{tikzpicture}
+
+\end{figure}
+
+
+En el cuadrilátero podemos observar que $AD=6.29$ y $AC=6$ y por
+definición de rombo el cuadrilátero $ABCD$ no puede ser un rombo
+porque no tiene sus lados congruentes.
+
+
+\subsubsection{Razonamiento deductivo}
+
+El método deductivo consiste en partir de un número reducido de información
+(hipótesis) y mediante un proceso lógico deducir otros conocimientos
+o proposiciones nuevas. Para profundizar y entender este método explicaremos
+a continuación cuales son los procesos lógicos. 
+
+
+\subsubsection{Prueba indirecta (Tollendo-tollens)}
+
+Es un razonamiento de la forma: 
+
+\begin{center}
+\begin{tabular}{c}
+$p\longrightarrow q$\tabularnewline
+$\sim q$ \tabularnewline
+\hline\tabularnewline
+$\sim p$ \tabularnewline
+\end{tabular}
+\par\end{center}
+
+\begin{ejem}{}
+\[
+\begin{tabular}[t]{rl}
+ \ensuremath{p\rightarrow q:} &  Si dos rectas son paralelas, entonces no tienen puntos en común.\medskip\\
+\ensuremath{\sim q:} &  Las rectas \ensuremath{\overleftrightarrow{l_{1}}}y \ensuremath{\overleftrightarrow{l_{2}}}tienen un punto en común.\medskip\medskip\\
+\hline \medskip\\
+\ensuremath{\sim p:} &  Las rectas \ensuremath{\overleftrightarrow{l_{1}}}y \ensuremath{\overleftrightarrow{l_{2}}}no son paralelas. 
+\end{tabular}\ 
+\]
+ \vspace{-10pt}\end{ejem}
+
+Como la condicional debe ser una implicación, entonces tenemos que
+para que ella sea una tautología, solo existen dos posibilidades,
+que las dos proposiciones $p$ y $q$ tengan el mismo valor de verdad.
+Por tanto si $q$ es falsa se deduce que $p$ también es falsa.\foreignlanguage{english}{ }
+
+
+\subsubsection{Modus ponendus ponens (Directa)}
+
+Este es un razonamiento de la forma: 
+
+\begin{center}
+\begin{tabular}{c}
+$p\longrightarrow q$\tabularnewline
+$p$ \tabularnewline
+\hline\tabularnewline
+$p$ \tabularnewline
+\end{tabular}
+\par\end{center}
+
+La argumentación es la misma de la prueba indirectas decir para que
+$p\longleftrightarrow q$ sea una implicación si $p$ es verdadera,
+se tiene que $q$ también lo es. 
+
+\begin{ejem}{}
+
+%
+\[
+\begin{tabular}[t]{rl}
+ \ensuremath{p\rightarrow q:} &  Si un triángulo tiene tres ángulos congruentes, entonces es equilátero.\medskip\\
+\ensuremath{p:} &  El triángulo \ensuremath{\triangle ABC}tiene tres ángulos congruentes\medskip\\
+\hline \\
+\ensuremath{q:} &  El triangulo \ensuremath{\triangle ABC}es equilátero. 
+\end{tabular}\ \ 
+\]
+
+
+%
+\end{ejem}
+
+
+\subsubsection{Regla de la cadena}
+
+Este razonamiento es el más usado en matemáticas consiste en construir
+una cadena de implicaciones partiendo de la hipótesis hasta obtener
+la conclusión y es de la forma: 
+
+\begin{center}
+\begin{tabular}{c}
+$p\longrightarrow r$\tabularnewline
+$r\longrightarrow q$\tabularnewline
+\hline\tabularnewline
+$p\longrightarrow q$.\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\begin{ejem}{}
+\[
+\begin{tabular}{lll}
+ \ensuremath{p\rightarrow q:} &  \ensuremath{\text{Si dos rectas son perpendiculares, entonces se intersecan.}}\medskip\  &  \\
+\ensuremath{q\rightarrow r:} &  \ensuremath{\text{Si dos rectas se intersecan, entonces no son paralelas.}}\medskip\  &  \\
+\hline \\
+\ensuremath{p\rightarrow r:} &  \ensuremath{\text{Si dos rectas son perpendiculares, entonces no son paralelas.}} &  
+\end{tabular}\ \ 
+\]
+ \end{ejem} Otra forma de interpretar este razonamiento es: 
+\[
+\left(p\longrightarrow r\wedge r\longrightarrow q\right)\longrightarrow\left(p\longrightarrow q\right),
+\]
+ mirándola de esta forma el razonamiento es equivalente si la conjunción
+es cierta entonces la conclusión también lo es decir $p\longrightarrow q$
+es una tautología. 
+
+\begin{ejem}{}Sea $\overleftrightarrow{ED}$ una mediatriz del segmento
+$\overline{AB}$ en el $\triangulo{ABC}$, si el punto $F$ es la
+intersección de lado $AB$ y la mediatriz, entonces $\overline{AF}\cong\overline{FB}.$
+\end{ejem}
+
+\begin{figure}[H]
+
+
+\centering\caption{Regla de la cadena}
+\label{Pmedio}
+
+\definecolor{xdxdff}{rgb}{0.49,0.49,1} \definecolor{uququq}{rgb}{0.25,0.25,0.25} \definecolor{qqqqff}{rgb}{0,0,1} \begin{tikzpicture}[scale=0.9,font=\fontsize{9}{8}\selectfont,line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,line width=1.2pt] \clip(-0.59,-1.42) rectangle (4.72,2.48); \draw (0.37,-0.25)-- (3.55,-0.27); \draw[<->] (1.96,-1.42) -- (1.96,2.48); \draw (0.37,-0.25)-- (3.08,1.35); \draw (3.08,1.35)-- (3.55,-0.27); \fill [color=qqqqff] (0.37,-0.25) circle (1.5pt); \draw[color=qqqqff] (0.22,-0.19) node {$A$}; \fill [color=qqqqff] (3.55,-0.27) circle (1.5pt); \draw[color=qqqqff] (3.71,-0.17) node {$B$}; \fill [color=qqqqff] (3.08,1.35) circle (1.5pt); \draw[color=qqqqff] (3.18,1.51) node {$C$}; \draw[color=black] (2.12,3.96) node {$b$}; \draw[color=black] (1.86,0.47) node {$c$}; \draw[color=black] (3.16,0.58) node {$d$}; \fill [color=uququq] (1.96,-0.26) circle (1.5pt); \draw[color=uququq] (2.11,-0.38) node {$F$}; \fill [color=xdxdff] (1.97,1.91) circle (1.5pt); \draw[color=xdxdff] (2.07,2.07) node {$E$}; \fill [color=xdxdff] (1.96,-1.14) circle (1.5pt); \draw[color=xdxdff] (2.06,-0.97) node {$D$}; \end{tikzpicture}
+
+\end{figure}
+
+
+\solucion Para demostrar que ésta proposición es una implicación
+vamos a utilizar el método de razonamiento deductivo, de la si\-gui\-ente
+manera:
+
+\begin{figure}[H]
+\centering
+
+\caption{Solución}
+\label{solej}
+
+\definecolor{zzttqq}{rgb}{0.6,0.2,0} \definecolor{cqcqcq}{rgb}{0.75,0.75,0.75} \begin{tikzpicture}[scale=2.0,font=\fontsize{6}{6}\selectfont,line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm,line width=1.2pt] \clip(-1.11,-1.66) rectangle (5.96,2.71); \fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (-1,2) -- (-1,1) -- (1,1) -- (1,2) -- cycle; \fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (3,2) -- (3,1) -- (5.3,1) -- (5.31,2) -- cycle; \fill[color=zzttqq,fill=zzttqq,fill opacity=0.1] (3,0) -- (5.39,0.01) -- (5.39,-1.02) -- (3,-1) -- cycle; \draw [color=zzttqq] (-1,2)-- (-1,1); \draw [color=zzttqq] (-1,1)-- (1,1); \draw [color=zzttqq] (1,1)-- (1,2); \draw [color=zzttqq] (1,2)-- (-1,2); \draw [color=zzttqq,->] (1,1)-- (3,0); \draw (-0.95,1.65) node[anchor=north west] {$\overline{ED}$ es mediatriz de $\overline{AB}$}; \draw [->] (1,1.48) -- (2.99,1.5); \draw [color=zzttqq] (3,2)-- (3,1); \draw [color=zzttqq] (3,1)-- (5.3,1); \draw [color=zzttqq] (5.3,1)-- (5.31,2.01); \draw [color=zzttqq] (5.31,2.01)-- (3,2); \draw (3.05,1.61) node[anchor=north west] {$F$ es el punto medio de $\overline{AB}$}; \draw [->] (4.21,1) -- (4.22,0.03); \draw [color=zzttqq] (3,0)-- (5.39,0.01); \draw [color=zzttqq] (5.39,-1.02)-- (3,-1); \draw (3.9,-0.4) node[anchor=north west] {$\overline{AF}\cong \overline{FB}$}; \draw (-0.15,2.33) node[anchor=north west] {Dato}; \draw (3.3,2.3) node[anchor=north west] {Definición de mediatrz}; \draw (3.26,-1.15) node[anchor=north west] {Definición de punto medio}; \end{tikzpicture}
+
+\end{figure}
+
+
+La estructura para redactar una demostración que usaremos es la sigui\-ente. 
+
+\begin{center}\begin{prueba}{\protect$\overline{ED}$\ es la mediatriz de \protect$\overline{AB}$}{2.& \protect$F$\ es punto medio de \protect$\overline{AB}$ & Definici\'on de punto mediatriz\\ 3. & \protect$AF\cong FB$ & Definici\'on de punto medio\\ } \end{prueba}\end{center}
+
+Es decir en este ejemplo usamos la regla de la cadena.
+
+
+\subsubsection{Ley modus tollendo-ponens }
+
+Este razonamiento es de la forma: 
+
+\begin{center}
+\begin{tabular}{c}
+$p\vee q$\tabularnewline
+$\sim p$\tabularnewline
+\hline\tabularnewline
+$q$.\tabularnewline
+\end{tabular}
+\par\end{center}
+
+
+\subsubsection{Ley del silogismo disyuntivo}
+
+Es un razonamiento con la siguiente estructura 
+
+\begin{center}
+\begin{tabular}{c}
+$p\vee q$\tabularnewline
+$p\longrightarrow r$\tabularnewline
+$q\longrightarrow s$\tabularnewline
+\hline\tabularnewline
+$r\vee s$.\tabularnewline
+\end{tabular}
+\par\end{center}
+
+\nota\ Existen tres reglas básicas de validez que se aplican continuamente
+en una demostración.\\
+ Regla 1: las definiciones, los postulados y los teoremas demostrados
+pueden aparecer en cualquier paso de la demostración.\\
+ Regla 2: las proposiciones equivalentes se pueden sustituir entre
+sí en cualquier parte de una demostración.\\
+ Regla 3: una proposición verdadera se puede introducir en cualquier
+punto de la demostración.
+
+\vspace{20pt}
+ \nota\ Antes de terminar la sección mostraremos, en la figura \ref{demos},
+como es el esquema que se debe emplear en una demostración sin importar
+como la redactemos. 
+
+\begin{figure}[H]
+\centering\caption{Esquema de una demostración}
+\label{demos}
+
+\definecolor{zzccff}{rgb}{0.6,0.8,1}
+\definecolor{cqcqcq}{rgb}{0.75,0.75,0.75}
+\begin{tikzpicture}[scale=1.1,line cap=round,font=\fontsize{7}{7}\selectfont,line join=round,>=triangle 45,x=1.0cm,y=1.0cm] %
+%\draw [color=cqcqcq,dash pattern=on 1pt off 1pt, xstep=2.0cm,ystep=2.0cm] %(-0.27,1.66) %grid (12.29,5.02);
+\clip(-0.27,1.66) rectangle (12.29,5.02); \fill[color=zzccff,fill=zzccff,fill opacity=0.1] (0,4) -- (4,4) -- (4,2) -- (0,2) -- cycle; \fill[color=zzccff,fill=zzccff,fill opacity=0.1] (4.5,3.5) -- (6.5,3.5) -- (6.5,4) -- (7.5,3) -- (6.5,2) -- (6.5,2.5) -- (4.5,2.5) -- cycle; \fill[color=zzccff,fill=zzccff,fill opacity=0.1] (8,4) -- (12,4) -- (12,2) -- (8,2) -- cycle; \draw [color=zzccff] (0,4)-- (4,4); \draw [color=zzccff] (4,4)-- (4,2); \draw [color=zzccff] (4,2)-- (0,2); \draw [color=zzccff] (0,2)-- (0,4); \draw [color=zzccff] (4.5,3.5)-- (6.5,3.5); \draw [color=zzccff] (6.5,3.5)-- (6.5,4); \draw [color=zzccff] (6.5,4)-- (7.5,3); \draw [color=zzccff] (7.5,3)-- (6.5,2); \draw [color=zzccff] (6.5,2)-- (6.5,2.5); \draw [color=zzccff] (6.5,2.5)-- (4.5,2.5); \draw [color=zzccff] (4.5,2.5)-- (4.5,3.5); \draw [color=zzccff] (8,4)-- (12,4); \draw [color=zzccff] (12,4)-- (12,2); \draw [color=zzccff] (12,2)-- (8,2); \draw [color=zzccff] (8,2)-- (8,4); \draw (0.61,3.69) node[anchor=north west] {\parbox{3.78 cm}{Términos no definidos \\ Definiciones  \\  Postulados \\  Otros  teoremas}}; \draw (1.16,4.54) node[anchor=north west] {Hipótesis}; \draw (4.48,4.52) node[anchor=north west] {Razonamieto lógico}; \draw (9.47,4.57) node[anchor=north west] {Tesis}; \draw (9.31,3.09) node[anchor=north west] {Conclusión}; \draw (4.7,3.36) node[anchor=north west] {\parbox{2.71 cm}{Esquema de  \\  razonamiento}}; \end{tikzpicture}
+
+\end{figure}
+
+
+\label{sec:problema} \problemas{ 
+\begin{enumerate}
+\item En los incisos del \textbf{a)} al \textbf{e)}, escriba las proposiciones
+como implicaciones, luego decida si es falso o verdadero 
+
+\begin{enumerate}
+\item \textbf{Hipótesis} $p:$ Un hombre vive en Barranquilla, \textbf{Conclusión}
+$q:$ Vive en Antioquía. 
+\item \textbf{Hipótesis} $p:$ Algunas manzanas son rojas, \textbf{Conclusión}
+$q:$ Los caballos tienen cuatro patas. 
+\item \textbf{Hipótesis} $p:$ Dos rectas se intersecan, \textbf{Conclusión}
+$q:$ Las dos rectas no son paralelas. 
+\item \textbf{Conclusión} $q:$ Dos rectas son perpendiculares, \textbf{Hipótesis}
+$p:$ Las rectas se intersecan. 
+\item \textbf{Hipótesis} $p:$ Dos ángulos tienen la misma medida, \textbf{Conclusión}
+$q:$ Los ángulos son congruentes. 
+\end{enumerate}
+\item \textbf{Analice la siguiente conjetura}: Si un triángulo tiene un
+ángulo recto, tiene dos lados congruentes.\textbf{ Comentario:} Para
+demostrar que la conjetura es falsa, debe presentar un contraejemplo,
+para explicar que es verdadera use las definiciones. 
+\item Demuestre la siguiente conjetura: Si dos ángulos son congruentes sus
+complementos son congruentes. 
+\item En los incisos del a) al e) identifique la hipótesis y la conclusión
+y determine si es una implicación. 
+
+\begin{enumerate}
+\item un número es par si termina en 4. 
+\item Dos rectas son perpendiculares si forman un ángulo recto. 
+\item Un triángulo con dos lados congruentes, tiene los tres ángulos congruentes, 
+\item Si Un número es impar, termina en cinco. 
+\item Una recta que biseca un segmento contiene su punto medio. 
+\end{enumerate}
+\item Formule la recíproca, contraria y contra-reciproca , de las siguientes
+proposiciones. 
+
+\begin{enumerate}
+\item Si una persona camina se acalora. 
+\item Si dos rectas se intersecan, son paralelas. 
+\item Si una persona es adinerada, entonces puede viajar. 
+\item si $a=0$ y $b=0$, entonces $a.b=0$, para todo $a$ y $b$ reales. 
+\item Si un polinomio es un triángulo, entonces una región plana. 
+\item Dos planos paralelos si intersecan. 
+\end{enumerate}
+\item Determine en cada inciso si la proposición representa una equivalencia,
+en caso de no ser lo encuentre un contra ejemplo. 
+
+\begin{enumerate}
+\item Un triángulo tiene sus lados congruentes si y sólo si tiene sus ángulos
+interiores congruentes. 
+\item Un ángulo es recto si y sólo si es congruente a uno que tiene medida
+igual a $90\degre$. 
+\item Dos rectas son paralelas si y solo si no se intersecan. 
+\item Un cuadrilátero tiene sus lados opuestos paralelos, si y sólo si un
+par de lados opuestos son congruentes. 
+\item Dos ángulos son complementarios si y sólo si la suma de sus mediadas
+es igual a $90\degre$ 
+\end{enumerate}
+\item Incluya la información omitida para formular un esquema de razonamiento
+correcto, además indique que tipo de prueba se esta realizando. 
+
+\begin{enumerate}
+\item \scalebox{0.9}{%
+\begin{tabular}{rl}
+$p\Longrightarrow q:$  &
+Dos rectas perpendiculares se intersecan.\medskip{}
+\tabularnewline
+$q\Longrightarrow r:$  &
+Las rectas no son paralelas \medskip{}
+\tabularnewline
+ &
+ni se intersecan. \medskip{}
+\tabularnewline
+\hline 
+\medskip{}
+ &
+\tabularnewline
+ &
+\tabularnewline
+\end{tabular}}
+\item \scalebox{0.9}{%
+\begin{tabular}{rl}
+$p\Longrightarrow q:$  &
+Si dos rectas son paralelas no \medskip{}
+\tabularnewline
+ &
+se intersecan.\medskip{}
+\tabularnewline
+$\sim q:$  &
+Las rectas no se intersecan. \medskip{}
+\tabularnewline
+\hline 
+\medskip{}
+ &
+\tabularnewline
+ &
+\tabularnewline
+\end{tabular}}
+\item \scalebox{0.9}{%
+\begin{tabular}{rl}
+$p\Longrightarrow q:$  &
+Si un punto está en la mediatriz de un \medskip{}
+\tabularnewline
+ &
+segmento, entonces equidista de sus\medskip{}
+\tabularnewline
+ &
+extremos.\medskip{}
+\tabularnewline
+ &
+El punto no está en la mediatriz. \medskip{}
+\tabularnewline
+\hline 
+\medskip{}
+ &
+\tabularnewline
+ &
+\tabularnewline
+\end{tabular}}
+\item \scalebox{0.9}{%
+\begin{tabular}{rl}
+ &
+\medskip{}
+\tabularnewline
+$p:$  &
+$\angle ABC$ mide más de $90\degre$ \medskip{}
+\tabularnewline
+\hline 
+\medskip{}
+ &
+\tabularnewline
+ &
+El $\angle ABC$ es un ángulo obtuso \tabularnewline
+\end{tabular}}
+\item \scalebox{0.9}{%
+\begin{tabular}{rl}
+ &
+\medskip{}
+\tabularnewline
+$\sim q:$  &
+La temperatura aumenta. \medskip{}
+\tabularnewline
+\hline 
+\medskip{}
+ &
+\tabularnewline
+ &
+No llovió. \tabularnewline
+\end{tabular}}
+\end{enumerate}
+\item Probar la veracidad de la implicación 
+\[
+\text{Si }ab=0,\text{ entonces }a=0\text{ }\vee\text{ }b=0,
+\]
+ es equivalente a probar la veracidad de la implicación
+\[
+\text{Si }ab=0\text{ }\wedge\text{ }a\neq0,\text{ entonces }b=0.
+\]
+
+\item Determine el valor de verdad de la siguiente afirmación. Si es falsa,
+dé un contraejemplo:
+\[
+\text{“Si }\overline{AB}\cong\overline{BC}\text{, entonces }B\text{ es el punto medio de }\overline{AC}\text{”.}
+\]
+
+\item ¿Será condición suficiente que $x^{2}=81$ par que $x=9$?
+\item Dada la proposición ``Una condición necesaria para que $B$ sea el
+punto medio de $\overline{AC}$ es que $B$ está entre los punto $A$
+y $C$”.
+
+\begin{enumerate}
+\item Escr\'{i}bala de la forma \textit{si..., entonces...} sin alterar
+su significado y obtenga su valor de verdad.
+\item Escr\'{i}ba el condicional en términos de condición suficiente.
+\item Haga el recíproco del condicional y determine su valor de verdad.
+Si es falsa, dé un contraejemplo. 
+\end{enumerate}
+\item Dada la proposición ``Si $ab=0$, entonces $a=0$ o $b=0$”, escriba
+su recíproca, su contraria y su contrarecíproca. Además determine
+sus correspondientes valores de verdad.
+\item ¿ Es posible que existan dos recta que no se intersecan y están en
+planos diferentes? Si la respuesta es afirmativa, dé un ejemplo.
+\item Tomando como conjunto universal el conjunto de los números reales,
+determine si las proposiciones $p_{x}:$ $x^{2}-4=0$ y $q_{x}:$
+$\left(x-2\right)\left(x+2\right)=0$ son equivalentes. Argumente
+su respuesta.
+\item Complete los siguientes esquemas de razonamiento:
+
+\begin{enumerate}
+\item \begin{flushleft}
+\[
+\begin{tabular}[t]{lll}
+  &  \ensuremath{:} &  \mbox{Si un número entero termina en dos, }\medskip\\
+ &   &  entonces\mbox{es par}.\medskip\\
+ &  \ensuremath{:} &  \ensuremath{32}\mbox{ es un entero que termina en dos}.\medskip\\
+\hline \medskip\\
+\mbox{}  &  \ensuremath{:} &  ...... 
+\end{tabular}\ 
+\]
+
+\par\end{flushleft}
+\item \begin{flushleft}
+\[
+\begin{tabular}[t]{lll}
+  &  \ensuremath{:} &  Si dos tectas son paralelas, \medskip\\
+ &   &  entonces están en un\medskip\\
+ &   &  mismo plano y no se intersecan.\medskip\\
+ &  \ensuremath{:} &  .........\medskip\\
+\hline \medskip\\
+\mbox{}  &  \ensuremath{:} &  Las rectas \ensuremath{\overleftrightarrow{l_{1}}}y \ensuremath{\overleftrightarrow{l_{2}}}no son paralelas. 
+\end{tabular}
+\]
+
+\par\end{flushleft}
+\item \begin{flushleft}
+$\begin{tabular}[t]{lll}
+  &  \ensuremath{:} &  Dos rectas perpendiculares se \medskip\\
+ &   & intersecan. \medskip\\
+ &  \ensuremath{:} &  Las rectas no son paralelas, si se \medskip\\
+ &   &  intersecan.\medskip\\
+\hline \medskip\mbox{}  &  \ensuremath{:} &  ........ 
+\end{tabular}$ 
+\par\end{flushleft}
+\end{enumerate}
+\item Demuestre que si $x$ e $y$ son enteros impares, entonces $xy$ también
+es un entero impar.
+\item Haga una demostración por reducción al absurdo del siguiente teorema:
+Si $x^{2}$ es un entero par, entonces $x$ es par. \textit{Sugerencia:}
+Utilice el ejercicio anterior.
+\item Siendo $p:$ los precios son bajos y $q:$ los precios no suben, escribir
+en lenguaje corriente las siguientes expresiones simbólicas : 
+
+\begin{enumerate}
+\item $\sim q$
+\item $p\wedge q$
+\item $p\wedge\sim q$
+\item $\sim p\wedge\sim q$
+\item $\sim\left(p\wedge\sim q\right)$
+\end{enumerate}
+\item Sean $p:$ tengo un loro y $q:$ tengo un gato, escribir en lenguaje
+corriente y luego simplificar, 
+\[
+\sim\left(\sim p\vee\sim q\right)\wedge\sim\left(\sim p\right)
+\]
+
+\item Pruebe que: 
+
+\begin{enumerate}
+\item $\left(p\wedge q\right)\Leftrightarrow\sim\left(p\rightarrow\sim q\right)$
+\item $\left[p\rightarrow\left(q\vee r\right)\right]\Leftrightarrow\left[\left(p\wedge\sim q\right)\rightarrow r\right]$
+\end{enumerate}
+\item Pruebe que: 
+
+\begin{enumerate}
+\item $\left[\left(a\rightarrow b\right)\wedge\left(b\rightarrow c\right)\right]\Rightarrow\left(a\rightarrow c\right)$
+\item $\left(a\rightarrow b\right)\Rightarrow\left[\left(c\vee a\right)\rightarrow\left(c\vee b\right)\right]$
+\end{enumerate}
+\item Siendo $p$ y $q$ proposiciones cualesquiera, la proposición ,$(p\rightarrow q)\leftrightarrow[(p\vee q)\leftrightarrow q]$
+, 
+
+\begin{enumerate}
+\item ¿Es siempre verdadera?
+\item ¿Es verdadera si y sólo si $p$ lo es? 
+\item ¿Es verdadera si y sólo si $q$ es falsa? 
+\item ¿Es verdadera si y sólo si $p$ y $q$ lo son? 
+\end{enumerate}
+\item Pruebe, sin hacer uso de tablas de verdad, que: 
+
+\begin{enumerate}
+\item $p\wedge\sim q\rightarrow r\equiv\sim p\vee\left(q\vee r\right)$
+\item $\left[\left(p\wedge q\right)\vee r\right]\wedge\sim q\equiv\left(r\wedge\sim q\right)$
+\end{enumerate}
+\item ¿ Cuál es la relación que existe entre las proposiciones siguientes?
+\[
+p\rightarrow\left[p\wedge\sim\left(q\vee r\right)\right]\mbox{ y \ensuremath{\sim p\vee\left(\sim q\wedge\sim r\right)}}
+\]
+
+\item Se define $\triangle$ como la conjunción negativa, es decir, $p\triangle q$
+se lee ni $p$ ni o $q$. 
+
+\begin{enumerate}
+\item Construya la tabla de verdad de $p\triangle q$.
+\item Pruebe que:
+
+\begin{enumerate}
+\item $\sim p\equiv p\triangle p$
+\item $p\vee q\equiv\left(p\triangle q\right)\triangle\left(p\triangle q\right)$
+\item $p\wedge q\equiv\left(p\triangle p\right)\triangle\left(q\triangle q\right)$
+\item $\left(p\leftrightarrow q\right)\wedge\sim\left(p\wedge q\right)\equiv p\triangle q$
+\end{enumerate}
+\end{enumerate}
+\item Simplifique la expresión:
+\[
+\left[\sim q\vee\left(\sim q\leftrightarrow p\right)\right]\rightarrow q
+\]
+
+\item Simplifique las siguientes expresiones
+
+\begin{enumerate}
+\item $\sim\left(p\vee q\right)\rightarrow\left(\sim p\wedge\sim q\right)$
+\item $\left[\left(p\wedge q\right)\vee r\right]\wedge\sim p$
+\item $\left[\left(p\rightarrow q\right)\rightarrow q\right]\rightarrow\left(p\vee q\right)$
+\end{enumerate}
+\item Sea $A={1,2,3,4}$ el conjunto universal. Determinar el valor de verdad
+de cada enunciado: 
+
+\begin{enumerate}
+\item $\forall x:x+3<6$
+\item $\forall x:x^{2}-10\leq8$
+\item $\exists x:2x^{2}+x=15$
+\item $\exists x:x^{2}>1\rightarrow x+2=0$
+\end{enumerate}
+\item Negar los siguientes enunciados
+
+\begin{enumerate}
+\item $\left[\exists y\in U:p\left(y\right)\right]\rightarrow\left[\forall x\in U:\left(\sim q\left(x\right)\right)\right]$
+\item $\left[\exists x\in U:\left(\sim p\left(x\right)\right)\right]\vee\left[\forall x\in U:q\left(x\right)\right]$
+\item $\exists x\forall y\in U$:$\left[\left(p\left(x,y\right)\rightarrow q\left(x,y\right)\right)\right]$
+\end{enumerate}
+\item Se sabe que: \medskip{}
+Si Pedro no es alumno de la U.A. o Juan es alumno de la U.A., entonces
+Juan es alumno de la U. Costa. \medskip{}
+Si Pedro es alumno de la U.A. y Juan no es alumno de la U. A., entonces
+Juan es alumno de la U.Costa. \medskip{}
+Se desea saber en que universidad estudia Juan. 
+\item Negar la siguiente expresión:
+\[
+\mbox{\ensuremath{\left(\forall\epsilon>0\right)\left(\exists\delta>0\right)\left(0<\left|x-x_{0}\right|<\delta\vee\left|f\left(x\right)-l\right|<\epsilon\right)}}
+\]
+
+\item A partir del álgebra proposicional, demostrar la validez del siguiente
+a argumento:\medskip{}
+ Si 2 es par, entonces 5 no es divisor de 9 por otra parte 11 no es
+primo o 5 es divisor de 9. Además, 11 es primo. Por tanto, 2 es impar. 
+\item Demuestre:
+
+\begin{enumerate}
+\item $p\veebar q\equiv\left(p\vee q\right)\wedge\sim\left(p\wedge q\right)$
+\item $\sim\left[p\rightarrow\sim\left(q\veebar\sim p\right)\right]\leftrightarrow\left(p\wedge q\right)$
+\end{enumerate}
+\item Siendo $p:$ José es estudioso y $q:$ Juan es estudioso, escribir
+en forma e simbólica:
+
+\begin{enumerate}
+\item José es estudioso y Juan no es estudioso.
+\item Jos\'{é} no es estudioso y Juan es estudioso.
+\item Jos\'{é} y Juan, no son estudiosos.
+\item No es cierto que Juan o Jos\'{é} sean estudiosos. 
+\end{enumerate}
+\item En cual de sus significados est\'{á} “o”(no excluyente) en las siguientes
+a proposiciones: 
+
+\begin{enumerate}
+\item a) Si ganase mucho dinero o ganara la lotería, haría un viaje.
+\item El lunes ir\'{é} a la estaci\'{ó}n de trenes o al terminal de buses.
+\item $x=3$ ó $x=2$
+\end{enumerate}
+\item Verificar, utilizando tablas de verdad, cuáles de las siguientes proposiciones
+son equivalentes:
+
+\begin{enumerate}
+\item $p\veebar\sim q;$
+\item $\sim p\vee q;$
+\item $\left(p\vee\sim q\right)\wedge\left(\sim p\vee q\right);$
+\item $\left(p\wedge q\right)\vee\left(\sim p\wedge\sim q\right);$
+\end{enumerate}
+\item Encuentre el valor de verdad de 
+\[
+\left[\sim\left(p\rightarrow q\right)\wedge\left(\sim p\wedge q\right)\right]\vee\left(r\rightarrow\sim p\right)
+\]
+\medskip{}
+si $p:$ el número e es par, $q\equiv f$ y $r:$ los gatos tienen
+5 patas
+\item Construya las tablas de verdad de las siguientes proposiciones:
+
+\begin{enumerate}
+\item $\left[\left(p\rightarrow q\right)\rightarrow\left(q\rightarrow p\right)\right]\leftrightarrow\left(p\vee\sim q\right)$
+\item $p\veebar\left(q\vee r\right)$
+\item $\sim\left(\sim p\leftrightarrow q\right)$
+\item $\sim\left(\sim q\leftrightarrow p\right)$
+\item $\left(p\wedge\sim q\right)\rightarrow\left(\sim p\vee q\right)$
+\item $\left[p\wedge\left(\sim q\rightarrow p\right)\right]\wedge\left[\left(p\leftrightarrow\sim q\right)\rightarrow\left(q\vee\sim p\right)\right]$
+\end{enumerate}
+\item Pruebe que son tautologías:
+
+\begin{enumerate}
+\item $\left[p\vee\left(p\wedge q\right)\leftrightarrow p\right]$
+\item $\left(p\wedge q\right)\rightarrow\sim\left(\sim p\wedge\sim q\right)$
+\item $q\rightarrow\left(p\rightarrow q\right)$
+\item $\left(p\wedge q\right)\rightarrow r\leftrightarrow\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)$
+\item $p\rightarrow\left[q\rightarrow\left(p\wedge q\right)\right]$
+\item $\left(\left(p\rightarrow\left(q\wedge r\right)\right)\right)\leftrightarrow\left(\left(p\rightarrow q\right)\wedge\left(p\rightarrow r\right)\right)$
+\item $\left[p\vee\left(p\wedge q\right)\right]\leftrightarrow p$
+\end{enumerate}
+\item Probar las siguientes equivalencias: 
+
+\begin{enumerate}
+\item $p\veebar\left(q\veebar r\right)\equiv\left(p\veebar q\right)\veebar r$
+\item $p\wedge\left(q\veebar r\right)\equiv\left(p\wedge v\right)\veebar\left(p\wedge r\right)$
+\item $p\vee q\equiv\left(p\veebar q\right)\veebar\left(p\wedge q\right)$
+\item $p\wedge q\equiv p\veebar\left(p\wedge\sim q\right)$
+\item $p\wedge\left(p\vee q\right)\equiv p$
+\item $\sim\left(p\wedge q\right)\equiv\sim p\vee\sim q$
+\item $p\wedge\left(q\vee r\right)\equiv\left(p\wedge q\right)\vee\left(p\wedge r\right)$
+\end{enumerate}
+\item 	 	 Averiguar si son equivalentes las proposiciones: \medskip{}
+$(p\wedge q)\rightarrow r$ y $\left(p\rightarrow r\right)\wedge\left(q\rightarrow r\right)$
+	
+\item Encuentre el valor de verdad de: $\left[\left(p\rightarrow q\right)\vee\left(\sim p\wedge q\right)\right]\wedge\left(r\rightarrow q\right)$si
+
+\begin{enumerate}
+\item $p$ es $v$, $q$ es $v$, $r$ es $f$
+\item $p,\, r$ son $f$, $q$ es $v$	
+\item $p$ es $f$, $q$ es $f$ y $r$ es $f$
+\item si todas son verdaderas 	
+\end{enumerate}
+\item Simplificar las siguientes proposiciones:
+
+\begin{enumerate}
+\item $p\wedge$$\left(q\wedge\sim p\right)$ 
+\item $\left(p\wedge q\right)\vee p$
+\item $\left(p\rightarrow q\right)\vee\text{\ensuremath{\sim}}p$
+\item $\left(p\rightarrow q\right)\vee q$
+\item $\left(p\rightarrow q\right)\wedge p$
+\item $\left(p\rightarrow q\right)\rightarrow p$
+\item $\left(p\rightarrow\sim q\right)\vee q$
+\item $p\wedge\sim\left(q\rightarrow p\right)$
+\item $\left[p\vee\left(q\leftrightarrow\sim p\right)\right]\rightarrow\sim q$
+\item $\left[\text{\ensuremath{\sim\left(p\rightarrow q\right)}}\wedge\left(\sim p\wedge q\right)\right]\vee\left[r\rightarrow\left(p\vee r\right)\right]$
+\item $\sim p\wedge\left(q\wedge p\right)$
+\item $\left\{ p\rightarrow\left(\sim p\vee r\right)\right\} \wedge\left\{ r\rightarrow\sim p\right\} $
+\item $\left\{ \sim\left(p\rightarrow q\right)\rightarrow\sim\left(q\rightarrow p\right)\right\} \wedge\left(p\vee q\right)$
+\end{enumerate}
+\item Derive a partir de las equivalencias básicas, las siguientes equivalencias: 
+
+\begin{enumerate}
+\item $\left(\left(p\wedge q\right)\rightarrow r\right)\equiv\left(\left(p\rightarrow r\right)\vee\left(q\rightarrow r\right)\right)$
+\item $\left(\left(p\rightarrow q\right)\wedge q\right)\rightarrow\sim p\equiv q\rightarrow\sim p$
+\end{enumerate}
+\item Demostrar sin el uso de tablas de verdad: 
+
+\begin{enumerate}
+\item $p\vee\left(p\wedge q\right)\equiv p$
+\item $p\wedge\left(p\vee q\right)\equiv p$
+\item $\sim\left(p\vee q\right)\vee\left(\sim p\wedge q\right)\equiv\sim p$
+\item $\sim\left(p\rightarrow\sim q\right)\leftrightarrow\left(p\wedge q\right)$
+\item $\left(p\wedge\sim q\right)\rightarrow r\equiv\sim p\vee\left(q\vee r\right)$
+\item $\left[\left\{ \left(p\rightarrow q\right)\wedge\left(p\rightarrow t\right)\right\} \vee\left\{ \left(r\rightarrow q\right)\wedge\left(r\rightarrow t\right)\right\} \right]\equiv\left[\left(p\wedge r\right)\rightarrow\left(q\wedge t\right)\right]$
+\end{enumerate}
+\item Exprese en símbolos lógicos y después niegue las siguientes oraciones: 
+
+\begin{enumerate}
+\item Todo múltiplo de 4 es número primo. 
+\item Si 2 es par entonces todos los números son pares. 
+\item Todo número mayor que 2 es la suma de dos números primos.
+\end{enumerate}
+\item Sea $A={0,1,2,3,4,5,6}$. Escribir en símbolos y averiguar el valor
+de verdad de:
+
+\begin{enumerate}
+\item Hay un elemento que es mayor que todos. 
+\item Existe un único elemento cuyocuadrado es 4. 
+\item Para todos los elementos de $A$, sea $x$ el elemento que sumado
+1 unidad, siempre es mayor que cero entonces su cuadrado es menor
+que 35.
+\item Para cada elemento existe otro que es menor o igual qué él 
+\end{enumerate}
+\item Si las proposiciones $a$ y $b$ son tales que la proposición $\sim(a\wedge b)\rightarrow(a\vee b)$
+o es verdadera, determinar el valor de verdad de $(a\wedge b)\vee(a\vee b)$. 
+\item Sea $A={1,2,3,4,5}$. Negar hallar el valor de verdad de los siguientes
+enunciados 
+
+\begin{enumerate}
+\item $(\exists x\in A)(x+3=10)$
+\item $\forall x\in A)(x+3<10)$
+\item $(\exists x\in A)(x+3<5)$
+\item $(\forall x\in A)(x+3\le7)$
+\item $(\exists!x\in A)(x2\lyxmathsym{−}3x+2=0)$
+\end{enumerate}
+\item Si el conjunto universal es conjunto de los números naturales. Escribir
+en símbolos las siguientes expresiones.
+
+\begin{enumerate}
+\item ) Todo número es mayor o igual que sí mismo.
+\item Si el número  $x$ es menor que $y$, entonces no es mayor que 9.
+\item Cualquier $x$ sumado con algún número resulta $x$.
+\item El producto de $x$ con $y$ es mayor que $x$, y mayor que $y$. 
+\end{enumerate}
+\item ¿Cuáles de las siguientes proposiciones son verdaderas? 
+
+\begin{enumerate}
+\item Si $p\vee q\equiv F$ entonces $[\sim(\sim q\rightarrow p)\wedge\sim p]$
+es una tautología. 
+\item Es suficiente que $p\veebar q$ sea falsa para que $p$ y $q$ sean
+equivalentes.
+\item No es necesario que  $p$ sea verdadera y $q$ sea falsa para que
+$[p\vee(q\wedge\sim p)]\wedge\sim q$ sea verdadero. 
+\end{enumerate}
+\item Demuestre las siguientes equivalencias sin uso de tablas de verdad. 
+
+\begin{enumerate}
+\item $(p\rightarrow q)\equiv{(p\wedge\sim q)\rightarrow q}$
+\item $(p\leftrightarrow q)\equiv(\sim p\leftrightarrow\sim q)$
+\item ${p\rightarrow(q\wedge r)}\equiv{(p\rightarrow q)\wedge(p\rightarrow r)}$
+\item ${(p\wedge q)\rightarrow r}\equiv{(p\wedge\sim\lyxmathsym{∼}r)\rightarrow\sim q}$
+\item ${p\rightarrow(p\wedge\sim(q\vee r))}\equiv\sim p\vee(\sim q\wedge\sim r)$
+\item $[(\sim p\vee q)\vee(\sim r\wedge\sim p)]\equiv(q\vee\sim p)$
+\end{enumerate}
+\item Indique en cuáles de los siguientes casos $p$ es condición suficiente
+para $q$; y en cuáles $p$ es condición necesaria y suficiente para
+$q$.
+
+\begin{enumerate}
+\item $p:$ $A$ es múltiplo de 4, $q:\,\, A$es número par 
+\item $p$: $A$ y $B$ son pares, $q$: $A+B$ es par.
+\end{enumerate}
+\item Si las proposiciones compuestas 
+
+\begin{enumerate}
+\item $p\leftrightarrow(\sim q\vee\sim r)$ y
+\item $\sim p\vee q$ son siempre verdaderas. Demuestre que la proposición
+$[\sim r\wedge(p\vee s)]\rightarrow s\vee q$ es también verdadera. 
+\end{enumerate}
+\item Negar las siguientes afirmaciones:
+
+\begin{enumerate}
+\item $\left(\forall x\exists y\in I\!\! R\right)(x+y=5\rightarrow y=\lyxmathsym{−}x)$
+\item $\left(\forall x\forall y\in I\!\! R\right)[(x+y\mbox{ es impar})\rightarrow(x\mbox{ es impar}\vee y\mbox{ es impar})]$
+\item $\left(\exists x\forall y\in I\!\! R\right)(x<y\wedge x^{2}\geq y)$
+\item $\left(\exists z\forall y\forall x\in I\!\! R\right)(x<y\rightarrow x+z=y)$
+\end{enumerate}
+\item Averiguar el valor de verdad siendo $U=I\!\! R$. 
+
+\begin{enumerate}
+\item $\left(x\in I\!\! R\right)(x<0\rightarrow x<3)$ 
+\item $\mbox{\mbox{\ensuremath{\left(\lyxmathsym{∃}x\lyxmathsym{∈}I\!\! R\right)}}}(x2\ge0\rightarrow x4=x3)$
+\item $\left(\forall x\lyxmathsym{∈}I\!\! R,\lyxmathsym{∃}y\lyxmathsym{∈}I\!\! R\right)(x2+y2=1)$
+\item $\left(\forall x\lyxmathsym{∈}I\!\! R,\forall y\lyxmathsym{∈}I\!\! R\right)(y<x\rightarrow2y<10$) 
+\end{enumerate}
+\item Dada la proposición, 8 no es impar divisible por 2, porque 9 no es
+o múltiplo de 3.Niegue la proposición y Determine su valor de verdad
+.
+\item Dadas las proposiciones abiertas $p(x):x^{2}\ge x$ y $q(x):x\ge0$.
+Determine el valor de verdad de las siguientes proposiciones: 
+
+\begin{enumerate}
+\item $[p(\frac{11}{2})\rightarrow q(1)]\rightarrow[p(x)\wedge q(x)]$
+\item $\forall x\lyxmathsym{∈}I\!\! R:\lyxmathsym{∼}p(x)\rightarrow\lyxmathsym{∼}q(x)$ 
+\end{enumerate}
+\item Si la proposición $(p\wedge\lyxmathsym{∼}q)\rightarrow(\lyxmathsym{∼}r\rightarrow\lyxmathsym{∼}t)$
+es falsa, determine el valor o de verdad de la proposición $(p\wedge t)\rightarrow(r\vee q)\rightarrow(u\leftrightarrow v)$.
+\item Demostrar: 
+
+\begin{enumerate}
+\item Si $n$ es par y $m$ es impar, entonces $(n+m)$ es impar, $n,m\lyxmathsym{∈}I\!\! N)$. 
+\item Si  $xy=0$ entonces $x=0\vee y=0$. 
+\item Si $ab$ es impar, entonces $a$ es par y $b$ es impar. 
+\end{enumerate}
+\item Determine el valor de verdad de las siguientes proposiciones:
+
+\begin{enumerate}
+\item $\forall x\lyxmathsym{∈}I\!\! R:x2\ge x$
+\item $\lyxmathsym{∃}x\lyxmathsym{∈}I\!\! R:2x=x$
+\item $\forall x\lyxmathsym{∈}I\!\! R:\frac{{\displaystyle 2x\text{−}1}}{{\displaystyle 4x\text{−}2}}=12$
+\item $\lyxmathsym{∃}x\lyxmathsym{∈}I\!\! R:x^{2}+2x+1\le0$
+\item $\forall x\lyxmathsym{∈}I\!\! R:\lyxmathsym{−}x^{2}+4x\lyxmathsym{−}5>0$ 
+\end{enumerate}
+\end{enumerate}
+					 
+
+}
+

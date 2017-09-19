@@ -1,0 +1,5 @@
+\begin{tikzpicture}
+\tkzInit
+\tkzAxeXY
+\tkzHLines[color = green]{1,2,...,10}
+\end{tikzpicture}

@@ -1,0 +1,21 @@
+\begin{tikzpicture}[line width=0.6pt,>=latex,
+    media/.style={font={\footnotesize\sffamily}}, grande/.style={font={\Large\sffamily}},  ]
+    %%%%%%%%%%%%%%%%%%%%%%%%%
+\tkzDefPoint(0,0){O}
+\tkzDefPoint(1,0){A}
+\tkzDefPoint(2,0){B}
+\tkzDefPoint(3,0){C}
+\tkzDefPoint(4,0){D}
+%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \foreach \x in {1,2,3,4}
+    \draw[fill=blue!20] (\x-1,0) circle (0.12*\x cm);
+\foreach \x in {0,1,2,3}
+\draw[shift={(\x,0)},color=black] (0pt,2pt) -- (0pt,-2pt) node[below=0.35] {\footnotesize $\x$};
+\draw[<->] (-1,0) -- (4,0);
+\node[above=0.3,media] at (A) {$=1+r$};
+\node[above=0.2,media] at (O) {$=1$};
+\node[above=0.5,media] at (B) {$=(1+r) ^2$};
+\node[above=0.8,media] at (C) {$=(1+r) ^3$};
+ %%%%
+\end{tikzpicture}

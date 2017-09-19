@@ -1,0 +1,8 @@
+\begin{tikzpicture}
+\draw (0,0) coordinate[label=above left:$A$] (A) --++(-90:2cm) coordinate[label=below left:$B$] (B) --++(0:2cm) coordinate[label=below right:$C$] (C) --cycle;
+
+\fill (A)--(B) arc (180:135:2cm) coordinate[label=above right:$D$] (D)--cycle;
+
+\fill (C)--(B) arc (-90:-45:2cm) coordinate[label=above right:$E$] (E)--cycle;
+\end{tikzpicture}
+\end{document}

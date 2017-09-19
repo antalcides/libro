@@ -1,0 +1,57 @@
+\begin{tikzpicture}[
+    media/.style={font={\footnotesize\sffamily}},
+% 
+    interface/.style={
+        % The border decoration is a path replacing decorator. 
+        % For the interface style we want to draw the original path.
+        % The postaction option is therefore used to ensure that the
+        % border decoration is drawn *after* the original path.
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.3cm,segment length=2mm}}},
+    ]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\tkzDefPoint(0,0){O}
+\tkzDefPoint(0,0){A}
+\tkzDefPoint(3,0){B}
+\tkzDefPoint(0,4){C}
+\tkzDefPoint(0.5,0){P}
+\tkzDefPoint(1,0.3){P'_1}
+\tkzDefPoint(0.5,0.3){P'}
+\tkzDefPoint(1,0){P_1}
+\tkzDefPoint(-1.5,3){F_1}
+\tkzDefPoint(-0.5,3){F}
+\tkzDefPoint(-1,1.5){E}
+\tkzDefPoint(0.5,1.5){E_1}
+%\node at (0.5,1.37) {\includegraphics[width=6.5cm]{nov-car.pdf}};
+%\fill[gray!10,rounded corners] (-4,-3) rectangle (4,0);
+\draw[blue,line width=.5pt,interface](-1,1)--(4,1);
+\draw[blue,line width=.5pt,interface](-1,2.5)--(4,2.5);
+    % Vertical dashed line
+   \draw[thick,dashed,gray](A)--(0,4);
+    \draw[thick,dashed,gray](1,0)--(1,2);
+    \draw[thick,dashed,gray](0.5,0)--(0.5,1.5);
+     \tkzDrawSegment[draw=blue,ultra thick,<-](F,F_1)
+     \tkzDrawSegment[draw=blue,ultra thick,->](E,E_1)
+        \begin{scope}[transparency group]
+     \draw[thick,gray,fill=gray](0.5,1)--(0.5,2)--(1.5,2)--(1.5,1) -- cycle;
+     \draw [thick,draw=gray, fill=gray]
+       (-0.5,2.5) -- (-0.5,3.5) -- (0.5,3.5)--(0.5,2.5) -- cycle;
+          \end{scope}
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% a straight line segment
+\draw[<->] (-1,0) -- (4,0);
+% the thicker segment
+\tkzDrawPoint[shape=cross,size=15](B)
+\tkzDrawPoint[shape=cross,size=15](A)
+\tkzDrawPoints[shape=cross,size=15](P,P_1)
+ \tkzLabelPoints[ below=0.1 ](A,B)
+\tkzLabelSegment[pos=0.3,align=center,above=0.04](F_1,F){$\overrightarrow{f}(x)$}
+\tkzLabelSegment[pos=0.9,above=0.04](A,C){$x$}
+\tkzLabelSegment[pos=0.6,align=center,above=0.04](E_1,E){$\overrightarrow{f}(x+\Delta x)$}
+\draw[decorate,decoration={brace,amplitude=5pt,raise=0.5pt},yshift=0pt,thick] (P') -- (P'_1) node [midway,above=0.1]{$\Delta x$};
+\draw[decorate,decoration={brace,amplitude=5pt,raise=4.5pt},yshift=0pt,thick] (P_1) -- (P) node [midway,below=0.3]{$f(\Delta x)$};
+% \tkzLabelSegment[align=center,above](A,P_1){$x$}
+%\tkzLabelSegment[align=center,below=0.04](P_1,P){$f(\Delta x)$}
+% \tkzLabelSegment[pos=0.5,align=center,above=0.04](P_n,P){$\cdots$}
+\end{tikzpicture}

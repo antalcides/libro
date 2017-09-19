@@ -1,0 +1,13 @@
+\begin{tikzpicture}
+  \foreach \x [evaluate={\xi=int(\x-4);}] in {0,...,3,5,6,...,8}
+    {
+        \fill (\x,0) circle (2pt);
+        \ifnum\x<4
+            \node[above=2pt] at (\x,0) {\x};
+        \else
+            \node[above=2pt] at (\x,0) {$n+\xi$};
+        \fi
+    }
+    \foreach \x in {3.25,3.5,...,4.75,8.25,8.5,...,9.75}
+    \fill (\x,0) circle (0.5pt);
+\end{tikzpicture}

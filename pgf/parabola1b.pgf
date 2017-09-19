@@ -1,0 +1,22 @@
+\usepgfplotslibrary{fillbetween} 
+\pgfplotsset{
+  compat=1.10,% mit writeLaTeX bisher noch nicht möglich
+}
+\begin{tikzpicture} 
+\begin{axis}[
+  axis lines=middle,
+  enlargelimits=0.05,
+  grid,
+  domain=-5.5:2.5,
+  ]
+  \addplot[name path=P,green]{x^2+3*x-4}; 
+  \addplot[name path=X,draw=none]{0};
+  % Füllung zwischen plots
+  \addplot fill between[ 
+    of=P and X, 
+    split, % Segmente berechnen lassen, Zählung beginnt bei 0 (also gerader Zahl)
+    every even segment/.style= {gray,fill opacity=0.2}, % Stil für die geraden Segmente
+    every odd segment/.style={fill=none}, % Stil für die ungeraden Segmente
+  ];  
+\end{axis} 
+\end{tikzpicture} 

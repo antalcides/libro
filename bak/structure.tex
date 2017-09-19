@@ -1,0 +1,483 @@
+%----------------------------------------------------------------------------------------
+%	VARIOUS REQUIRED PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{float}
+\usepackage{titlesec} % Allows customization of titles
+
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{Pictures/}} % Specifies the directory where pictures are stored
+
+\usepackage{lipsum} % Inserts dummy text
+
+\usepackage{tikz} % Required for drawing custom shapes
+\usetikzlibrary{matrix}
+
+\usepackage{tcolorbox,multicol}
+
+
+\usepackage[spanish]{babel} % English language/hyphenation
+
+\usepackage{enumitem} % Customize lists
+\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+
+\usepackage{eso-pic} % Required for specifying an image background in the title page
+
+%----------------------------------------------------------------------------------------
+%	MAIN TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+\contentsmargin{0cm} % Removes the default margin
+% Chapter text styling
+\titlecontents{chapter}[1.25cm] % Indentation
+{\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+{\color{ocre!60}\contentslabel[\Large\thecontentslabel]{1.25cm}\color{ocre}} % Chapter number
+{}  
+{\color{ocre!60}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+% Section text styling
+\titlecontents{section}[1.25cm] % Indentation
+{\addvspace{5pt}\sffamily\bfseries} % Spacing and font options for sections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Section number
+{}
+{\sffamily\hfill\color{black}\thecontentspage} % Page number
+[]
+% Subsection text styling
+\titlecontents{subsection}[1.25cm] % Indentation
+{\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
+{\contentslabel[\thecontentslabel]{1.25cm}} % Subsection number
+{}
+{\sffamily\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+[] 
+
+%----------------------------------------------------------------------------------------
+%	MINI TABLE OF CONTENTS IN CHAPTER HEADS
+%----------------------------------------------------------------------------------------
+
+% Section text styling
+\titlecontents{lsection}[0em] % Indendating
+{\footnotesize\sffamily} % Font settings
+{}
+{}
+{}
+
+%% Subsection text styling
+\titlecontents{lsubsection}[.5em] % Indentation
+{\normalfont\footnotesize\sffamily} % Font settings
+{}
+{}
+{}
+
+%----------------------------------------------------------------------------------------
+%	PAGE HEADERS
+%----------------------------------------------------------------------------------------
+
+\usepackage{fancyhdr} % Required for header and footer configuration
+
+\pagestyle{fancy}
+\renewcommand{\chaptermark}[1]{\markboth{\sffamily\normalsize\bfseries\chaptername\ \thechapter.\ #1}{}} % Chapter text font settings
+\renewcommand{\sectionmark}[1]{\markright{\sffamily\normalsize\thesection\hspace{5pt}#1}{}} % Section text font settings
+\fancyhf{} \fancyhead[LE,RO]{\sffamily\normalsize\thepage} % Font setting for the page number in the header
+\fancyhead[LO]{\rightmark} % Print the nearest section name on the left side of odd pages
+\fancyhead[RE]{\leftmark} % Print the current chapter name on the right side of even pages
+\renewcommand{\headrulewidth}{0.5pt} % Width of the rule under the header
+\addtolength{\headheight}{2.5pt} % Increase the spacing around the header slightly
+\renewcommand{\footrulewidth}{0pt} % Removes the rule in the footer
+\fancypagestyle{plain}{\fancyhead{}\renewcommand{\headrulewidth}{0pt}} % Style for when a plain pagestyle is specified
+
+% Removes the header from odd empty pages at the end of chapters
+\makeatletter
+\renewcommand{\cleardoublepage}{
+\clearpage\ifodd\c@page\else
+\hbox{}
+\vspace*{\fill}
+\thispagestyle{empty}
+\newpage
+\fi}
+
+%----------------------------------------------------------------------------------------
+%	THEOREM STYLES
+%----------------------------------------------------------------------------------------
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
+
+\newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
+\newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
+\newcommand{\intff}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
+\newtheorem{notation}{Notación}[chapter]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%% dedicated to boxed/framed environements %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{ocrenumbox}% % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{blue}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{blue}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+
+\newtheoremstyle{blacknumex}% Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% Body font
+{} % Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily{\tiny\ensuremath{\blacksquare}}\nobreakspace\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+\newtheoremstyle{blacknumbox} % Theorem style name
+{0pt}% Space above
+{0pt}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries---\nobreakspace#3.}}% Optional theorem note
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%% dedicated to non-boxed/non-framed environements %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{ocrenum}% % Theorem style name
+{5pt}% Space above
+{5pt}% Space below
+{\normalfont}% % Body font
+{}% Indent amount
+{\small\bf\sffamily\color{green}}% % Theorem head font
+{\;}% Punctuation after theorem head
+{0.25em}% Space after theorem head
+{\small\sffamily\color{green}\thmname{#1}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace\the\thm@notefont\sffamily\bfseries\color{black}---\nobreakspace#3.}} % Optional theorem note
+\renewcommand{\qedsymbol}{$\blacksquare$}% Optional qed square
+\makeatother
+
+% Defines the theorem text style for each type of theorem to one of the three styles above
+\newcounter{dummy} 
+\numberwithin{dummy}{section}
+\theoremstyle{ocrenumbox}
+\newtheorem{theoremeT}[dummy]{Teorema}
+\newtheorem{problem}{Problema}[chapter]
+\newtheorem{exerciseT}{Ejercicio}[chapter]
+\theoremstyle{blacknumex}
+\newtheorem{exampleT}{Ejemplo}[chapter]
+\theoremstyle{blacknumbox}
+\newtheorem{vocabulary}{Vocabulario}[chapter]
+\newtheorem{definitionT}{Definición}[section]
+\newtheorem{corollaryT}[dummy]{Corolario}
+\theoremstyle{ocrenum}
+\newtheorem{proposition}[dummy]{Proposición}
+
+%----------------------------------------------------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% Theorem box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+backgroundcolor=black!5,
+linecolor=red, % color
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+innerbottommargin=5pt,linewidth=2pt]{tBox}
+
+% Exercise box	  
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+backgroundcolor=ocre!10,
+linecolor=blue,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+innerbottommargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt]{eBox}	
+
+% Definition box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=yellow,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=0pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=0pt]{dBox}	
+
+% Corollary box
+\newmdenv[skipabove=7pt,
+skipbelow=7pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=gray,
+backgroundcolor=black!5,
+innerleftmargin=5pt,
+innerrightmargin=5pt,
+innertopmargin=5pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=4pt,
+innerbottommargin=5pt]{cBox}
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+\newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}
+\newenvironment{exercise}{\begin{eBox}\begin{exerciseT}}{\hfill{\color{ocre}\tiny\ensuremath{\blacksquare}}\end{exerciseT}\end{eBox}}				  
+\newenvironment{definition}{\begin{dBox}\begin{definitionT}}{\end{definitionT}\end{dBox}}	
+\newenvironment{example}{\begin{exampleT}}{\hfill{\tiny\ensuremath{\blacksquare}}\end{exampleT}}		
+\newenvironment{corollary}{\begin{cBox}\begin{corollaryT}}{\end{corollaryT}\end{cBox}}	
+
+%----------------------------------------------------------------------------------------
+%	REMARK ENVIRONMENT
+%----------------------------------------------------------------------------------------
+
+\newenvironment{remark}{\par\vspace{10pt}\small % Vertical white space above the remark and smaller font size
+\begin{list}{}{
+\leftmargin=35pt % Indentation on the left
+\rightmargin=25pt}\item\ignorespaces % Indentation on the right
+\makebox[-2.5pt]{\begin{tikzpicture}[overlay]
+\node[draw=ocre!60,line width=1pt,circle,fill=ocre!25,font=\sffamily\bfseries,inner sep=2pt,outer sep=0pt] at (-15pt,0pt){\textcolor{ocre}{R}};\end{tikzpicture}} % Orange R in a circle
+\advance\baselineskip -1pt}{\end{list}\vskip5pt} % Tighter line spacing and white space after remark
+
+%----------------------------------------------------------------------------------------
+%	SECTION NUMBERING IN THE MARGIN
+%----------------------------------------------------------------------------------------
+
+\makeatletter
+\renewcommand{\@seccntformat}[1]{\llap{\textcolor{ocre}{\csname the#1\endcsname}\hspace{1em}}}                    
+\renewcommand{\section}{\@startsection{section}{1}{\z@}
+{-4ex \@plus -1ex \@minus -.4ex}
+{1ex \@plus.2ex }
+{\normalfont\large\sffamily\bfseries}}
+\renewcommand{\subsection}{\@startsection {subsection}{2}{\z@}
+{-3ex \@plus -0.1ex \@minus -.4ex}
+{0.5ex \@plus.2ex }
+{\normalfont\sffamily\bfseries}}
+\renewcommand{\subsubsection}{\@startsection {subsubsection}{3}{\z@}
+{-2ex \@plus -0.1ex \@minus -.2ex}
+{.2ex \@plus.2ex }
+{\normalfont\small\sffamily\bfseries}}                        
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}
+{-2ex \@plus-.2ex \@minus .2ex}
+{.1ex}
+{\normalfont\small\sffamily\bfseries}}
+
+%----------------------------------------------------------------------------------------
+%	HYPERLINKS IN THE DOCUMENTS
+%----------------------------------------------------------------------------------------
+
+% For an unclear reason, the package should be loaded now and not later
+\usepackage{hyperref}
+\hypersetup{hidelinks,backref=true,pagebackref=true,hyperindex=true,colorlinks=false,breaklinks=true,urlcolor= ocre,bookmarks=true,bookmarksopen=false,pdftitle={Title},pdfauthor={Author}}
+
+%----------------------------------------------------------------------------------------
+%	CHAPTER HEADINGS
+%----------------------------------------------------------------------------------------
+
+% The set-up below should be (sadly) manually adapted to the overall margin page septup controlled by the geometry package loaded in the main.tex document. It is possible to implement below the dimensions used in the goemetry package (top,bottom,left,right)... TO BE DONE
+
+\newcommand{\thechapterimage}{}%
+\newcommand{\chapterimage}[1]{\renewcommand{\thechapterimage}{#1}}%
+\def\@makechapterhead#1{%
+{\parindent \z@ \raggedright \normalfont
+\ifnum \c@secnumdepth >\m@ne
+\if@mainmatter
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{\thechapterimage}};
+\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}\thechapter. #1\strut};
+\end{tikzpicture}};
+\end{tikzpicture}
+\else
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{\thechapterimage}};
+\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}#1\strut};
+\end{tikzpicture}};
+\end{tikzpicture}
+\fi\fi\par\vspace*{270\p@}}}
+
+%-------------------------------------------
+
+\def\@makeschapterhead#1{%
+\begin{tikzpicture}[remember picture,overlay]
+\node at (current page.north west)
+{\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=north west,inner sep=0pt] at (0,0) {\includegraphics[width=\paperwidth]{\thechapterimage}};
+\draw[anchor=west] (\Gm@lmargin,-9cm) node [line width=2pt,rounded corners=15pt,draw=ocre,fill=white,fill opacity=0.5,inner sep=15pt]{\strut\makebox[22cm]{}};
+\draw[anchor=west] (\Gm@lmargin+.3cm,-9cm) node {\huge\sffamily\bfseries\color{black}#1\strut};
+\end{tikzpicture}};
+\end{tikzpicture}
+\par\vspace*{270\p@}}
+\makeatother
+
+
+
+% % % % % % El conteo es por capítulo
+% % % % % % % Define los estilos de marcos % % % % % % % % % % % % % % % % % % % %
+\tcbuselibrary{skins,breakable,xparse} % permite dividir las cajas en dos páginas.
+\tcbset{enhanced jigsaw} % borra la línea que divide a las dos cajas.
+
+% % % % % %  definición
+\newcounter{defini}[section]
+\colorlet{color2}{green!50!black} % marco
+\colorlet{color3}{green!10} % fondo
+\newtcolorbox[use counter=defini]{definicion}[1]{arc=0mm,colback=color3,outer arc=0mm,width=\linewidth,breakable,colframe=color2,enhanced,attach boxed title to top left={yshift=-2mm,xshift=3mm},title=\bf Definición \thechapter.\thetcbcounter : #1,boxed title style={colback=color2,arc=0mm,outer arc=0mm}}
+\newenvironment{defi}{\centering\begin{definicion}}{\end{definicion}}
+
+% % % % % % PROPOSICION
+\newcounter{proposicion}[chapter]
+\colorlet{color4}{blue!50!black!75} % marco
+\colorlet{color5}{blue!10} % fondo
+\newtcolorbox[use counter=proposicion]{proposi}[1]{arc=0mm,outer arc=0mm,width=\linewidth,breakable,colframe=blue!50!black!75,colback=blue!5,enhanced,attach boxed title to top left={yshift=-2mm,xshift=3mm},title=\bf Proposici\'on \thechapter.\thetcbcounter : #1,boxed title style={colback=blue!50!black!75,arc=0mm,outer arc=0mm}}
+\newenvironment{prop}{\centering\begin{proposi}}{\end{proposi}}
+
+% % % % % % teorema
+\newcounter{teorem}[chapter]
+%\colorlet{color4}{green!50!black} % marco
+%\colorlet{color5}{green!10} % fondo
+\newtcolorbox[use counter=teorem]{teorema}[1]{arc=0mm,colback=color5,outer arc=0mm,breakable,colframe=color4,enhanced,attach boxed title to top left={yshift=-2mm,xshift=3mm},title=\bf TEOREMA \thechapter.\thetcbcounter : #1,boxed title style={colback=color4,arc=0mm,outer arc=0mm}}
+\newenvironment{teo}{\centering\begin{teorema}}{\end{teorema}}
+
+% % % % % % corolario
+\newcounter{corola}[chapter]
+\newtcolorbox[use counter=corola]{corolario}[1]{arc=0mm,colback=white,coltitle=black,outer arc=0mm,width=\linewidth-2cm,breakable,colframe=color4,enhanced,attach boxed title to top left={yshift=-2mm,xshift=3mm},title=\bf Corolario \thetcbcounter : #1,boxed title style={colback=color5,arc=0mm,outer arc=0mm}}
+\newenvironment{coro}{\centering\begin{corolario}}{\end{corolario}}
+
+\newcounter{lema} % contador
+\newenvironment{lem}[1]{\begin{center}
+\begin{tcolorbox}[breakable,colback=white,colframe=black!80!,title=Lema
+\thechapter.\thelema\stepcounter{lema}.#1 ,width=14cm,arc=0mm]}{\end{tcolorbox}
+\end{center}}
+
+\newcounter{observacion}
+\newtcolorbox[use counter=observacion]{observacion}[3][]{%
+breakable,enhanced,colback=yellow!20!white,colframe=yellow!90!black,top=4mm,
+enlarge top by=\baselineskip/2+1mm,
+enlarge top at break by=0mm,pad at break=2mm,
+fontupper=\normalsize,label={#3},
+overlay unbroken and first={%
+\node[rectangle,rounded corners,draw=red,fill=yellow!20!white,
+inner sep=1mm,anchor=west,font=\small]
+at ([xshift=4.5mm]frame.north west)
+{\strut\textbf{Observación \thechapter.\theobservacion. #2}};},
+#1}%
+\newenvironment{obs}[1]{\begin{observacion}{#1}{}}{\end{observacion}}
+
+\newtheorem{ejemplo}{Ejemplo}[section]
+\newenvironment{ejem}{\begin{ejemplo}\rm}{\end{ejemplo}}
+\newenvironment{sol}{\textbf{Solución:} }{\hfill $ \square $}
+\newenvironment{demo}{\textbf{Demostración:} }{\hfill $ \blacksquare $}
+
+
+% % % % Solución
+
+%\colorlet{color1}{blue!50!black}
+%\definecolor{color1}{RGB}{59, 89, 152} % Define the orange color used for highlighting throughout the book
+\definecolor{color1}{RGB}{32, 178, 170} % Define the orange color used for highlighting throughout the book
+
+%\newtcolorbox{solucion}{breakable,colback=white,enhanced,
+%attach boxed title to top left={yshift=0mm,xshift=0mm},colframe=white,colbacktitle=color1,size=fbox,boxed title style={arc=0mm},title=\textcolor{white}{\bf SOLUCIÓN :}}
+\newtcolorbox{solucion}{breakable,enhanced jigsaw,attach boxed title to top left={yshift=-0.2mm,xshift=0mm},opacityback=0,arc=0pt,boxrule=0mm,title=Solución :,colframe=color1,left=0cm,right=-0.1cm,bottom=-0.1cm,toprule=.5mm,leftrule=.5mm,boxed title style={colback=color1,sharpish corners},fonttitle=\bfseries}
+\newenvironment{solu}{
+\begin{solucion}}{\hfill\textcolor{color1}{\textrm{\( \blacksquare \)}}\end{solucion}}
+
+
+% % % % demostracion
+
+%\colorlet{color1}{blue!50!black}
+%\definecolor{color1}{RGB}{59, 89, 152} % Define the orange color used for highlighting throughout the book
+\definecolor{color1}{RGB}{135, 206, 235} % Define the orange color used for highlighting throughout the book
+
+%\newtcolorbox{solucion}{breakable,colback=white,enhanced,
+%attach boxed title to top left={yshift=0mm,xshift=0mm},colframe=white,colbacktitle=color1,size=fbox,boxed title style={arc=0mm},title=\textcolor{white}{\bf SOLUCIÓN :}}
+\newtcolorbox{demostracion}{breakable,enhanced jigsaw,attach boxed title to top left={yshift=-0.2mm,xshift=0mm},opacityback=0,arc=0pt,boxrule=0mm,title=Demostraci\'on:,colframe=color1,left=0cm,right=-0.1cm,bottom=-0.1cm,toprule=.5mm,leftrule=.5mm,boxed title style={colback=color1,sharpish corners},fonttitle=\bfseries}
+\newenvironment{dem}{
+\begin{demostracion}}{\hfill\textcolor{color1}{\textrm{\( \blacksquare \)}}\end{demostracion}}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+%		Formato de questions
+
+%________________________________no tocar esta parte
+\newcounter{question}
+\newenvironment{questions}{%
+  \list{\thequestion.}%
+  {%
+    \usecounter{question}%
+    \def\question{\item}%
+    \settowidth{\leftmargin}{10.\hskip\labelsep}%
+    \labelwidth\leftmargin\advance\labelwidth-\labelsep
+  }%
+}
+{%
+  \endlist
+}%
+\newcounter{choice}
+\renewcommand\thechoice{\Alph{choice}}
+\newcommand\choicelabel{\thechoice)}
+\makeatletter
+\newenvironment{choices}%
+  {%
+    \setcounter{choice}{0}%
+    \def\choice{%
+      \refstepcounter{choice}%
+      \ifnum\value{choice}>1\relax
+        \penalty -50\hskip 1em plus 1em\relax
+      \fi
+      \choicelabel
+      \nobreak\enskip
+    }% choice
+    \def\CorrectChoice{%
+      \choice
+      \addanswer{\thequestion}{\thechoice}%
+    }
+    \let\correctchoice\CorrectChoice
+    \par
+    \let\par\@empty
+    \ifvmode\else\enskip\fi
+    \ignorespaces
+  }%
+  {}
+\makeatother
+\newbox\allanswers
+\setbox\allanswers=\hbox{}
+\newcommand{\addanswer}[2]{%
+  \global\setbox\allanswers=\hbox{\unhbox\allanswers \quad #1.~~#2}%
+}
+\newcommand{\showanswers}{%
+  \vfill
+  \begin{center}
+    RESPUESTAS
+  \end{center}
+  \unhbox\allanswers
+}
+%________________________________________________________No tocar hasta aqui

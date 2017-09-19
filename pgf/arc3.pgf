@@ -1,0 +1,14 @@
+   \begin{tikzpicture}[scale=2]
+     \tkzDefPoint (0,0){O}
+     \tkzDefPoint (2,0){A}
+     \tkzLabelPoints[left](O)
+     \tkzDrawCircle[R](O,1cm)
+     \tkzTangent[from with R=A](O,1cm) \tkzGetPoints{T1}{T2}
+     \tkzDrawLines[add=0 and 0](O,T1 O,T2 O,A)
+     \tkzDrawLines[add=0 and 0.5](A,T1 A,T2)
+     \tkzDrawArc[R with nodes,](A,0.5)(T1,T2)
+     \tkzLabelPoints[left](A)
+     \draw (T1) node[above right] {$P(\alpha)=(a\,\cos\alpha,a\,\sin\alpha)$};
+     \draw (T2) node[below right] {$Q(\alpha)=(a\,\cos\beta,a\,\sin\beta)$};
+     \draw (A) +(165:0.6) node {$\alpha$} (A) +(195:0.6) node {$\beta$};
+   \end{tikzpicture}

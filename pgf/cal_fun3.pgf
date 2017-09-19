@@ -1,0 +1,15 @@
+\begin{tikzpicture}[line width=0.6pt,>=latex,
+    media/.style={font={\footnotesize\sffamily}}, grande/.style={font={\LARGE\sffamily}}]
+\tkzInit[ymax=15,ymin=-15,xmin=-3,xmax=3,ystep=5]
+\tkzGrid
+%\tkzAxeXY
+\tkzLabelX[orig=false,media,color=red]
+ \tkzLabelY[orig=false, media,color=red]
+\tkzFct[color=blue,domain=-3:3]{1/x}
+\tkzDrawXY
+
+%
+
+%
+
+\end{tikzpicture}

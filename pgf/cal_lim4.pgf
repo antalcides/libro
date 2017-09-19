@@ -1,0 +1,47 @@
+\newcommand{\ticknum}{6}
+\pgfmathsetmacro\min{\ticknum-1}
+\begin{tikzpicture}[>=latex,
+    interface/.style={
+        % The border decoration is a path replacing decorator. 
+        % For the interface style we want to draw the original path.
+        % The postaction option is therefore used to ensure that the
+        % border decoration is drawn *after* the original path.
+        postaction={draw,decorate,decoration={border,angle=-45,
+                    amplitude=0.2cm,segment length=1mm}}},]
+\tkzInit[ymax=3,ymin=-0.5,xmax=4,xmin=-4]
+%\tkzDefPoints{1/1/A, 4/4/B};
+\tkzDefPoint(0,0){O}
+%\tkzDefPoint(6,0){D}
+\tkzDefPoint(-1,2){E}
+\tkzDefPoint(1,2){F}
+ \tkzDefPoint(3,0){A}
+ \tkzDefPoint(-3,0){B}
+ \tkzDefPoint(-4,0){G}
+ \tkzDefPoint(4,0){H}
+
+\tkzClip
+%\tkzGrid
+ \tkzLabelPoints[ below=0.1 ](O)
+\draw[<->] (G) -- (H);
+ \draw(A) -- (B);
+\draw[<->](-3.5,0.1) -- (-1,2)--(1,2)--(3.5,0.1);
+%\node[right] at (A) {\tiny aangrijpingspunt};
+\draw[blue,line width=.5pt,interface](-3.8,0)--(-3.1,0);
+\draw[blue,line width=.5pt,interface](-3.2,0)--(-3.9,0);
+\draw[blue,line width=.5pt,interface](3.8,0)--(3.1,0);
+\draw[blue,line width=.5pt,interface](3.2,0)--(3.9,0);
+\tkzCalcLength(A,B)
+)\tkzGetLength{CDl} % calculates and stores length
+
+\foreach \x in {1,...,\min}{
+    \pgfmathsetmacro\myl{((\CDl/\ticknum)/\CDl)*\x}
+    \tkzMarkSegment[pos=\myl, mark=|](A,B)
+}
+\begin{scope}[line width=1]
+\tkzDrawPoint[size=6,fill=white](B)
+\tkzDrawPoint[size=6,fill=white](A)
+\end{scope}
+\node[below =0.1] at (B) {$A(-3)$};
+\node[below =0.1] at (A) {$B(+3)$};
+ \tkzLabelSegment[pos=.5,fill=white,inner sep=2pt,align=center,above](E,F){$\left|x\right|>3$} 
+\end{tikzpicture}

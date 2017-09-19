@@ -1,0 +1,38 @@
+
+
+  \begin{tikzpicture}[line width=0.6pt,>=latex,
+    media/.style={font={\footnotesize\sffamily}}, grande/.style={font={\Large\sffamily}},  ]
+\tkzDefPoint(0,0){O}
+
+% \tkzDefPoint(-2,0){B}
+% \tkzDefPoint(-3,0){C}
+\tkzDefPoint(0,0){D}
+\tkzDefPoint(1,0){E}
+\tkzDefPoint(2,0){F}
+%%%%%%%%%%%%%%%%%%%
+
+%\node[below =0.1] at (O) {$0$};
+
+\begin{axis}[
+           %
+            axis x line=none,
+            axis y line=none,
+            height=50pt,
+            %
+width=\axisdefaultwidth,
+            xmin=0,
+            xmax=1, ]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 
+\tkzDrawPoint[shape=cross,size=20](D)
+\tkzDrawPoint[shape=cross,size=20](E)
+\tkzDrawPoint[shape=cross,size=20](F)
+     \addplot[samples at={1,...,100},only marks,mark size=1,blue] (1/x,0);
+\draw[<->] (-1,0) -- (3,0);
+\end{axis}
+\node[above =0.2] at (1,0) {$M_1$};
+\node[above =0.2] at (F) {$K$};
+\node[above =0.2] at (D) {$M$};
+
+\end{tikzpicture}  

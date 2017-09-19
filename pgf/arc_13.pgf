@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+\draw[step=.5cm,gray,very thin] (-3,1) grid (2,-3);
+\draw[thick](0cm,0cm)coordinate[label={B}](B)
+      --(224:3cm)coordinate[label =left:A](A) 
+      --++(3cm,0)coordinate[label=right:C](C)
+      --(B)--cycle (A)--($(B)!.5!(C)$);
+\draw (-3,0) -- (2,0);
+\draw (A) circle [radius = 2pt];
+\clip (-.5,.5) rectangle (2,-2.5);
+
+\end{tikzpicture}

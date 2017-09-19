@@ -1,0 +1,16 @@
+
+
+  \begin{tikzpicture}
+\begin{axis}[
+           % axis x line=middle,
+            axis y line=none,
+            hide axis,
+            height=50pt,
+            width=\axisdefaultwidth,
+            xmin=0,
+            xmax=1, ]
+     \addplot[samples at={1,...,100},only marks,mark size=1,blue] (1/x,0);
+\draw[<->] (-1,0) -- (3,0);
+\end{axis}
+
+\end{tikzpicture}  

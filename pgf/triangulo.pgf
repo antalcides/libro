@@ -1,0 +1,23 @@
+\begin{tikzpicture}[scale=.5]
+    \tkzDefPoint(0,0){G}
+    \tkzDefPoint(14,0){O}
+
+    \tkzInterCC[R](G,7cm)(O,13cm)
+    \tkzGetPoints{E}{E'}
+    \pgfresetboundingbox % removes white space
+
+    \tkzDrawPolygon(G,E,O)
+    \tkzLabelPoints[left](G)
+    \tkzLabelPoints[above](E)
+    \tkzLabelPoints[right](O)
+
+    % lengths (automatic)
+    \tkzCalcLength[cm](G,O)\tkzGetLength{GOl}
+    \tkzCalcLength[cm](E,O)\tkzGetLength{EOl}
+    \tkzCalcLength[cm](G,E)\tkzGetLength{GEl}
+
+    \tkzLabelSegment[midway, sloped, below](G,O){$\pgfmathprintnumber\GOl$ cm};
+    \tkzLabelSegment[midway, sloped, above right](E,O){$\pgfmathprintnumber\EOl$ cm};
+    \tkzLabelSegment[midway, sloped, above left](G,E){$\pgfmathprintnumber\GEl$ cm};
+
+\end{tikzpicture}
